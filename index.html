@@ -417,27 +417,51 @@
         }
 
         /* Interests Section */
-        .interests-list {
-            list-style-type: none;
-            padding-left: 0;
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
-        .interests-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            line-height: 1.5;
+        .interest-card {
+            background: var(--light-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
         }
 
-        .interests-list li i {
-            margin-right: 0.8rem;
+        .interest-card i {
             color: var(--accent-color);
-            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        body.dark-mode .interests-list li {
+        .interest-card p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+            background-color: var(--secondary-color);
+        }
+
+        body.dark-mode .interest-card {
+            background: #333;
+            border-color: var(--accent-color);
+        }
+
+        body.dark-mode .interest-card p {
             color: var(--text-light);
+        }
+
+        body.dark-mode .interest-card:hover {
+            background-color: var(--primary-color);
         }
 
         /* Publications Section */
@@ -559,6 +583,10 @@
             .interests-list li {
                 font-size: 1rem;
             }
+
+            .interests-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
@@ -600,12 +628,14 @@
             }
 
             .skill-item i,
-            .interests-list li i {
+            .interests-list li i,
+            .interest-card i {
                 font-size: 1rem;
             }
 
             .skill-description,
-            .interests-list li {
+            .interests-list li,
+            .interest-card p {
                 font-size: 0.95rem;
             }
 
@@ -808,16 +838,40 @@
         <!-- Interests Section -->
         <section id="interests" class="card">
             <h2>Interests</h2>
-            <ul class="interests-list">
-                <li><i class="fas fa-dumbbell"></i> <strong>CrossFit Athlete:</strong> Committed to physical fitness and teamwork through regular CrossFit training.</li>
-                <li><i class="fas fa-robot"></i> <strong>Artificial Intelligence:</strong> Enthusiast of AI technologies, leveraging tools like Gemini Deep Research and ChatGPT in projects.</li>
-                <li><i class="fas fa-plane"></i> <strong>Traveling:</strong> Enjoy exploring new cultures and expanding global perspectives.</li>
-                <li><i class="fas fa-paw"></i> <strong>Animal Welfare:</strong> Advocate for humane treatment of animals.</li>
-                <li><i class="fas fa-chalkboard-teacher"></i> <strong>Education & Mentorship:</strong> Passionate about teaching and guiding aspiring scientists and healthcare professionals.</li>
-                <li><i class="fas fa-chart-line"></i> <strong>Data Science:</strong> Interested in data analysis and its applications in biomedical research.</li>
-                <li><i class="fas fa-lightbulb"></i> <strong>Technology Innovations:</strong> Keen on emerging technologies and their impact on healthcare.</li>
-                <li><i class="fas fa-tree"></i> <strong>Outdoor Activities:</strong> Engage in hiking and cycling to maintain a healthy work-life balance.</li>
-            </ul>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <i class="fas fa-dumbbell fa-2x"></i>
+                    <p>CrossFit Athlete</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-robot fa-2x"></i>
+                    <p>Artificial Intelligence</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-plane fa-2x"></i>
+                    <p>Traveling</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-paw fa-2x"></i>
+                    <p>Animal Welfare</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                    <p>Education & Mentorship</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <p>Data Science</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-lightbulb fa-2x"></i>
+                    <p>Technology Innovations</p>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-tree fa-2x"></i>
+                    <p>Outdoor Activities</p>
+                </div>
+            </div>
         </section>
 
         <!-- Contact Section -->
