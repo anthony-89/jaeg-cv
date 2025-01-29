@@ -460,7 +460,28 @@
             background-color: var(--secondary-color);
         }
 
-        /* Media Queries */
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: var(--light-bg);
+            color: var(--text-dark);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        body.dark-mode footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design for Skills Section */
         @media (max-width: 992px) {
             nav {
                 width: 100%;
@@ -759,7 +780,7 @@
             <div class="education-item">
                 <h3>PhD in Experimental Cardiology</h3>
                 <h4>University Medical Centre Groningen, Netherlands</h4>
-                <p>2018 – 2024</p>
+                <p>2018 – 2025</p>
                 <ul>
                     <li>Thesis: "Novel approaches in cardiovascular drug discovery and biomarker analysis"</li>
                     <li>Emphasis on translational research and biomarker development</li>
@@ -824,6 +845,12 @@
             <p class="cta"><a href="mailto:j.esquivel.gaytan@gmail.com" class="cta">Send an Email</a></p>
         </section>
     </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Dr Jose Antonio Esquivel Gaytan. All rights reserved.</p>
+        <p><em>This site was developed by myself using by coding using AI technology, you can request the code for your ownsite.</em></p>
+    </footer>
 
     <script>
         // Progress Bar
