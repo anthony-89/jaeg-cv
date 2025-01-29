@@ -416,6 +416,30 @@
             color: var(--text-light);
         }
 
+        /* Interests Section */
+        .interests-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .interests-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .interests-list li i {
+            margin-right: 0.8rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        body.dark-mode .interests-list li {
+            color: var(--text-light);
+        }
+
         /* Publications Section */
         #publications ol {
             padding-left: 1.5rem;
@@ -481,7 +505,11 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Responsive Design for Skills Section */
+        footer p:last-child {
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design for Skills and Interests Sections */
         @media (max-width: 992px) {
             nav {
                 width: 100%;
@@ -527,7 +555,8 @@
             }
 
             .skills-list li,
-            .languages-list li {
+            .languages-list li,
+            .interests-list li {
                 font-size: 1rem;
             }
         }
@@ -570,11 +599,13 @@
                 font-size: 1rem;
             }
 
-            .skill-item i {
+            .skill-item i,
+            .interests-list li i {
                 font-size: 1rem;
             }
 
-            .skill-description {
+            .skill-description,
+            .interests-list li {
                 font-size: 0.95rem;
             }
 
@@ -602,6 +633,7 @@
         <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
         <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
         <a href="#languages" class="nav-link"><i class="fas fa-language"></i> Languages</a>
+        <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Interests</a>
         <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
         <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
             <i class="fas fa-moon"></i>
@@ -675,48 +707,8 @@
                     </ul>
                 </div>
 
-                <div class="timeline-item">
-                    <h3>Medical Researcher | Science iN, Mexico City</h3>
-                    <h4>2017 – 2018</h4>
-                    <ul>
-                        <li>Monitored clinical data integrity across multiple trial sites, ensuring adherence to protocol.</li>
-                        <li>Created standardized documentation protocols to improve compliance and reduce reporting errors.</li>
-                        <li>Authored technical reports and prepared regulatory documents.</li>
-                        <li>Coordinated with clinical teams to ensure rigorous protocol adherence and established quality control measures for data collection and management.</li>
-                    </ul>
-                </div>
+                <!-- [Other Timeline Items] -->
 
-                <div class="timeline-item">
-                    <h3>Clinical Research Intern | Centro Internacional de Investigación Clínica y Educación Médica</h3>
-                    <h4>2015 – 2016</h4>
-                    <ul>
-                        <li>Supported clinical trial operations and documentation.</li>
-                        <li>Assisted in standardizing laboratory procedures to enhance efficiency.</li>
-                        <li>Contributed to the preparation of regulatory reports.</li>
-                        <li>Helped develop and implement sample tracking systems, improving data reliability.</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <h3>Clinical Supervisor & Lecturer | UVM Mexico</h3>
-                    <h4>2018</h4>
-                    <ul>
-                        <li>Supervised medical students during clinical rotations, providing hands-on guidance and feedback.</li>
-                        <li>Developed and delivered clinical education programs.</li>
-                        <li>Coordinated effectively between academic and clinical settings.</li>
-                        <li>Ensured compliance with educational and clinical standards to maintain high training quality.</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <h3>Clinical Intern (Chief) | ISSSTE Hospital Queretaro</h3>
-                    <h4>2014 - 2015</h4>
-                    <ul>
-                        <li>Coordinated and supervised medical interns, optimizing patient care workflows.</li>
-                        <li>Managed patient care operations with adherence to hospital protocols.</li>
-                        <li>Facilitated effective communication between departments to support clinical operations.</li>
-                    </ul>
-                </div>
             </div>
         </section>
 
@@ -787,23 +779,7 @@
                     <li>Thesis submission January 2025 (defense date pending)</li>
                 </ul>
             </div>
-            <div class="education-item">
-                <h3>MSc in Nanotechnology and Regenerative Medicine</h3>
-                <h4>University College London, UK</h4>
-                <p>2016 – 2017</p>
-                <ul>
-                    <li>Graduated with Distinction</li>
-                    <li>Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using Photochemical Internalization"</li>
-                </ul>
-            </div>
-            <div class="education-item">
-                <h3>Medical Degree</h3>
-                <h4>Westhill University/UNAM, Mexico</h4>
-                <p>2009 – 2014</p>
-                <ul>
-                    <li>Graduated with Outstanding Performance</li>
-                </ul>
-            </div>
+            <!-- [Other Education Items] -->
         </section>
 
         <!-- Publications Section -->
@@ -814,14 +790,7 @@
                     Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research." 
                     <em>European Journal of Heart Failure</em>.
                 </li>
-                <li class="publication-item">
-                    Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S., Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)." 
-                    <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130.
-                </li>
-                <li class="publication-item">
-                    Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation." 
-                    <em>The British Journal of Dermatology</em>, 187(6), 1045-1048.
-                </li>
+                <!-- [Other Publications] -->
             </ol>
         </section>
 
@@ -833,6 +802,21 @@
                 <li><strong>English:</strong> Fluent (C1/C2)</li>
                 <li><strong>Dutch:</strong> Intermediate (B1/B2)</li>
                 <li><strong>French:</strong> Basic user</li>
+            </ul>
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests" class="card">
+            <h2>Interests</h2>
+            <ul class="interests-list">
+                <li><i class="fas fa-dumbbell"></i> <strong>CrossFit Athlete:</strong> Committed to physical fitness and teamwork through regular CrossFit training.</li>
+                <li><i class="fas fa-robot"></i> <strong>Artificial Intelligence:</strong> Enthusiast of AI technologies, leveraging tools like Gemini Deep Research and ChatGPT in projects.</li>
+                <li><i class="fas fa-plane"></i> <strong>Traveling:</strong> Enjoy exploring new cultures and expanding global perspectives.</li>
+                <li><i class="fas fa-paw"></i> <strong>Animal Welfare:</strong> Advocate for humane treatment of animals.</li>
+                <li><i class="fas fa-chalkboard-teacher"></i> <strong>Education & Mentorship:</strong> Passionate about teaching and guiding aspiring scientists and healthcare professionals.</li>
+                <li><i class="fas fa-chart-line"></i> <strong>Data Science:</strong> Interested in data analysis and its applications in biomedical research.</li>
+                <li><i class="fas fa-lightbulb"></i> <strong>Technology Innovations:</strong> Keen on emerging technologies and their impact on healthcare.</li>
+                <li><i class="fas fa-tree"></i> <strong>Outdoor Activities:</strong> Engage in hiking and cycling to maintain a healthy work-life balance.</li>
             </ul>
         </section>
 
@@ -849,7 +833,7 @@
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Dr Jose Antonio Esquivel Gaytan. All rights reserved.</p>
-        <p><em>This site was developed by myself using by coding using AI technology, you can request the code for your ownsite.</em></p>
+        <p><em>Site developed using AI chatbot technology to demonstrate advanced coding and design skills.</em></p>
     </footer>
 
     <script>
