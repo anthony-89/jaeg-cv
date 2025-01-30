@@ -4,23 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dr Jose Antonio Esquivel Gaytan - Virtual CV</title>
-  
-  <!-- Google Fonts -->
+  <!-- Fonts & Icons -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@600;700&display=swap"
     rel="stylesheet"
   />
-  
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
   />
-  
+
   <style>
-    /*----------------------------------
-      Root Variables
-    ------------------------------------*/
+    /* Root Variables */
     :root {
       --primary-color: #1f4068;
       --secondary-color: #487eb0;
@@ -32,41 +27,28 @@
       --nav-width: 280px;
       --transition-speed: 0.3s;
       --shadow-color: rgba(0, 0, 0, 0.2);
-      --badge-bg: #3498db;
-      --badge-text: #fff;
     }
 
-    /*----------------------------------
-      Global Styles
-    ------------------------------------*/
+    /* Global Reset & Base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       background-color: var(--light-bg);
       color: var(--text-dark);
-      /* Slightly smaller, more minimalistic text and line height */
-      font-size: 0.95rem;
       line-height: 1.4;
+      font-size: 0.95rem;
       transition: background-color var(--transition-speed), color var(--transition-speed);
     }
-
     body.dark-mode {
       background-color: var(--dark-bg);
       color: var(--text-light);
     }
 
-    body.dark-mode .card {
-      background: #282828;
-    }
-
-    /*----------------------------------
-      Progress Bar
-    ------------------------------------*/
+    /* Progress Bar */
     .progress-container {
       height: 6px;
       background: rgba(127, 140, 141, 0.2);
@@ -76,7 +58,6 @@
       right: 0;
       z-index: 1000;
     }
-
     .progress-bar {
       height: 100%;
       background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
@@ -84,9 +65,7 @@
       transition: width 0.4s ease;
     }
 
-    /*----------------------------------
-      Navigation
-    ------------------------------------*/
+    /* Navigation */
     nav {
       width: var(--nav-width);
       background: linear-gradient(160deg, var(--primary-color) 20%, #1a1a1a 100%);
@@ -97,16 +76,14 @@
       z-index: 999;
       overflow-y: auto;
     }
-
     nav h2 {
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
       color: var(--text-light);
       margin-bottom: 2.5rem;
       padding-bottom: 1rem;
       border-bottom: 2px solid rgba(236, 240, 241, 0.2);
       text-align: center;
     }
-
     .nav-link {
       display: flex;
       align-items: center;
@@ -118,13 +95,11 @@
       text-decoration: none;
       background: rgba(255, 255, 255, 0.08);
     }
-
     .nav-link i {
       width: 25px;
       margin-right: 1rem;
       font-size: 1.2em;
     }
-
     .nav-link:hover,
     .nav-link.active {
       background: var(--accent-color);
@@ -132,7 +107,7 @@
       transform: translateX(5px);
     }
 
-    /* Dark Mode Toggle Button */
+    /* Dark Mode Toggle */
     .dark-mode-toggle {
       cursor: pointer;
       background: transparent;
@@ -145,23 +120,35 @@
       transform: translateX(-50%);
       transition: color var(--transition-speed);
     }
-
     .dark-mode-toggle:hover {
       color: var(--accent-color);
     }
 
-    /*----------------------------------
-      Content Wrapper
-    ------------------------------------*/
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .social-icons a i {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      transition: color var(--transition-speed);
+    }
+    .social-icons a i:hover {
+      color: var(--accent-color);
+    }
+
+    /* Content Wrapper */
     .content-wrapper {
       margin-left: var(--nav-width);
       padding: 2rem 4rem;
       transition: margin-left var(--transition-speed);
     }
 
-    /*----------------------------------
-      Hero Section
-    ------------------------------------*/
+    /* Hero Section */
     .hero {
       text-align: center;
       padding: 4rem;
@@ -173,6 +160,9 @@
       overflow: hidden;
       box-shadow: 0 10px 25px var(--shadow-color);
     }
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #111 0%, #333 100%);
+    }
     .hero::before {
       content: "";
       position: absolute;
@@ -180,125 +170,122 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,0.2) 50%, transparent 80%);
+      background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.2) 50%, transparent 80%);
       animation: shine 8s infinite linear;
     }
-    @keyframes shine {
-      0% { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
-      100% { transform: translateX(50%) translateY(50%) rotate(45deg); }
+    body.dark-mode .hero::before {
+      background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.06) 50%, transparent 80%);
     }
-
+    @keyframes shine {
+      0% {
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(50%) translateY(50%) rotate(45deg);
+      }
+    }
     .hero h1 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 3rem;
+      font-family: "Raleway", sans-serif;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       position: relative;
       z-index: 1;
+      transition: letter-spacing 0.3s ease;
+    }
+    .hero h1:hover {
+      letter-spacing: 1px;
     }
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       position: relative;
       z-index: 1;
     }
 
-    /* Dark Mode override for Hero background/shine */
-    body.dark-mode .hero {
-      background: linear-gradient(135deg, #111 0%, #333 100%);
-    }
-    body.dark-mode .hero::before {
-      background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,0.06) 50%, transparent 80%);
-    }
-
-    /*----------------------------------
-      Card Styles
-    ------------------------------------*/
+    /* Cards (fade-in) */
     .card {
       background: var(--light-bg);
       border-radius: 12px;
       padding: 2rem;
       margin-bottom: 2.5rem;
       box-shadow: 0 8px 20px var(--shadow-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      /* For fade-in (invisible by default) */
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
       opacity: 0;
       transform: translateY(20px);
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    body.dark-mode .card {
+      background: #282828;
     }
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 30px var(--shadow-color);
     }
-    /* Fade-in trigger when .visible is added */
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
 
-    /* Section Titles */
+    /* Card Titles */
     .card h2 {
       margin-bottom: 1.5rem;
-      font-size: 1.8rem; /* Slightly reduced from 2rem */
+      font-size: 1.8rem;
       color: var(--primary-color);
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
     }
 
-    /*----------------------------------
-      Personal Information Section
-    ------------------------------------*/
+    /* Personal Info */
     #personal-info p {
       margin-bottom: 0.8rem;
+      font-size: 1.05rem;
     }
     #personal-info strong {
       color: var(--primary-color);
     }
 
-    /*----------------------------------
-      Timeline Section
-    ------------------------------------*/
+    /* Experience Timeline (using 2-column grid) */
     .timeline {
       position: relative;
-      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 48% 48%; /* Leaves ~4% in the middle for the line */
+      justify-content: space-between;
+      grid-row-gap: 2rem;
+      margin-top: 2rem;
     }
     .timeline::before {
-      content: '';
+      content: "";
       position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
       width: 4px;
       background: var(--secondary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%; /* middle of .timeline */
       transform: translateX(-50%);
       z-index: 1;
     }
     .timeline-item {
       position: relative;
-      width: 45%;
-      padding: 2rem;
-      margin: 2rem 0;
       background: var(--light-bg);
       border-radius: 10px;
       box-shadow: 0 4px 15px var(--shadow-color);
       z-index: 2;
+      padding: 2rem;
       transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-      opacity: 0;
+      opacity: 0;    /* for fade-in */
       transform: translateY(30px);
     }
     .timeline-item.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .timeline-item:nth-child(odd) {
-      left: 0;
-    }
-    .timeline-item:nth-child(even) {
-      left: 55%;
+    body.dark-mode .timeline-item {
+      background: #2a2a2a;
     }
     .timeline-item:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 20px var(--shadow-color);
     }
+    /* Connect dot on the side that is near the center line */
     .timeline-item::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 20px;
       height: 20px;
@@ -306,16 +293,19 @@
       border: 4px solid var(--light-bg);
       border-radius: 50%;
       top: 2rem;
-      right: -14px;
       z-index: 3;
       transition: background 0.3s ease, transform 0.3s ease;
     }
-    body.dark-mode .timeline-item::after {
-      border-color: var(--dark-bg);
+    /* For items in the first column, place dot on the right side, near the line */
+    .timeline-item:nth-child(odd)::after {
+      right: -14px;
     }
+    /* For items in the second column, place dot on the left side */
     .timeline-item:nth-child(even)::after {
       left: -14px;
-      right: auto;
+    }
+    body.dark-mode .timeline-item::after {
+      border-color: var(--dark-bg);
     }
     .timeline-item:hover::after {
       background: var(--secondary-color);
@@ -324,47 +314,57 @@
     .timeline-item h3 {
       margin-top: 0;
       color: var(--primary-color);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
     }
     .timeline-item h4 {
       margin-bottom: 1rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--secondary-color);
     }
-    .timeline-item p,
+    .timeline-item ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-top: 0.8rem;
+    }
     .timeline-item li {
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    /*----------------------------------
-      Education Section
-    ------------------------------------*/
+    /* Education */
     .education-item {
       margin-bottom: 2rem;
     }
     .education-item h3 {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       color: var(--primary-color);
       margin-bottom: 0.5rem;
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
     }
     .education-item h4 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--secondary-color);
       margin-bottom: 0.5rem;
     }
     .education-item p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-bottom: 0.8rem;
     }
+    .education-item ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+      list-style-type: disc;
+    }
+    .education-item li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
 
-    /*----------------------------------
-      Skills Section
-    ------------------------------------*/
+    /* Skills Section */
     .skills-section {
       display: flex;
       flex-wrap: wrap;
@@ -376,7 +376,10 @@
       border-radius: 12px;
       padding: 1.5rem;
       box-shadow: 0 4px 15px var(--shadow-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+    body.dark-mode .skills-category {
+      background: #2a2a2a;
     }
     .skills-category:hover {
       transform: translateY(-5px);
@@ -386,7 +389,7 @@
       margin-bottom: 1rem;
       font-size: 1.5rem;
       color: var(--primary-color);
-      font-family: 'Raleway', sans-serif;
+      font-family: "Raleway", sans-serif;
       text-align: center;
     }
     .skill-item {
@@ -407,14 +410,7 @@
       color: var(--text-light);
     }
 
-    /* Dark Mode override for Skills Category */
-    body.dark-mode .skills-category {
-      background: #2a2a2a;
-    }
-
-    /*----------------------------------
-      Interests Section
-    ------------------------------------*/
+    /* Interests */
     .interests-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -429,18 +425,9 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
       cursor: pointer;
-    }
-    .interest-card i {
-      color: var(--accent-color);
-      margin-bottom: 0.5rem;
-    }
-    .interest-card p {
-      font-size: 1rem;
-      color: var(--text-dark);
-      margin-top: 0.5rem;
+      perspective: 1000px;
     }
     .interest-card:hover {
-      /* Subtle 3D tilt & upward shift */
       transform: rotateY(6deg) translateY(-5px);
       box-shadow: 0 8px 20px var(--shadow-color);
       background-color: var(--secondary-color);
@@ -455,38 +442,42 @@
     body.dark-mode .interest-card:hover {
       background-color: var(--primary-color);
     }
+    .interest-card i {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+    .interest-card p {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-top: 0.5rem;
+    }
 
-    /*----------------------------------
-      Publications Section
-    ------------------------------------*/
+    /* Publications */
     #publications ol {
       padding-left: 1.5rem;
       list-style-type: decimal;
     }
     .publication-item {
       margin-bottom: 1rem;
-      font-size: 1rem;
-      line-height: 1.4;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    /*----------------------------------
-      Languages Section
-    ------------------------------------*/
+    /* Languages */
     .languages-list {
       list-style-type: disc;
       padding-left: 1.5rem;
     }
     .languages-list li {
       margin-bottom: 0.8rem;
-      font-size: 1.1rem;
-      line-height: 1.4;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    /*----------------------------------
-      Contact Section
-    ------------------------------------*/
+    /* Contact */
     #contact p {
       margin-bottom: 1rem;
+      font-size: 1rem;
     }
     #contact .cta {
       margin-top: 2rem;
@@ -497,21 +488,21 @@
       border-radius: 8px;
       text-decoration: none;
       transition: background-color var(--transition-speed);
+      font-size: 1rem;
     }
     #contact .cta:hover {
       background-color: var(--secondary-color);
     }
 
-    /*----------------------------------
-      Footer Section
-    ------------------------------------*/
+    /* Footer */
     footer {
       text-align: center;
-      padding: 1rem 0;
+      padding: 1rem 2rem;
       background: var(--light-bg);
       color: var(--text-dark);
       border-top: 1px solid rgba(0, 0, 0, 0.1);
-      /* Now sits within .content-wrapper, so no extra margin needed */
+      position: relative;
+      margin-top: 2rem;
     }
     body.dark-mode footer {
       background: var(--dark-bg);
@@ -526,9 +517,7 @@
       font-size: 0.85rem;
     }
 
-    /*----------------------------------
-      Responsive Design
-    ------------------------------------*/
+    /* Responsiveness */
     @media (max-width: 992px) {
       nav {
         width: 100%;
@@ -545,31 +534,23 @@
         margin-left: 0;
         padding: 1rem;
       }
+
+      /* Make the timeline single-column on smaller screens */
+      .timeline {
+        grid-template-columns: 1fr;
+      }
       .timeline::before {
         left: 20px;
         transform: none;
       }
       .timeline-item {
-        width: 100%;
-        left: 0 !important;
         margin-left: 40px;
       }
       .timeline-item::after {
-        left: -36px !important;
+        left: -36px;
         right: auto;
       }
-      .skills-section {
-        flex-direction: column;
-        align-items: center;
-      }
-      .skills-category {
-        width: 100%;
-      }
-      .interests-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      }
     }
-
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
@@ -618,16 +599,17 @@
     }
   </style>
 </head>
-
 <body>
   <!-- Progress Bar -->
   <div class="progress-container">
     <div class="progress-bar" id="progressBar"></div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Sidebar Navigation -->
   <nav>
     <h2>Menu</h2>
+
+    <!-- Standard Nav Links -->
     <a href="#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a>
     <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
     <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
@@ -636,12 +618,26 @@
     <a href="#languages" class="nav-link"><i class="fas fa-language"></i> Languages</a>
     <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Interests</a>
     <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+
+    <!-- Small Icon Links -->
+    <div class="social-icons">
+      <a href="mailto:j.esquivel.gaytan@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/antonio-esquivel-gaytan-627a6a14a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank"><i class="fab fa-researchgate"></i></a>
+      <a href="https://orcid.org/0000-0001-6974-1825" target="_blank"><i class="fab fa-orcid"></i></a>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button
+      class="dark-mode-toggle"
+      onclick="toggleDarkMode()"
+      title="Toggle Dark Mode"
+    >
       <i class="fas fa-moon"></i>
     </button>
   </nav>
 
-  <!-- Content -->
+  <!-- Main Content -->
   <div class="content-wrapper">
     <!-- Hero Section -->
     <section class="hero">
@@ -649,13 +645,17 @@
       <p>Physician-Scientist | Translational Medicine | Research Coordinator</p>
     </section>
 
-    <!-- Personal Information Section -->
+    <!-- Personal Information -->
     <section id="personal-info" class="card">
       <h2>Personal Information</h2>
       <p><strong>Nationality:</strong> Dutch</p>
       <p><strong>Date of Birth:</strong> 26-12-1989</p>
       <p><strong>Address:</strong> Groningen, Netherlands</p>
-      <p><strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
+      <p>
+        <i class="fas fa-envelope"></i>
+        <strong>Email:</strong>
+        <a href="mailto:j.esquivel.gaytan@gmail.com"> j.esquivel.gaytan@gmail.com</a>
+      </p>
       <p><strong>Current Position:</strong> PhD candidate</p>
       <p><strong>Affiliation:</strong> Experimental Cardiology</p>
       <p><strong>Institution:</strong> University Medical Center Groningen - University of Groningen</p>
@@ -667,10 +667,18 @@
     <section id="profile" class="card">
       <h2>Professional Profile</h2>
       <p>
-        Physician-Scientist with diverse and comprehensive experience in clinical practice, research coordination, and translational medicine. Possesses a strong background in cardiovascular research and the ability to manage complex projects, coordinate multiple stakeholders, and ensure regulatory compliance.
+        Physician-Scientist with diverse and comprehensive experience in clinical
+        practice, research coordination, and translational medicine. Possesses a strong
+        background in cardiovascular research and the ability to manage complex projects,
+        coordinate multiple stakeholders, and ensure regulatory compliance. Skilled in
+        data analysis, documentation, and team leadership, with a demonstrated track
+        record of implementing standardized protocols and maintaining data integrity.
       </p>
       <p>
-        Worked on diverse projects ranging from basic science to drug discovery, biomarker research, and systematic reviews focusing on heart failure and oxidative stress, with a special emphasis on 5-oxoprolinase, glutamate, and 5-oxoproline.
+        Worked on diverse projects ranging from basic science to drug discovery,
+        biomarker research, and systematic reviews focusing on heart failure and
+        oxidative stress, with a special emphasis on 5-oxoprolinase, glutamate, and
+        5-oxoproline.
       </p>
     </section>
 
@@ -678,81 +686,147 @@
     <section id="experience" class="card">
       <h2>Relevant Experience</h2>
       <div class="timeline">
+        <!-- PhD Researcher -->
         <div class="timeline-item">
           <h3>PhD Researcher | Experimental Cardiology | UMCG, Netherlands</h3>
           <h4>Nov 2018 – Jan 2025</h4>
           <ul>
-            <li><strong>Project Management:</strong>
+            <li>
+              <strong>Project Management:</strong>
               <ul>
-                <li>Coordinated multiple research projects involving diverse stakeholders, including funding agencies, industry partners, and academic collaborators.</li>
-                <li>Managed timelines and deliverables while ensuring strict adherence to regulatory standards.</li>
-                <li>Established and maintained collaborations across multiple departments, industries, and institutions.</li>
+                <li>
+                  Coordinated multiple research projects involving diverse stakeholders,
+                  including funding agencies, industry partners, and academic collaborators.
+                </li>
+                <li>
+                  Managed timelines and deliverables while ensuring strict adherence to
+                  regulatory standards.
+                </li>
+                <li>
+                  Established and maintained collaborations across multiple departments,
+                  industries, and institutions.
+                </li>
               </ul>
             </li>
-            <li><strong>Research Innovation:</strong>
+            <li>
+              <strong>Research Innovation:</strong>
               <ul>
-                <li>Developed and implemented a high-throughput screening strategy for identifying novel therapeutic compounds.</li>
-                <li>Led complex, multi-stakeholder projects integrating proteomics, drug screening, and molecular biology.</li>
-                <li>Identified and characterized new molecular targets for cardiovascular therapy.</li>
+                <li>
+                  Developed and implemented a high-throughput screening strategy for
+                  identifying novel therapeutic compounds.
+                </li>
+                <li>
+                  Led complex, multi-stakeholder projects integrating proteomics, drug
+                  screening, and molecular biology.
+                </li>
+                <li>
+                  Identified and characterized new molecular targets for cardiovascular
+                  therapy.
+                </li>
               </ul>
             </li>
-            <li><strong>Data Analysis & Documentation:</strong>
+            <li>
+              <strong>Data Analysis &amp; Documentation:</strong>
               <ul>
-                <li>Designed and implemented data analysis workflows for complex biomarker studies.</li>
-                <li>Created and maintained comprehensive documentation, including SOPs, experimental protocols, and regulatory reports.</li>
-                <li>Employed advanced analytical tools and AI-driven statistical methods for data processing and visualization.</li>
+                <li>
+                  Designed and implemented data analysis workflows for complex biomarker
+                  studies.
+                </li>
+                <li>
+                  Created and maintained comprehensive documentation, including SOPs,
+                  experimental protocols, and regulatory reports.
+                </li>
+                <li>
+                  Employed advanced analytical tools and AI-driven statistical methods for
+                  data processing and visualization.
+                </li>
               </ul>
             </li>
-            <li><strong>Team Leadership:</strong>
+            <li>
+              <strong>Team Leadership:</strong>
               <ul>
                 <li>Supervised and mentored students in laboratory settings.</li>
                 <li>Led cross-functional team meetings and coordinated project activities.</li>
-                <li>Facilitated communication across departments and stakeholders, ensuring alignment and efficiency.</li>
+                <li>
+                  Facilitated communication across departments and stakeholders, ensuring
+                  alignment and efficiency.
+                </li>
               </ul>
             </li>
           </ul>
         </div>
 
+        <!-- Medical Researcher -->
         <div class="timeline-item">
           <h3>Medical Researcher | Science iN, Mexico City</h3>
           <h4>2017 – 2018</h4>
           <ul>
-            <li>Monitored clinical data integrity across multiple trial sites, ensuring adherence to protocol.</li>
-            <li>Created standardized documentation protocols to improve compliance and reduce reporting errors.</li>
+            <li>
+              Monitored clinical data integrity across multiple trial sites, ensuring
+              adherence to protocol.
+            </li>
+            <li>
+              Created standardized documentation protocols to improve compliance and reduce
+              reporting errors.
+            </li>
             <li>Authored technical reports and prepared regulatory documents.</li>
-            <li>Coordinated with clinical teams to ensure rigorous protocol adherence and established quality control measures for data collection and management.</li>
+            <li>
+              Coordinated with clinical teams to ensure rigorous protocol adherence and
+              established quality control measures for data collection and management.
+            </li>
           </ul>
         </div>
 
+        <!-- Clinical Research Intern -->
         <div class="timeline-item">
-          <h3>Clinical Research Intern | Centro Internacional de Investigación Clínica y Educación Médica</h3>
+          <h3>
+            Clinical Research Intern | Centro Internacional de Investigación Clínica y
+            Educación Médica
+          </h3>
           <h4>2015 – 2016</h4>
           <ul>
             <li>Supported clinical trial operations and documentation.</li>
             <li>Assisted in standardizing laboratory procedures to enhance efficiency.</li>
             <li>Contributed to the preparation of regulatory reports.</li>
-            <li>Helped develop and implement sample tracking systems, improving data reliability.</li>
+            <li>
+              Helped develop and implement sample tracking systems, improving data
+              reliability.
+            </li>
           </ul>
         </div>
 
+        <!-- Clinical Supervisor & Lecturer -->
         <div class="timeline-item">
           <h3>Clinical Supervisor & Lecturer | UVM Mexico</h3>
           <h4>2018</h4>
           <ul>
-            <li>Supervised medical students during clinical rotations, providing hands-on guidance and feedback.</li>
+            <li>
+              Supervised medical students during clinical rotations, providing hands-on
+              guidance and feedback.
+            </li>
             <li>Developed and delivered clinical education programs.</li>
             <li>Coordinated effectively between academic and clinical settings.</li>
-            <li>Ensured compliance with educational and clinical standards to maintain high training quality.</li>
+            <li>
+              Ensured compliance with educational and clinical standards to maintain high
+              training quality.
+            </li>
           </ul>
         </div>
 
+        <!-- Clinical Intern (Chief) -->
         <div class="timeline-item">
           <h3>Clinical Intern (Chief) | ISSSTE Hospital Queretaro</h3>
           <h4>2014 - 2015</h4>
           <ul>
-            <li>Coordinated and supervised medical interns, optimizing patient care workflows.</li>
+            <li>
+              Coordinated and supervised medical interns, optimizing patient care
+              workflows.
+            </li>
             <li>Managed patient care operations with adherence to hospital protocols.</li>
-            <li>Facilitated effective communication between departments to support clinical operations.</li>
+            <li>
+              Facilitated effective communication between departments to support clinical
+              operations.
+            </li>
           </ul>
         </div>
       </div>
@@ -764,7 +838,7 @@
       <div class="skills-section">
         <!-- AI Tools & LLMs -->
         <div class="skills-category">
-          <h3>AI Tools & LLMs</h3>
+          <h3>AI Tools &amp; LLMs</h3>
           <div class="skill-item">
             <i class="fas fa-robot"></i>
             <div class="skill-description"><strong>Gemini Deep Research</strong> (Advanced 1.5 &amp; 2.0)</div>
@@ -775,7 +849,9 @@
           </div>
           <div class="skill-item">
             <i class="fas fa-comments"></i>
-            <div class="skill-description"><strong>ChatGPT</strong> (4.0, 0.1, &amp; 0.1 Mini)</div>
+            <div class="skill-description">
+              <strong>ChatGPT</strong> (4.0, 0.1, &amp; 0.1 Mini)
+            </div>
           </div>
           <div class="skill-item">
             <i class="fas fa-search"></i>
@@ -809,7 +885,14 @@
           </div>
         </div>
       </div>
-      <p><em>I leverage AI tools to enhance my coding efficiency and problem-solving capabilities, utilizing large language models to assist in writing, debugging, and optimizing code while maintaining a strong foundational understanding of programming principles.</em></p>
+      <p>
+        <em>
+          I leverage AI tools to enhance my coding efficiency and problem-solving
+          capabilities, utilizing large language models to assist in writing, debugging,
+          and optimizing code while maintaining a strong foundational understanding of
+          programming principles.
+        </em>
+      </p>
     </section>
 
     <!-- Education Section -->
@@ -820,7 +903,10 @@
         <h4>University Medical Centre Groningen, Netherlands</h4>
         <p>2018 – 2025</p>
         <ul>
-          <li>Thesis: "Novel approaches in cardiovascular drug discovery and biomarker analysis"</li>
+          <li>
+            Thesis: "Novel approaches in cardiovascular drug discovery and biomarker
+            analysis"
+          </li>
           <li>Emphasis on translational research and biomarker development</li>
           <li>Thesis submission January 2025 (defense date pending)</li>
         </ul>
@@ -831,7 +917,10 @@
         <p>2016 – 2017</p>
         <ul>
           <li>Graduated with Distinction</li>
-          <li>Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using Photochemical Internalization"</li>
+          <li>
+            Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using
+            Photochemical Internalization"
+          </li>
         </ul>
       </div>
       <div class="education-item">
@@ -849,15 +938,23 @@
       <h2>Publications</h2>
       <ol>
         <li class="publication-item">
-          Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research." 
+          Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing
+          the translational potential of -omics approaches beyond traditional disease
+          classification in heart failure research."
           <em>European Journal of Heart Failure</em>.
         </li>
         <li class="publication-item">
-          Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S., Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)."
+          Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S.,
+          Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al.
+          (2023). "A high-throughput screening strategy identifies adenosine
+          5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme
+          5-oxoprolinase (OPLAH)."
           <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130.
         </li>
         <li class="publication-item">
-          Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation."
+          Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A
+          translation re-initiation variant in KLHL24 also causes epidermolysis bullosa
+          simplex and dilated cardiomyopathy via intermediate filament degradation."
           <em>The British Journal of Dermatology</em>, 187(6), 1045-1048.
         </li>
       </ol>
@@ -917,111 +1014,137 @@
     <section id="contact" class="card">
       <h2>Contact</h2>
       <p>If you'd like to get in touch, feel free to reach out via email or phone:</p>
-      <p><strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
+      <p>
+        <i class="fas fa-envelope"></i>
+        <strong>Email:</strong>
+        <a href="mailto:j.esquivel.gaytan@gmail.com"> j.esquivel.gaytan@gmail.com</a>
+      </p>
+      <p>
+        <i class="fab fa-researchgate"></i>
+        <strong>ResearchGate:</strong>
+        <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank">
+          Antonio-Gaytan-2
+        </a>
+      </p>
+      <p>
+        <i class="fab fa-orcid"></i>
+        <strong>ORCID:</strong>
+        <a href="https://orcid.org/0000-0001-6974-1825" target="_blank">
+          0000-0001-6974-1825
+        </a>
+      </p>
       <p><strong>Address:</strong> Groningen, Netherlands</p>
-      <p class="cta"><a href="mailto:j.esquivel.gaytan@gmail.com" class="cta">Send an Email</a></p>
+      <p class="cta">
+        <a href="mailto:j.esquivel.gaytan@gmail.com" class="cta">Send an Email</a>
+      </p>
     </section>
 
-    <!-- Footer Section (moved inside content-wrapper) -->
+    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Dr Jose Antonio Esquivel Gaytan. All rights reserved.</p>
-      <p><em>Site developed using AI chatbot technology to show coding and design skills.</em></p>
+      <p>
+        <em>Site developed using AI chatbot technology to demonstrate advanced coding and design skills.</em>
+      </p>
     </footer>
-  </div><!-- /.content-wrapper -->
+  </div>
 
   <script>
     // Progress Bar
     window.onscroll = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
+      document.getElementById("progressBar").style.width = (winScroll / height) * 100 + "%";
     };
 
     // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(this.getAttribute("href"));
         if (target) {
           const offset = 80; // Adjust offset if needed
           const position = target.offsetTop - offset;
-          window.scrollTo({ top: position, behavior: 'smooth' });
+          window.scrollTo({ top: position, behavior: "smooth" });
         }
       });
     });
 
-    // Dark Mode
+    // Dark Mode Toggle
     function toggleDarkMode() {
       const body = document.body;
-      body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+      body.classList.toggle("dark-mode");
+      localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
 
       // Update icon
-      const icon = document.querySelector('.dark-mode-toggle i');
-      if (body.classList.contains('dark-mode')) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
+      const icon = document.querySelector(".dark-mode-toggle i");
+      if (body.classList.contains("dark-mode")) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
       } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
       }
     }
 
-    // Initialize Dark Mode on page load
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-      document.querySelector('.dark-mode-toggle i').classList.remove('fa-moon');
-      document.querySelector('.dark-mode-toggle i').classList.add('fa-sun');
+    // Initialize Dark Mode from Local Storage
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark-mode");
+      const icon = document.querySelector(".dark-mode-toggle i");
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
     }
 
-    // Intersection Observer for Timeline Items & .card Animations
-    document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.card');
-      const timelineItems = document.querySelectorAll('.timeline-item');
+    // Intersection Observer for Timeline & Cards
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll(".timeline-item, .card");
 
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1 // Trigger once 10% of the item is visible
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1, // Trigger fade-in once 10% of the element is visible
+        }
+      );
+
+      items.forEach((item) => {
+        observer.observe(item);
       });
-
-      // Observe all .card sections
-      cards.forEach(card => observer.observe(card));
-      // Also observe the .timeline-item for their separate fade-in
-      timelineItems.forEach(item => observer.observe(item));
     });
 
     // Highlight Active Navigation Link
-    document.addEventListener('DOMContentLoaded', () => {
-      const navLinks = document.querySelectorAll('.nav-link');
-      const sections = document.querySelectorAll('section');
+    document.addEventListener("DOMContentLoaded", () => {
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll("section");
 
-      const sectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-              }
-            });
-          }
-        });
-      }, {
-        threshold: 0.5
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute("id");
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${id}`) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.5, // Adjust as needed
+        }
+      );
 
-      sections.forEach(section => {
-        sectionObserver.observe(section);
+      sections.forEach((section) => {
+        observer.observe(section);
       });
     });
   </script>
 </body>
 </html>
-
