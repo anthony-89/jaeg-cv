@@ -1,1052 +1,1027 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr Jose Antonio Esquivel Gaytan - Virtual CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Root Variables */
-        :root {
-            --primary-color: #1f4068;
-            --secondary-color: #487eb0;
-            --accent-color: #3498db;
-            --light-bg: #f5f6fa;
-            --dark-bg: #222;
-            --text-light: #ececec;
-            --text-dark: #333;
-            --nav-width: 280px;
-            --transition-speed: 0.3s;
-            --shadow-color: rgba(0, 0, 0, 0.2);
-            --badge-bg: #3498db;
-            --badge-text: #fff;
-        }
-
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-
-        body.dark-mode {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-        }
-
-        body.dark-mode .card {
-            background: #282828;
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            height: 6px;
-            background: rgba(127, 140, 141, 0.2);
-            position: fixed;
-            top: 0;
-            left: var(--nav-width);
-            right: 0;
-            z-index: 1000;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
-            width: 0%;
-            transition: width 0.4s ease;
-        }
-
-        /* Navigation */
-        nav {
-            width: var(--nav-width);
-            background: linear-gradient(160deg, var(--primary-color) 20%, #1A1A1A 100%);
-            position: fixed;
-            height: 100vh;
-            padding: 2rem 1.5rem;
-            box-shadow: 4px 0 15px var(--shadow-color);
-            z-index: 999;
-            overflow-y: auto;
-        }
-
-        nav h2 {
-            font-family: 'Raleway', sans-serif;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(236, 240, 241, 0.2);
-            text-align: center;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            color: var(--text-light);
-            padding: 0.8rem 1.5rem;
-            margin: 0.4rem 0;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .nav-link i {
-            width: 25px;
-            margin-right: 1rem;
-            font-size: 1.2em;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            background: var(--accent-color);
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-            transform: translateX(5px);
-        }
-
-        /* Dark Mode Toggle Button */
-        .dark-mode-toggle {
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.4rem;
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: color var(--transition-speed);
-        }
-
-        .dark-mode-toggle:hover {
-            color: var(--accent-color);
-        }
-
-        /* Content Wrapper */
-        .content-wrapper {
-            margin-left: var(--nav-width);
-            padding: 2rem 4rem;
-            transition: margin-left var(--transition-speed);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--text-light);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 25px var(--shadow-color);
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,0.2) 50%, transparent 80%);
-            animation: shine 8s infinite linear;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
-            100% { transform: translateX(50%) translateY(50%) rotate(45deg); }
-        }
-
-        .hero h1 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Card Styles */
-        .card {
-            background: var(--light-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 8px 20px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px var(--shadow-color);
-        }
-
-        /* Section Titles */
-        .card h2 {
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            color: var(--primary-color);
-            font-family: 'Raleway', sans-serif;
-        }
-
-        /* Personal Information Section */
-        #personal-info p {
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        #personal-info strong {
-            color: var(--primary-color);
-        }
-
-        /* Timeline Section */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        /* Vertical Line */
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--secondary-color);
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        /* Timeline Items */
-        .timeline-item {
-            position: relative;
-            width: 45%;
-            padding: 2rem;
-            margin: 2rem 0;
-            background: var(--light-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            z-index: 2;
-            transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        /* Visible class for Intersection Observer */
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Odd Items - Left Side */
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        /* Even Items - Right Side */
-        .timeline-item:nth-child(even) {
-            left: 55%;
-        }
-
-        /* Hover Effects */
-        .timeline-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px var(--shadow-color);
-        }
-
-        /* Dot on the Timeline */
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-color);
-            border: 4px solid var(--light-bg);
-            border-radius: 50%;
-            top: 2rem;
-            right: -14px;
-            z-index: 3;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        body.dark-mode .timeline-item::after {
-            border-color: var(--dark-bg);
-        }
-
-        /* Dots for Even Items */
-        .timeline-item:nth-child(even)::after {
-            left: -14px;
-            right: auto;
-        }
-
-        /* Hover effect on dots */
-        .timeline-item:hover::after {
-            background: var(--secondary-color);
-            transform: scale(1.2);
-        }
-
-        /* Timeline Item Content */
-        .timeline-item h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .timeline-item h4 {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-        }
-
-        .timeline-item p {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .timeline-item ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-top: 0.8rem;
-        }
-
-        .timeline-item li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Education Section */
-        .education-item {
-            margin-bottom: 2rem;
-        }
-
-        .education-item h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .education-item h4 {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-item p {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .education-item ul {
-            margin-top: 0.5rem;
-            padding-left: 1.5rem;
-            list-style-type: disc;
-        }
-
-        .education-item li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .skills-category {
-            flex: 1 1 300px;
-            background: var(--light-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .skills-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px var(--shadow-color);
-        }
-
-        .skills-category h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-family: 'Raleway', sans-serif;
-            text-align: center;
-        }
-
-        .skill-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-        }
-
-        .skill-item i {
-            margin-right: 0.8rem;
-            color: var(--accent-color);
-            font-size: 1.2rem;
-        }
-
-        .skill-description {
-            font-size: 1rem;
-            color: var(--text-dark);
-        }
-
-        body.dark-mode .skill-description {
-            color: var(--text-light);
-        }
-
-        /* Interests Section */
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .interest-card {
-            background: var(--light-bg);
-            border: 2px solid var(--accent-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .interest-card i {
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .interest-card p {
-            font-size: 1rem;
-            color: var(--text-dark);
-            margin-top: 0.5rem;
-        }
-
-        .interest-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--shadow-color);
-            background-color: var(--secondary-color);
-        }
-
-        body.dark-mode .interest-card {
-            background: #333;
-            border-color: var(--accent-color);
-        }
-
-        body.dark-mode .interest-card p {
-            color: var(--text-light);
-        }
-
-        body.dark-mode .interest-card:hover {
-            background-color: var(--primary-color);
-        }
-
-        /* Publications Section */
-        #publications ol {
-            padding-left: 1.5rem;
-            list-style-type: decimal;
-        }
-
-        .publication-item {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        /* Languages Section */
-        .languages-list {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-        }
-
-        .languages-list li {
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        /* Contact Section */
-        #contact p {
-            margin-bottom: 1rem;
-        }
-
-        #contact .cta {
-            margin-top: 2rem;
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--text-light);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color var(--transition-speed);
-        }
-
-        #contact .cta:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Footer Section */
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background: var(--light-bg);
-            color: var(--text-dark);
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        body.dark-mode footer {
-            background: var(--dark-bg);
-            color: var(--text-light);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        footer p:last-child {
-            font-size: 0.85rem;
-        }
-
-        /* Responsive Design for Skills and Interests Sections */
-        @media (max-width: 992px) {
-            nav {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 1rem;
-            }
-
-            .dark-mode-toggle {
-                position: static;
-                margin-top: 1rem;
-                transform: none;
-            }
-
-            .content-wrapper {
-                margin-left: 0;
-                padding: 1rem;
-            }
-
-            .timeline::before {
-                left: 20px;
-                transform: none;
-            }
-
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                margin-left: 40px;
-            }
-
-            .timeline-item::after {
-                left: -36px !important;
-                right: auto;
-            }
-
-            .skills-section {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .skills-category {
-                width: 100%;
-            }
-
-            .skills-list li,
-            .languages-list li,
-            .interests-list li {
-                font-size: 1rem;
-            }
-
-            .interests-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
-
-            .timeline-item {
-                margin-left: 30px;
-                padding: 1.5rem;
-            }
-
-            .timeline-item::after {
-                left: -32px
-            }
-
-            .timeline-item h3 {
-                font-size: 1.2rem;
-            }
-
-            .timeline-item h4 {
-                font-size: 1rem;
-            }
-
-            .education-item h3 {
-                font-size: 1.1rem;
-            }
-
-            .education-item h4 {
-                font-size: 1rem;
-            }
-
-            .skill-item i,
-            .interests-list li i,
-            .interest-card i {
-                font-size: 1rem;
-            }
-
-            .skill-description,
-            .interests-list li,
-            .interest-card p {
-                font-size: 0.95rem;
-            }
-
-            .languages-list li {
-                font-size: 1rem;
-            }
-
-            .publication-item {
-                font-size: 0.95rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr Jose Antonio Esquivel Gaytan - Virtual CV</title>
+  
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  
+  <style>
+    /*----------------------------------
+      Root Variables
+    ------------------------------------*/
+    :root {
+      --primary-color: #1f4068;
+      --secondary-color: #487eb0;
+      --accent-color: #3498db;
+      --light-bg: #f5f6fa;
+      --dark-bg: #222;
+      --text-light: #ececec;
+      --text-dark: #333;
+      --nav-width: 280px;
+      --transition-speed: 0.3s;
+      --shadow-color: rgba(0, 0, 0, 0.2);
+      --badge-bg: #3498db;
+      --badge-text: #fff;
+    }
+
+    /*----------------------------------
+      Global Styles
+    ------------------------------------*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      /* Slightly smaller, more minimalistic text and line height */
+      font-size: 0.95rem;
+      line-height: 1.4;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+
+    body.dark-mode .card {
+      background: #282828;
+    }
+
+    /*----------------------------------
+      Progress Bar
+    ------------------------------------*/
+    .progress-container {
+      height: 6px;
+      background: rgba(127, 140, 141, 0.2);
+      position: fixed;
+      top: 0;
+      left: var(--nav-width);
+      right: 0;
+      z-index: 1000;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /*----------------------------------
+      Navigation
+    ------------------------------------*/
+    nav {
+      width: var(--nav-width);
+      background: linear-gradient(160deg, var(--primary-color) 20%, #1a1a1a 100%);
+      position: fixed;
+      height: 100vh;
+      padding: 2rem 1.5rem;
+      box-shadow: 4px 0 15px var(--shadow-color);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    nav h2 {
+      font-family: 'Raleway', sans-serif;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(236, 240, 241, 0.2);
+      text-align: center;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      color: var(--text-light);
+      padding: 0.8rem 1.5rem;
+      margin: 0.4rem 0;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-link i {
+      width: 25px;
+      margin-right: 1rem;
+      font-size: 1.2em;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--accent-color);
+      box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+      transform: translateX(5px);
+    }
+
+    /* Dark Mode Toggle Button */
+    .dark-mode-toggle {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      font-size: 1.4rem;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: color var(--transition-speed);
+    }
+
+    .dark-mode-toggle:hover {
+      color: var(--accent-color);
+    }
+
+    /*----------------------------------
+      Content Wrapper
+    ------------------------------------*/
+    .content-wrapper {
+      margin-left: var(--nav-width);
+      padding: 2rem 4rem;
+      transition: margin-left var(--transition-speed);
+    }
+
+    /*----------------------------------
+      Hero Section
+    ------------------------------------*/
+    .hero {
+      text-align: center;
+      padding: 4rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: var(--text-light);
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px var(--shadow-color);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,0.2) 50%, transparent 80%);
+      animation: shine 8s infinite linear;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
+      100% { transform: translateX(50%) translateY(50%) rotate(45deg); }
+    }
+
+    .hero h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Dark Mode override for Hero background/shine */
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #111 0%, #333 100%);
+    }
+    body.dark-mode .hero::before {
+      background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,0.06) 50%, transparent 80%);
+    }
+
+    /*----------------------------------
+      Card Styles
+    ------------------------------------*/
+    .card {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px var(--shadow-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* For fade-in (invisible by default) */
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px var(--shadow-color);
+    }
+    /* Fade-in trigger when .visible is added */
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* Section Titles */
+    .card h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem; /* Slightly reduced from 2rem */
+      color: var(--primary-color);
+      font-family: 'Raleway', sans-serif;
+    }
+
+    /*----------------------------------
+      Personal Information Section
+    ------------------------------------*/
+    #personal-info p {
+      margin-bottom: 0.8rem;
+    }
+    #personal-info strong {
+      color: var(--primary-color);
+    }
+
+    /*----------------------------------
+      Timeline Section
+    ------------------------------------*/
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--secondary-color);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    .timeline-item {
+      position: relative;
+      width: 45%;
+      padding: 2rem;
+      margin: 2rem 0;
+      background: var(--light-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      z-index: 2;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    .timeline-item:nth-child(even) {
+      left: 55%;
+    }
+    .timeline-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px var(--shadow-color);
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-color);
+      border: 4px solid var(--light-bg);
+      border-radius: 50%;
+      top: 2rem;
+      right: -14px;
+      z-index: 3;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    body.dark-mode .timeline-item::after {
+      border-color: var(--dark-bg);
+    }
+    .timeline-item:nth-child(even)::after {
+      left: -14px;
+      right: auto;
+    }
+    .timeline-item:hover::after {
+      background: var(--secondary-color);
+      transform: scale(1.2);
+    }
+    .timeline-item h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Raleway', sans-serif;
+    }
+    .timeline-item h4 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+    }
+    .timeline-item p,
+    .timeline-item li {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.4;
+    }
+
+    /*----------------------------------
+      Education Section
+    ------------------------------------*/
+    .education-item {
+      margin-bottom: 2rem;
+    }
+    .education-item h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Raleway', sans-serif;
+    }
+    .education-item h4 {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+    .education-item p {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /*----------------------------------
+      Skills Section
+    ------------------------------------*/
+    .skills-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .skills-category {
+      flex: 1 1 300px;
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .skills-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px var(--shadow-color);
+    }
+    .skills-category h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      font-family: 'Raleway', sans-serif;
+      text-align: center;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .skill-item i {
+      margin-right: 0.8rem;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
+    .skill-description {
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+    body.dark-mode .skill-description {
+      color: var(--text-light);
+    }
+
+    /* Dark Mode override for Skills Category */
+    body.dark-mode .skills-category {
+      background: #2a2a2a;
+    }
+
+    /*----------------------------------
+      Interests Section
+    ------------------------------------*/
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .interest-card {
+      background: var(--light-bg);
+      border: 2px solid var(--accent-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .interest-card i {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+    .interest-card p {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-top: 0.5rem;
+    }
+    .interest-card:hover {
+      /* Subtle 3D tilt & upward shift */
+      transform: rotateY(6deg) translateY(-5px);
+      box-shadow: 0 8px 20px var(--shadow-color);
+      background-color: var(--secondary-color);
+    }
+    body.dark-mode .interest-card {
+      background: #333;
+      border-color: var(--accent-color);
+    }
+    body.dark-mode .interest-card p {
+      color: var(--text-light);
+    }
+    body.dark-mode .interest-card:hover {
+      background-color: var(--primary-color);
+    }
+
+    /*----------------------------------
+      Publications Section
+    ------------------------------------*/
+    #publications ol {
+      padding-left: 1.5rem;
+      list-style-type: decimal;
+    }
+    .publication-item {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /*----------------------------------
+      Languages Section
+    ------------------------------------*/
+    .languages-list {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    .languages-list li {
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    /*----------------------------------
+      Contact Section
+    ------------------------------------*/
+    #contact p {
+      margin-bottom: 1rem;
+    }
+    #contact .cta {
+      margin-top: 2rem;
+      display: inline-block;
+      background: var(--accent-color);
+      color: var(--text-light);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color var(--transition-speed);
+    }
+    #contact .cta:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /*----------------------------------
+      Footer Section
+    ------------------------------------*/
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: var(--light-bg);
+      color: var(--text-dark);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      /* Now sits within .content-wrapper, so no extra margin needed */
+    }
+    body.dark-mode footer {
+      background: var(--dark-bg);
+      color: var(--text-light);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    footer p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    footer p:last-child {
+      font-size: 0.85rem;
+    }
+
+    /*----------------------------------
+      Responsive Design
+    ------------------------------------*/
+    @media (max-width: 992px) {
+      nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem;
+      }
+      .dark-mode-toggle {
+        position: static;
+        margin-top: 1rem;
+        transform: none;
+      }
+      .content-wrapper {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      .timeline::before {
+        left: 20px;
+        transform: none;
+      }
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        margin-left: 40px;
+      }
+      .timeline-item::after {
+        left: -36px !important;
+        right: auto;
+      }
+      .skills-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .skills-category {
+        width: 100%;
+      }
+      .interests-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .timeline-item {
+        margin-left: 30px;
+        padding: 1.5rem;
+      }
+      .timeline-item::after {
+        left: -32px;
+      }
+      .timeline-item h3 {
+        font-size: 1.2rem;
+      }
+      .timeline-item h4 {
+        font-size: 1rem;
+      }
+      .education-item h3 {
+        font-size: 1.1rem;
+      }
+      .education-item h4 {
+        font-size: 1rem;
+      }
+      .skill-item i,
+      .interests-list li i,
+      .interest-card i {
+        font-size: 1rem;
+      }
+      .skill-description,
+      .interests-list li,
+      .interest-card p {
+        font-size: 0.95rem;
+      }
+      .languages-list li {
+        font-size: 1rem;
+      }
+      .publication-item {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
 
-    <nav>
-        <h2>Menu</h2>
-        <!-- Navigation Links in Desired Order -->
-        <a href="#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a>
-        <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
-        <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
-        <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
-        <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
-        <a href="#languages" class="nav-link"><i class="fas fa-language"></i> Languages</a>
-        <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Interests</a>
-        <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
-            <i class="fas fa-moon"></i>
-        </button>
-    </nav>
+  <!-- Navigation -->
+  <nav>
+    <h2>Menu</h2>
+    <a href="#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+    <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
+    <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
+    <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
+    <a href="#languages" class="nav-link"><i class="fas fa-language"></i> Languages</a>
+    <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Interests</a>
+    <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+      <i class="fas fa-moon"></i>
+    </button>
+  </nav>
 
-    <div class="content-wrapper">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Dr Jose Antonio Esquivel Gaytan</h1>
-            <p>Physician-Scientist | Translational Medicine | Research Coordinator</p>
-        </section>
+  <!-- Content -->
+  <div class="content-wrapper">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Dr Jose Antonio Esquivel Gaytan</h1>
+      <p>Physician-Scientist | Translational Medicine | Research Coordinator</p>
+    </section>
 
-        <!-- Personal Information Section -->
-        <section id="personal-info" class="card">
-            <h2>Personal Information</h2>
-            <p><strong>Nationality:</strong> Dutch</p>
-            <p><strong>Date of Birth:</strong> 26-12-1989</p>
-            <p><strong>Address:</strong> Groningen, Netherlands</p>
-            <p><strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
-            <p><strong>Current Position:</strong> PhD candidate</p>
-            <p><strong>Affiliation:</strong> Experimental Cardiology</p>
-            <p><strong>Institution:</strong> University Medical Center Groningen - University of Groningen</p>
-            <p><strong>City:</strong> Groningen, The Netherlands</p>
-            <p><strong>Degree:</strong> MD, MSc</p>
-        </section>
+    <!-- Personal Information Section -->
+    <section id="personal-info" class="card">
+      <h2>Personal Information</h2>
+      <p><strong>Nationality:</strong> Dutch</p>
+      <p><strong>Date of Birth:</strong> 26-12-1989</p>
+      <p><strong>Address:</strong> Groningen, Netherlands</p>
+      <p><strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
+      <p><strong>Current Position:</strong> PhD candidate</p>
+      <p><strong>Affiliation:</strong> Experimental Cardiology</p>
+      <p><strong>Institution:</strong> University Medical Center Groningen - University of Groningen</p>
+      <p><strong>City:</strong> Groningen, The Netherlands</p>
+      <p><strong>Degree:</strong> MD, MSc</p>
+    </section>
 
-        <!-- Profile Section -->
-        <section id="profile" class="card">
-            <h2>Professional Profile</h2>
-            <p>Physician-Scientist with diverse and comprehensive experience in clinical practice, research coordination, and translational medicine. Possesses a strong background in cardiovascular research and the ability to manage complex projects, coordinate multiple stakeholders, and ensure regulatory compliance. Skilled in data analysis, documentation, and team leadership, with a demonstrated track record of implementing standardized protocols and maintaining data integrity.</p>
-            <p>Worked on diverse projects ranging from basic science to drug discovery, biomarker research, and systematic reviews focusing on heart failure and oxidative stress, with a special emphasis on 5-oxoprolinase, glutamate, and 5-oxoproline.</p>
-        </section>
+    <!-- Profile Section -->
+    <section id="profile" class="card">
+      <h2>Professional Profile</h2>
+      <p>
+        Physician-Scientist with diverse and comprehensive experience in clinical practice, research coordination, and translational medicine. Possesses a strong background in cardiovascular research and the ability to manage complex projects, coordinate multiple stakeholders, and ensure regulatory compliance.
+      </p>
+      <p>
+        Worked on diverse projects ranging from basic science to drug discovery, biomarker research, and systematic reviews focusing on heart failure and oxidative stress, with a special emphasis on 5-oxoprolinase, glutamate, and 5-oxoproline.
+      </p>
+    </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="card">
-            <h2>Relevant Experience</h2>
-            <div class="timeline">
-                <!-- PhD Researcher -->
-                <div class="timeline-item">
-                    <h3>PhD Researcher | Experimental Cardiology | UMCG, Netherlands</h3>
-                    <h4>Nov 2018 – Jan 2025</h4>
-                    <ul>
-                        <li><strong>Project Management:</strong>
-                            <ul>
-                                <li>Coordinated multiple research projects involving diverse stakeholders, including funding agencies, industry partners, and academic collaborators.</li>
-                                <li>Managed timelines and deliverables while ensuring strict adherence to regulatory standards.</li>
-                                <li>Established and maintained collaborations across multiple departments, industries, and institutions.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Research Innovation:</strong>
-                            <ul>
-                                <li>Developed and implemented a high-throughput screening strategy for identifying novel therapeutic compounds.</li>
-                                <li>Led complex, multi-stakeholder projects integrating proteomics, drug screening, and molecular biology.</li>
-                                <li>Identified and characterized new molecular targets for cardiovascular therapy.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Data Analysis & Documentation:</strong>
-                            <ul>
-                                <li>Designed and implemented data analysis workflows for complex biomarker studies.</li>
-                                <li>Created and maintained comprehensive documentation, including SOPs, experimental protocols, and regulatory reports.</li>
-                                <li>Employed advanced analytical tools and AI-driven statistical methods for data processing and visualization.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Team Leadership:</strong>
-                            <ul>
-                                <li>Supervised and mentored students in laboratory settings.</li>
-                                <li>Led cross-functional team meetings and coordinated project activities.</li>
-                                <li>Facilitated communication across departments and stakeholders, ensuring alignment and efficiency.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Experience Section -->
+    <section id="experience" class="card">
+      <h2>Relevant Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>PhD Researcher | Experimental Cardiology | UMCG, Netherlands</h3>
+          <h4>Nov 2018 – Jan 2025</h4>
+          <ul>
+            <li><strong>Project Management:</strong>
+              <ul>
+                <li>Coordinated multiple research projects involving diverse stakeholders, including funding agencies, industry partners, and academic collaborators.</li>
+                <li>Managed timelines and deliverables while ensuring strict adherence to regulatory standards.</li>
+                <li>Established and maintained collaborations across multiple departments, industries, and institutions.</li>
+              </ul>
+            </li>
+            <li><strong>Research Innovation:</strong>
+              <ul>
+                <li>Developed and implemented a high-throughput screening strategy for identifying novel therapeutic compounds.</li>
+                <li>Led complex, multi-stakeholder projects integrating proteomics, drug screening, and molecular biology.</li>
+                <li>Identified and characterized new molecular targets for cardiovascular therapy.</li>
+              </ul>
+            </li>
+            <li><strong>Data Analysis & Documentation:</strong>
+              <ul>
+                <li>Designed and implemented data analysis workflows for complex biomarker studies.</li>
+                <li>Created and maintained comprehensive documentation, including SOPs, experimental protocols, and regulatory reports.</li>
+                <li>Employed advanced analytical tools and AI-driven statistical methods for data processing and visualization.</li>
+              </ul>
+            </li>
+            <li><strong>Team Leadership:</strong>
+              <ul>
+                <li>Supervised and mentored students in laboratory settings.</li>
+                <li>Led cross-functional team meetings and coordinated project activities.</li>
+                <li>Facilitated communication across departments and stakeholders, ensuring alignment and efficiency.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
 
-                <!-- Medical Researcher -->
-                <div class="timeline-item">
-                    <h3>Medical Researcher | Science iN, Mexico City</h3>
-                    <h4>2017 – 2018</h4>
-                    <ul>
-                        <li>Monitored clinical data integrity across multiple trial sites, ensuring adherence to protocol.</li>
-                        <li>Created standardized documentation protocols to improve compliance and reduce reporting errors.</li>
-                        <li>Authored technical reports and prepared regulatory documents.</li>
-                        <li>Coordinated with clinical teams to ensure rigorous protocol adherence and established quality control measures for data collection and management.</li>
-                    </ul>
-                </div>
+        <div class="timeline-item">
+          <h3>Medical Researcher | Science iN, Mexico City</h3>
+          <h4>2017 – 2018</h4>
+          <ul>
+            <li>Monitored clinical data integrity across multiple trial sites, ensuring adherence to protocol.</li>
+            <li>Created standardized documentation protocols to improve compliance and reduce reporting errors.</li>
+            <li>Authored technical reports and prepared regulatory documents.</li>
+            <li>Coordinated with clinical teams to ensure rigorous protocol adherence and established quality control measures for data collection and management.</li>
+          </ul>
+        </div>
 
-                <!-- Clinical Research Intern -->
-                <div class="timeline-item">
-                    <h3>Clinical Research Intern | Centro Internacional de Investigación Clínica y Educación Médica</h3>
-                    <h4>2015 – 2016</h4>
-                    <ul>
-                        <li>Supported clinical trial operations and documentation.</li>
-                        <li>Assisted in standardizing laboratory procedures to enhance efficiency.</li>
-                        <li>Contributed to the preparation of regulatory reports.</li>
-                        <li>Helped develop and implement sample tracking systems, improving data reliability.</li>
-                    </ul>
-                </div>
+        <div class="timeline-item">
+          <h3>Clinical Research Intern | Centro Internacional de Investigación Clínica y Educación Médica</h3>
+          <h4>2015 – 2016</h4>
+          <ul>
+            <li>Supported clinical trial operations and documentation.</li>
+            <li>Assisted in standardizing laboratory procedures to enhance efficiency.</li>
+            <li>Contributed to the preparation of regulatory reports.</li>
+            <li>Helped develop and implement sample tracking systems, improving data reliability.</li>
+          </ul>
+        </div>
 
-                <!-- Clinical Supervisor & Lecturer -->
-                <div class="timeline-item">
-                    <h3>Clinical Supervisor & Lecturer | UVM Mexico</h3>
-                    <h4>2018</h4>
-                    <ul>
-                        <li>Supervised medical students during clinical rotations, providing hands-on guidance and feedback.</li>
-                        <li>Developed and delivered clinical education programs.</li>
-                        <li>Coordinated effectively between academic and clinical settings.</li>
-                        <li>Ensured compliance with educational and clinical standards to maintain high training quality.</li>
-                    </ul>
-                </div>
+        <div class="timeline-item">
+          <h3>Clinical Supervisor & Lecturer | UVM Mexico</h3>
+          <h4>2018</h4>
+          <ul>
+            <li>Supervised medical students during clinical rotations, providing hands-on guidance and feedback.</li>
+            <li>Developed and delivered clinical education programs.</li>
+            <li>Coordinated effectively between academic and clinical settings.</li>
+            <li>Ensured compliance with educational and clinical standards to maintain high training quality.</li>
+          </ul>
+        </div>
 
-                <!-- Clinical Intern (Chief) -->
-                <div class="timeline-item">
-                    <h3>Clinical Intern (Chief) | ISSSTE Hospital Queretaro</h3>
-                    <h4>2014 - 2015</h4>
-                    <ul>
-                        <li>Coordinated and supervised medical interns, optimizing patient care workflows.</li>
-                        <li>Managed patient care operations with adherence to hospital protocols.</li>
-                        <li>Facilitated effective communication between departments to support clinical operations.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <div class="timeline-item">
+          <h3>Clinical Intern (Chief) | ISSSTE Hospital Queretaro</h3>
+          <h4>2014 - 2015</h4>
+          <ul>
+            <li>Coordinated and supervised medical interns, optimizing patient care workflows.</li>
+            <li>Managed patient care operations with adherence to hospital protocols.</li>
+            <li>Facilitated effective communication between departments to support clinical operations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="card">
-            <h2>Technical Skills</h2>
-            <div class="skills-section">
-                <!-- AI Tools & LLMs -->
-                <div class="skills-category">
-                    <h3>AI Tools & LLMs</h3>
-                    <div class="skill-item">
-                        <i class="fas fa-robot"></i>
-                        <div class="skill-description"><strong>Gemini Deep Research</strong> (Advanced 1.5 & 2.0)</div>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-brain"></i>
-                        <div class="skill-description"><strong>Claude Sonnet 3.5</strong></div>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-comments"></i>
-                        <div class="skill-description"><strong>ChatGPT</strong> (4.0, 0.1, & 0.1 Mini)</div>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-search"></i>
-                        <div class="skill-description"><strong>Deep Seek R1</strong></div>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-question-circle"></i>
-                        <div class="skill-description"><strong>Perplexity</strong></div>
-                    </div>
-                </div>
+    <!-- Skills Section -->
+    <section id="skills" class="card">
+      <h2>Technical Skills</h2>
+      <div class="skills-section">
+        <!-- AI Tools & LLMs -->
+        <div class="skills-category">
+          <h3>AI Tools & LLMs</h3>
+          <div class="skill-item">
+            <i class="fas fa-robot"></i>
+            <div class="skill-description"><strong>Gemini Deep Research</strong> (Advanced 1.5 &amp; 2.0)</div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-brain"></i>
+            <div class="skill-description"><strong>Claude Sonnet 3.5</strong></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-comments"></i>
+            <div class="skill-description"><strong>ChatGPT</strong> (4.0, 0.1, &amp; 0.1 Mini)</div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-search"></i>
+            <div class="skill-description"><strong>Deep Seek R1</strong></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-question-circle"></i>
+            <div class="skill-description"><strong>Perplexity</strong></div>
+          </div>
+        </div>
 
-                <!-- Programming Languages -->
-                <div class="skills-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-item">
-                        <i class="fab fa-python"></i>
-                        <div class="skill-description">Python</div>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-r-project"></i>
-                        <div class="skill-description">R</div>
-                    </div>
-                </div>
+        <!-- Programming Languages -->
+        <div class="skills-category">
+          <h3>Programming Languages</h3>
+          <div class="skill-item">
+            <i class="fab fa-python"></i>
+            <div class="skill-description">Python</div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-r-project"></i>
+            <div class="skill-description">R</div>
+          </div>
+        </div>
 
-                <!-- Development Environments -->
-                <div class="skills-category">
-                    <h3>Development Environments</h3>
-                    <div class="skill-item">
-                        <i class="fab fa-visual-studio-code"></i>
-                        <div class="skill-description">Visual Studio Code</div>
-                    </div>
-                </div>
-            </div>
-            <p><em>I leverage AI tools to enhance my coding efficiency and problem-solving capabilities, utilizing large language models to assist in writing, debugging, and optimizing code while maintaining a strong foundational understanding of programming principles.</em></p>
-        </section>
+        <!-- Development Environments -->
+        <div class="skills-category">
+          <h3>Development Environments</h3>
+          <div class="skill-item">
+            <i class="fab fa-visual-studio-code"></i>
+            <div class="skill-description">Visual Studio Code</div>
+          </div>
+        </div>
+      </div>
+      <p><em>I leverage AI tools to enhance my coding efficiency and problem-solving capabilities, utilizing large language models to assist in writing, debugging, and optimizing code while maintaining a strong foundational understanding of programming principles.</em></p>
+    </section>
 
-        <!-- Education Section -->
-        <section id="education" class="card">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>PhD in Experimental Cardiology</h3>
-                <h4>University Medical Centre Groningen, Netherlands</h4>
-                <p>2018 – 2025</p>
-                <ul>
-                    <li>Thesis: "Novel approaches in cardiovascular drug discovery and biomarker analysis"</li>
-                    <li>Emphasis on translational research and biomarker development</li>
-                    <li>Thesis submission January 2025 (defense date pending)</li>
-                </ul>
-            </div>
-            <div class="education-item">
-                <h3>MSc in Nanotechnology and Regenerative Medicine</h3>
-                <h4>University College London, UK</h4>
-                <p>2016 – 2017</p>
-                <ul>
-                    <li>Graduated with Distinction</li>
-                    <li>Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using Photochemical Internalization"</li>
-                </ul>
-            </div>
-            <div class="education-item">
-                <h3>Medical Degree</h3>
-                <h4>Westhill University/UNAM, Mexico</h4>
-                <p>2009 – 2014</p>
-                <ul>
-                    <li>Graduated with Outstanding Performance</li>
-                </ul>
-            </div>
-        </section>
+    <!-- Education Section -->
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>PhD in Experimental Cardiology</h3>
+        <h4>University Medical Centre Groningen, Netherlands</h4>
+        <p>2018 – 2025</p>
+        <ul>
+          <li>Thesis: "Novel approaches in cardiovascular drug discovery and biomarker analysis"</li>
+          <li>Emphasis on translational research and biomarker development</li>
+          <li>Thesis submission January 2025 (defense date pending)</li>
+        </ul>
+      </div>
+      <div class="education-item">
+        <h3>MSc in Nanotechnology and Regenerative Medicine</h3>
+        <h4>University College London, UK</h4>
+        <p>2016 – 2017</p>
+        <ul>
+          <li>Graduated with Distinction</li>
+          <li>Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using Photochemical Internalization"</li>
+        </ul>
+      </div>
+      <div class="education-item">
+        <h3>Medical Degree</h3>
+        <h4>Westhill University/UNAM, Mexico</h4>
+        <p>2009 – 2014</p>
+        <ul>
+          <li>Graduated with Outstanding Performance</li>
+        </ul>
+      </div>
+    </section>
 
-        <!-- Publications Section -->
-        <section id="publications" class="card">
-            <h2>Publications</h2>
-            <ol>
-                <li class="publication-item">
-                    Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research." 
-                    <em>European Journal of Heart Failure</em>.
-                </li>
-                <li class="publication-item">
-                    Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S., Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)." 
-                    <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130.
-                </li>
-                <li class="publication-item">
-                    Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation." 
-                    <em>The British Journal of Dermatology</em>, 187(6), 1045-1048.
-                </li>
-            </ol>
-        </section>
+    <!-- Publications Section -->
+    <section id="publications" class="card">
+      <h2>Publications</h2>
+      <ol>
+        <li class="publication-item">
+          Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research." 
+          <em>European Journal of Heart Failure</em>.
+        </li>
+        <li class="publication-item">
+          Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S., Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)."
+          <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130.
+        </li>
+        <li class="publication-item">
+          Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation."
+          <em>The British Journal of Dermatology</em>, 187(6), 1045-1048.
+        </li>
+      </ol>
+    </section>
 
-        <!-- Languages Section -->
-        <section id="languages" class="card">
-            <h2>Languages</h2>
-            <ul class="languages-list">
-                <li><strong>Spanish:</strong> Native</li>
-                <li><strong>English:</strong> Fluent (C1/C2)</li>
-                <li><strong>Dutch:</strong> Intermediate (B1/B2)</li>
-                <li><strong>French:</strong> Basic user</li>
-            </ul>
-        </section>
+    <!-- Languages Section -->
+    <section id="languages" class="card">
+      <h2>Languages</h2>
+      <ul class="languages-list">
+        <li><strong>Spanish:</strong> Native</li>
+        <li><strong>English:</strong> Fluent (C1/C2)</li>
+        <li><strong>Dutch:</strong> Intermediate (B1/B2)</li>
+        <li><strong>French:</strong> Basic user</li>
+      </ul>
+    </section>
 
-        <!-- Interests Section -->
-        <section id="interests" class="card">
-            <h2>Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-card">
-                    <i class="fas fa-dumbbell fa-2x" aria-hidden="true"></i>
-                    <p>CrossFit Athlete</p>
-                </div>
-                <div class="interest-card">
-                    <i class="fas fa-robot fa-2x" aria-hidden="true"></i>
-                    <p>Artificial Intelligence</p>
-                </div>
-                <div class="interest-card">
-                    <i class="fas fa-plane fa-2x" aria-hidden="true"></i>
-                    <p>Traveling</p>
-                </div>
-                <div class="interest-card">
-                    <i class="fas fa-paw fa-2x" aria-hidden="true"></i>
-                    <p>Animal Welfare</p>
-                </div>
-                <div class="interest-card">
-                    <i class="fas fa-chalkboard-teacher fa-2x" aria-hidden="true"></i>
-                    <p>Education & Mentorship</p>
-                </div>
-                <div class="interest-card">
-                    <i class="fas fa-chart-line fa-2x" aria-hidden="true"></i>
-                    <p>Data Science</p>
-                </div>
-                <div class="interest-card">
-                    <i class="fas fa-lightbulb fa-2x" aria-hidden="true"></i>
-                    <p>Technology Innovations</p>
-                </div>
-                <div class="interest-card">
-                    <i class="fas fa-tree fa-2x" aria-hidden="true"></i>
-                    <p>Outdoor Activities</p>
-                </div>
-            </div>
-        </section>
+    <!-- Interests Section -->
+    <section id="interests" class="card">
+      <h2>Interests</h2>
+      <div class="interests-grid">
+        <div class="interest-card">
+          <i class="fas fa-dumbbell fa-2x" aria-hidden="true"></i>
+          <p>CrossFit Athlete</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-robot fa-2x" aria-hidden="true"></i>
+          <p>Artificial Intelligence</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-plane fa-2x" aria-hidden="true"></i>
+          <p>Traveling</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-paw fa-2x" aria-hidden="true"></i>
+          <p>Animal Welfare</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-chalkboard-teacher fa-2x" aria-hidden="true"></i>
+          <p>Education & Mentorship</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-chart-line fa-2x" aria-hidden="true"></i>
+          <p>Data Science</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-lightbulb fa-2x" aria-hidden="true"></i>
+          <p>Technology Innovations</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-tree fa-2x" aria-hidden="true"></i>
+          <p>Outdoor Activities</p>
+        </div>
+      </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="card">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, feel free to reach out via email or phone:</p>
-            <p><strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
-            <p><strong>Address:</strong> Groningen, Netherlands</p>
-            <p class="cta"><a href="mailto:j.esquivel.gaytan@gmail.com" class="cta">Send an Email</a></p>
-        </section>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>If you'd like to get in touch, feel free to reach out via email or phone:</p>
+      <p><strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
+      <p><strong>Address:</strong> Groningen, Netherlands</p>
+      <p class="cta"><a href="mailto:j.esquivel.gaytan@gmail.com" class="cta">Send an Email</a></p>
+    </section>
 
-    <!-- Footer Section -->
+    <!-- Footer Section (moved inside content-wrapper) -->
     <footer>
-        <p>&copy; 2025 Dr Jose Antonio Esquivel Gaytan. All rights reserved.</p>
-        <p><em>Site developed using AI chatbot technology to demonstrate advanced coding and design skills.</em></p>
+      <p>&copy; 2025 Dr Jose Antonio Esquivel Gaytan. All rights reserved.</p>
+      <p><em>Site developed using AI chatbot technology to show coding and design skills.</em></p>
     </footer>
+  </div><!-- /.content-wrapper -->
 
-    <script>
-        // Progress Bar
-        window.onscroll = () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
-        };
+  <script>
+    // Progress Bar
+    window.onscroll = () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progressBar').style.width = (winScroll / height) * 100 + "%";
+    };
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80; // Adjust offset if needed
-                    const position = target.offsetTop - offset;
-                    window.scrollTo({ top: position, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Dark Mode
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-
-            // Update icon
-            const icon = document.querySelector('.dark-mode-toggle i');
-            if (body.classList.contains('dark-mode')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80; // Adjust offset if needed
+          const position = target.offsetTop - offset;
+          window.scrollTo({ top: position, behavior: 'smooth' });
         }
+      });
+    });
 
-        // Initialize Dark Mode
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
-            document.querySelector('.dark-mode-toggle i').classList.add('fa-sun');
-        }
+    // Dark Mode
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
 
-        // Intersection Observer for Timeline Animations
-        document.addEventListener('DOMContentLoaded', () => {
-            const items = document.querySelectorAll('.timeline-item');
+      // Update icon
+      const icon = document.querySelector('.dark-mode-toggle i');
+      if (body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    }
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.3 // Adjust threshold for when the animation triggers
-            });
+    // Initialize Dark Mode on page load
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+      document.querySelector('.dark-mode-toggle i').classList.remove('fa-moon');
+      document.querySelector('.dark-mode-toggle i').classList.add('fa-sun');
+    }
 
-            items.forEach(item => {
-                observer.observe(item);
-            });
+    // Intersection Observer for Timeline Items & .card Animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card');
+      const timelineItems = document.querySelectorAll('.timeline-item');
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
         });
+      }, {
+        threshold: 0.1 // Trigger once 10% of the item is visible
+      });
 
-        // Highlight Active Navigation Link
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
+      // Observe all .card sections
+      cards.forEach(card => observer.observe(card));
+      // Also observe the .timeline-item for their separate fade-in
+      timelineItems.forEach(item => observer.observe(item));
+    });
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, {
-                threshold: 0.5 // Adjust the threshold as needed
+    // Highlight Active Navigation Link
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section');
+
+      const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
             });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+          }
         });
-    </script>
+      }, {
+        threshold: 0.5
+      });
+
+      sections.forEach(section => {
+        sectionObserver.observe(section);
+      });
+    });
+  </script>
 </body>
 </html>
+
