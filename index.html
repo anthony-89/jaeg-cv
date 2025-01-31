@@ -241,11 +241,11 @@
       color: var(--primary-color);
     }
 
-    /* Experience Timeline (using 2-column grid) */
+    /* Experience Timeline (2-column grid, no overlap) */
     .timeline {
       position: relative;
       display: grid;
-      grid-template-columns: 48% 48%; /* Leaves ~4% in the middle for the line */
+      grid-template-columns: 48% 48%;
       justify-content: space-between;
       grid-row-gap: 2rem;
       margin-top: 2rem;
@@ -257,7 +257,7 @@
       background: var(--secondary-color);
       top: 0;
       bottom: 0;
-      left: 50%; /* middle of .timeline */
+      left: 50%;
       transform: translateX(-50%);
       z-index: 1;
     }
@@ -269,7 +269,7 @@
       z-index: 2;
       padding: 2rem;
       transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-      opacity: 0;    /* for fade-in */
+      opacity: 0;
       transform: translateY(30px);
     }
     .timeline-item.visible {
@@ -283,7 +283,6 @@
       transform: scale(1.05);
       box-shadow: 0 6px 20px var(--shadow-color);
     }
-    /* Connect dot on the side that is near the center line */
     .timeline-item::after {
       content: "";
       position: absolute;
@@ -296,11 +295,9 @@
       z-index: 3;
       transition: background 0.3s ease, transform 0.3s ease;
     }
-    /* For items in the first column, place dot on the right side, near the line */
     .timeline-item:nth-child(odd)::after {
       right: -14px;
     }
-    /* For items in the second column, place dot on the left side */
     .timeline-item:nth-child(even)::after {
       left: -14px;
     }
@@ -366,17 +363,21 @@
 
     /* Skills Section */
     .skills-section {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 2rem;
     }
+
+    /* Skills Category (color-coded top border) */
     .skills-category {
-      flex: 1 1 300px;
       background: var(--light-bg);
       border-radius: 12px;
       padding: 1.5rem;
       box-shadow: 0 4px 15px var(--shadow-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      position: relative;
+      border-top: 4px solid var(--accent-color); /* default fallback color */
+      /* We'll override this border in specific classes below */
     }
     body.dark-mode .skills-category {
       background: #2a2a2a;
@@ -387,27 +388,62 @@
     }
     .skills-category h3 {
       margin-bottom: 1rem;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: var(--primary-color);
       font-family: "Raleway", sans-serif;
       text-align: center;
+      text-transform: uppercase;
     }
-    .skill-item {
+
+    /* Category-specific colors (optional) */
+    .project-management {
+      border-top-color: #e84118; /* bright red */
+    }
+    .translational {
+      border-top-color: #9c88ff; /* purple */
+    }
+    .wet-lab {
+      border-top-color: #fbc531; /* gold */
+    }
+    .ai-data {
+      border-top-color: #00a8ff; /* bright blue */
+    }
+    .programming {
+      border-top-color: #4cd137; /* green */
+    }
+
+    /* Skill Badges */
+    .skill-badges {
       display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-badge {
+      display: inline-flex;
       align-items: center;
-      margin-bottom: 0.8rem;
+      background: #e8f1fa;
+      border-radius: 20px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.9rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: default;
     }
-    .skill-item i {
-      margin-right: 0.8rem;
+    .skill-badge i {
+      margin-right: 0.4rem;
       color: var(--accent-color);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
-    .skill-description {
-      font-size: 1rem;
-      color: var(--text-dark);
+    .skill-badge:hover {
+      background: var(--accent-color);
+      color: #fff;
+      transform: translateY(-2px);
     }
-    body.dark-mode .skill-description {
-      color: var(--text-light);
+    body.dark-mode .skill-badge {
+      background: #444;
+    }
+    body.dark-mode .skill-badge:hover {
+      background: var(--accent-color);
+      color: #fff;
     }
 
     /* Interests */
@@ -534,8 +570,7 @@
         margin-left: 0;
         padding: 1rem;
       }
-
-      /* Make the timeline single-column on smaller screens */
+      /* Single-column timeline on smaller screens */
       .timeline {
         grid-template-columns: 1fr;
       }
@@ -580,21 +615,10 @@
       .education-item h4 {
         font-size: 1rem;
       }
-      .skill-item i,
-      .interests-list li i,
-      .interest-card i {
-        font-size: 1rem;
-      }
-      .skill-description,
-      .interests-list li,
-      .interest-card p {
-        font-size: 0.95rem;
-      }
-      .languages-list li {
-        font-size: 1rem;
-      }
-      .publication-item {
-        font-size: 0.95rem;
+      /* Adjust skill-badge fonts */
+      .skill-badge {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.7rem;
       }
     }
   </style>
@@ -608,8 +632,7 @@
   <!-- Sidebar Navigation -->
   <nav>
     <h2>Menu</h2>
-
-    <!-- Standard Nav Links -->
+    <!-- Navigation Links -->
     <a href="#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a>
     <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
     <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
@@ -622,7 +645,7 @@
     <!-- Small Icon Links -->
     <div class="social-icons">
       <a href="mailto:j.esquivel.gaytan@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan-627a6a14a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/antonio-esquivel-gaytan-627a6a14a" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank"><i class="fab fa-researchgate"></i></a>
       <a href="https://orcid.org/0000-0001-6974-1825" target="_blank"><i class="fab fa-orcid"></i></a>
     </div>
@@ -694,63 +717,33 @@
             <li>
               <strong>Project Management:</strong>
               <ul>
-                <li>
-                  Coordinated multiple research projects involving diverse stakeholders,
-                  including funding agencies, industry partners, and academic collaborators.
-                </li>
-                <li>
-                  Managed timelines and deliverables while ensuring strict adherence to
-                  regulatory standards.
-                </li>
-                <li>
-                  Established and maintained collaborations across multiple departments,
-                  industries, and institutions.
-                </li>
+                <li>Coordinated multiple research projects with diverse stakeholders.</li>
+                <li>Managed timelines and deliverables while ensuring adherence to standards.</li>
+                <li>Built and maintained collaborations across departments and industries.</li>
               </ul>
             </li>
             <li>
               <strong>Research Innovation:</strong>
               <ul>
-                <li>
-                  Developed and implemented a high-throughput screening strategy for
-                  identifying novel therapeutic compounds.
-                </li>
-                <li>
-                  Led complex, multi-stakeholder projects integrating proteomics, drug
-                  screening, and molecular biology.
-                </li>
-                <li>
-                  Identified and characterized new molecular targets for cardiovascular
-                  therapy.
-                </li>
+                <li>Developed a high-throughput screening strategy for novel compounds.</li>
+                <li>Integrated proteomics, drug screening, and molecular biology.</li>
+                <li>Identified and characterized new molecular targets for therapy.</li>
               </ul>
             </li>
             <li>
               <strong>Data Analysis &amp; Documentation:</strong>
               <ul>
-                <li>
-                  Designed and implemented data analysis workflows for complex biomarker
-                  studies.
-                </li>
-                <li>
-                  Created and maintained comprehensive documentation, including SOPs,
-                  experimental protocols, and regulatory reports.
-                </li>
-                <li>
-                  Employed advanced analytical tools and AI-driven statistical methods for
-                  data processing and visualization.
-                </li>
+                <li>Designed workflows for complex biomarker studies.</li>
+                <li>Created SOPs, experimental protocols, and regulatory reports.</li>
+                <li>Used AI-driven statistical methods for data visualization.</li>
               </ul>
             </li>
             <li>
               <strong>Team Leadership:</strong>
               <ul>
-                <li>Supervised and mentored students in laboratory settings.</li>
-                <li>Led cross-functional team meetings and coordinated project activities.</li>
-                <li>
-                  Facilitated communication across departments and stakeholders, ensuring
-                  alignment and efficiency.
-                </li>
+                <li>Supervised and mentored students.</li>
+                <li>Led cross-functional team meetings and coordinated activities.</li>
+                <li>Maintained communication across departments for optimal efficiency.</li>
               </ul>
             </li>
           </ul>
@@ -761,37 +754,22 @@
           <h3>Medical Researcher | Science iN, Mexico City</h3>
           <h4>2017 – 2018</h4>
           <ul>
-            <li>
-              Monitored clinical data integrity across multiple trial sites, ensuring
-              adherence to protocol.
-            </li>
-            <li>
-              Created standardized documentation protocols to improve compliance and reduce
-              reporting errors.
-            </li>
+            <li>Monitored clinical data integrity across trial sites.</li>
+            <li>Created standardized documentation protocols.</li>
             <li>Authored technical reports and prepared regulatory documents.</li>
-            <li>
-              Coordinated with clinical teams to ensure rigorous protocol adherence and
-              established quality control measures for data collection and management.
-            </li>
+            <li>Coordinated with clinical teams for protocol adherence and quality control.</li>
           </ul>
         </div>
 
         <!-- Clinical Research Intern -->
         <div class="timeline-item">
-          <h3>
-            Clinical Research Intern | Centro Internacional de Investigación Clínica y
-            Educación Médica
-          </h3>
+          <h3>Clinical Research Intern | Centro Internacional de Investigación Clínica y Educación Médica</h3>
           <h4>2015 – 2016</h4>
           <ul>
             <li>Supported clinical trial operations and documentation.</li>
-            <li>Assisted in standardizing laboratory procedures to enhance efficiency.</li>
-            <li>Contributed to the preparation of regulatory reports.</li>
-            <li>
-              Helped develop and implement sample tracking systems, improving data
-              reliability.
-            </li>
+            <li>Helped standardize laboratory procedures to enhance efficiency.</li>
+            <li>Contributed to preparing regulatory reports.</li>
+            <li>Developed sample tracking systems for data reliability.</li>
           </ul>
         </div>
 
@@ -800,16 +778,10 @@
           <h3>Clinical Supervisor & Lecturer | UVM Mexico</h3>
           <h4>2018</h4>
           <ul>
-            <li>
-              Supervised medical students during clinical rotations, providing hands-on
-              guidance and feedback.
-            </li>
+            <li>Supervised medical students during clinical rotations.</li>
             <li>Developed and delivered clinical education programs.</li>
-            <li>Coordinated effectively between academic and clinical settings.</li>
-            <li>
-              Ensured compliance with educational and clinical standards to maintain high
-              training quality.
-            </li>
+            <li>Coordinated between academic and clinical settings.</li>
+            <li>Ensured compliance with standards for high-quality training.</li>
           </ul>
         </div>
 
@@ -818,15 +790,9 @@
           <h3>Clinical Intern (Chief) | ISSSTE Hospital Queretaro</h3>
           <h4>2014 - 2015</h4>
           <ul>
-            <li>
-              Coordinated and supervised medical interns, optimizing patient care
-              workflows.
-            </li>
-            <li>Managed patient care operations with adherence to hospital protocols.</li>
-            <li>
-              Facilitated effective communication between departments to support clinical
-              operations.
-            </li>
+            <li>Coordinated and supervised medical interns for patient care workflows.</li>
+            <li>Managed care operations with adherence to hospital protocols.</li>
+            <li>Facilitated effective communication for clinical operations.</li>
           </ul>
         </div>
       </div>
@@ -834,65 +800,141 @@
 
     <!-- Skills Section -->
     <section id="skills" class="card">
-      <h2>Technical Skills</h2>
+      <h2>Skills</h2>
       <div class="skills-section">
-        <!-- AI Tools & LLMs -->
-        <div class="skills-category">
-          <h3>AI Tools &amp; LLMs</h3>
-          <div class="skill-item">
-            <i class="fas fa-robot"></i>
-            <div class="skill-description"><strong>Gemini Deep Research</strong> (Advanced 1.5 &amp; 2.0)</div>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-brain"></i>
-            <div class="skill-description"><strong>Claude Sonnet 3.5</strong></div>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-comments"></i>
-            <div class="skill-description">
-              <strong>ChatGPT</strong> (4.0, 0.1, &amp; 0.1 Mini)
+
+        <!-- 1) Project Management & Communication -->
+        <div class="skills-category project-management">
+          <h3><i class="fas fa-users-cog"></i> Project Management & Communication</h3>
+          <div class="skill-badges">
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Project Management</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Teamwork</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Cross-functional Team Leadership</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Communication</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Scientific Writing</span>
             </div>
           </div>
-          <div class="skill-item">
-            <i class="fas fa-search"></i>
-            <div class="skill-description"><strong>Deep Seek R1</strong></div>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-question-circle"></i>
-            <div class="skill-description"><strong>Perplexity</strong></div>
+        </div>
+
+        <!-- 2) Translational & Clinical -->
+        <div class="skills-category translational">
+          <h3><i class="fas fa-stethoscope"></i> Translational & Clinical</h3>
+          <div class="skill-badges">
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Translational Medicine</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Translational Research</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Clinical Research</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Scholarly Research</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Systematic Reviews</span>
+            </div>
           </div>
         </div>
 
-        <!-- Programming Languages -->
-        <div class="skills-category">
-          <h3>Programming Languages</h3>
-          <div class="skill-item">
-            <i class="fab fa-python"></i>
-            <div class="skill-description">Python</div>
-          </div>
-          <div class="skill-item">
-            <i class="fab fa-r-project"></i>
-            <div class="skill-description">R</div>
+        <!-- 3) Wet Lab & Molecular -->
+        <div class="skills-category wet-lab">
+          <h3><i class="fas fa-flask"></i> Wet Lab & Molecular</h3>
+          <div class="skill-badges">
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Molecular Biology</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Protein Purification</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Protein Expression</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Mammalian Cell Culture</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Cell Culture</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Western blot</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>qRT-PCR</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Assay Development</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>LC-MS (Liquid Chromatography-Mass Spectrometry)</span>
+            </div>
           </div>
         </div>
 
-        <!-- Development Environments -->
-        <div class="skills-category">
-          <h3>Development Environments</h3>
-          <div class="skill-item">
-            <i class="fab fa-visual-studio-code"></i>
-            <div class="skill-description">Visual Studio Code</div>
+        <!-- 4) AI & Data -->
+        <div class="skills-category ai-data">
+          <h3><i class="fas fa-brain"></i> AI & Data</h3>
+          <div class="skill-badges">
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Data Analysis</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>AI-driven Data Analysis</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>AI-driven coding</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Prompt Engineering</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>ChatGPT</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Anthropic Claude</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Google Gemini</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Deepseek R1</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Ollama</span>
+            </div>
           </div>
         </div>
+
+        <!-- 5) Programming & Tools -->
+        <div class="skills-category programming">
+          <h3><i class="fas fa-code"></i> Programming & Tools</h3>
+          <div class="skill-badges">
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Python (Programming Language)</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>R (Programming Language)</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>HTML</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-check-circle"></i><span>Visual Studio</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <p>
-        <em>
-          I leverage AI tools to enhance my coding efficiency and problem-solving
-          capabilities, utilizing large language models to assist in writing, debugging,
-          and optimizing code while maintaining a strong foundational understanding of
-          programming principles.
-        </em>
-      </p>
     </section>
 
     <!-- Education Section -->
@@ -903,10 +945,7 @@
         <h4>University Medical Centre Groningen, Netherlands</h4>
         <p>2018 – 2025</p>
         <ul>
-          <li>
-            Thesis: "Novel approaches in cardiovascular drug discovery and biomarker
-            analysis"
-          </li>
+          <li>Thesis: "Novel approaches in cardiovascular drug discovery and biomarker analysis"</li>
           <li>Emphasis on translational research and biomarker development</li>
           <li>Thesis submission January 2025 (defense date pending)</li>
         </ul>
@@ -917,10 +956,7 @@
         <p>2016 – 2017</p>
         <ul>
           <li>Graduated with Distinction</li>
-          <li>
-            Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using
-            Photochemical Internalization"
-          </li>
+          <li>Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using Photochemical Internalization"</li>
         </ul>
       </div>
       <div class="education-item">
@@ -938,23 +974,15 @@
       <h2>Publications</h2>
       <ol>
         <li class="publication-item">
-          Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing
-          the translational potential of -omics approaches beyond traditional disease
-          classification in heart failure research."
+          Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research."
           <em>European Journal of Heart Failure</em>.
         </li>
         <li class="publication-item">
-          Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S.,
-          Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al.
-          (2023). "A high-throughput screening strategy identifies adenosine
-          5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme
-          5-oxoprolinase (OPLAH)."
+          Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S., Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)."
           <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130.
         </li>
         <li class="publication-item">
-          Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A
-          translation re-initiation variant in KLHL24 also causes epidermolysis bullosa
-          simplex and dilated cardiomyopathy via intermediate filament degradation."
+          Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation."
           <em>The British Journal of Dermatology</em>, 187(6), 1045-1048.
         </li>
       </ol>
@@ -1108,7 +1136,7 @@
           });
         },
         {
-          threshold: 0.1, // Trigger fade-in once 10% of the element is visible
+          threshold: 0.1, // Adjust threshold for when the animation triggers
         }
       );
 
@@ -1137,7 +1165,7 @@
           });
         },
         {
-          threshold: 0.5, // Adjust as needed
+          threshold: 0.5,
         }
       );
 
