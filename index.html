@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dr Jose Antonio Esquivel Gaytan - Virtual CV</title>
+  <title>Jose Antonio Esquivel Gaytan - Virtual CV</title>
   <!-- Fonts & Icons -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@600;700&display=swap"
@@ -13,22 +13,20 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
   />
-
   <style>
-    /* Root Variables */
+    /* Root Variables (two tones darker teal palette) */
     :root {
-      --primary-color: #1f4068;
-      --secondary-color: #487eb0;
-      --accent-color: #3498db;
-      --light-bg: #f5f6fa;
+      --primary-color: #0E5D6C;
+      --secondary-color: #53A1A0;
+      --accent-color: #2F7C7C;
+      --text-light: #FFFFFF;
+      --text-dark: #333333;
+      --light-bg: #F5F6FA;
       --dark-bg: #222;
-      --text-light: #ececec;
-      --text-dark: #333;
       --nav-width: 280px;
       --transition-speed: 0.3s;
       --shadow-color: rgba(0, 0, 0, 0.2);
     }
-
     /* Global Reset & Base */
     * {
       margin: 0;
@@ -47,7 +45,6 @@
       background-color: var(--dark-bg);
       color: var(--text-light);
     }
-
     /* Progress Bar */
     .progress-container {
       height: 6px;
@@ -64,11 +61,10 @@
       width: 0%;
       transition: width 0.4s ease;
     }
-
     /* Navigation */
     nav {
       width: var(--nav-width);
-      background: linear-gradient(160deg, var(--primary-color) 20%, #1a1a1a 100%);
+      background: linear-gradient(160deg, var(--primary-color) 20%, var(--accent-color) 100%);
       position: fixed;
       height: 100vh;
       padding: 2rem 1.5rem;
@@ -103,10 +99,9 @@
     .nav-link:hover,
     .nav-link.active {
       background: var(--accent-color);
-      box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+      box-shadow: 0 4px 10px rgba(47, 124, 124, 0.3);
       transform: translateX(5px);
     }
-
     /* Dark Mode Toggle */
     .dark-mode-toggle {
       cursor: pointer;
@@ -123,7 +118,6 @@
     .dark-mode-toggle:hover {
       color: var(--accent-color);
     }
-
     /* Social Icons */
     .social-icons {
       display: flex;
@@ -140,14 +134,12 @@
     .social-icons a i:hover {
       color: var(--accent-color);
     }
-
     /* Content Wrapper */
     .content-wrapper {
       margin-left: var(--nav-width);
       padding: 2rem 4rem;
       transition: margin-left var(--transition-speed);
     }
-
     /* Hero Section */
     .hero {
       text-align: center;
@@ -177,12 +169,8 @@
       background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.06) 50%, transparent 80%);
     }
     @keyframes shine {
-      0% {
-        transform: translateX(-50%) translateY(-50%) rotate(45deg);
-      }
-      100% {
-        transform: translateX(50%) translateY(50%) rotate(45deg);
-      }
+      0% { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
+      100% { transform: translateX(50%) translateY(50%) rotate(45deg); }
     }
     .hero h1 {
       font-family: "Raleway", sans-serif;
@@ -195,12 +183,20 @@
     .hero h1:hover {
       letter-spacing: 1px;
     }
+    .hero h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
     .hero p {
       font-size: 1.1rem;
       position: relative;
       z-index: 1;
     }
-
+    .bold-pipe {
+      font-weight: bold;
+      margin: 0 0.4rem;
+    }
     /* Cards (fade-in) */
     .card {
       background: var(--light-bg);
@@ -223,152 +219,78 @@
       transform: translateY(-8px);
       box-shadow: 0 12px 30px var(--shadow-color);
     }
-
-    /* Card Titles */
+    /* Headings using darkest teal */
     .card h2 {
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
       color: var(--primary-color);
-      font-family: "Raleway", sans-serif;
+      margin-bottom: 1rem;
     }
-
-    /* Personal Info */
-    #personal-info p {
+    /* Personal Information Section */
+    #personal-info {
+      padding: 1rem;
+    }
+    .personal-info-list {
+      list-style: none;
+      padding: 0;
+    }
+    .personal-info-list li {
       margin-bottom: 0.8rem;
       font-size: 1.05rem;
+      display: flex;
+      align-items: center;
     }
-    #personal-info strong {
-      color: var(--primary-color);
+    .personal-info-list li i {
+      margin-right: 0.5rem;
+      color: var(--accent-color);
     }
-
-    /* Experience Timeline (2-column grid, no overlap) */
-    .timeline {
-      position: relative;
+    /* Profile Section Text */
+    #profile p {
+      font-size: 1.05rem;
+      text-align: justify;
+      line-height: 2.0;
+    }
+    .keyword {
+      font-weight: bold;
+    }
+    /* Relevant Experience (Grid/Card Layout) */
+    #experience .experience-grid {
       display: grid;
-      grid-template-columns: 48% 48%;
-      justify-content: space-between;
-      grid-row-gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
     }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      width: 4px;
-      background: var(--secondary-color);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-    .timeline-item {
-      position: relative;
+    .experience-card {
       background: var(--light-bg);
-      border-radius: 10px;
+      border-radius: 12px;
+      padding: 1.5rem;
       box-shadow: 0 4px 15px var(--shadow-color);
-      z-index: 2;
-      padding: 2rem;
-      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-      opacity: 0;
-      transform: translateY(30px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    body.dark-mode .timeline-item {
-      background: #2a2a2a;
-    }
-    .timeline-item:hover {
-      transform: scale(1.05);
+    .experience-card:hover {
+      transform: translateY(-5px);
       box-shadow: 0 6px 20px var(--shadow-color);
     }
-    .timeline-item::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: var(--accent-color);
-      border: 4px solid var(--light-bg);
-      border-radius: 50%;
-      top: 2rem;
-      z-index: 3;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .timeline-item:nth-child(odd)::after {
-      right: -14px;
-    }
-    .timeline-item:nth-child(even)::after {
-      left: -14px;
-    }
-    body.dark-mode .timeline-item::after {
-      border-color: var(--dark-bg);
-    }
-    .timeline-item:hover::after {
-      background: var(--secondary-color);
-      transform: scale(1.2);
-    }
-    .timeline-item h3 {
-      margin-top: 0;
+    .experience-card h3 {
       color: var(--primary-color);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 0.5rem;
-      font-family: "Raleway", sans-serif;
     }
-    .timeline-item h4 {
-      margin-bottom: 1rem;
-      font-size: 1rem;
+    .experience-card h4 {
       color: var(--secondary-color);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
     }
-    .timeline-item ul {
+    .experience-card ul {
       list-style-type: disc;
-      padding-left: 1.5rem;
-      margin-top: 0.8rem;
+      margin-left: 1.2rem;
     }
-    .timeline-item li {
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Education */
-    .education-item {
-      margin-bottom: 2rem;
-    }
-    .education-item h3 {
-      font-size: 1.1rem;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-      font-family: "Raleway", sans-serif;
-    }
-    .education-item h4 {
-      font-size: 1rem;
-      color: var(--secondary-color);
+    .experience-card ul li {
       margin-bottom: 0.5rem;
     }
-    .education-item p {
-      font-size: 0.95rem;
-      margin-bottom: 0.8rem;
-    }
-    .education-item ul {
-      margin-top: 0.5rem;
-      padding-left: 1.5rem;
-      list-style-type: disc;
-    }
-    .education-item li {
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
     /* Skills Section */
     .skills-section {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 2rem;
     }
-
-    /* Skills Category (color-coded top border) */
     .skills-category {
       background: var(--light-bg);
       border-radius: 12px;
@@ -376,8 +298,7 @@
       box-shadow: 0 4px 15px var(--shadow-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
       position: relative;
-      border-top: 4px solid var(--accent-color); /* default fallback color */
-      /* We'll override this border in specific classes below */
+      border-top: 4px solid var(--accent-color);
     }
     body.dark-mode .skills-category {
       background: #2a2a2a;
@@ -394,25 +315,6 @@
       text-align: center;
       text-transform: uppercase;
     }
-
-    /* Category-specific colors (optional) */
-    .project-management {
-      border-top-color: #e84118; /* bright red */
-    }
-    .translational {
-      border-top-color: #9c88ff; /* purple */
-    }
-    .wet-lab {
-      border-top-color: #fbc531; /* gold */
-    }
-    .ai-data {
-      border-top-color: #00a8ff; /* bright blue */
-    }
-    .programming {
-      border-top-color: #4cd137; /* green */
-    }
-
-    /* Skill Badges */
     .skill-badges {
       display: flex;
       flex-wrap: wrap;
@@ -445,49 +347,42 @@
       background: var(--accent-color);
       color: #fff;
     }
-
-    /* Interests */
-    .interests-grid {
+    /* Education Section - Grid Layout */
+    .education-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
       margin-top: 1rem;
     }
-    .interest-card {
+    .education-item {
       background: var(--light-bg);
-      border: 2px solid var(--accent-color);
-      border-radius: 10px;
       padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      cursor: pointer;
-      perspective: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .interest-card:hover {
-      transform: rotateY(6deg) translateY(-5px);
-      box-shadow: 0 8px 20px var(--shadow-color);
-      background-color: var(--secondary-color);
+    .education-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px var(--shadow-color);
     }
-    body.dark-mode .interest-card {
-      background: #333;
-      border-color: var(--accent-color);
-    }
-    body.dark-mode .interest-card p {
-      color: var(--text-light);
-    }
-    body.dark-mode .interest-card:hover {
-      background-color: var(--primary-color);
-    }
-    .interest-card i {
-      color: var(--accent-color);
+    .education-item h3 {
       margin-bottom: 0.5rem;
+      font-family: "Raleway", sans-serif;
+      color: var(--primary-color);
     }
-    .interest-card p {
+    .education-item h4 {
+      margin-bottom: 0.8rem;
+      color: var(--secondary-color);
       font-size: 1rem;
-      color: var(--text-dark);
-      margin-top: 0.5rem;
     }
-
+    .education-item p,
+    .education-item ul {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .education-item ul {
+      padding-left: 1.2rem;
+    }
     /* Publications */
     #publications ol {
       padding-left: 1.5rem;
@@ -498,7 +393,11 @@
       font-size: 0.95rem;
       line-height: 1.5;
     }
-
+    .publication-preview {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
     /* Languages */
     .languages-list {
       list-style-type: disc;
@@ -509,7 +408,50 @@
       font-size: 1rem;
       line-height: 1.5;
     }
-
+    /* Certifications Section */
+    #certifications ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #certifications ul li {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    #certifications ul li i {
+      margin-right: 0.5rem;
+      color: var(--accent-color);
+    }
+    /* Interests Section */
+    #interests .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .interest-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .interest-card i {
+      margin-bottom: 0.6rem;
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+    .interest-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px var(--shadow-color);
+    }
+    body.dark-mode .interest-card {
+      background: #2a2a2a;
+    }
     /* Contact */
     #contact p {
       margin-bottom: 1rem;
@@ -529,7 +471,6 @@
     #contact .cta:hover {
       background-color: var(--secondary-color);
     }
-
     /* Footer */
     footer {
       text-align: center;
@@ -537,7 +478,6 @@
       background: var(--light-bg);
       color: var(--text-dark);
       border-top: 1px solid rgba(0, 0, 0, 0.1);
-      position: relative;
       margin-top: 2rem;
     }
     body.dark-mode footer {
@@ -552,7 +492,6 @@
     footer p:last-child {
       font-size: 0.85rem;
     }
-
     /* Responsiveness */
     @media (max-width: 992px) {
       nav {
@@ -570,55 +509,22 @@
         margin-left: 0;
         padding: 1rem;
       }
-      /* Single-column timeline on smaller screens */
-      .timeline {
-        grid-template-columns: 1fr;
-      }
-      .timeline::before {
-        left: 20px;
-        transform: none;
-      }
-      .timeline-item {
-        margin-left: 40px;
-      }
-      .timeline-item::after {
-        left: -36px;
-        right: auto;
+      #interests .interests-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       }
     }
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
       }
       .hero p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+      }
+      .hero h2 {
+        font-size: 1.15rem;
       }
       .card {
         padding: 1.5rem;
-      }
-      .timeline-item {
-        margin-left: 30px;
-        padding: 1.5rem;
-      }
-      .timeline-item::after {
-        left: -32px;
-      }
-      .timeline-item h3 {
-        font-size: 1.2rem;
-      }
-      .timeline-item h4 {
-        font-size: 1rem;
-      }
-      .education-item h3 {
-        font-size: 1.1rem;
-      }
-      .education-item h4 {
-        font-size: 1rem;
-      }
-      /* Adjust skill-badge fonts */
-      .skill-badge {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.7rem;
       }
     }
   </style>
@@ -632,30 +538,24 @@
   <!-- Sidebar Navigation -->
   <nav>
     <h2>Menu</h2>
-    <!-- Navigation Links -->
     <a href="#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a>
     <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
     <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
     <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
     <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
     <a href="#languages" class="nav-link"><i class="fas fa-language"></i> Languages</a>
+    <a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a>
     <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Interests</a>
     <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-
-    <!-- Small Icon Links -->
+    <!-- Social Icons -->
     <div class="social-icons">
       <a href="mailto:j.esquivel.gaytan@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/antonio-esquivel-gaytan-627a6a14a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/joseantonio-esquivel-gaytan89" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank"><i class="fab fa-researchgate"></i></a>
       <a href="https://orcid.org/0000-0001-6974-1825" target="_blank"><i class="fab fa-orcid"></i></a>
     </div>
-
     <!-- Dark Mode Toggle -->
-    <button
-      class="dark-mode-toggle"
-      onclick="toggleDarkMode()"
-      title="Toggle Dark Mode"
-    >
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
       <i class="fas fa-moon"></i>
     </button>
   </nav>
@@ -664,135 +564,90 @@
   <div class="content-wrapper">
     <!-- Hero Section -->
     <section class="hero">
-      <h1>Dr Jose Antonio Esquivel Gaytan</h1>
-      <p>Physician-Scientist | Translational Medicine | Research Coordinator</p>
+      <h1>Jose Antonio Esquivel Gaytan</h1>
+      <h2>MD, MSc, PhD candidate</h2>
+      <p>
+        <strong>Physician-Scientist</strong>
+        <span class="bold-pipe">|</span>
+        <strong>Translational Medicine</strong>
+        <span class="bold-pipe">|</span>
+        <strong>Research Coordinator</strong>
+      </p>
     </section>
 
-    <!-- Personal Information -->
+    <!-- Personal Information Section -->
     <section id="personal-info" class="card">
       <h2>Personal Information</h2>
-      <p><strong>Nationality:</strong> Dutch</p>
-      <p><strong>Date of Birth:</strong> 26-12-1989</p>
-      <p><strong>Address:</strong> Groningen, Netherlands</p>
-      <p>
-        <i class="fas fa-envelope"></i>
-        <strong>Email:</strong>
-        <a href="mailto:j.esquivel.gaytan@gmail.com"> j.esquivel.gaytan@gmail.com</a>
-      </p>
-      <p><strong>Current Position:</strong> PhD candidate</p>
-      <p><strong>Affiliation:</strong> Experimental Cardiology</p>
-      <p><strong>Institution:</strong> University Medical Center Groningen - University of Groningen</p>
-      <p><strong>City:</strong> Groningen, The Netherlands</p>
-      <p><strong>Degree:</strong> MD, MSc</p>
+      <ul class="personal-info-list">
+        <li><i class="fas fa-flag"></i> <strong>Nationality:</strong> Dutch</li>
+        <li><i class="fas fa-user-tie"></i> <strong>Current Position:</strong> PhD candidate</li>
+        <li><i class="fas fa-hospital"></i> <strong>Affiliation:</strong> Experimental Cardiology, Groningen, Netherlands</li>
+        <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></li>
+      </ul>
     </section>
 
-    <!-- Profile Section -->
+    <!-- Professional Profile Section -->
     <section id="profile" class="card">
       <h2>Professional Profile</h2>
       <p>
-        Physician-Scientist with diverse and comprehensive experience in clinical
-        practice, research coordination, and translational medicine. Possesses a strong
-        background in cardiovascular research and the ability to manage complex projects,
-        coordinate multiple stakeholders, and ensure regulatory compliance. Skilled in
-        data analysis, documentation, and team leadership, with a demonstrated track
-        record of implementing standardized protocols and maintaining data integrity.
-      </p>
-      <p>
-        Worked on diverse projects ranging from basic science to drug discovery,
-        biomarker research, and systematic reviews focusing on heart failure and
-        oxidative stress, with a special emphasis on 5-oxoprolinase, glutamate, and
-        5-oxoproline.
+        PhD candidate in Experimental Cardiology (Cardiovascular Science) with extensive experience in Clinical Medicine, Biomedical Sciences, and Translational Cardiovascular Research. At UMCG in the Netherlands, I have investigated cardiovascular biomarkers to study oxidative stress in heart failure while developing high-throughput compound screening and nanoparticle-based drug delivery systems for cardiovascular diseases. My work in Dr. Peter van der Meer's lab has provided me with a solid foundation in both clinical and molecular data analysis, including AI-driven analytics. I am eager to apply my expertise to advance vital clinical research programs and am willing to relocate within Europe.
       </p>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Relevant Experience Section (Reverse Chronological Order) -->
     <section id="experience" class="card">
       <h2>Relevant Experience</h2>
-      <div class="timeline">
+      <div class="experience-grid">
         <!-- PhD Researcher -->
-        <div class="timeline-item">
-          <h3>PhD Researcher | Experimental Cardiology | UMCG, Netherlands</h3>
-          <h4>Nov 2018 – Jan 2025</h4>
+        <div class="experience-card">
+          <h4>2018 – 2025</h4>
+          <h3>PhD Researcher | Experimental Cardiology (Cardiovascular Sciences)</h3>
+          <h4>UMCG, The Netherlands</h4>
           <ul>
-            <li>
-              <strong>Project Management:</strong>
-              <ul>
-                <li>Coordinated multiple research projects with diverse stakeholders.</li>
-                <li>Managed timelines and deliverables while ensuring adherence to standards.</li>
-                <li>Built and maintained collaborations across departments and industries.</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Research Innovation:</strong>
-              <ul>
-                <li>Developed a high-throughput screening strategy for novel compounds.</li>
-                <li>Integrated proteomics, drug screening, and molecular biology.</li>
-                <li>Identified and characterized new molecular targets for therapy.</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Data Analysis &amp; Documentation:</strong>
-              <ul>
-                <li>Designed workflows for complex biomarker studies.</li>
-                <li>Created SOPs, experimental protocols, and regulatory reports.</li>
-                <li>Used AI-driven statistical methods for data visualization.</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Team Leadership:</strong>
-              <ul>
-                <li>Supervised and mentored students.</li>
-                <li>Led cross-functional team meetings and coordinated activities.</li>
-                <li>Maintained communication across departments for optimal efficiency.</li>
-              </ul>
-            </li>
+            <li><strong>Project Management:</strong> Coordinated multiple research projects, managed timelines, and maintained cross-department collaborations. Spearheaded optimizing 5-oxoprolinase (OPLAH) activity to combat oxidative stress in heart failure.</li>
+            <li><strong>Research Innovation:</strong> Developed a high-throughput screening strategy integrating proteomics and molecular biology, including nanoparticle-based drug delivery systems, to identify new therapeutic targets.</li>
+            <li><strong>Data Analysis & Biomarkers:</strong> Focused on cardiovascular biomarker analysis, designed complex workflows, created SOPs/regulatory reports, and used AI-driven methods for data visualization.</li>
+            <li><strong>Team Leadership & Collaboration:</strong> Collaborated with interdisciplinary teams to integrate clinical insights into experimental design, supervised students, and led cross-functional meetings.</li>
           </ul>
         </div>
-
-        <!-- Medical Researcher -->
-        <div class="timeline-item">
-          <h3>Medical Researcher | Science iN, Mexico City</h3>
-          <h4>2017 – 2018</h4>
-          <ul>
-            <li>Monitored clinical data integrity across trial sites.</li>
-            <li>Created standardized documentation protocols.</li>
-            <li>Authored technical reports and prepared regulatory documents.</li>
-            <li>Coordinated with clinical teams for protocol adherence and quality control.</li>
-          </ul>
-        </div>
-
-        <!-- Clinical Research Intern -->
-        <div class="timeline-item">
-          <h3>Clinical Research Intern | Centro Internacional de Investigación Clínica y Educación Médica</h3>
-          <h4>2015 – 2016</h4>
-          <ul>
-            <li>Supported clinical trial operations and documentation.</li>
-            <li>Helped standardize laboratory procedures to enhance efficiency.</li>
-            <li>Contributed to preparing regulatory reports.</li>
-            <li>Developed sample tracking systems for data reliability.</li>
-          </ul>
-        </div>
-
         <!-- Clinical Supervisor & Lecturer -->
-        <div class="timeline-item">
-          <h3>Clinical Supervisor & Lecturer | UVM Mexico</h3>
+        <div class="experience-card">
           <h4>2018</h4>
+          <h3>Clinical Supervisor & Lecturer</h3>
+          <h4>UVM Mexico</h4>
           <ul>
-            <li>Supervised medical students during clinical rotations.</li>
-            <li>Developed and delivered clinical education programs.</li>
-            <li>Coordinated between academic and clinical settings.</li>
-            <li>Ensured compliance with standards for high-quality training.</li>
+            <li>Supervised medical students and developed clinical education programs.</li>
+            <li>Coordinated academic and clinical operations ensuring compliance with industry standards.</li>
           </ul>
         </div>
-
-        <!-- Clinical Intern (Chief) -->
-        <div class="timeline-item">
-          <h3>Clinical Intern (Chief) | ISSSTE Hospital Queretaro</h3>
-          <h4>2014 - 2015</h4>
+        <!-- Medical Researcher -->
+        <div class="experience-card">
+          <h4>2017 – 2018</h4>
+          <h3>Medical Researcher</h3>
+          <h4>Science iN, Mexico City</h4>
           <ul>
-            <li>Coordinated and supervised medical interns for patient care workflows.</li>
-            <li>Managed care operations with adherence to hospital protocols.</li>
-            <li>Facilitated effective communication for clinical operations.</li>
+            <li>Monitored clinical trial data integrity, implemented standardized documentation protocols, and supported regulatory submissions.</li>
+            <li>Authored technical reports and coordinated with clinical teams for protocol adherence.</li>
+          </ul>
+        </div>
+        <!-- Clinical Research Intern -->
+        <div class="experience-card">
+          <h4>2015 – 2016</h4>
+          <h3>Clinical Research Intern</h3>
+          <h4>Centro Internacional de Investigación Clínica y Educación Médica</h4>
+          <ul>
+            <li>Supported clinical trial operations and maintained documentation standards.</li>
+            <li>Standardized laboratory procedures and developed sample tracking systems for enhanced data reliability.</li>
+          </ul>
+        </div>
+        <!-- Clinical Intern (Chief) -->
+        <div class="experience-card">
+          <h4>2014 – 2015</h4>
+          <h3>Clinical Intern (Chief)</h3>
+          <h4>ISSSTE Hospital Queretaro</h4>
+          <ul>
+            <li>Coordinated and supervised interns to optimize patient care workflows.</li>
+            <li>Managed clinical operations and facilitated effective internal communication.</li>
           </ul>
         </div>
       </div>
@@ -802,170 +657,106 @@
     <section id="skills" class="card">
       <h2>Skills</h2>
       <div class="skills-section">
-
-        <!-- 1) Project Management & Communication -->
-        <div class="skills-category project-management">
+        <!-- Project Management & Communication -->
+        <div class="skills-category" style="border-top-color: #e84118;">
           <h3><i class="fas fa-users-cog"></i> Project Management & Communication</h3>
           <div class="skill-badges">
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Project Management</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Teamwork</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Cross-functional Team Leadership</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Communication</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Scientific Writing</span>
-            </div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Project Management</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Teamwork</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Cross-functional Team Leadership</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Communication</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Scientific Writing</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Protocol Development</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Regulatory Submissions & Compliance</span></div>
           </div>
         </div>
-
-        <!-- 2) Translational & Clinical -->
-        <div class="skills-category translational">
+        <!-- Translational & Clinical -->
+        <div class="skills-category" style="border-top-color: #9c88ff;">
           <h3><i class="fas fa-stethoscope"></i> Translational & Clinical</h3>
           <div class="skill-badges">
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Translational Medicine</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Translational Research</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Clinical Research</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Scholarly Research</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Systematic Reviews</span>
-            </div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Translational Medicine</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Translational Research</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Clinical Research</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Scholarly Research</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Systematic Reviews</span></div>
           </div>
         </div>
-
-        <!-- 3) Wet Lab & Molecular -->
-        <div class="skills-category wet-lab">
+        <!-- Wet Lab & Molecular -->
+        <div class="skills-category" style="border-top-color: #fbc531;">
           <h3><i class="fas fa-flask"></i> Wet Lab & Molecular</h3>
           <div class="skill-badges">
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Molecular Biology</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Protein Purification</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Protein Expression</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Mammalian Cell Culture</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Cell Culture</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Western blot</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>qRT-PCR</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Assay Development</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>LC-MS (Liquid Chromatography-Mass Spectrometry)</span>
-            </div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Molecular Biology</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Protein Purification</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Protein Expression</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Mammalian Cell Culture</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Cell Culture</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Western blot</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>qRT-PCR</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Assay Development</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>LC-MS (Liquid Chromatography-Mass Spectrometry)</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>General Wet Lab Skills</span></div>
           </div>
         </div>
-
-        <!-- 4) AI & Data -->
-        <div class="skills-category ai-data">
+        <!-- AI & Data -->
+        <div class="skills-category" style="border-top-color: #00a8ff;">
           <h3><i class="fas fa-brain"></i> AI & Data</h3>
           <div class="skill-badges">
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Data Analysis</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>AI-driven Data Analysis</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>AI-driven coding</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Prompt Engineering</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>ChatGPT</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Anthropic Claude</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Google Gemini</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Deepseek R1</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Ollama</span>
-            </div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Data Analysis</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>AI-driven Data Analysis</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>AI-Driven Interpretation</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>AI-driven coding</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Prompt Engineering</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>ChatGPT</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Anthropic Claude</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Google Gemini</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Deepseek R1</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Ollama</span></div>
           </div>
         </div>
-
-        <!-- 5) Programming & Tools -->
-        <div class="skills-category programming">
+        <!-- Programming & Tools -->
+        <div class="skills-category" style="border-top-color: #4cd137;">
           <h3><i class="fas fa-code"></i> Programming & Tools</h3>
           <div class="skill-badges">
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Python (Programming Language)</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>R (Programming Language)</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>HTML</span>
-            </div>
-            <div class="skill-badge">
-              <i class="fas fa-check-circle"></i><span>Visual Studio</span>
-            </div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Python (Programming Language)</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>R (Programming Language)</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>HTML</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Visual Studio</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Statistical Analysis in Python & R</span></div>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- Education Section -->
     <section id="education" class="card">
       <h2>Education</h2>
-      <div class="education-item">
-        <h3>PhD in Experimental Cardiology</h3>
-        <h4>University Medical Centre Groningen, Netherlands</h4>
-        <p>2018 – 2025</p>
-        <ul>
-          <li>Thesis: "Novel approaches in cardiovascular drug discovery and biomarker analysis"</li>
-          <li>Emphasis on translational research and biomarker development</li>
-          <li>Thesis submission January 2025 (defense date pending)</li>
-        </ul>
-      </div>
-      <div class="education-item">
-        <h3>MSc in Nanotechnology and Regenerative Medicine</h3>
-        <h4>University College London, UK</h4>
-        <p>2016 – 2017</p>
-        <ul>
-          <li>Graduated with Distinction</li>
-          <li>Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using Photochemical Internalization"</li>
-        </ul>
-      </div>
-      <div class="education-item">
-        <h3>Medical Degree</h3>
-        <h4>Westhill University/UNAM, Mexico</h4>
-        <p>2009 – 2014</p>
-        <ul>
-          <li>Graduated with Outstanding Performance</li>
-        </ul>
+      <div class="education-grid">
+        <div class="education-item">
+          <h3>PhD in Experimental Cardiology (Candidate)</h3>
+          <h4>University Medical Centre Groningen, Netherlands</h4>
+          <p>2018 – 2025</p>
+          <ul>
+            <li>Thesis: "Novel approaches in cardiovascular drug discovery and biomarker analysis" (Submission Jan 2025)</li>
+            <li>Emphasis on translational research and biomarker development</li>
+          </ul>
+        </div>
+        <div class="education-item">
+          <h3>MSc in Nanotechnology and Regenerative Medicine</h3>
+          <h4>University College London, UK</h4>
+          <p>2016 – 2017</p>
+          <ul>
+            <li>Graduated with Distinction</li>
+            <li>Thesis: "Improving Efficacy of Gemcitabine Treatment in Pancreatic Cancer using Photochemical Internalization"</li>
+          </ul>
+        </div>
+        <div class="education-item">
+          <h3>Medical Degree</h3>
+          <h4>UNAM/Westhill University, Mexico</h4>
+          <p>2009 – 2014</p>
+          <ul>
+            <li>Graduated with Outstanding Performance</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -975,15 +766,18 @@
       <ol>
         <li class="publication-item">
           Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research."
-          <em>European Journal of Heart Failure</em>.
+          <em>European Journal of Heart Failure</em>. DOI: <a href="https://doi.org/10.1002/ejhf.3268" target="_blank"><strong>10.1002/ejhf.3268</strong></a>
+          <p class="publication-preview">Preview: This study challenges conventional heart failure classifications by integrating omics technologies to reveal novel insights into disease mechanisms.</p>
         </li>
         <li class="publication-item">
-          Esquivel-Gaytan, A., Bomer, N., Bartolo, R., Arevalo-Gomez, K.F., Honarnejad, S., Permentier, H., Santos, H.A., Domling, A., Voors, A.A., Sillje, H., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)."
-          <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130.
+          Esquivel-Gaytan, A., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)."
+          <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130. DOI: <a href="https://doi.org/10.1093/eurheartj/ehad655.3130" target="_blank"><strong>10.1093/eurheartj/ehad655.3130</strong></a>
+          <p class="publication-preview">Preview: This work outlines the development of a screening platform that led to the discovery of AMP as a modulator of OPLAH, potentially enhancing cardiac protection.</p>
         </li>
         <li class="publication-item">
-          Vermeer, M.C.S.C., Al-Shinnag, M., Silljé, H.H.W., Gaytan, A.E., et al. (2022). "A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation."
-          <em>The British Journal of Dermatology</em>, 187(6), 1045-1048.
+          Vermeer, M.C.S.C., et al. (2022). "A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation."
+          <em>The British Journal of Dermatology</em>, 187(6), 1045-1048. DOI: <a href="https://doi.org/10.1111/bjd.21832" target="_blank"><strong>10.1111/bjd.21832</strong></a>
+          <p class="publication-preview">Preview: This publication elucidates the molecular mechanisms linking a KLHL24 variant to both skin and cardiac conditions, highlighting novel disease pathways.</p>
         </li>
       </ol>
     </section>
@@ -993,9 +787,20 @@
       <h2>Languages</h2>
       <ul class="languages-list">
         <li><strong>Spanish:</strong> Native</li>
-        <li><strong>English:</strong> Fluent (C1/C2)</li>
-        <li><strong>Dutch:</strong> Intermediate (B1/B2)</li>
-        <li><strong>French:</strong> Basic user</li>
+        <li><strong>English:</strong> C1</li>
+        <li><strong>Dutch:</strong> B1/B2</li>
+        <li><strong>French:</strong> Basic</li>
+      </ul>
+    </section>
+
+    <!-- Certifications Section (Moved after Languages) -->
+    <section id="certifications" class="card">
+      <h2>Certifications</h2>
+      <ul>
+        <li><i class="fas fa-certificate"></i> Good Clinical Practice – NDAT CTN 2025</li>
+        <li><i class="fas fa-certificate"></i> Article 9 – Experiments on Animals Act License</li>
+        <li><i class="fas fa-certificate"></i> ML-1 Laboratory Certificate</li>
+        <li><i class="fas fa-certificate"></i> Driving license AM-B</li>
       </ul>
     </section>
 
@@ -1004,36 +809,20 @@
       <h2>Interests</h2>
       <div class="interests-grid">
         <div class="interest-card">
-          <i class="fas fa-dumbbell fa-2x" aria-hidden="true"></i>
+          <i class="fas fa-dumbbell"></i>
           <p>CrossFit Athlete</p>
         </div>
         <div class="interest-card">
-          <i class="fas fa-robot fa-2x" aria-hidden="true"></i>
+          <i class="fas fa-robot"></i>
           <p>Artificial Intelligence</p>
         </div>
         <div class="interest-card">
-          <i class="fas fa-plane fa-2x" aria-hidden="true"></i>
+          <i class="fas fa-plane"></i>
           <p>Traveling</p>
         </div>
         <div class="interest-card">
-          <i class="fas fa-paw fa-2x" aria-hidden="true"></i>
+          <i class="fas fa-paw"></i>
           <p>Animal Welfare</p>
-        </div>
-        <div class="interest-card">
-          <i class="fas fa-chalkboard-teacher fa-2x" aria-hidden="true"></i>
-          <p>Education & Mentorship</p>
-        </div>
-        <div class="interest-card">
-          <i class="fas fa-chart-line fa-2x" aria-hidden="true"></i>
-          <p>Data Science</p>
-        </div>
-        <div class="interest-card">
-          <i class="fas fa-lightbulb fa-2x" aria-hidden="true"></i>
-          <p>Technology Innovations</p>
-        </div>
-        <div class="interest-card">
-          <i class="fas fa-tree fa-2x" aria-hidden="true"></i>
-          <p>Outdoor Activities</p>
         </div>
       </div>
     </section>
@@ -1041,38 +830,33 @@
     <!-- Contact Section -->
     <section id="contact" class="card">
       <h2>Contact</h2>
-      <p>If you'd like to get in touch, feel free to reach out via email or phone:</p>
+      <p><strong>Location:</strong> Groningen, Netherlands</p>
       <p>
         <i class="fas fa-envelope"></i>
-        <strong>Email:</strong>
-        <a href="mailto:j.esquivel.gaytan@gmail.com"> j.esquivel.gaytan@gmail.com</a>
+        <strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a>
+      </p>
+      <p>
+        <i class="fab fa-linkedin"></i>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/joseantonio-esquivel-gaytan89" target="_blank">www.linkedin.com/in/joseantonio-esquivel-gaytan89</a>
       </p>
       <p>
         <i class="fab fa-researchgate"></i>
-        <strong>ResearchGate:</strong>
-        <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank">
-          Antonio-Gaytan-2
-        </a>
+        <strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank">Antonio-Gaytan-2</a>
       </p>
       <p>
         <i class="fab fa-orcid"></i>
-        <strong>ORCID:</strong>
-        <a href="https://orcid.org/0000-0001-6974-1825" target="_blank">
-          0000-0001-6974-1825
-        </a>
+        <strong>ORCID:</strong> <a href="https://orcid.org/0000-0001-6974-1825" target="_blank">0000-0001-6974-1825</a>
       </p>
-      <p><strong>Address:</strong> Groningen, Netherlands</p>
-      <p class="cta">
-        <a href="mailto:j.esquivel.gaytan@gmail.com" class="cta">Send an Email</a>
+      <p>
+        <i class="fas fa-globe"></i>
+        <strong>Website:</strong> <a href="https://drjaeg.com" target="_blank">drjaeg.com</a>
       </p>
     </section>
 
     <!-- Footer -->
     <footer>
       <p>&copy; 2025 Dr Jose Antonio Esquivel Gaytan. All rights reserved.</p>
-      <p>
-        <em>Site developed using AI chatbot technology to demonstrate advanced coding and design skills.</em>
-      </p>
+      <p><em>Site developed using AI chatbot technology to demonstrate advanced coding and design skills.</em></p>
     </footer>
   </div>
 
@@ -1085,12 +869,12 @@
     };
 
     // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute("href"));
         if (target) {
-          const offset = 80; // Adjust offset if needed
+          const offset = 80;
           const position = target.offsetTop - offset;
           window.scrollTo({ top: position, behavior: "smooth" });
         }
@@ -1102,8 +886,6 @@
       const body = document.body;
       body.classList.toggle("dark-mode");
       localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
-
-      // Update icon
       const icon = document.querySelector(".dark-mode-toggle i");
       if (body.classList.contains("dark-mode")) {
         icon.classList.remove("fa-moon");
@@ -1113,8 +895,6 @@
         icon.classList.add("fa-moon");
       }
     }
-
-    // Initialize Dark Mode from Local Storage
     if (localStorage.getItem("darkMode") === "true") {
       document.body.classList.add("dark-mode");
       const icon = document.querySelector(".dark-mode-toggle i");
@@ -1122,56 +902,38 @@
       icon.classList.add("fa-sun");
     }
 
-    // Intersection Observer for Timeline & Cards
+    // Intersection Observer for Cards (fade-in)
     document.addEventListener("DOMContentLoaded", () => {
-      const items = document.querySelectorAll(".timeline-item, .card");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.1, // Adjust threshold for when the animation triggers
-        }
-      );
-
-      items.forEach((item) => {
-        observer.observe(item);
-      });
+      const items = document.querySelectorAll(".card");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      items.forEach(item => observer.observe(item));
     });
 
     // Highlight Active Navigation Link
     document.addEventListener("DOMContentLoaded", () => {
       const navLinks = document.querySelectorAll(".nav-link");
       const sections = document.querySelectorAll("section");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const id = entry.target.getAttribute("id");
-              navLinks.forEach((link) => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === `#${id}`) {
-                  link.classList.add("active");
-                }
-              });
-            }
-          });
-        },
-        {
-          threshold: 0.5,
-        }
-      );
-
-      sections.forEach((section) => {
-        observer.observe(section);
-      });
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            navLinks.forEach(link => {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === `#${id}`) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      }, { threshold: 0.5 });
+      sections.forEach(section => observer.observe(section));
     });
   </script>
 </body>
