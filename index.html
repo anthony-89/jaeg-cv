@@ -228,6 +228,19 @@
     #personal-info {
       padding: 1rem;
     }
+    .personal-info-content {
+      display: flex;
+      align-items: center;
+    }
+    .photo-container {
+      width: 120px;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    .photo-container img {
+      width: 100%;
+      border-radius: 50%;
+    }
     .personal-info-list {
       list-style: none;
       padding: 0;
@@ -578,16 +591,17 @@
     <!-- Personal Information Section -->
     <section id="personal-info" class="card">
       <h2>Personal Information</h2>
-      <!-- Updated photo source -->
-      <div class="photo-container">
-        <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="Photo of Jose Antonio Esquivel Gaytan" />
+      <div class="personal-info-content">
+        <div class="photo-container">
+          <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="Photo of Jose Antonio Esquivel Gaytan" />
+        </div>
+        <ul class="personal-info-list">
+          <li><i class="fas fa-flag"></i> <strong>Nationality:</strong> Dutch</li>
+          <li><i class="fas fa-user-tie"></i> <strong>Current Position:</strong> PhD candidate</li>
+          <li><i class="fas fa-hospital"></i> <strong>Affiliation:</strong> Experimental Cardiology, Groningen, Netherlands</li>
+          <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></li>
+        </ul>
       </div>
-      <ul class="personal-info-list">
-        <li><i class="fas fa-flag"></i> <strong>Nationality:</strong> Dutch</li>
-        <li><i class="fas fa-user-tie"></i> <strong>Current Position:</strong> PhD candidate</li>
-        <li><i class="fas fa-hospital"></i> <strong>Affiliation:</strong> Experimental Cardiology, Groningen, Netherlands</li>
-        <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></li>
-      </ul>
     </section>
 
     <!-- Professional Profile Section -->
