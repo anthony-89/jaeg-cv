@@ -241,11 +241,11 @@
     }
     .personal-info-content {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      gap: 1rem; /* space between photo and list */
     }
     .photo-container {
       width: 240px;
-      margin-right: 1rem;
       flex-shrink: 0;
     }
     .photo-container img {
@@ -259,34 +259,41 @@
     .personal-info-list {
       list-style: none;
       padding: 0;
-      flex: 1;
+      margin: 0;
+      width: 100%; /* use full space next to photo */
     }
     .personal-info-list li {
-      margin-bottom: 0.8rem;
-      font-size: 1.1rem;
       display: flex;
       align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
     }
     .personal-info-list li i {
       margin-right: 0.5rem;
       color: var(--accent-color);
+      flex-shrink: 0;
     }
-    /* Ensure labels (strong) align neatly */
+    /* Updated: left-align labels and values */
     .personal-info-list li strong {
-      min-width: 120px;
-      display: inline-block;
-      text-align: right;
+      /* Removed fixed width and text-align: right */
       margin-right: 8px;
+      flex-shrink: 0;
     }
-    /* For mobile: stack label and value */
+    .personal-info-list li span {
+      flex: 1;
+      text-align: left;
+      overflow-wrap: break-word;
+    }
+    /* For smaller screens, stack label & value */
     @media (max-width: 768px) {
       .personal-info-list li {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
       }
       .personal-info-list li strong {
-        text-align: left;
         margin-bottom: 4px;
+      }
+      .personal-info-list li span {
+        flex: 1 1 100%;
       }
     }
     /* Professional Profile Section */
@@ -587,13 +594,8 @@
       .card {
         padding: 1.5rem;
       }
-      .personal-info-content {
-        flex-direction: column;
-        align-items: center;
-      }
       .photo-container {
         width: 120px;
-        margin-right: 0;
         margin-bottom: 1rem;
       }
       .personal-info-list {
@@ -669,10 +671,26 @@
           <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="Photo of Jose Antonio Esquivel Gaytan" />
         </div>
         <ul class="personal-info-list">
-          <li><i class="fas fa-flag"></i> <strong>Nationality:</strong> Dutch</li>
-          <li><i class="fas fa-user-tie"></i> <strong>Current Position:</strong> PhD Candidate</li>
-          <li><i class="fas fa-hospital"></i> <strong>Affiliation:</strong> Experimental Cardiology, Groningen, Netherlands</li>
-          <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></li>
+          <li>
+            <i class="fas fa-flag"></i>
+            <strong>Nationality:</strong>
+            <span>Dutch</span>
+          </li>
+          <li>
+            <i class="fas fa-user-tie"></i>
+            <strong>Current Position:</strong>
+            <span>PhD Candidate</span>
+          </li>
+          <li>
+            <i class="fas fa-hospital"></i>
+            <strong>Affiliation:</strong>
+            <span>Experimental Cardiology, Groningen, Netherlands</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <strong>Email:</strong>
+            <span><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></span>
+          </li>
         </ul>
       </div>
     </section>
@@ -903,11 +921,11 @@
     <section id="contact" class="card">
       <h2><i class="fas fa-envelope"></i> Contact</h2>
       <p><strong>Location:</strong> Groningen, Netherlands</p>
-      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
-      <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank">linkedin.com/in/joseantonio-esquivel-gaytan89</a></p>
-      <p><i class="fab fa-researchgate"></i> <strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank">Antonio-Gaytan-2</a></p>
-      <p><i class="fab fa-orcid"></i> <strong>ORCID:</strong> <a href="https://orcid.org/0000-0001-6974-1825" target="_blank">0000-0001-6974-1825</a></p>
-      <p><i class="fas fa-globe"></i> <strong>Website:</strong> <a href="https://drjaeg.com" target="_blank">drjaeg.com</a></p>
+      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <span><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></span></p>
+      <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank">linkedin.com/in/joseantonio-esquivel-gaytan89</a></span></p>
+      <p><i class="fab fa-researchgate"></i> <strong>ResearchGate:</strong> <span><a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank">Antonio-Gaytan-2</a></span></p>
+      <p><i class="fab fa-orcid"></i> <strong>ORCID:</strong> <span><a href="https://orcid.org/0000-0001-6974-1825" target="_blank">0000-0001-6974-1825</a></span></p>
+      <p><i class="fas fa-globe"></i> <strong>Website:</strong> <span><a href="https://drjaeg.com" target="_blank">drjaeg.com</a></span></p>
     </section>
 
     <!-- Footer -->
