@@ -123,7 +123,7 @@
     .social-icons a i:hover {
       color: var(--accent-color);
     }
-    /* Dark Mode Toggle Container (always at the bottom) */
+    /* Dark Mode Toggle Container */
     .toggle-container {
       text-align: center;
       margin-top: 1rem;
@@ -232,7 +232,6 @@
       margin-bottom: 1rem;
       font-size: 1.8rem;
     }
-    /* Adjust heading contrast in dark mode */
     body.dark-mode .card h2 {
       color: var(--text-light);
     }
@@ -260,6 +259,7 @@
     .personal-info-list {
       list-style: none;
       padding: 0;
+      flex: 1;
     }
     .personal-info-list li {
       margin-bottom: 0.8rem;
@@ -278,14 +278,33 @@
       text-align: right;
       margin-right: 8px;
     }
+    /* For mobile: stack label and value */
+    @media (max-width: 768px) {
+      .personal-info-list li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .personal-info-list li strong {
+        text-align: left;
+        margin-bottom: 4px;
+      }
+    }
     /* Professional Profile Section */
     #profile p {
       font-size: 1.1rem;
       text-align: justify;
-      line-height: 2;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
     }
-    .keyword {
-      font-weight: bold;
+    #profile .summary {
+      border-left: 4px solid var(--accent-color);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    #profile ul {
+      list-style: disc;
+      margin-left: 1.5rem;
     }
     /* Relevant Experience */
     #experience .experience-grid {
@@ -578,7 +597,7 @@
         margin-bottom: 1rem;
       }
       .personal-info-list {
-        text-align: center;
+        text-align: left;
       }
     }
     /* Animations */
@@ -661,9 +680,16 @@
     <!-- Professional Profile Section -->
     <section id="profile" class="card">
       <h2><i class="fas fa-info-circle"></i> Professional Profile</h2>
-      <p>
-        I am a PhD candidate in Experimental Cardiology with extensive experience spanning clinical practice, biomedical research, and innovative translational studies. At UMCG, my work centers on deciphering cardiovascular biomarkers, optimizing high-throughput screening techniques, and developing nanoparticle-based drug delivery systems. My background in both clinical and molecular data analysis—including AI-driven methods—equips me to drive forward critical clinical research initiatives. I am enthusiastic about leveraging my expertise and am open to relocation within Europe.
-      </p>
+      <div class="summary">
+        <p>
+          A dedicated PhD candidate in Experimental Cardiology at UMCG, I integrate clinical insights with cutting-edge research. I specialize in high-throughput screening, cardiovascular biomarker analysis, and nanoparticle-based drug delivery.
+        </p>
+      </div>
+      <ul>
+        <li>Expert in bridging clinical practice and molecular research.</li>
+        <li>Proficient in AI-driven data analysis and innovative experimental design.</li>
+        <li>Committed to advancing translational medicine and improving patient outcomes.</li>
+      </ul>
     </section>
 
     <!-- Relevant Experience Section -->
@@ -675,10 +701,10 @@
           <h3>Doctoral Researcher</h3>
           <h4>University Medical Center Groningen, Netherlands</h4>
           <ul>
-            <li><strong>Project Leadership:</strong> Coordinated multi-disciplinary research projects and optimized 5-oxoprolinase (OPLAH) activity to address oxidative stress in heart failure.</li>
-            <li><strong>Innovative Screening:</strong> Developed a high-throughput screening platform integrating proteomics and molecular techniques, including nanoparticle-based drug delivery.</li>
-            <li><strong>Data & Biomarkers:</strong> Designed robust workflows for cardiovascular biomarker analysis and implemented AI-driven data visualization tools.</li>
-            <li><strong>Team Collaboration:</strong> Supervised students and led cross-functional meetings to seamlessly integrate clinical insights into experimental design.</li>
+            <li><strong>Project Leadership:</strong> Coordinated multi-disciplinary projects and optimized 5-oxoprolinase (OPLAH) activity to mitigate oxidative stress in heart failure.</li>
+            <li><strong>Innovative Screening:</strong> Developed a high-throughput platform integrating proteomics and nanoparticle-based delivery.</li>
+            <li><strong>Data & Biomarkers:</strong> Designed workflows for cardiovascular biomarker analysis with AI-driven visualization.</li>
+            <li><strong>Team Collaboration:</strong> Supervised students and led meetings to integrate clinical insights into experimental design.</li>
           </ul>
         </div>
         <div class="experience-card">
@@ -686,8 +712,8 @@
           <h3>Clinical Supervisor and Lecturer</h3>
           <h4>Universidad del Valle de México, Mexico</h4>
           <ul>
-            <li>Guided medical students through clinical rotations while developing and delivering comprehensive educational programs.</li>
-            <li>Bridged academic and clinical environments to ensure adherence to high training standards.</li>
+            <li>Guided medical students during clinical rotations while delivering comprehensive educational programs.</li>
+            <li>Ensured adherence to high training standards in both academic and clinical settings.</li>
           </ul>
         </div>
         <div class="experience-card">
@@ -695,8 +721,8 @@
           <h3>Medical Researcher</h3>
           <h4>Science iN, Mexico City Area, Mexico</h4>
           <ul>
-            <li>Ensured data integrity across multiple trial sites and standardized documentation protocols to support regulatory compliance.</li>
-            <li>Authored technical and regulatory reports while coordinating closely with clinical teams.</li>
+            <li>Maintained data integrity and standardized documentation protocols across trial sites.</li>
+            <li>Authored technical and regulatory reports in close collaboration with clinical teams.</li>
           </ul>
         </div>
         <div class="experience-card">
@@ -704,9 +730,9 @@
           <h3>Community General Practitioner (Clinical Research Intern)</h3>
           <h4>IMEMIC, Mexico City, Mexico</h4>
           <ul>
-            <li><strong>Clinical Trials Support:</strong> Managed trial operations and maintained high documentation standards for regulatory compliance.</li>
-            <li><strong>Process Optimization:</strong> Streamlined laboratory procedures and developed sample tracking systems.</li>
-            <li><strong>Patient Care:</strong> Provided primary consultations and organized educational initiatives.</li>
+            <li><strong>Clinical Trials Support:</strong> Managed trial operations and maintained high documentation standards.</li>
+            <li><strong>Process Optimization:</strong> Streamlined laboratory procedures and implemented sample tracking systems.</li>
+            <li><strong>Patient Care:</strong> Delivered primary consultations and organized educational initiatives.</li>
           </ul>
         </div>
         <div class="experience-card">
@@ -714,8 +740,8 @@
           <h3>Clinical Intern (Chief)</h3>
           <h4>ISSSTE MX, Querétaro, Mexico</h4>
           <ul>
-            <li><strong>Comprehensive Rotations:</strong> Completed rotations across multiple disciplines including Family Medicine, Pediatrics, and Surgery.</li>
-            <li><strong>Leadership:</strong> Mentored fellow interns and optimized clinical workflow processes.</li>
+            <li><strong>Comprehensive Rotations:</strong> Completed rotations in Family Medicine, Pediatrics, and Surgery.</li>
+            <li><strong>Leadership:</strong> Mentored interns and optimized clinical workflows.</li>
           </ul>
         </div>
       </div>
