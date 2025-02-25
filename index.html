@@ -267,3 +267,1419 @@
     body.dark-mode .hero::before {
       background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.06) 50%, transparent 80%);
     }
+
+@keyframes shine {
+    0% { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
+    100% { transform: translateX(50%) translateY(50%) rotate(45deg); }
+  }
+  .hero h1 {
+    font-family: "Raleway", sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  .hero h1:hover {
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .bold-pipe {
+    font-weight: bold;
+    margin: 0 0.4rem;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  /* Cards (fade-in) */
+  .card {
+    background: white;
+    border-radius: var(--card-radius);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: all 0.6s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+  .card:hover::before {
+    width: 10px;
+  }
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  body.dark-mode .card {
+    background: var(--dark-bg-light);
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow-color-dark);
+  }
+  /* Section Headings with Icons */
+  .card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 0.7rem;
+  }
+  .card h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+  .card:hover h2::after {
+    width: 100px;
+  }
+  body.dark-mode .card h2 {
+    color: var(--text-light);
+  }
+  .card h2 i {
+    margin-right: 0.5rem;
+    color: var(--accent-color);
+  }
+  /* Personal Information Section */
+  #personal-info {
+    padding: 1rem;
+  }
+  .personal-info-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem; /* space between photo and list */
+  }
+  .photo-container {
+    width: 240px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .photo-container::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-color-alt));
+    z-index: -1;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+  .photo-container:hover::before {
+    opacity: 0.8;
+  }
+  .photo-container img {
+    width: 100%;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px var(--shadow-color);
+  }
+  body.dark-mode .photo-container img {
+    border-color: var(--dark-bg-light);
+  }
+  .photo-container img:hover {
+    transform: scale(1.05) rotate(2deg);
+  }
+  .personal-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* use full space next to photo */
+  }
+  .personal-info-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    background: var(--off-light-bg);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  body.dark-mode .personal-info-list li {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .personal-info-list li:hover {
+    transform: translateX(5px);
+    background: var(--light-bg);
+    box-shadow: 0 3px 10px var(--shadow-color);
+  }
+  body.dark-mode .personal-info-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .personal-info-list li i {
+    margin-right: 0.8rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+    font-size: 1.3rem;
+  }
+  .personal-info-list li strong {
+    margin-right: 8px;
+    flex-shrink: 0;
+    color: var(--primary-color);
+  }
+  body.dark-mode .personal-info-list li strong {
+    color: var(--accent-color);
+  }
+  .personal-info-list li span {
+    flex: 1;
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+  .personal-info-list li span a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .personal-info-list li span a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  body.dark-mode .personal-info-list li span a:hover {
+    color: var(--text-light);
+  }
+  /* For smaller screens, stack label & value */
+  @media (max-width: 768px) {
+    .personal-info-list li {
+      flex-wrap: wrap;
+    }
+    .personal-info-list li strong {
+      margin-bottom: 4px;
+    }
+    .personal-info-list li span {
+      flex: 1 1 100%;
+    }
+  }
+  /* Professional Profile Section */
+  #profile p {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  #profile .summary {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    background: var(--off-light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+  }
+  #profile .summary::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 3rem;
+    color: var(--accent-color);
+    opacity: 0.2;
+  }
+  body.dark-mode #profile .summary {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  #profile ul {
+    list-style: none;
+    margin-left: 0;
+  }
+  #profile ul li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+  }
+  #profile ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+  /* Relevant Experience */
+  #experience .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .experience-card {
+    background: var(--off-light-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  .experience-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--accent-color-warm);
+  }
+  body.dark-mode .experience-card {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .experience-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px var(--shadow-color-dark);
+  }
+  .experience-card h4:first-child {
+    display: inline-block;
+    background: var(--accent-color-warm);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .experience-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  body.dark-mode .experience-card h3 {
+    color: var(--text-light);
+  }
+  .experience-card h4:not(:first-child) {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  body.dark-mode .experience-card h4:not(:first-child) {
+    color: var(--accent-color);
+  }
+  .experience-card ul {
+    list-style-type: none;
+    margin-left: 0;
+  }
+  .experience-card ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .experience-card ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color-warm);
+  }
+  .experience-card ul li strong {
+    color: var(--primary-color);
+  }
+  body.dark-mode .experience-card ul li strong {
+    color: var(--accent-color);
+  }
+  /* Skills Section */
+  .skills-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 2rem;
+  }
+  .skills-category {
+    background: var(--off-light-bg);
+    border-radius: 12px;
+    padding: 1.8rem;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    transition: all 0.3s ease;
+    position: relative;
+    animation: fadeInUp 1s ease-in-out;
+    overflow: hidden;
+  }
+  .skills-category::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+  }
+  body.dark-mode .skills-category {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .skills-category:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--shadow-color-dark);
+  }
+  .skills-category h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+  }
+  body.dark-mode .skills-category h3 {
+    color: var(--text-light);
+  }
+  .skills-category h3 i {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: inherit;
+  }
+  .skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .skill-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: default;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .skill-badge i {
+    margin-right: 0.4rem;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+  }
+  .skill-badge:hover {
+    background: var(--accent-color);
+    color: #fff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  .skill-badge:hover i {
+    color: white;
+  }
+  body.dark-mode .skill-badge {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  body.dark-mode .skill-badge:hover {
+    background: var(--accent-color);
+    color: #fff;
+  }
+  /* Set different colors for skills categories */
+  .skills-category:nth-child(1)::before { background-color: #e84118; }
+  .skills-category:nth-child(2)::before { background-color: #9c88ff; }
+  .skills-category:nth-child(3)::before { background-color: #fbc531; }
+  .skills-category:nth-child(4)::before { background-color: #00a8ff; }
+  .skills-category:nth-child(5)::before { background-color: #4cd137; }
+
+
+/* Education Section */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .education-item {
+      background: var(--off-light-bg);
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px var(--shadow-color);
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .education-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--accent-color-alt);
+    }
+    body.dark-mode .education-item {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .education-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 30px var(--shadow-color-dark);
+    }
+    .education-item:hover::before {
+      width: 10px;
+    }
+    .education-item h3 {
+      margin-bottom: 0.8rem;
+      font-family: "Raleway", sans-serif;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+    }
+    body.dark-mode .education-item h3 {
+      color: var(--text-light);
+    }
+    .education-item h4 {
+      margin-bottom: 0.8rem;
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+    }
+    body.dark-mode .education-item h4 {
+      color: var(--accent-color);
+    }
+    .education-item p {
+      display: inline-block;
+      background: rgba(52, 152, 219, 0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    body.dark-mode .education-item p {
+      background: rgba(52, 152, 219, 0.2);
+    }
+    .education-item ul {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      list-style: none;
+    }
+    .education-item ul li {
+      margin-bottom: 0.6rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .education-item ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color-alt);
+    }
+    
+    /* Publications */
+    #publications ol {
+      padding-left: 0;
+      list-style-type: none;
+      counter-reset: pub-counter;
+    }
+    .publication-item {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      background: var(--off-light-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      position: relative;
+      transition: all 0.3s ease;
+      padding-left: 3rem;
+    }
+    body.dark-mode .publication-item {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .publication-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px var(--shadow-color);
+    }
+    .publication-item::before {
+      counter-increment: pub-counter;
+      content: counter(pub-counter);
+      position: absolute;
+      left: 1rem;
+      top: 1.2rem;
+      background: var(--accent-color);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .publication-item a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .publication-item a:hover {
+      text-decoration: underline;
+    }
+    .publication-item em {
+      font-style: italic;
+      color: var(--primary-color);
+    }
+    body.dark-mode .publication-item em {
+      color: var(--accent-color);
+    }
+    .publication-preview {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+      border-top: 1px dashed rgba(0,0,0,0.1);
+    }
+    body.dark-mode .publication-preview {
+      color: var(--text-light);
+      opacity: 0.8;
+      border-top: 1px dashed rgba(255,255,255,0.1);
+    }
+    
+    /* Languages */
+    .languages-list {
+      list-style-type: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .languages-list li {
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      background: var(--off-light-bg);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      flex: 1;
+      min-width: 200px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px var(--shadow-color);
+      position: relative;
+      padding-left: 3rem;
+    }
+    body.dark-mode .languages-list li {
+      background: rgba(255,255,255,0.05);
+    }
+    .languages-list li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px var(--shadow-color-dark);
+    }
+    .languages-list li::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f075";
+      font-weight: 900;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
+    .languages-list li strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--primary-color);
+    }
+    body.dark-mode .languages-list li strong {
+      color: var(--accent-color);
+    }
+    
+    /* Certifications Section */
+    #certifications ul {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    #certifications ul li {
+      background: var(--off-light-bg);
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px var(--shadow-color);
+      border-left: 4px solid var(--accent-color);
+    }
+    body.dark-mode #certifications ul li {
+      background: rgba(255,255,255,0.05);
+    }
+    #certifications ul li:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px var(--shadow-color-dark);
+    }
+    #certifications ul li i {
+      margin-right: 0.8rem;
+      color: var(--accent-color);
+      font-size: 1.3rem;
+    }
+    
+    /* Interests Section */
+    #interests .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .interest-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: white;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 8px 20px var(--shadow-color);
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease-in-out;
+      position: relative;
+      overflow: hidden;
+      height: 180px;
+    }
+    .interest-card::before {
+      content: "";
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-color-alt));
+      top: -120%;
+      left: -25%;
+      border-radius: 50%;
+      transition: all 0.5s ease;
+      opacity: 0;
+    }
+    .interest-card:hover::before {
+      top: -60%;
+      opacity: 0.8;
+    }
+    .interest-card i {
+      margin-bottom: 1.2rem;
+      font-size: 3rem;
+      color: var(--accent-color);
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .interest-card p {
+      position: relative;
+      z-index: 1;
+      transition: all 0.4s ease;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    .interest-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 30px var(--shadow-color-dark);
+    }
+    .interest-card:hover i,
+    .interest-card:hover p {
+      color: white;
+    }
+    body.dark-mode .interest-card {
+      background: var(--dark-bg-light);
+    }
+    
+    /* Contact Section */
+    #contact p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      background: var(--off-light-bg);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    body.dark-mode #contact p {
+      background: rgba(255,255,255,0.05);
+    }
+    #contact p:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px var(--shadow-color);
+    }
+    #contact p i {
+      margin-right: 1rem;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      min-width: 30px;
+      text-align: center;
+    }
+    #contact p a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    #contact p a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+    body.dark-mode #contact p a:hover {
+      color: var(--text-light);
+    }
+    #contact .cta {
+      margin-top: 2.5rem;
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-color-alt));
+      color: var(--text-light);
+      padding: 1rem 2.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.8s;
+    }
+    #contact .cta:hover::before {
+      left: 100%;
+    }
+    #contact .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.6);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary-color);
+      color: var(--text-light);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+      border-radius: 16px 16px 0 0;
+      position: relative;
+    }
+    footer::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%231e3a5f'/%3E%3C/svg%3E") no-repeat;
+      background-size: cover;
+    }
+    body.dark-mode footer {
+      background: var(--dark-bg);
+    }
+    footer p {
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+    footer p:last-child {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 1rem;
+    }
+    
+    /* Responsiveness */
+    @media (max-width: 992px) {
+      :root {
+        --nav-width: 250px;
+      }
+      .content-wrapper {
+        padding: 2rem;
+      }
+      .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      nav {
+        transform: translateX(-100%);
+      }
+      nav.active {
+        transform: translateX(0);
+      }
+      .content-wrapper {
+        margin-left: 0;
+      }
+      .progress-container {
+        left: 0;
+      }
+      #interests .interests-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      .skills-section, 
+      #experience .experience-grid,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .content-wrapper {
+        padding: 1.5rem 1rem;
+      }
+      .hero {
+        padding: 3rem 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .hero p {
+        font-size: 1.05rem;
+      }
+      .hero h2 {
+        font-size: 1.15rem;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .personal-info-content {
+        flex-direction: column;
+      }
+      .photo-container {
+        width: 150px;
+        margin: 0 auto 1.5rem;
+      }
+      .personal-info-list {
+        text-align: left;
+      }
+      #certifications ul,
+      .languages-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .card h2 {
+        font-size: 1.5rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .languages-list li,
+      #contact p,
+      .personal-info-list li {
+        padding: 0.8rem;
+      }
+      .languages-list li::before,
+      #contact p i,
+      .personal-info-list li i {
+        position: static;
+        margin-right: 0.5rem;
+      }
+    }
+    
+    /* Additional animations for enhanced UI */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px var(--shadow-color-dark);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 90;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--primary-color);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  
+  <!-- Mobile Nav Toggle -->
+  <button class="nav-toggle" id="navToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Sidebar Navigation -->
+  <nav id="sideNav">
+    <div class="nav-top">
+      <h2><i class="fas fa-user-circle"></i> Menu</h2>
+      <a href="#profile" class="nav-link"><i class="fas fa-info-circle"></i> Profile</a>
+      <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
+      <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
+      <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
+      <a href="#languages" class="nav-link"><i class="fas fa-language"></i> Languages</a>
+      <a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a>
+      <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Interests</a>
+      <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+      <div class="social-icons">
+        <a href="mailto:j.esquivel.gaytan@gmail.com" title="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" title="ResearchGate" target="_blank"><i class="fab fa-researchgate"></i></a>
+        <a href="https://orcid.org/0000-0001-6974-1825" title="ORCID" target="_blank"><i class="fab fa-orcid"></i></a>
+      </div>
+    </div>
+    <div class="toggle-container">
+      <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+
+<!-- Main Content -->
+<div class="content-wrapper">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1><i class="fas fa-user-md"></i> Jose Antonio Esquivel Gaytan</h1>
+      <h2><i class="fas fa-graduation-cap"></i> MD, MSc, PhD Candidate</h2>
+      <p>
+        <strong>Physician-Scientist</strong>
+        <span class="bold-pipe">|</span>
+        <strong>Translational Medicine</strong>
+        <span class="bold-pipe">|</span>
+        <strong>Research Innovator</strong>
+      </p>
+    </section>
+
+    <!-- Personal Information Section -->
+    <section id="personal-info" class="card">
+      <h2><i class="fas fa-address-card"></i> Personal Information</h2>
+      <div class="personal-info-content">
+        <div class="photo-container">
+          <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="Photo of Jose Antonio Esquivel Gaytan" />
+        </div>
+        <ul class="personal-info-list">
+          <li>
+            <i class="fas fa-flag"></i>
+            <strong>Nationality:</strong>
+            <span>Dutch</span>
+          </li>
+          <li>
+            <i class="fas fa-user-tie"></i>
+            <strong>Current Position:</strong>
+            <span>PhD Candidate</span>
+          </li>
+          <li>
+            <i class="fas fa-hospital"></i>
+            <strong>Affiliation:</strong>
+            <span>Experimental Cardiology, Groningen, Netherlands</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <strong>Email:</strong>
+            <span><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Professional Profile Section -->
+    <section id="profile" class="card">
+      <h2><i class="fas fa-info-circle"></i> Professional Profile</h2>
+      <div class="summary">
+        <p>
+          A dedicated PhD candidate in Experimental Cardiology at UMCG, I integrate clinical insights with cutting-edge research. I specialize in high-throughput screening, cardiovascular biomarker analysis, and nanoparticle-based drug delivery.
+        </p>
+      </div>
+      <ul>
+        <li>Expert in bridging clinical practice and molecular research.</li>
+        <li>Proficient in AI-driven data analysis and innovative experimental design.</li>
+        <li>Committed to advancing translational medicine and improving patient outcomes.</li>
+      </ul>
+    </section>
+
+    <!-- Relevant Experience Section -->
+    <section id="experience" class="card">
+      <h2><i class="fas fa-briefcase"></i> Relevant Experience</h2>
+      <div class="experience-grid">
+        <div class="experience-card">
+          <h4>Nov 2018 – Present</h4>
+          <h3>Doctoral Researcher</h3>
+          <h4>University Medical Center Groningen, Netherlands</h4>
+          <ul>
+            <li><strong>Project Leadership:</strong> Coordinated multi-disciplinary projects and optimized 5-oxoprolinase (OPLAH) activity to mitigate oxidative stress in heart failure.</li>
+            <li><strong>Innovative Screening:</strong> Developed a high-throughput platform integrating proteomics and nanoparticle-based delivery.</li>
+            <li><strong>Data & Biomarkers:</strong> Designed workflows for cardiovascular biomarker analysis with AI-driven visualization.</li>
+            <li><strong>Team Collaboration:</strong> Supervised students and led meetings to integrate clinical insights into experimental design.</li>
+          </ul>
+        </div>
+        <div class="experience-card">
+          <h4>Mar 2018 – Oct 2018</h4>
+          <h3>Clinical Supervisor and Lecturer</h3>
+          <h4>Universidad del Valle de México, Mexico</h4>
+          <ul>
+            <li>Guided medical students during clinical rotations while delivering comprehensive educational programs.</li>
+            <li>Ensured adherence to high training standards in both academic and clinical settings.</li>
+          </ul>
+        </div>
+        <div class="experience-card">
+          <h4>Nov 2017 – May 2018</h4>
+          <h3>Medical Researcher</h3>
+          <h4>Science iN, Mexico City Area, Mexico</h4>
+          <ul>
+            <li>Maintained data integrity and standardized documentation protocols across trial sites.</li>
+            <li>Authored technical and regulatory reports in close collaboration with clinical teams.</li>
+          </ul>
+        </div>
+        <div class="experience-card">
+          <h4>Jan 2015 – Dec 2015</h4>
+          <h3>Community General Practitioner (Clinical Research Intern)</h3>
+          <h4>IMEMIC, Mexico City, Mexico</h4>
+          <ul>
+            <li><strong>Clinical Trials Support:</strong> Managed trial operations and maintained high documentation standards.</li>
+            <li><strong>Process Optimization:</strong> Streamlined laboratory procedures and implemented sample tracking systems.</li>
+            <li><strong>Patient Care:</strong> Delivered primary consultations and organized educational initiatives.</li>
+          </ul>
+        </div>
+        <div class="experience-card">
+          <h4>Jan 2014 – Dec 2014</h4>
+          <h3>Clinical Intern (Chief)</h3>
+          <h4>ISSSTE MX, Querétaro, Mexico</h4>
+          <ul>
+            <li><strong>Comprehensive Rotations:</strong> Completed rotations in Family Medicine, Pediatrics, and Surgery.</li>
+            <li><strong>Leadership:</strong> Mentored interns and optimized clinical workflows.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="card">
+      <h2><i class="fas fa-tools"></i> Skills</h2>
+      <div class="skills-section">
+        <div class="skills-category" style="border-top-color: #e84118;">
+          <h3><i class="fas fa-users-cog"></i> Project Management & Communication</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Project Management</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Team Leadership</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Cross-functional Collaboration</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Scientific Writing</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Protocol Development</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Regulatory Compliance</span></div>
+          </div>
+        </div>
+        <div class="skills-category" style="border-top-color: #9c88ff;">
+          <h3><i class="fas fa-stethoscope"></i> Translational & Clinical</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Translational Medicine</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Clinical Research</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Systematic Reviews</span></div>
+          </div>
+        </div>
+        <div class="skills-category" style="border-top-color: #fbc531;">
+          <h3><i class="fas fa-flask"></i> Wet Lab & Molecular</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Molecular Biology</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Protein Purification</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Cell Culture</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Western Blot</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>qRT-PCR</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>LC-MS</span></div>
+          </div>
+        </div>
+        <div class="skills-category" style="border-top-color: #00a8ff;">
+          <h3><i class="fas fa-brain"></i> AI & Data</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Data Analysis</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>AI-driven Analytics</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Machine Learning</span></div>
+          </div>
+        </div>
+        <div class="skills-category" style="border-top-color: #4cd137;">
+          <h3><i class="fas fa-code"></i> Programming & Tools</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Python</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>R</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>HTML</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Visual Studio</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle"></i><span>Statistical Analysis</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Education Section -->
+<section id="education" class="card">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="education-grid">
+      <div class="education-item">
+        <h3>PhD in Biomedical Sciences</h3>
+        <h4>University of Groningen</h4>
+        <p>Nov 2018 – Feb 2025</p>
+      </div>
+      <div class="education-item">
+        <h3>MSc in Nanotechnology and Regenerative Medicine</h3>
+        <h4>UCL</h4>
+        <p>Sep 2016 – Nov 2017</p>
+        <ul>
+          <li><strong>Honors:</strong> Awarded with distinction</li>
+          <li><strong>Project:</strong> Photochemical Internalisation for Pancreatic Cancer Treatment</li>
+          <li><strong>Key Modules:</strong> Translational Medicine, Nanotechnology, Biomaterials, Tissue Engineering</li>
+        </ul>
+      </div>
+      <div class="education-item">
+        <h3>MBBS (Bachelor of Medicine, Bachelor of Surgery)</h3>
+        <h4>Universidad Nacional Autónoma de México</h4>
+        <p>Aug 2009 – Nov 2016</p>
+        <ul>
+          <li>Graduated with outstanding performance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications" class="card">
+    <h2><i class="fas fa-book"></i> Publications</h2>
+    <ol>
+      <li class="publication-item">
+        Esquivel-Gaytan, A., et al. (2024). "404-error 'Disease not found': Unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research." 
+        <em>European Journal of Heart Failure</em>. DOI: <a href="https://doi.org/10.1002/ejhf.3268" target="_blank"><strong>10.1002/ejhf.3268</strong></a>
+        <p class="publication-preview">This study integrates omics technologies to challenge traditional heart failure classifications and reveal novel disease mechanisms.</p>
+      </li>
+      <li class="publication-item">
+        Esquivel-Gaytan, A., et al. (2023). "A high-throughput screening strategy identifies adenosine 5'-monophosphate as a novel enhancer of the cardio-protective enzyme 5-oxoprolinase (OPLAH)." 
+        <em>European Heart Journal</em>, 44(Supplement_2), ehad655.3130. DOI: <a href="https://doi.org/10.1093/eurheartj/ehad655.3130" target="_blank"><strong>10.1093/eurheartj/ehad655.3130</strong></a>
+        <p class="publication-preview">Describes a screening platform that discovered AMP as a modulator of OPLAH, potentially enhancing cardiac protection.</p>
+      </li>
+      <li class="publication-item">
+        Vermeer, M.C.S.C., et al. (2022). "A translation re-initiation variant in KLHL24 causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation." 
+        <em>The British Journal of Dermatology</em>, 187(6), 1045-1048. DOI: <a href="https://doi.org/10.1111/bjd.21832" target="_blank"><strong>10.1111/bjd.21832</strong></a>
+        <p class="publication-preview">Explores the molecular pathways linking a KLHL24 variant to both skin and cardiac conditions.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Languages Section -->
+  <section id="languages" class="card">
+    <h2><i class="fas fa-language"></i> Languages</h2>
+    <ul class="languages-list">
+      <li><strong>Spanish:</strong> Native</li>
+      <li><strong>English:</strong> C1</li>
+      <li><strong>Dutch:</strong> B1/B2</li>
+      <li><strong>French:</strong> A2</li>
+    </ul>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="card">
+    <h2><i class="fas fa-certificate"></i> Certifications</h2>
+    <ul>
+      <li><i class="fas fa-certificate"></i> Good Clinical Practice – NDAT CTN 2025</li>
+      <li><i class="fas fa-certificate"></i> Article 9 – Experiments on Animals Act License</li>
+      <li><i class="fas fa-certificate"></i> ML-1 Laboratory Certificate</li>
+      <li><i class="fas fa-certificate"></i> Driving License AM-B</li>
+    </ul>
+  </section>
+
+  <!-- Interests Section -->
+  <section id="interests" class="card">
+    <h2><i class="fas fa-heart"></i> Interests</h2>
+    <div class="interests-grid">
+      <div class="interest-card">
+        <i class="fas fa-dumbbell"></i>
+        <p>CrossFit Athlete</p>
+      </div>
+      <div class="interest-card">
+        <i class="fas fa-robot"></i>
+        <p>Artificial Intelligence</p>
+      </div>
+      <div class="interest-card">
+        <i class="fas fa-plane"></i>
+        <p>Traveling</p>
+      </div>
+      <div class="interest-card">
+        <i class="fas fa-paw"></i>
+        <p>Animal Welfare</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="card">
+    <h2><i class="fas fa-envelope"></i> Contact</h2>
+    <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> <span>Groningen, Netherlands</span></p>
+    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <span><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></span></p>
+    <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank">linkedin.com/in/joseantonio-esquivel-gaytan89</a></span></p>
+    <p><i class="fab fa-researchgate"></i> <strong>ResearchGate:</strong> <span><a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank">Antonio-Gaytan-2</a></span></p>
+    <p><i class="fab fa-orcid"></i> <strong>ORCID:</strong> <span><a href="https://orcid.org/0000-0001-6974-1825" target="_blank">0000-0001-6974-1825</a></span></p>
+    <p><i class="fas fa-globe"></i> <strong>Website:</strong> <span><a href="https://drjaeg.com" target="_blank">drjaeg.com</a></span></p>
+    <a href="mailto:j.esquivel.gaytan@gmail.com" class="cta">Get in Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Dr Jose Antonio Esquivel Gaytan. All rights reserved.</p>
+    <p><em>Site developed using AI chatbot technology to demonstrate advanced coding and design skills.</em></p>
+  </footer>
+</div>
+
+<!-- Back to top button -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Progress Bar
+    const progressBar = document.getElementById("progressBar");
+    const backToTop = document.getElementById("backToTop");
+    const navToggle = document.getElementById("navToggle");
+    const sideNav = document.getElementById("sideNav");
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    
+    window.addEventListener("scroll", () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      progressBar.style.width = (winScroll / height) * 100 + "%";
+      
+      // Show/hide back to top button
+      if (winScroll > 300) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+    
+    // Back to top button functionality
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+    
+    // Mobile nav toggle
+    navToggle.addEventListener("click", () => {
+      sideNav.classList.toggle("active");
+      navToggle.querySelector("i").classList.toggle("fa-bars");
+      navToggle.querySelector("i").classList.toggle("fa-times");
+    });
+
+    // Smooth Scroll with closing mobile nav
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        
+        // Close mobile nav if open
+        if (window.innerWidth < 992) {
+          sideNav.classList.remove("active");
+          navToggle.querySelector("i").classList.add("fa-bars");
+          navToggle.querySelector("i").classList.remove("fa-times");
+        }
+        
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          const offset = 80;
+          const position = target.offsetTop - offset;
+          window.scrollTo({ top: position, behavior: "smooth" });
+        }
+      });
+    });
+
+    // Dark Mode Toggle
+    darkModeToggle.addEventListener("click", toggleDarkMode);
+    
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle("dark-mode");
+      localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+      const icon = darkModeToggle.querySelector("i");
+      if (body.classList.contains("dark-mode")) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      }
+    }
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark-mode");
+      const icon = darkModeToggle.querySelector("i");
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    }
+
+    // Intersection Observer for Cards (fade-in)
+    const items = document.querySelectorAll(".card, .experience-card, .education-item, .skills-category, .interest-card");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -100px 0px" });
+    
+    items.forEach(item => observer.observe(item));
+
+    // Highlight Active Navigation Link
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("section");
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${id}`) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: "-100px 0px -300px 0px" });
+    
+    sections.forEach(section => navObserver.observe(section));
+  });
+</script>
+</body>
+</html>
