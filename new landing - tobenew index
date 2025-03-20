@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. Jose Antonio Esquivel Gaytan</title>
+  <!-- Fonts & Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <style>
+    /* Variables from your existing styling */
+    :root {
+      --primary: #333333;            /* Texto oscuro */
+      --background: #ffffff;         /* Fondo blanco puro */
+      --secondary: #f9f7f5;          /* Fondo secundario tono cálido */
+      --accent: #8B7D6B;             /* Acento marrón nórdico */
+      --accent-light: #D7CEC7;       /* Versión clara del acento, gris cálido */
+      --accent-dark: #5D4037;        /* Versión oscura del acento, marrón profundo */
+      --text-muted: #6D6D6D;         /* Texto secundario en gris */
+      --shadow: rgba(0, 0, 0, 0.03);  /* Sombra muy leve */
+      --border-radius: 3px;          /* Bordes apenas redondeados */
+      --transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1); /* Transición más suave */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+      --card-border: 1px solid #EFEAE6; /* Borde con color cálido */
+    }
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--primary);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .landing-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-md);
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Dark mode toggle */
+    .dark-mode-toggle {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      background: transparent;
+      border: none;
+      color: var(--accent);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: all var(--transition);
+    }
+
+    .dark-mode-toggle:hover {
+      transform: rotate(30deg);
+      background-color: var(--secondary);
+    }
+
+    /* Dark mode */
+    body.dark-mode {
+      --primary: #f0f0f0;
+      --background: #121212;
+      --secondary: #1f1f1f;
+      --accent: #A1887F;        /* Versión más clara para modo oscuro */
+      --accent-light: #4E342E;  /* Versión más oscura para modo oscuro */
+      --accent-dark: #D7CCC8;   /* Versión más clara para modo oscuro */
+      --text-muted: #B0B0B0;    /* Texto secundario más claro */
+      --shadow: rgba(0, 0, 0, 0.2);
+      --card-border: 1px solid #2d2d2d;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto var(--spacing-md);
+      border: 3px solid var(--accent-light);
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-xs);
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .header h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .header-divider {
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      margin: var(--spacing-sm) auto;
+    }
+
+    /* Cards container */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-lg);
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Option cards */
+    .card {
+      background: var(--background);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 5px 15px var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: var(--card-border);
+      animation: slideUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px var(--shadow);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--accent);
+    }
+
+    .card-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition);
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: var(--spacing-lg);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-sm);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .card-text {
+      margin-bottom: var(--spacing-md);
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .card-badge {
+      background: var(--secondary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--accent-dark);
+      border: 1px solid var(--accent-light);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .card-badge i {
+      margin-right: 5px;
+      font-size: 0.75rem;
+    }
+
+    .card-link {
+      display: inline-block;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      text-align: center;
+      transition: all var(--transition);
+    }
+
+    .card-link:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .cv-card::before {
+      background: #5D4037;
+    }
+
+    .medical-card::before {
+      background: #3E8B3F;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: var(--spacing-md);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      margin: var(--spacing-md) 0;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      text-decoration: none;
+      transition: all var(--transition);
+      border: var(--card-border);
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Languages */
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Background decoration */
+    .decoration {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.03;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Coming soon tag */
+    .coming-soon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #E53935;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.7rem;
+      border-radius: 3px;
+      font-weight: 600;
+      z-index: 5;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .header h2 {
+        font-size: 1rem;
+      }
+
+      .profile-photo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Decoration -->
+  <div class="decoration">
+    <!-- SVG patterns could be added here if desired -->
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="landing-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="profile-photo">
+        <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="Dr. Jose Antonio Esquivel Gaytan" />
+      </div>
+      <h1>Dr. Jose Antonio Esquivel Gaytan</h1>
+      <h2>MD, MSc, PhD Candidate</h2>
+      <div class="header-divider"></div>
+      
+      <!-- Languages -->
+      <div class="languages">
+        <div class="language">
+          <img src="https://flagcdn.com/16x12/gb.png" alt="English"> English
+        </div>
+        <div class="language">
+          <img src="https://flagcdn.com/16x12/es.png" alt="Spanish"> Español
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <!-- Professional CV Card -->
+      <div class="card cv-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000" alt="Professional CV" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Professional CV</h3>
+          <div class="card-badges">
+            <span class="card-badge"><i class="fas fa-flask"></i> Researcher</span>
+            <span class="card-badge"><i class="fas fa-user-md"></i> Physician</span>
+            <span class="card-badge"><i class="fas fa-graduation-cap"></i> Academic</span>
+          </div>
+          <p class="card-text">View my complete professional profile including education, research experience, publications, and academic achievements.</p>
+          <a href="index.html" class="card-link">View CV</a>
+        </div>
+      </div>
+
+      <!-- Medical Weight Management Card -->
+      <div class="card medical-card">
+        <div class="coming-soon">Coming Summer 2025</div>
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?q=80&w=1000" alt="Medical Weight Management" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">GLP-1 Weight Management</h3>
+          <div class="card-badges">
+            <span class="card-badge"><i class="fas fa-pills"></i> GLP-1 Protocol</span>
+            <span class="card-badge"><i class="fas fa-globe"></i> Barcelona & Online</span>
+            <span class="card-badge"><i class="fas fa-language"></i> English & Spanish</span>
+          </div>
+          <p class="card-text">Physician-directed weight management program using GLP-1 medications with personalized metabolic optimization. Pre-register now for Summer 2025 launch.</p>
+          <a href="weight-loss.html" class="card-link">Learn More & Pre-register</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="social-links">
+        <a href="mailto:j.esquivel.gaytan@gmail.com" class="social-link" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" class="social-link" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" class="social-link" title="ResearchGate">
+          <i class="fab fa-researchgate"></i>
+        </a>
+        <a href="https://orcid.org/0000-0001-6974-1825" class="social-link" title="ORCID">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Dr. Jose Antonio Esquivel Gaytan. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      
+      // Dark Mode Toggle
+      darkModeToggle.addEventListener("click", toggleDarkMode);
+      
+      function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+        const icon = darkModeToggle.querySelector("i");
+        if (body.classList.contains("dark-mode")) {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      }
+      
+      // Check for saved dark mode preference
+      if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        const icon = darkModeToggle.querySelector("i");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
+    });
+  </script>
+</body>
+</html>
