@@ -5,18 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>José Antonio Esquivel Gaytan — Virtual CV</title>
 
-  <!-- SEO básico -->
   <meta name="description" content="Physician-scientist & Applied AI Workflow Designer in Healthcare & Ethics. Developer of QGuard-Med. Moral AI literacy, biomarkers, experimental cardiology."/>
   <meta name="theme-color" content="#800020">
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="José Antonio Esquivel Gaytan — Virtual CV">
   <meta property="og:description" content="Physician-scientist & Applied AI Workflow Designer in Healthcare & Ethics.">
   <meta property="og:image" content="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/og-image.jpg">
   <meta property="og:type" content="profile">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- JSON-LD Person -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -34,12 +31,10 @@
   }
   </script>
 
-  <!-- Fuentes (sin @import dentro de CSS) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700&display=swap" rel="stylesheet"/>
 
-  <!-- Iconos (carga no bloqueante) -->
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 
@@ -99,7 +94,7 @@
 
     /* Skip link */
     .skip-link{
-      position:absolute; left:-999px; top:auto;
+      position:absolute; left:-9999px; top:auto;
     }
     .skip-link:focus{
       left:8px; top:8px; background:#fff; color:#000;
@@ -189,7 +184,7 @@
     }
     #sideNav .nav-link:hover { background-color: var(--color-accent-soft); transform: translateX(5px); }
     #sideNav .nav-link[aria-current="true"],
-    #sideNav .nav-link.active {
+    #sideNav .nav-link.active { /* 'active' class for JS fallback */
       background-color: var(--color-accent);
       color: #FFF;
       font-weight: 600;
@@ -224,6 +219,7 @@
     .hero-photo img {
       width: 160px; height: 160px; border-radius: 50%;
       border: 5px solid var(--color-accent); box-shadow: 0 0 20px var(--shadow-color); margin-bottom: 1rem;
+      object-fit: cover;
     }
     .hero-text h1 { font-size: 2.8rem; margin-bottom: 0.25rem; }
     .hero-text h2 {
@@ -239,7 +235,6 @@
     .dark-mode .hero-tag { background-color: rgba(229, 115, 115, 0.2); }
 
     /* --- SECCIONES --- */
-    #personal-info.card { padding: 2rem; }
     .personal-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
     .info-item { display: flex; align-items: center; gap: 1rem; }
     .info-icon { font-size: 1.5rem; color: var(--color-accent); }
@@ -250,7 +245,7 @@
     .experience-card { padding-left: 1.5rem; border-left: 3px solid var(--color-accent); }
     .experience-card h3 { margin-bottom: 0.2rem; }
     .experience-card h4 { margin-bottom: 0.5rem; }
-    .experience-card ul { list-style: disc; padding-left: 1.25rem; }
+    .experience-card ul { list-style-type: '– '; padding-left: 1.25rem; }
 
     .skills-section { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .skills-category { padding-top: 1rem; border-top: 3px solid var(--color-accent); }
@@ -276,7 +271,25 @@
       font-style: italic; color: var(--color-text-secondary); border-left: 2px solid var(--color-border);
       padding-left: 1rem; margin-top: 0.5rem; font-size: 0.9rem;
     }
-
+    
+    /* CORRECCIÓN: Estilos para la sección de Intereses */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .interest-card i {
+      font-size: 2rem;
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+    }
+    .interest-card p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+    }
+    
     #contact p { margin-bottom: 0.5rem; }
     #contact p i { margin-right: 10px; color: var(--color-accent); width: 20px; }
 
@@ -292,7 +305,6 @@
     }
     .cta.secondary:hover { background-color: var(--color-accent-soft); color: var(--color-accent); }
 
-    /* CTA flotante */
     .cta-float{
       position:fixed; right:16px; bottom:80px; padding:.7rem 1rem; border-radius:999px;
       background:var(--color-accent); color:#fff; box-shadow:0 8px 18px rgba(0,0,0,.15); z-index:998;
@@ -333,18 +345,16 @@
       .experience-grid{ gap:1.25rem; }
     }
 
-    /* Users sensibles a animaciones */
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; animation:none !important; }
       .card{ transform:none !important; }
     }
 
-    /* Estilos de impresión para PDF bonito */
     @media print{
-      #sideNav, .nav-toggle, .back-to-top, .cta, .cta-float, .progress-container { display:none !important; }
+      #sideNav, .nav-toggle, .back-to-top, .cta, .cta-float, .progress-container, footer { display:none !important; }
       body{ background:#fff; }
-      .card{ box-shadow:none; border:0; break-inside:avoid; }
-      a::after{ content:" (" attr(href) ")"; font-size:.85em; color:#666; }
+      .card{ box-shadow:none; border:0; break-inside:avoid; padding:1rem 0; }
+      a[href^="http"]::after{ content:" (" attr(href) ")"; font-size:.85em; color:#666; }
       .content-wrapper{ margin-left:0; }
     }
   </style>
@@ -356,11 +366,11 @@
     <div class="progress-bar" id="progressBar"></div>
   </div>
   
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
     <i class="fas fa-bars" aria-hidden="true"></i>
   </button>
 
-  <nav id="sideNav" aria-label="Sidebar" aria-modal="true">
+  <nav id="sideNav" aria-label="Sidebar">
     <div class="nav-top">
       <h2><i class="fas fa-user-circle" aria-hidden="true"></i> Menu</h2>
       <a href="#profile" class="nav-link"><i class="fas fa-info-circle" aria-hidden="true"></i> Profile</a>
@@ -402,11 +412,6 @@
             src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG"
             alt="Portrait of José Antonio Esquivel Gaytan"
             loading="lazy" decoding="async" width="160" height="160"
-            srcset="
-              https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/foto-160.png 160w,
-              https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/foto-240.png 240w,
-              https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/foto-320.png 320w"
-            sizes="(max-width:480px) 120px, 160px"
           />
         </div>
         <div class="hero-text">
@@ -417,7 +422,7 @@
             <span class="hero-tag" role="listitem">Physician-Scientist</span>
             <span class="hero-tag" role="listitem">Developer of QGuard-Med</span>
           </div>
-          <a class="cta secondary" href="javascript:window.print()">Download PDF</a>
+          <a class="cta secondary" href="javascript:window.print()">Imprimir / Guardar PDF</a>
         </div>
       </div>
     </section>
@@ -483,34 +488,34 @@
         <div class="skills-category">
           <h3><i class="fas fa-users-cog" aria-hidden="true"></i> Project & Communication</h3>
           <div class="skill-badges">
-            <div class="skill-badge"><span>Project Management</span></div>
-            <div class="skill-badge"><span>Team Leadership</span></div>
-            <div class="skill-badge"><span>Clinical–Tech Translation</span></div>
-            <div class="skill-badge"><span>Scientific Writing</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Project Management</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Team Leadership</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Clinical–Tech Translation</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Scientific Writing</span></div>
           </div>
         </div>
         <div class="skills-category">
           <h3><i class="fas fa-stethoscope" aria-hidden="true"></i> Translational & Clinical</h3>
           <div class="skill-badges">
-            <div class="skill-badge"><span>Translational Medicine</span></div>
-            <div class="skill-badge"><span>Biomarker Analysis</span></div>
-            <div class="skill-badge"><span>Assay/HTS Literacy</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Translational Medicine</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Biomarker Analysis</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Assay/HTS Literacy</span></div>
           </div>
         </div>
         <div class="skills-category">
           <h3><i class="fas fa-brain" aria-hidden="true"></i> AI & Data</h3>
           <div class="skill-badges">
-            <div class="skill-badge"><span>Prompt Engineering</span></div>
-            <div class="skill-badge"><span>Model/Tool Selection</span></div>
-            <div class="skill-badge"><span>LLM-assisted Prototyping</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Prompt Engineering</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Model/Tool Selection</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>LLM-assisted Prototyping</span></div>
           </div>
         </div>
         <div class="skills-category">
           <h3><i class="fas fa-code" aria-hidden="true"></i> Programming & Tools</h3>
           <div class="skill-badges">
-            <div class="skill-badge"><span>Python (FastAPI)</span></div>
-            <div class="skill-badge"><span>JS/TS (Next.js/React)</span></div>
-            <div class="skill-badge"><span>Docker · Git</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Python (FastAPI)</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>JS/TS (Next.js/React)</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Docker · Git</span></div>
           </div>
         </div>
       </div>
@@ -634,8 +639,7 @@
       const darkModeToggle = document.getElementById("darkModeToggle");
       const navLinks = document.querySelectorAll(".nav-link");
       const sections = document.querySelectorAll("main section[id]");
-      const animatedUnderlines = document.querySelectorAll('.animated-underline');
-      const cards = document.querySelectorAll('.card');
+      const animatedElements = document.querySelectorAll('.animated-underline, .card');
 
       // --- BARRA DE PROGRESO Y BOTÓN "VOLVER ARRIBA" ---
       const handleScroll = () => {
@@ -652,27 +656,23 @@
         const icon = navToggle.querySelector("i");
         icon.classList.add("fa-bars");
         icon.classList.remove("fa-times");
+        navToggle.setAttribute("aria-expanded","false");
       };
       navToggle.addEventListener("click", () => {
         sideNav.classList.toggle("active");
         const icon = navToggle.querySelector("i");
         icon.classList.toggle("fa-bars");
         icon.classList.toggle("fa-times");
-        if (sideNav.classList.contains("active")) navToggle.setAttribute("aria-expanded","true");
-        else navToggle.setAttribute("aria-expanded","false");
+        navToggle.setAttribute("aria-expanded", sideNav.classList.contains("active"));
       });
-
-      // Cierre con ESC
       document.addEventListener('keydown',(e)=>{
         if(e.key==='Escape' && sideNav.classList.contains('active')){
           closeSideNav();
           navToggle.focus();
         }
       });
-
-      // Cierre de nav al hacer clic en enlace (en móvil)
       navLinks.forEach(anchor => {
-        anchor.addEventListener("click", function() {
+        anchor.addEventListener("click", () => {
           if (window.innerWidth < 992 && sideNav.classList.contains("active")) {
             closeSideNav();
           }
@@ -681,11 +681,11 @@
 
       // --- MODO OSCURO ---
       const toggleDarkMode = () => {
-        document.body.classList.toggle("dark-mode");
-        localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+        const isDarkMode = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode);
         const icon = darkModeToggle.querySelector("i");
-        icon.classList.toggle("fa-moon", !document.body.classList.contains("dark-mode"));
-        icon.classList.toggle("fa-sun", document.body.classList.contains("dark-mode"));
+        icon.classList.toggle("fa-moon", !isDarkMode);
+        icon.classList.toggle("fa-sun", isDarkMode);
       };
       darkModeToggle.addEventListener("click", toggleDarkMode);
       if (localStorage.getItem("darkMode") === "true") {
@@ -695,25 +695,27 @@
 
       // --- NAV ACTIVA AL SCROLL + aria-current ---
       const activateNavOnScroll = () => {
-        let current = "";
-        const offset = 100;
+        let currentSectionId = "";
+        const offset = 150;
         sections.forEach(section => {
           const sectionTop = section.offsetTop;
           if (window.pageYOffset >= sectionTop - offset) {
-            current = section.getAttribute("id");
+            currentSectionId = section.getAttribute("id");
           }
         });
         navLinks.forEach(link => {
-          link.classList.remove("active");
-          link.removeAttribute('aria-current');
-          if (link.getAttribute("href") === `#${current}`) {
+          const linkHref = link.getAttribute("href");
+          if (linkHref === `#${currentSectionId}`) {
             link.classList.add("active");
             link.setAttribute('aria-current','true');
+          } else {
+            link.classList.remove("active");
+            link.removeAttribute('aria-current');
           }
         });
       };
 
-      // --- ANIMACIONES CON OBSERVER ---
+      // --- ANIMACIONES CON OBSERVER (Instancia única) ---
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -721,12 +723,11 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: "0px 0px -10% 0px", threshold: 0.15 });
-
-      cards.forEach(card => observer.observe(card));
-      animatedUnderlines.forEach(underline => observer.observe(underline));
-
-      // --- Scroll event (throttled con rAF + passive) ---
+      }, { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
+      animatedElements.forEach(el => observer.observe(el));
+      
+      // --- OPTIMIZACIÓN DEL EVENTO SCROLL ---
+      // Se usa requestAnimationFrame para evitar sobrecargar el navegador.
       let ticking = false;
       const onScroll = () => {
         if (!ticking) {
@@ -740,7 +741,7 @@
       };
       window.addEventListener("scroll", onScroll, { passive: true });
 
-      // Inicializar estado
+      // --- INICIALIZAR ESTADO AL CARGAR LA PÁGINA ---
       handleScroll();
       activateNavOnScroll();
     });
