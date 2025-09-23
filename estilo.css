@@ -1,514 +1,465 @@
-/* --- ESTILO.CSS --- */
-/* Importa las fuentes desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700&display=swap');
-
-/* --- 1. Definición de la Paleta de Colores (Variables CSS) --- */
-:root {
-  /* Paleta de colores principal (Modo Claro) */
-  --color-accent: #800020;        /* Borgoña: Acento de Poder */
-  --color-text-main: #333333;     /* Grafito: Texto Principal */
-  --color-text-secondary: #757575; /* Gris Acero (ligeramente ajustado para mejor contraste) */
-  --color-background: #FAFAFA;     /* Blanco Hueso: Fondo */
-  --color-surface: #FFFFFF;        /* Blanco puro para las tarjetas */
-  --color-border: #E0E0E0;        /* Borde sutil para separaciones */
-  --shadow-color: rgba(0, 0, 0, 0.08);
-
-  /* Tipografía */
-  --font-primary: 'Poppins', sans-serif;
-  --font-secondary: 'Raleway', sans-serif;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>José Antonio Esquivel Gaytan — Virtual CV</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <link rel="stylesheet" href="estilo.css" />
+  <meta name="description" content="Physician-scientist & Applied AI Workflow Designer in Healthcare & Ethics. Developer of QGuard-Med. Moral AI literacy, biomarkers, experimental cardiology.">
+</head>
+<body>
+  <div class="progress-container" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
   
-  /* Transiciones */
-  --transition-speed: 0.3s ease;
-}
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
 
-/* Paleta de colores para el Modo Oscuro */
-.dark-mode {
-  --color-accent: #E57373;        /* Un borgoña más claro y legible para fondos oscuros */
-  --color-text-main: #FAFAFA;     /* El blanco hueso se convierte en el texto principal */
-  --color-text-secondary: #BDBDBD; /* El gris acero se aclara para mantener la jerarquía */
-  --color-background: #121212;     /* Un fondo oscuro profundo y neutro */
-  --color-surface: #1E1E1E;        /* Las tarjetas son ligeramente más claras que el fondo */
-  --color-border: #424242;        /* Bordes más oscuros */
-  --shadow-color: rgba(0, 0, 0, 0.25);
-}
+  <nav id="sideNav" aria-label="Sidebar">
+    <div class="nav-top">
+      <h2><i class="fas fa-user-circle" aria-hidden="true"></i> Menu</h2>
+      <a href="#profile" class="nav-link"><i class="fas fa-info-circle" aria-hidden="true"></i> Profile</a>
+      <a href="#experience" class="nav-link"><i class="fas fa-briefcase" aria-hidden="true"></i> Experience</a>
+      <a href="#skills" class="nav-link"><i class="fas fa-tools" aria-hidden="true"></i> Skills</a>
+      <a href="#education" class="nav-link"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</a>
+      <a href="#publications" class="nav-link"><i class="fas fa-book" aria-hidden="true"></i> Publications</a>
+      <a href="#languages" class="nav-link"><i class="fas fa-language" aria-hidden="true"></i> Languages</a>
+      <a href="#certifications" class="nav-link"><i class="fas fa-certificate" aria-hidden="true"></i> Certifications</a>
+      <a href="#interests" class="nav-link"><i class="fas fa-heart" aria-hidden="true"></i> Interests</a>
+      <a href="#contact" class="nav-link"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a>
+      <div class="social-icons" aria-label="Social links">
+        <a href="mailto:j.esquivel.gaytan@gmail.com" title="Email" target="_blank" rel="noopener"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" title="ResearchGate" target="_blank" rel="noopener"><i class="fab fa-researchgate" aria-hidden="true"></i></a>
+        <a href="https://orcid.org/0000-0001-6974-1825" title="ORCID" target="_blank" rel="noopener"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="toggle-container">
+      <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </nav>
 
-/* --- 2. Estilos Generales y Reseteo --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <div class="content-wrapper">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-photo">
+          <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="Portrait of José Antonio Esquivel Gaytan" />
+        </div>
+        <div class="hero-text">
+          <h1>José Antonio Esquivel Gaytan</h1>
+          <h2>MD, MSc, PhD Candidate</h2>
+          <div class="hero-tags" role="list">
+            <span class="hero-tag" role="listitem">Applied AI Workflow Designer (Healthcare & Ethics)</span>
+            <span class="hero-tag" role="listitem">Physician-Scientist</span>
+            <span class="hero-tag" role="listitem">Developer of QGuard-Med</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-html {
-  scroll-behavior: smooth;
-}
+    <section id="personal-info" class="personal-info-card">
+      <h2><i class="fas fa-address-card" aria-hidden="true"></i> Personal Information</h2>
+      <div class="personal-info-grid">
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-flag" aria-hidden="true"></i></div>
+          <div class="info-content">
+            <div class="info-label">Nationality</div>
+            <div class="info-value">Dutch</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-user-tie" aria-hidden="true"></i></div>
+          <div class="info-content">
+            <div class="info-label">Current Position</div>
+            <div class="info-value">PhD Candidate (UMCG) · Applied AI Workflow Designer</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-hospital" aria-hidden="true"></i></div>
+          <div class="info-content">
+            <div class="info-label">Affiliation</div>
+            <div class="info-value">Experimental Cardiology, University Medical Center Groningen</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+          <div class="info-content">
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-body {
-  font-family: var(--font-primary);
-  background-color: var(--color-background);
-  color: var(--color-text-main);
-  line-height: 1.7;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
+    <section id="profile" class="card">
+      <h2><i class="fas fa-info-circle" aria-hidden="true"></i> Professional Profile</h2>
+      <div class="summary">
+        <p>
+          Physician-scientist and PhD candidate in Experimental Cardiology (UMCG) integrating clinical insight with translational research in biomarkers, high-throughput screening, and nanoparticle concepts. I design <strong>responsible, workable AI workflows</strong> for healthcare—prompt engineering, model/tool selection, and LLM-assisted prototyping—while keeping ethics, explainability, and MDR awareness at the center.
+        </p>
+      </div>
+      <ul>
+        <li>Bridge between clinical teams and developers; turn clinical needs into usable AI tools.</li>
+        <li>Co-developer of <strong>QGuard-Med</strong> (AI-driven patient prioritization with continuous biomarker tracking).</li>
+        <li>Committed to <strong>Moral AI Literacy</strong>: bias, accountability, model cards, and transparent deployment.</li>
+      </ul>
+    </section>
 
-/* --- 3. Tipografía y Encabezados --- */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-secondary);
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
+    <section id="experience" class="card">
+      <h2><i class="fas fa-briefcase" aria-hidden="true"></i> Relevant Experience</h2>
+      <div class="experience-grid">
+        <div class="experience-card">
+          <h4>Nov 2018 – Feb 2025</h4>
+          <h3>Doctoral Researcher (PhD Candidate)</h3>
+          <h4>University Medical Center Groningen, Netherlands</h4>
+          <ul>
+            <li><strong>OPLAH & Oxidative Stress:</strong> Biomarker workflows to explore cardio-renal mechanisms and heart failure.</li>
+            <li><strong>Assay & Screening:</strong> High-throughput strategy; robustness metrics (Z’, S/B); nanoparticle concepts.</li>
+            <li><strong>AI-aided Comms:</strong> Data visualization and LLM-assisted documentation for scientific outputs.</li>
+            <li><strong>Teaching/Collab:</strong> Contribution to seminars; cross-functional work with clinicians/data scientists.</li>
+          </ul>
+        </div>
 
-h1 { font-size: 3rem; color: var(--color-accent); }
-h2 { 
-  font-size: 1.75rem; 
-  color: var(--color-accent); 
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--color-accent); /* Línea de separación opcional */
-  margin-bottom: 2rem;
-  display: inline-block; /* Asegura que el borde solo ocupe el ancho del texto */
-}
-h3 { font-size: 1.25rem; color: var(--color-text-main); }
-h4 { font-size: 1rem; color: var(--color-text-secondary); font-weight: 400; }
+        <div class="experience-card">
+          <h4>Jun 2025 – Aug 2025</h4>
+          <h3>Clinical Research Investigator & AI Project Manager (Short-term)</h3>
+          <h4>PECTUS Respiratory Health (PANGAEA) · Girona/Barcelona, Spain</h4>
+          <ul>
+            <li>3-month appointment across <strong>three healthcare-AI projects</strong>; clinical–development bridge.</li>
+            <li>LLM-assisted prototyping (prompt libraries, model selection: ChatGPT/Claude/Gemini; Mistral/DeepSeek via API).</li>
+            <li>Proposed guardrails for <strong>responsible AI</strong> (bias, explainability, privacy-by-design, MDR awareness).</li>
+          </ul>
+        </div>
 
-p, ul, ol {
-  margin-bottom: 1rem;
-  color: var(--color-text-main);
-}
+        <div class="experience-card">
+          <h4>2024 – 2025</h4>
+          <h3>Co-developer — QGuard-Med (v2.4)</h3>
+          <h4>Groningen / Barcelona</h4>
+          <ul>
+            <li>AI-driven patient prioritization using time, trend, and severity with continuous biomarker tracking.</li>
+            <li>Prototypes with <strong>FastAPI</strong> (backend) and <strong>Next.js</strong> (frontend), orchestrated with LLMs.</li>
+            <li><strong>Finalist</strong> — Break The Gap 2025 (AI for Health & Sport Summit).</li>
+          </ul>
+        </div>
 
-ul, ol {
-  padding-left: 20px;
-}
+        <div class="experience-card">
+          <h4>Mar 2018 – Oct 2018</h4>
+          <h3>Clinical Supervisor & Lecturer</h3>
+          <h4>Universidad del Valle de México, Mexico</h4>
+          <ul>
+            <li>Guided medical students in clinical rotations and delivered educational sessions.</li>
+            <li>Ensured high training standards in clinical and academic settings.</li>
+          </ul>
+        </div>
 
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: opacity var(--transition-speed);
-}
+        <div class="experience-card">
+          <h4>Nov 2017 – May 2018</h4>
+          <h3>Medical Researcher</h3>
+          <h4>Science iN, Mexico City, Mexico</h4>
+          <ul>
+            <li>Maintained data integrity and standardized documentation across sites.</li>
+            <li>Authored technical/regulatory reports with clinical teams.</li>
+          </ul>
+        </div>
 
-a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
+        <div class="experience-card">
+          <h4>Jan 2015 – Dec 2015</h4>
+          <h3>Community General Practitioner (Clinical Research Intern)</h3>
+          <h4>IMEMIC, Mexico City, Mexico</h4>
+          <ul>
+            <li>Supported clinical trial operations and documentation.</li>
+            <li>Optimized laboratory workflows and sample tracking.</li>
+            <li>Delivered primary consultations and education initiatives.</li>
+          </ul>
+        </div>
 
-strong, b {
-  color: var(--color-text-main);
-  font-weight: 600;
-}
+        <div class="experience-card">
+          <h4>Jan 2014 – Dec 2014</h4>
+          <h3>Clinical Intern (Chief)</h3>
+          <h4>ISSSTE MX, Querétaro, Mexico</h4>
+          <ul>
+            <li>Rotations in Family Medicine, Pediatrics, and Surgery.</li>
+            <li>Mentored interns and improved clinical workflows.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-/* --- 4. Layout y Componentes Principales --- */
-.content-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  margin-left: 280px; /* Espacio para la barra de navegación */
-}
+    <section id="skills" class="card">
+      <h2><i class="fas fa-tools" aria-hidden="true"></i> Skills</h2>
+      <div class="skills-section">
+        <div class="skills-category">
+          <h3><i class="fas fa-users-cog" aria-hidden="true"></i> Project & Communication</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Project Management</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Team Leadership</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Clinical–Tech Translation</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Scientific Writing</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Protocol Development</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Regulatory Awareness (MDR)</span></div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3><i class="fas fa-stethoscope" aria-hidden="true"></i> Translational & Clinical</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Translational Medicine</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Biomarker Analysis</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Assay/HTS Literacy</span></div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3><i class="fas fa-flask" aria-hidden="true"></i> Wet Lab & Molecular</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Molecular Biology</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Protein Purification</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Cell Culture</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Western Blot</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>qRT-PCR</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>LC-MS</span></div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3><i class="fas fa-brain" aria-hidden="true"></i> AI & Data</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Prompt Engineering</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Model/Tool Selection</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>LLM-assisted Prototyping</span></div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3><i class="fas fa-code" aria-hidden="true"></i> Programming & Tools</h3>
+          <div class="skill-badges">
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Python (FastAPI)</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>JS/TS (Next.js/React)</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Docker · Git</span></div>
+            <div class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i><span>pandas/numpy (basic analytics)</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* Tarjetas */
-.card {
-  background-color: var(--color-surface);
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  border: 1px solid var(--color-border);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.5s forwards;
-}
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    <section id="education" class="card">
+      <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h2>
+      <div class="education-grid">
+        <div class="education-item">
+          <h3>PhD in Biomedical/Medical Sciences</h3>
+          <h4>University of Groningen (UMCG)</h4>
+          <p>Nov 2018 – Feb 2025</p>
+        </div>
+        <div class="education-item">
+          <h3>MSc in Nanotechnology & Regenerative Medicine (Distinction)</h3>
+          <h4>University College London (UCL)</h4>
+          <p>Sep 2016 – Nov 2017</p>
+          <ul>
+            <li><strong>Honors:</strong> Awarded with Distinction</li>
+            <li><strong>Project:</strong> Photochemical Internalisation for Pancreatic Cancer Treatment</li>
+            <li><strong>Key Modules:</strong> Translational Medicine, Nanotechnology, Biomaterials, Tissue Engineering</li>
+          </ul>
+        </div>
+        <div class="education-item">
+          <h3>MD (Physician)</h3>
+          <h4>Universidad Nacional Autónoma de México (UNAM)</h4>
+          <p>Aug 2009 – Nov 2016</p>
+        </div>
+      </div>
+    </section>
 
-/* Barra de progreso */
-.progress-container {
-  width: 100%;
-  height: 5px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-.progress-bar {
-  height: 5px;
-  background-color: var(--color-accent);
-  width: 0%;
-}
+    <section id="publications" class="card">
+      <h2><i class="fas fa-book" aria-hidden="true"></i> Publications</h2>
+      <ol>
+        <li class="publication-item">
+          Esquivel-Gaytan, A., <em>et al.</em> (2024). “404-error ‘Disease not found’: Unleashing the translational potential of omics approaches beyond traditional disease classification in heart failure research.”
+          <em>European Journal of Heart Failure</em>.
+          DOI: <a href="https://doi.org/10.1002/ejhf.3268" target="_blank" rel="noopener"><strong>10.1002/ejhf.3268</strong></a>
+          <p class="publication-preview">Integrates omics to challenge classical HF classification and reveal novel mechanisms.</p>
+        </li>
+        <li class="publication-item">
+          Esquivel-Gaytan, A., <em>et al.</em> (2023). “A high-throughput screening strategy identifies adenosine 5′-monophosphate as a novel enhancer of the cardio-protective enzyme 5-oxoprolinase (OPLAH).”
+          <em>European Heart Journal</em>, 44(Suppl_2), ehad655.3130.
+          DOI: <a href="https://doi.org/10.1093/eurheartj/ehad655.3130" target="_blank" rel="noopener"><strong>10.1093/eurheartj/ehad655.3130</strong></a>
+          <p class="publication-preview">Discovers AMP as an OPLAH modulator with potential cardioprotection.</p>
+        </li>
+        <li class="publication-item">
+          Vermeer, M.C.S.C., Esquivel-Gaytan, J.A., <em>et al.</em> (2022).
+          “A translation re-initiation variant in KLHL24 causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation.”
+          <em>British Journal of Dermatology</em>, 187(6), 1045–1048.
+          DOI: <a href="https://doi.org/10.1111/bjd.21832" target="_blank" rel="noopener"><strong>10.1111/bjd.21832</strong></a>
+          <p class="publication-preview">Links KLHL24 variant to skin and cardiac phenotypes via filament degradation.</p>
+        </li>
+      </ol>
+    </section>
 
-/* --- 5. Barra de Navegación Lateral (Sidebar) --- */
-#sideNav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
-  background-color: var(--color-surface);
-  border-right: 1px solid var(--color-border);
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 999;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+    <section id="languages" class="card">
+      <h2><i class="fas fa-language" aria-hidden="true"></i> Languages</h2>
+      <ul class="languages-list">
+        <li><strong>Spanish:</strong> Native</li>
+        <li><strong>English:</strong> C1</li>
+        <li><strong>Dutch:</strong> B1–B2 (actively studying)</li>
+        <li><strong>French:</strong> A2</li>
+        <li><strong>Catalan:</strong> A1</li>
+      </ul>
+    </section>
 
-#sideNav .nav-top {
-  display: flex;
-  flex-direction: column;
-}
+    <section id="certifications" class="card">
+      <h2><i class="fas fa-certificate" aria-hidden="true"></i> Certifications</h2>
+      <ul>
+        <li><i class="fas fa-certificate" aria-hidden="true"></i> Good Clinical Practice — NDAT CTN (2025)</li>
+        <li><i class="fas fa-certificate" aria-hidden="true"></i> Article 9 — Experiments on Animals Act License</li>
+        <li><i class="fas fa-certificate" aria-hidden="true"></i> ML-1 Laboratory Certificate</li>
+        <li><i class="fas fa-certificate" aria-hidden="true"></i> Elements of AI — University of Helsinki (completed)</li>
+        <li><i class="fas fa-id-card" aria-hidden="true"></i> Driving License AM-B</li>
+      </ul>
+    </section>
 
-#sideNav h2 {
-  font-size: 1.5rem;
-  border-bottom: 2px solid var(--color-accent);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
+    <section id="interests" class="card">
+      <h2><i class="fas fa-heart" aria-hidden="true"></i> Interests</h2>
+      <div class="interests-grid">
+        <div class="interest-card">
+          <i class="fas fa-dumbbell" aria-hidden="true"></i>
+          <p>CrossFit</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-robot" aria-hidden="true"></i>
+          <p>Artificial Intelligence</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-plane" aria-hidden="true"></i>
+          <p>Travel</p>
+        </div>
+        <div class="interest-card">
+          <i class="fas fa-paw" aria-hidden="true"></i>
+          <p>Animal Welfare</p>
+        </div>
+      </div>
+    </section>
 
-#sideNav .nav-link {
-  color: var(--color-text-main);
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  margin-bottom: 0.25rem;
-  text-decoration: none;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
+    <section id="contact" class="card">
+      <h2><i class="fas fa-envelope" aria-hidden="true"></i> Contact</h2>
+      <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <strong>Location:</strong> <span>Groningen, Netherlands</span></p>
+      <p><i class="fas fa-envelope" aria-hidden="true"></i> <strong>Email:</strong> <span><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></span></p>
+      <p><i class="fab fa-linkedin" aria-hidden="true"></i> <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank" rel="noopener">linkedin.com/in/jose-antonio-esquivel-gaytan89</a></span></p>
+      <p><i class="fab fa-researchgate" aria-hidden="true"></i> <strong>ResearchGate:</strong> <span><a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank" rel="noopener">Antonio-Gaytan-2</a></span></p>
+      <p><i class="fab fa-orcid" aria-hidden="true"></i> <strong>ORCID:</strong> <span><a href="https://orcid.org/0000-0001-6974-1825" target="_blank" rel="noopener">0000-0001-6974-1825</a></span></p>
+      <p><i class="fas fa-globe" aria-hidden="true"></i> <strong>Website:</strong> <span><a href="https://drjaeg.com" target="_blank" rel="noopener">drjaeg.com</a></span></p>
+      <a href="mailto:j.esquivel.gaytan@gmail.com" class="cta" aria-label="Email José">Get in Touch</a>
+    </section>
 
-#sideNav .nav-link:hover, #sideNav .nav-link.active {
-  background-color: var(--color-accent);
-  color: #FFF; /* Texto blanco para contraste sobre el borgoña */
-}
+    <footer>
+      <p>&copy; 2025 Dr. José Antonio Esquivel Gaytan. All rights reserved.</p>
+      <p><em>Site built with AI-assisted coding to demonstrate applied AI workflow skills.</em></p>
+    </footer>
+  </div>
 
-#sideNav .nav-link i {
-  margin-right: 10px;
-  width: 20px;
-  text-align: center;
-}
+  <div class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </div>
 
-.social-icons {
-  padding-top: 1rem;
-  margin-top: 1rem;
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  gap: 1rem;
-}
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Progress Bar
+      const progressBar = document.getElementById("progressBar");
+      const backToTop = document.getElementById("backToTop");
+      const navToggle = document.getElementById("navToggle");
+      const sideNav = document.getElementById("sideNav");
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      
+      window.addEventListener("scroll", () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progressBar.style.width = (winScroll / height) * 100 + "%";
+        
+        // Show/hide back-to-top button
+        if (winScroll > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+      
+      // Back-to-top behavior
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      
+      // Mobile nav toggle
+      navToggle.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+        navToggle.querySelector("i").classList.toggle("fa-bars");
+        navToggle.querySelector("i").classList.toggle("fa-times");
+      });
 
-.social-icons a {
-  font-size: 1.5rem;
-  color: var(--color-text-secondary);
-}
+      // Smooth scroll + close mobile nav
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+          const isNavLink = this.classList.contains('nav-link');
+          if (isNavLink) {
+            e.preventDefault();
+            if (window.innerWidth < 992 && sideNav.classList.contains("active")) {
+              sideNav.classList.remove("active");
+              navToggle.querySelector("i").classList.add("fa-bars");
+              navToggle.querySelector("i").classList.remove("fa-times");
+            }
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              const offset = 20;
+              const position = target.offsetTop - offset;
+              window.scrollTo({ top: position, behavior: "smooth" });
+            }
+          }
+        });
+      });
 
-.dark-mode-toggle {
-  background: none;
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all var(--transition-speed);
-}
-.dark-mode-toggle:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-}
+      // Dark Mode Toggle
+      darkModeToggle.addEventListener("click", toggleDarkMode);
+      function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+        const icon = darkModeToggle.querySelector("i");
+        if (body.classList.contains("dark-mode")) {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      }
+      // Persist dark mode
+      if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        const icon = darkModeToggle.querySelector("i");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
 
-/* --- 6. Secciones Específicas --- */
+      // Intersection-based reveal animations
+      const animateOnScroll = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.card, .experience-card, .education-item, .skills-category')
+          .forEach(item => observer.observe(item));
+      };
 
-/* Hero Section */
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 4rem 1rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: var(--color-surface);
-}
-
-.hero-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to top, var(--color-background) 0%, rgba(255, 255, 255, 0) 50%);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-photo img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 5px solid var(--color-accent);
-  box-shadow: 0 0 20px var(--shadow-color);
-  margin-bottom: 1rem;
-}
-
-.hero-text h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.25rem;
-}
-.hero-text h2 {
-  font-size: 1.2rem;
-  color: var(--color-text-secondary);
-  border-bottom: none; /* Quitar borde en este h2 */
-  font-family: var(--font-primary);
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-}
-
-.hero-tags {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.hero-tag {
-  background-color: rgba(128, 0, 32, 0.1); /* 10% de opacidad del borgoña */
-  color: var(--color-accent);
-  padding: 0.4rem 0.8rem;
-  border-radius: 16px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-.dark-mode .hero-tag {
-  background-color: rgba(229, 115, 115, 0.2);
-}
-
-/* Personal Information Card */
-.personal-info-card {
-  background-color: var(--color-surface);
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  border: 1px solid var(--color-border);
-}
-.personal-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.info-icon {
-  font-size: 1.5rem;
-  color: var(--color-accent);
-}
-.info-label {
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-}
-.info-value {
-  font-weight: 500;
-}
-
-/* Experience Section */
-.experience-grid {
-  display: grid;
-  gap: 2rem;
-}
-.experience-card {
-  padding-left: 1.5rem;
-  border-left: 3px solid var(--color-accent);
-}
-.experience-card h3 {
-  margin-bottom: 0.2rem;
-}
-.experience-card h4 {
-  margin-bottom: 0.5rem;
-}
-.experience-card ul {
-  list-style-type: '– ';
-}
-
-/* Skills Section */
-.skills-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-.skills-category {
-  padding-top: 1rem;
-  border-top: 3px solid var(--color-accent); /* Borde unificado */
-}
-.skills-category h3 {
-  margin-bottom: 1rem;
-}
-.skill-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.skill-badge {
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-.skill-badge:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px var(--shadow-color);
-}
-.skill-badge i {
-  color: var(--color-accent);
-}
-
-/* Education Section */
-.education-grid {
-  display: grid;
-  gap: 2rem;
-}
-.education-item + .education-item {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
-}
-.education-item h3 {
-  margin-bottom: 0.1rem;
-}
-.education-item h4 {
-  margin-bottom: 0.2rem;
-}
-.education-item p {
-  color: var(--color-text-secondary);
-  margin-bottom: 0.5rem;
-}
-
-/* Publications */
-.publication-item {
-  margin-bottom: 1.5rem;
-}
-.publication-preview {
-  font-style: italic;
-  color: var(--color-text-secondary);
-  border-left: 2px solid var(--color-border);
-  padding-left: 1rem;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-}
-
-/* Contact Section */
-#contact p {
-  margin-bottom: 0.5rem;
-}
-#contact p i {
-  margin-right: 10px;
-  color: var(--color-accent);
-  width: 20px;
-}
-.cta {
-  display: inline-block;
-  background-color: var(--color-accent);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  margin-top: 1.5rem;
-  text-decoration: none;
-  font-family: var(--font-secondary);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-.cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(128, 0, 32, 0.4);
-  color: #fff;
-  opacity: 1;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-  border-top: 1px solid var(--color-border);
-}
-
-/* --- 7. Elementos Utilitarios y Responsive --- */
-
-/* Botón de volver arriba */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--color-accent);
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-speed);
-  z-index: 998;
-}
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Botón de navegación móvil */
-.nav-toggle {
-  display: none; /* Oculto en escritorio */
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1001;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-main);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .content-wrapper {
-    margin-left: 0;
-    padding: 1rem;
-  }
-  #sideNav {
-    transform: translateX(-100%);
-  }
-  #sideNav.active {
-    transform: translateX(0);
-  }
-  .nav-toggle {
-    display: block;
-  }
-  h1 { font-size: 2.2rem; }
-  .hero-text h1 { font-size: 2rem; }
-  .skills-section { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 480px) {
-  body { font-size: 15px; }
-  .card, .personal-info-card { padding: 1.5rem; }
-  h2 { font-size: 1.5rem; }
-  .hero-photo img { width: 120px; height: 120px; }
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+      animateOnScroll();
+    });
+  </script>
+</body>
+</html>
