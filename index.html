@@ -38,7 +38,7 @@
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 
-  <style>
+<style>
     /* --- VARIABLES --- */
     :root {
       --color-accent: #800020;
@@ -79,20 +79,14 @@
       line-height: 1.7;
       transition: background-color var(--transition-speed), color var(--transition-speed);
     }
-
-    /* Desplazamiento de anclas agradable */
     :target { scroll-margin-top: 16px; }
     @media (min-width: 992px){
       :root { scroll-padding-top: 12px; }
     }
-
-    /* Foco visible */
     :focus-visible {
       outline: 3px solid var(--color-accent);
       outline-offset: 2px;
     }
-
-    /* Skip link */
     .skip-link{
       position:absolute; left:-9999px; top:auto;
     }
@@ -183,8 +177,7 @@
       display: flex; align-items: center;
     }
     #sideNav .nav-link:hover { background-color: var(--color-accent-soft); transform: translateX(5px); }
-    #sideNav .nav-link[aria-current="true"],
-    #sideNav .nav-link.active { /* 'active' class for JS fallback */
+    #sideNav .nav-link[aria-current="true"] {
       background-color: var(--color-accent);
       color: #FFF;
       font-weight: 600;
@@ -240,13 +233,11 @@
     .info-icon { font-size: 1.5rem; color: var(--color-accent); }
     .info-label { color: var(--color-text-secondary); font-size: 0.9rem; }
     .info-value { font-weight: 500; }
-
     .experience-grid { display: grid; gap: 2rem; }
     .experience-card { padding-left: 1.5rem; border-left: 3px solid var(--color-accent); }
     .experience-card h3 { margin-bottom: 0.2rem; }
     .experience-card h4 { margin-bottom: 0.5rem; }
     .experience-card ul { list-style-type: '– '; padding-left: 1.25rem; }
-
     .skills-section { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .skills-category { padding-top: 1rem; border-top: 3px solid var(--color-accent); }
     .skills-category h3 { margin-bottom: 1rem; }
@@ -259,20 +250,16 @@
     }
     .skill-badge:hover { transform: translateY(-3px); box-shadow: 0 4px 8px var(--shadow-color); }
     .skill-badge i { color: var(--color-accent); }
-
     .education-grid { display: grid; gap: 1.5rem; }
     .education-item + .education-item { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
     .education-item h3 { margin-bottom: 0.1rem; }
     .education-item h4 { margin-bottom: 0.2rem; }
     .education-item p { color: var(--color-text-secondary); margin-bottom: 0.5rem; }
-
     .publication-item { margin-bottom: 1.5rem; }
     .publication-preview {
       font-style: italic; color: var(--color-text-secondary); border-left: 2px solid var(--color-border);
       padding-left: 1rem; margin-top: 0.5rem; font-size: 0.9rem;
     }
-    
-    /* CORRECCIÓN: Estilos para la sección de Intereses */
     .interests-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -289,7 +276,6 @@
       font-size: 0.9rem;
       color: var(--color-text-secondary);
     }
-    
     #contact p { margin-bottom: 0.5rem; }
     #contact p i { margin-right: 10px; color: var(--color-accent); width: 20px; }
 
@@ -350,14 +336,78 @@
       .card{ transform:none !important; }
     }
 
+    /* ============================================ */
+    /* === NUEVO: ESTILOS DE IMPRESIÓN MEJORADOS === */
+    /* ============================================ */
     @media print{
-      #sideNav, .nav-toggle, .back-to-top, .cta, .cta-float, .progress-container, footer { display:none !important; }
-      body{ background:#fff; }
-      .card{ box-shadow:none; border:0; break-inside:avoid; padding:1rem 0; }
-      a[href^="http"]::after{ content:" (" attr(href) ")"; font-size:.85em; color:#666; }
-      .content-wrapper{ margin-left:0; }
+      /* Define el tamaño y márgenes de la página */
+      @page {
+        size: A4;
+        margin: 1.5cm;
+      }
+
+      /* FUERZA LA IMPRESIÓN DE COLORES Y FONDOS */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      /* Oculta todos los elementos no necesarios en un CV impreso */
+      #sideNav, .nav-toggle, .back-to-top, .cta, .cta-float, .progress-container, footer { 
+        display:none !important; 
+      }
+      
+      /* Ajustes generales del cuerpo para impresión */
+      body{ 
+        background-color:#fff !important; 
+        color: #000 !important;
+        font-size: 10pt; /* Tamaño de fuente estándar para impresión */
+      }
+      
+      /* Asegura que el contenido ocupe todo el ancho */
+      .content-wrapper{ 
+        margin-left:0 !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      
+      /* Estilo de las tarjetas para impresión: sin sombras, sin bordes */
+      .card{ 
+        box-shadow:none !important; 
+        border:0 !important; 
+        break-inside:avoid; /* Evita que una tarjeta se parta entre dos páginas */
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+      }
+
+      #profile.card {
+        border-top: 3px solid var(--color-accent) !important;
+      }
+
+      /* Ajusta tamaños de fuente para que se vean bien en papel */
+      h1 { font-size: 24pt; }
+      h2 { font-size: 16pt; }
+      h3 { font-size: 12pt; }
+      
+      /* Limpia los enlaces: sin URLs extra y con el color correcto */
+      a {
+        color: var(--color-accent) !important;
+        text-decoration: none !important;
+      }
+      a[href^="http"]::after{ 
+        content: "" !important; /* Elimina la URL que se añade al lado */
+      }
+      
+      /* Asegura que la foto y los tags se vean bien */
+      .hero-photo img {
+        border-color: var(--color-accent) !important;
+      }
+      .hero-tag {
+        background-color: #F2E6EA !important; /* Forza el fondo suave */
+        border: 1px solid var(--color-accent) !important;
+      }
     }
-  </style>
+</style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido</a>
