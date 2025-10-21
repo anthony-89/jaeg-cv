@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>José Antonio Esquivel Gaytan — Dashboard CV</title>
+  <title>José Antonio Esquivel Gaytan — Executive CV</title>
 
   <meta name="description" content="Physician-scientist & Applied AI Workflow Designer in Healthcare & Ethics. Developer of QGuard-Med."/>
-  <meta name="theme-color" content="#0a2940">
-
-  <meta property="og:title" content="José Antonio Esquivel Gaytan — Dashboard CV">
-  <meta property="og:description" content="Physician-scientist & Applied AI Workflow Designer in Healthcare & Ethics.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/og-image.jpg">
-  <meta property="og:type" content="profile">
+  <meta name="theme-color" content="#0a3a52">
 
   <script type="application/ld+json">
   {
@@ -38,31 +33,23 @@
       from { opacity: 0; transform: translateX(-30px); }
       to { opacity: 1; transform: translateX(0); }
     }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.2); }
-      50% { box-shadow: 0 0 40px rgba(212, 165, 116, 0.4); }
-    }
-    @keyframes shimmer {
-      0% { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
-    }
 
     :root {
-      --color-bg: #0f1419;
-      --color-bg-secondary: #1a2332;
-      --color-bg-tertiary: #242d3e;
+      --color-bg: #ffffff;
+      --color-bg-secondary: #f8fafb;
+      --color-primary: #0a3a52;
       --color-accent: #d4a574;
       --color-accent-dark: #b8860b;
-      --color-accent-light: #e8d4b8;
-      --color-text: #f0f3f8;
-      --color-text-secondary: #b8c5d6;
-      --color-text-tertiary: #8a9bb3;
-      --color-border: #344557;
-      --color-success: #4ade80;
-      --color-warning: #facc15;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.7);
+      --color-text: #0a3a52;
+      --color-text-secondary: #4a5f7f;
+      --color-text-tertiary: #7a8fa0;
+      --color-border: #d8e1ed;
+      --color-success: #2d7a3e;
+      --color-warning: #a68a00;
+      --shadow-sm: 0 1px 3px rgba(10, 58, 82, 0.08);
+      --shadow-md: 0 4px 12px rgba(10, 58, 82, 0.12);
+      --shadow-lg: 0 12px 32px rgba(10, 58, 82, 0.15);
+      --shadow-hover: 0 16px 40px rgba(10, 58, 82, 0.18);
       --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -70,7 +57,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+      background: var(--color-bg);
       color: var(--color-text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -82,27 +69,29 @@
       font-family: 'Inter', sans-serif;
       font-weight: 700;
       letter-spacing: -0.5px;
+      color: var(--color-primary);
     }
 
-    h1 { font-size: 3.5rem; color: var(--color-text); }
+    h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; }
     h2 {
-      font-size: 1.8rem;
-      color: var(--color-accent);
+      font-size: 2rem;
+      color: var(--color-primary);
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      font-weight: 800;
     }
-    h3 { font-size: 1.2rem; color: var(--color-text); }
+    h3 { font-size: 1.2rem; font-weight: 700; }
     h4 { font-size: 0.9rem; color: var(--color-text-secondary); font-weight: 600; }
     p { color: var(--color-text-secondary); line-height: 1.7; }
     a {
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
       text-decoration: none;
       transition: color var(--transition);
-      font-weight: 500;
+      font-weight: 600;
     }
-    a:hover { color: var(--color-accent-light); }
+    a:hover { color: var(--color-accent); text-decoration: underline; }
 
     /* --- NAVBAR --- */
     .navbar {
@@ -111,21 +100,21 @@
       left: 0;
       right: 0;
       height: 70px;
-      background: rgba(26, 35, 50, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg);
+      border-bottom: 2px solid var(--color-border);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 2rem;
       z-index: 1000;
       animation: slideInLeft 0.6s ease-out;
+      box-shadow: var(--shadow-sm);
     }
 
     .navbar-brand {
       font-size: 1.4rem;
       font-weight: 800;
-      color: var(--color-accent);
+      color: var(--color-primary);
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -140,7 +129,7 @@
     .nav-link {
       color: var(--color-text-secondary);
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 700;
       position: relative;
       transition: color var(--transition);
     }
@@ -151,7 +140,7 @@
       bottom: -5px;
       left: 0;
       width: 0;
-      height: 2px;
+      height: 3px;
       background: var(--color-accent);
       transition: width var(--transition);
     }
@@ -172,7 +161,7 @@
       width: 44px;
       height: 44px;
       border-radius: 8px;
-      border: 1px solid var(--color-border);
+      border: 2px solid var(--color-border);
       background: transparent;
       color: var(--color-text);
       cursor: pointer;
@@ -180,17 +169,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: 700;
     }
 
     .btn-theme:hover {
       border-color: var(--color-accent);
-      background: rgba(212, 165, 116, 0.1);
+      background: rgba(212, 165, 116, 0.08);
+      color: var(--color-accent);
     }
 
     /* --- MAIN CONTENT --- */
     main {
       margin-top: 70px;
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       max-width: 1400px;
       margin-left: auto;
       margin-right: auto;
@@ -200,26 +191,33 @@
     .hero-dashboard {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 4rem;
+      gap: 4rem;
+      margin-bottom: 5rem;
       align-items: center;
       animation: fadeInUp 0.8s ease-out 0.2s both;
     }
 
     .hero-content h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: 4.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary);
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .hero-subtitle {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
+      color: var(--color-accent-dark);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
       color: var(--color-text-secondary);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      max-width: 500px;
     }
 
     .hero-tags {
@@ -230,21 +228,22 @@
     }
 
     .tag {
-      background: rgba(212, 165, 116, 0.15);
-      border: 1px solid rgba(212, 165, 116, 0.4);
-      color: var(--color-accent-light);
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
+      background: var(--color-bg-secondary);
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent-dark);
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       transition: all var(--transition);
       animation: fadeInUp 0.6s ease-out 0.3s both;
     }
 
     .tag:hover {
-      background: rgba(212, 165, 116, 0.25);
-      border-color: var(--color-accent);
+      background: var(--color-accent);
+      color: white;
       transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
     .hero-buttons {
@@ -254,9 +253,9 @@
     }
 
     .btn {
-      padding: 0.9rem 1.8rem;
-      border-radius: 8px;
-      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-weight: 700;
       border: none;
       cursor: pointer;
       transition: all var(--transition);
@@ -264,27 +263,30 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      letter-spacing: 0.5px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-      color: #000;
-      box-shadow: 0 8px 20px rgba(212, 165, 116, 0.25);
+      background: var(--color-primary);
+      color: white;
+      box-shadow: var(--shadow-md);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(212, 165, 116, 0.35);
+      box-shadow: var(--shadow-hover);
+      background: var(--color-accent-dark);
     }
 
     .btn-secondary {
       background: transparent;
-      border: 1.5px solid var(--color-accent);
-      color: var(--color-accent);
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
     }
 
     .btn-secondary:hover {
-      background: rgba(212, 165, 116, 0.1);
+      background: var(--color-primary);
+      color: white;
       transform: translateY(-2px);
     }
 
@@ -297,75 +299,27 @@
 
     .image-wrapper {
       position: relative;
-      width: 280px;
-      height: 280px;
-      animation: pulseGlow 3s ease-in-out infinite;
+      width: 300px;
+      height: 300px;
     }
 
     .image-wrapper img {
       width: 100%;
       height: 100%;
-      border-radius: 16px;
-      border: 3px solid var(--color-accent);
+      border-radius: 12px;
+      border: 4px solid var(--color-accent);
       object-fit: cover;
       box-shadow: var(--shadow-lg);
+      transition: transform var(--transition);
     }
 
-    /* --- STATS GRID --- */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-
-    .stat-card {
-      background: rgba(36, 45, 62, 0.5);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--color-border);
-      padding: 1.5rem;
-      border-radius: 12px;
-      transition: all var(--transition);
-      animation: fadeInUp 0.6s ease-out both;
-    }
-
-    .stat-card:nth-child(1) { animation-delay: 0.2s; }
-    .stat-card:nth-child(2) { animation-delay: 0.3s; }
-    .stat-card:nth-child(3) { animation-delay: 0.4s; }
-    .stat-card:nth-child(4) { animation-delay: 0.5s; }
-
-    .stat-card:hover {
-      background: rgba(36, 45, 62, 0.8);
-      border-color: var(--color-accent);
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(212, 165, 116, 0.2);
-    }
-
-    .stat-value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--color-accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 0.85rem;
-      color: var(--color-text-tertiary);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .stat-icon {
-      font-size: 1.8rem;
-      color: var(--color-accent);
-      margin-bottom: 0.75rem;
-      opacity: 0.7;
+    .image-wrapper:hover img {
+      transform: scale(1.02);
     }
 
     /* --- DASHBOARD CARDS --- */
     .dashboard-section {
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
       animation: fadeInUp 0.8s ease-out both;
     }
 
@@ -377,13 +331,16 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
-      color: var(--color-text);
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      color: var(--color-primary);
+      font-weight: 800;
+      border-left: 4px solid var(--color-accent);
+      padding-left: 1.5rem;
     }
 
     .section-title i {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--color-accent);
     }
 
@@ -394,10 +351,9 @@
     }
 
     .card {
-      background: linear-gradient(135deg, rgba(36, 45, 62, 0.6), rgba(26, 35, 50, 0.4));
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
+      background: var(--color-bg);
+      border: 2px solid var(--color-border);
+      border-radius: 8px;
       padding: 2rem;
       transition: all var(--transition);
       overflow: hidden;
@@ -408,21 +364,21 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1), transparent);
-      transition: left 0.6s ease-out;
-    }
-
-    .card:hover::before {
-      left: 100%;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--color-accent);
+      transition: height var(--transition);
     }
 
     .card:hover {
-      transform: translateY(-12px);
+      transform: translateY(-8px);
       border-color: var(--color-accent);
-      box-shadow: 0 20px 50px rgba(212, 165, 116, 0.15);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card:hover::before {
+      height: 100%;
     }
 
     .card-header {
@@ -433,22 +389,23 @@
     }
 
     .card-title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      color: var(--color-text);
+      color: var(--color-primary);
     }
 
     .card-meta {
       font-size: 0.8rem;
       color: var(--color-text-tertiary);
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .card-subtitle {
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
       font-size: 0.95rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 1rem;
     }
 
@@ -466,13 +423,13 @@
     }
 
     .badge {
-      background: rgba(212, 165, 116, 0.15);
-      color: var(--color-accent-light);
-      padding: 0.35rem 0.8rem;
-      border-radius: 6px;
+      background: var(--color-bg-secondary);
+      color: var(--color-accent-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
       font-size: 0.75rem;
-      font-weight: 600;
-      border: 1px solid rgba(212, 165, 116, 0.3);
+      font-weight: 700;
+      border: 1px solid var(--color-accent);
     }
 
     /* --- SKILLS GRID --- */
@@ -483,18 +440,17 @@
     }
 
     .skill-category {
-      background: linear-gradient(135deg, rgba(36, 45, 62, 0.6), rgba(26, 35, 50, 0.4));
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
+      background: var(--color-bg-secondary);
+      border: 2px solid var(--color-border);
+      border-radius: 8px;
       padding: 2rem;
       transition: all var(--transition);
     }
 
     .skill-category:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       border-color: var(--color-accent);
-      box-shadow: 0 15px 40px rgba(212, 165, 116, 0.15);
+      box-shadow: var(--shadow-lg);
     }
 
     .skill-category h3 {
@@ -503,6 +459,7 @@
       gap: 0.75rem;
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
+      color: var(--color-primary);
     }
 
     .skill-category i {
@@ -511,9 +468,9 @@
     }
 
     .skill-item {
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--color-border);
     }
 
     .skill-item:last-child {
@@ -523,41 +480,40 @@
     }
 
     .skill-name {
-      font-weight: 600;
-      color: var(--color-text);
+      font-weight: 700;
+      color: var(--color-primary);
       margin-bottom: 0.5rem;
       font-size: 0.95rem;
     }
 
     .skill-bar {
       width: 100%;
-      height: 4px;
+      height: 5px;
       background: var(--color-border);
-      border-radius: 2px;
+      border-radius: 3px;
       overflow: hidden;
     }
 
     .skill-progress {
       height: 100%;
-      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
-      border-radius: 2px;
+      background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent));
+      border-radius: 3px;
       animation: slideInLeft 0.8s ease-out 1s both;
     }
 
     /* --- FOOTER --- */
     footer {
       text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--color-border);
+      padding: 3rem 2rem;
+      border-top: 2px solid var(--color-border);
       color: var(--color-text-tertiary);
       font-size: 0.85rem;
-      margin-top: 4rem;
+      margin-top: 5rem;
     }
 
     /* --- RESPONSIVE --- */
     @media (max-width: 1024px) {
-      .hero-dashboard { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-dashboard { grid-template-columns: 1fr; gap: 2rem; }
       .skills-container { grid-template-columns: repeat(2, 1fr); }
       .cards-grid { grid-template-columns: 1fr; }
       main { padding: 2rem 1.5rem; }
@@ -566,11 +522,11 @@
     @media (max-width: 768px) {
       .navbar { padding: 0 1rem; }
       .navbar-nav { display: none; }
-      .hero-dashboard { gap: 2rem; }
-      h1 { font-size: 2.5rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      h1 { font-size: 2.8rem; }
+      .section-title { font-size: 1.5rem; }
       .skills-container { grid-template-columns: 1fr; }
-      .image-wrapper { width: 200px; height: 200px; }
+      .image-wrapper { width: 220px; height: 220px; }
+      main { padding: 1.5rem 1rem; margin-top: 70px; }
     }
 
     @media (max-width: 480px) {
@@ -578,8 +534,7 @@
       h1 { font-size: 2rem; }
       .hero-buttons { flex-direction: column; }
       .btn { width: 100%; justify-content: center; }
-      .stats-grid { grid-template-columns: 1fr; }
-      main { padding: 1.5rem 1rem; }
+      main { padding: 1rem; }
     }
 </style>
 </head>
@@ -596,8 +551,8 @@
       <a href="#contact" class="nav-link">Contact</a>
     </div>
     <div class="nav-actions">
-      <button class="btn-theme">
-        <i class="fas fa-moon"></i>
+      <button class="btn-theme" title="Print CV">
+        <i class="fas fa-print"></i>
       </button>
     </div>
   </nav>
@@ -607,22 +562,22 @@
     <!-- HERO DASHBOARD -->
     <section class="hero-dashboard">
       <div class="hero-content">
-        <h1>José Antonio Esquivel Gaytan</h1>
-        <p class="hero-subtitle">MD, MSc, PhD Candidate</p>
-        <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem;">Physician-scientist & Applied AI Workflow Designer in Healthcare & Ethics. Bridge between clinical teams and developers.</p>
+        <h1>Jose Antonio Esquivel Gaytan</h1>
+        <p class="hero-subtitle">MD, MSc, PhD—thesis submitted (2025)</p>
+        <p class="hero-tagline">Physician-scientist | Translational cardiometabolism | AI workflows (prototyping-level) | MDR/GDPR aware</p>
         
-        <div class="hero-tags">
-          <span class="tag">Applied AI Workflow</span>
-          <span class="tag">Physician-Scientist</span>
-          <span class="tag">QGuard-Med</span>
-          <span class="tag">Healthcare Innovation</span>
+        <div class="hero-tags" role="list">
+          <span class="tag">Translational Research</span>
+          <span class="tag">AI Workflows</span>
+          <span class="tag">Clinical Translation</span>
+          <span class="tag">Healthcare Ethics</span>
         </div>
 
         <div class="hero-buttons">
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" onclick="window.location.href='mailto:j.esquivel.gaytan@gmail.com'">
             <i class="fas fa-envelope"></i> Get in Touch
           </button>
-          <button class="btn btn-secondary">
+          <button class="btn btn-secondary" onclick="window.print()">
             <i class="fas fa-download"></i> Download CV
           </button>
         </div>
@@ -630,12 +585,10 @@
 
       <div class="hero-image">
         <div class="image-wrapper">
-          <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="José Antonio Esquivel Gaytan" />
+          <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/8F0BCB5E-A55A-476A-A9D9-8508C0A34E3A.PNG" alt="Jose Antonio Esquivel Gaytan" />
         </div>
       </div>
     </section>
-
-    <!-- STATS - REMOVED -->
 
     <!-- PROFESSIONAL PROFILE SECTION -->
     <section class="dashboard-section">
@@ -646,28 +599,28 @@
         <div class="card">
           <p class="card-content" style="margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8;">Physician-scientist (MD, MSc, PhD—thesis submitted Oct 2025) focused on cardiometabolic translational research and responsible, usable AI in healthcare. I prototype workflow-level AI tools with engineers and help clinical teams evaluate safety, utility, and ethics (MDR/GDPR aware). Clear communicator between clinicians, data scientists, and product teams.</p>
           
-          <div style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+          <div style="border-top: 2px solid var(--color-border); padding-top: 1.5rem;">
             <div style="margin-bottom: 1rem;">
               <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem;"></i>
+                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
                 <span><strong>QGuard-Med (v2.4):</strong> Finalist at Break The Gap 2025. AI-driven patient prioritization with MVP in FastAPI + Next.js.</span>
               </p>
             </div>
             <div style="margin-bottom: 1rem;">
               <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem;"></i>
+                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
                 <span><strong>HTS/OPLAH Discovery:</strong> Built high-throughput assay strategy (Z', S/B); identified AMP as OPLAH enhancer (EHJ abstract, 2023).</span>
               </p>
             </div>
             <div style="margin-bottom: 1rem;">
               <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem;"></i>
+                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
                 <span><strong>AI Literacy & Guardrails:</strong> Design responsible AI workflows; MDR/GDPR awareness integrated into early design phases.</span>
               </p>
             </div>
             <div>
               <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem;"></i>
+                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
                 <span><strong>Open to:</strong> clinic co-founding, adjunct teaching, and AI literacy workshops (Netherlands/Spain/EU).</span>
               </p>
             </div>
@@ -675,6 +628,8 @@
         </div>
       </div>
     </section>
+
+    <!-- EXPERIENCE SECTION -->
     <section class="dashboard-section" id="experience">
       <h2 class="section-title">
         <i class="fas fa-briefcase"></i> Professional Experience
@@ -742,119 +697,6 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION -->
-    <section class="dashboard-section" id="skills">
-      <h2 class="section-title">
-        <i class="fas fa-tools"></i> Core Competencies
-      </h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3><i class="fas fa-users-cog"></i> Project & Communication</h3>
-          <div class="skill-item">
-            <p class="skill-name">Project Management</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Team Leadership</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Clinical–Tech Translation</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Scientific Writing</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 87%;"></div></div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-stethoscope"></i> Translational & Clinical</h3>
-          <div class="skill-item">
-            <p class="skill-name">Translational Medicine</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Biomarker Analysis</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Assay/HTS Literacy</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-brain"></i> AI & Data</h3>
-          <div class="skill-item">
-            <p class="skill-name">Prompt Engineering</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Model/Tool Selection</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">LLM-assisted Prototyping</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-code"></i> Programming & Tools (prototyping-level)</h3>
-          <div class="skill-item">
-            <p class="skill-name">Python (FastAPI basics)</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Build MVPs, read/modify code, unit changes; pair with senior engineer for architecture</p>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">JS/TS (Next.js/React basics)</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 65%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Frontend prototypes, minor UI tweaks, feature branches</p>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Docker · Git · everyday use</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Local dev, multi-service stacks, feature branches & PRs</p>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">LLM toolchain</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Prompt libraries, lightweight retrieval, model/tool selection, workflow integration & guardrails</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION SECTION -->
-    <section class="dashboard-section" id="education">
-      <h2 class="section-title">
-        <i class="fas fa-graduation-cap"></i> Education
-      </h2>
-      <div class="cards-grid">
-        <div class="card">
-          <p class="card-meta">Nov 2018 – Feb 2025</p>
-          <h3 class="card-title">PhD in Biomedical/Medical Sciences</h3>
-          <p class="card-subtitle">University of Groningen (UMCG)</p>
-          <p class="card-content">Experimental Cardiology with focus on biomarker discovery, high-throughput screening strategies, and nanoparticle concepts for heart failure research.</p>
-        </div>
-
-        <div class="card">
-          <p class="card-meta">Sep 2016 – Nov 2017</p>
-          <h3 class="card-title">MSc Nanotechnology & Regenerative Medicine (Distinction)</h3>
-          <p class="card-subtitle">University College London (UCL)</p>
-          <p class="card-content"><strong>Honors:</strong> Awarded with Distinction. <strong>Project:</strong> Photochemical Internalisation for Pancreatic Cancer Treatment.</p>
-        </div>
-
-        <div class="card">
-          <p class="card-meta">Aug 2009 – Nov 2016</p>
-          <h3 class="card-title">MD (Physician)</h3>
-          <p class="card-subtitle">Universidad Nacional Autónoma de México (UNAM)</p>
-          <p class="card-content">Medical degree with clinical training in internal medicine and translational research foundations.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- SELECTED PROJECTS SECTION -->
     <section class="dashboard-section" id="selected-projects">
       <h2 class="section-title">
@@ -900,46 +742,125 @@
       </div>
     </section>
 
-    <!-- PROFESSIONAL INTERESTS & DEVELOPMENT SECTION -->
-    <section class="dashboard-section" id="interests-development">
+    <!-- SKILLS SECTION -->
+    <section class="dashboard-section" id="skills">
       <h2 class="section-title">
-        <i class="fas fa-compass"></i> Professional Interests & Development
+        <i class="fas fa-tools"></i> Core Competencies
       </h2>
-      <div class="cards-grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-          <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--color-text); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-              <i class="fas fa-laptop-code" style="color: var(--color-accent);"></i> AI Literacy in Healthcare
-            </h3>
-            <p class="card-content" style="margin: 0;">Designing and piloting workshops on safe LLM use, bias mitigation, validation, and MDR/GDPR awareness for clinical teams. Formats: 2–4h modules tailored to care environments.</p>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3><i class="fas fa-users-cog"></i> Leadership</h3>
+          <div class="skill-item">
+            <p class="skill-name">Project Management</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
           </div>
-
-          <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border);">
-            <h3 style="color: var(--color-text); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-              <i class="fas fa-clinic-medical" style="color: var(--color-accent);"></i> Outpatient Clinic (Cardiometabolic Prevention)
-            </h3>
-            <p class="card-content" style="margin: 0;">Interested in preventive cardio practice integrating lifestyle counseling, biomarker stratification, and AI-assisted risk assessment with explainable, ethical tools.</p>
+          <div class="skill-item">
+            <p class="skill-name">Team Leadership</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
           </div>
+          <div class="skill-item">
+            <p class="skill-name">Clinical-Tech Translation</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">Scientific Writing</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 87%;"></div></div>
+          </div>
+        </div>
 
-          <div>
-            <h3 style="color: var(--color-text); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-              <i class="fas fa-book-open" style="color: var(--color-accent);"></i> Academic Teaching
-            </h3>
-            <p class="card-content" style="margin: 0;">Translational methods, biomarker-to-bedside design, clinical AI case studies, and ethics in healthcare innovation.</p>
+        <div class="skill-category">
+          <h3><i class="fas fa-stethoscope"></i> Translational & Clinical</h3>
+          <div class="skill-item">
+            <p class="skill-name">Translational Medicine</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">Biomarker Analysis</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">Assay/HTS Literacy</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-brain"></i> AI & Data</h3>
+          <div class="skill-item">
+            <p class="skill-name">Prompt Engineering</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">Model/Tool Selection</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">LLM-assisted Prototyping</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Programming (prototyping-level)</h3>
+          <div class="skill-item">
+            <p class="skill-name">Python (FastAPI basics)</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">MVP, read/modify, pair with senior engineer</p>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">JS/TS (Next.js/React basics)</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 65%;"></div></div>
+            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Frontend prototypes, feature branches</p>
+          </div>
+          <div class="skill-item">
+            <p class="skill-name">Docker · Git · LLM toolchain</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Daily use, workflow integration</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="dashboard-section" id="education">
+      <h2 class="section-title">
+        <i class="fas fa-graduation-cap"></i> Education
+      </h2>
+      <div class="cards-grid">
+        <div class="card">
+          <p class="card-meta">Nov 2018 – Feb 2025</p>
+          <h3 class="card-title">PhD in Biomedical/Medical Sciences</h3>
+          <p class="card-subtitle">University of Groningen (UMCG)</p>
+          <p class="card-content">Experimental Cardiology with focus on biomarker discovery, high-throughput screening strategies, and nanoparticle concepts for heart failure research.</p>
+        </div>
+
+        <div class="card">
+          <p class="card-meta">Sep 2016 – Nov 2017</p>
+          <h3 class="card-title">MSc Nanotechnology & Regenerative Medicine (Distinction)</h3>
+          <p class="card-subtitle">University College London (UCL)</p>
+          <p class="card-content"><strong>Honors:</strong> Awarded with Distinction. <strong>Project:</strong> Photochemical Internalisation for Pancreatic Cancer Treatment.</p>
+        </div>
+
+        <div class="card">
+          <p class="card-meta">Aug 2009 – Nov 2016</p>
+          <h3 class="card-title">MD (Physician)</h3>
+          <p class="card-subtitle">Universidad Nacional Autonoma de Mexico (UNAM)</p>
+          <p class="card-content">Medical degree with clinical training in internal medicine and translational research foundations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS SECTION -->
     <section class="dashboard-section" id="publications">
       <h2 class="section-title">
         <i class="fas fa-book"></i> Publications
       </h2>
       <div class="cards-grid" style="grid-template-columns: 1fr;">
         <div class="card">
-          <p class="card-meta">2024</p>
-          <h3 class="card-title">404-error 'Disease not found': Unleashing the translational potential of omics approaches</h3>
+          <p class="card-meta" style="color: var(--color-success); font-weight: 600;">Peer-reviewed · 2024</p>
+          <h3 class="card-title">404-error 'Disease not found': Unleashing the translational potential of omics approaches beyond traditional disease classification</h3>
           <p class="card-subtitle">European Journal of Heart Failure</p>
-          <p class="card-content">Integrates omics to challenge classical HF classification and reveal novel mechanisms beyond traditional disease classification in heart failure research.</p>
+          <p class="card-content">Integrates omics to challenge classical HF classification and reveal novel mechanisms. Co-authored with cross-functional research team.</p>
           <div class="card-footer">
             <span class="badge">Omics</span>
             <span class="badge">Heart Failure</span>
@@ -949,10 +870,10 @@
         </div>
 
         <div class="card">
-          <p class="card-meta">2023</p>
-          <h3 class="card-title">A high-throughput screening strategy identifies adenosine 5′-monophosphate as OPLAH enhancer</h3>
+          <p class="card-meta" style="color: var(--color-warning); font-weight: 600;">Conference Abstract · 2023</p>
+          <h3 class="card-title">A high-throughput screening strategy identifies adenosine 5-monophosphate as a novel enhancer of the cardio-protective enzyme 5-oxoprolinase (OPLAH)</h3>
           <p class="card-subtitle">European Heart Journal, 44(Suppl_2), ehad655.3130</p>
-          <p class="card-content">Discovers AMP as an OPLAH modulator with potential cardioprotection. Novel approach to biomarker discovery in translational cardiology.</p>
+          <p class="card-content">Novel biomarker discovery via HTS. Presented at ESC Congress. Demonstrates OPLAH modulation pathway with potential cardioprotective implications.</p>
           <div class="card-footer">
             <span class="badge">HTS</span>
             <span class="badge">Biomarkers</span>
@@ -970,31 +891,31 @@
       </h2>
       <div class="skills-container">
         <div class="skill-category">
-          <h3><i class="fas fa-comment"></i> Communication Skills</h3>
+          <h3><i class="fas fa-comment"></i> Spanish</h3>
           <div class="skill-item">
-            <p class="skill-name">Spanish</p>
+            <p class="skill-name">Native Proficiency</p>
             <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Native</p>
           </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-comment"></i> English</h3>
           <div class="skill-item">
-            <p class="skill-name">English</p>
+            <p class="skill-name">C1 Proficiency</p>
             <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">C1</p>
           </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-comment"></i> Dutch</h3>
           <div class="skill-item">
-            <p class="skill-name">Dutch</p>
+            <p class="skill-name">B1–B2 (actively studying)</p>
             <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">B1–B2 (actively studying)</p>
           </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-comment"></i> French & Catalan</h3>
           <div class="skill-item">
-            <p class="skill-name">French</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 50%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">A2</p>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Catalan</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 40%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">A1</p>
+            <p class="skill-name">A2 / A1 Proficiency</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 45%;"></div></div>
           </div>
         </div>
       </div>
@@ -1021,7 +942,7 @@
             <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
             <div>
               <h3 class="card-title" style="margin: 0;">Article 9 — Animal Experiments License</h3>
-              <p class="card-meta">Experiments on Animals Act License</p>
+              <p class="card-meta">Experiments on Animals Act</p>
             </div>
           </div>
         </div>
@@ -1080,24 +1001,55 @@
       </div>
     </section>
 
+    <!-- PROFESSIONAL INTERESTS & DEVELOPMENT SECTION -->
+    <section class="dashboard-section" id="interests-development">
+      <h2 class="section-title">
+        <i class="fas fa-compass"></i> Professional Interests & Development
+      </h2>
+      <div class="cards-grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+              <i class="fas fa-laptop-code" style="color: var(--color-accent);"></i> AI Literacy in Healthcare
+            </h3>
+            <p class="card-content" style="margin: 0;">Designing and piloting workshops on safe LLM use, bias mitigation, validation, and MDR/GDPR awareness for clinical teams. Formats: 2–4h modules tailored to care environments.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--color-border);">
+            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+              <i class="fas fa-clinic-medical" style="color: var(--color-accent);"></i> Outpatient Clinic (Cardiometabolic Prevention)
+            </h3>
+            <p class="card-content" style="margin: 0;">Interested in preventive cardio practice integrating lifestyle counseling, biomarker stratification, and AI-assisted risk assessment with explainable, ethical tools.</p>
+          </div>
+
+          <div>
+            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+              <i class="fas fa-book-open" style="color: var(--color-accent);"></i> Academic Teaching
+            </h3>
+            <p class="card-content" style="margin: 0;">Translational methods, biomarker-to-bedside design, clinical AI case studies, and ethics in healthcare innovation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT SECTION -->
     <section class="dashboard-section" id="contact">
       <h2 class="section-title">
-        <i class="fas fa-envelope"></i> Get in Touch
+        <i class="fas fa-envelope"></i> Contact
       </h2>
       <div class="cards-grid" style="grid-template-columns: 1fr;">
         <div class="card">
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
             <div>
-              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Email</p>
+              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700;">Email</p>
               <p><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
             </div>
             <div>
-              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Location</p>
-              <p>Groningen, Netherlands</p>
+              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700;">Location</p>
+              <p style="color: var(--color-text-secondary);">Groningen, Netherlands</p>
             </div>
             <div>
-              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Connect</p>
+              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700;">Connect</p>
               <div style="display: flex; gap: 1rem;">
                 <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" style="font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
                 <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" style="font-size: 1.2rem;"><i class="fab fa-researchgate"></i></a>
@@ -1112,12 +1064,11 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Dr. José Antonio Esquivel Gaytan. All rights reserved.</p>
-    <p>Designed with modern web standards and smooth interactions.</p>
+    <p>&copy; 2025 Dr. Jose Antonio Esquivel Gaytan. All rights reserved.</p>
+    <p>Designed with professional standards and modern web excellence.</p>
   </footer>
 
   <script>
-    // Smooth transitions & interactions
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1128,31 +1079,8 @@
       });
     });
 
-    // Button interactions
-    document.querySelector('.btn-primary').addEventListener('click', () => {
-      window.location.href = 'mailto:j.esquivel.gaytan@gmail.com';
-    });
-
-    document.querySelector('.btn-secondary').addEventListener('click', () => {
+    document.querySelector('.btn-theme').addEventListener('click', () => {
       window.print();
-    });
-
-    // Intersection Observer for animations
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    cards.forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'all 0.6s ease-out';
-      observer.observe(card);
     });
   </script>
 </body>
