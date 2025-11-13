@@ -6,7 +6,7 @@
   <title>Antonio Esquivel Gaytan — Executive CV</title>
 
   <meta name="description" content="Physician-scientist & AI-in-healthcare practitioner. Heart failure & cardiorenal research, LLM-based clinical workflows, responsible and auditable AI. Co-founder of QGuard-Med." />
-  <meta name="theme-color" content="#2a2322">
+  <meta name="theme-color" content="#18181b"> <!-- Dark background color -->
 
   <script type="application/ld+json">
   {
@@ -29,60 +29,48 @@
 <style>
     /*
       =======================================================
-      --- ESTILO: DOS COLUMNAS (Aesthetic - Static) ---
+      --- ESTILO: DYNAMIC DARK (Wow + Professional) ---
       =======================================================
       Paleta:
-      - Fondo Claro: #fdfcfb (Blanco Roto)
-      - Fondo Oscuro (Sidebar): #2a2322 (Marrón Oscuro)
-      - Texto Oscuro: #2a2322
-      - Texto Claro: #f5f0eb
-      - Texto Secundario Oscuro: #575150
-      - Texto Secundario Claro: #b8a8a3
-      - Acento: #e86443 (Terracota / Óxido)
-      - Borde Claro: #e0dcd9
-      - Borde Oscuro: #4a413f
+      - Fondo: #18181b (Zinc 900)
+      - Contenedores: #27272a (Zinc 800)
+      - Texto Principal: #f4f4f5 (Zinc 100)
+      - Texto Secundario: #a1a1aa (Zinc 400)
+      - Acento: #a3e635 (Lime 400)
+      - Acento Oscuro: #84cc16 (Lime 500)
+      - Borde: #3f3f46 (Zinc 700)
     */
 
     :root {
-      /* Paleta "Estética 3.0" (Cálida) */
-      --color-bg: #fdfcfb;
-      --color-bg-secondary: #faf8f7;
-      --color-sidebar-bg: #2a2322;
-      
-      --color-primary: #2a2322; /* Texto principal (sobre claro) */
-      --color-text: #2a2322;
-      --color-text-secondary: #575150;
-      --color-text-tertiary: #7a7270;
-
-      --color-sidebar-text-primary: #f5f0eb;
-      --color-sidebar-text-secondary: #b8a8a3;
-      
-      --color-accent: #e86443; /* Terracota / Óxido */
-      --color-accent-dark: #d95333;
-      
-      --color-border: #e0dcd9;
-      --color-sidebar-border: #4a413f;
-
-      --color-success: #16a34a;
-      --color-warning: #d97706;
+      --color-bg: #18181b;
+      --color-container-bg: #27272a;
+      --color-text: #f4f4f5;
+      --color-text-secondary: #a1a1aa;
+      --color-accent: #a3e635;
+      --color-accent-dark: #84cc16;
+      --color-border: #3f3f46;
+      --color-success: #22c55e;
+      --color-warning: #facc15;
       
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-      --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
       
       --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       --transition-long: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+      /* Custom Scrollbar */
+      scrollbar-color: var(--color-border) var(--color-bg);
+      scrollbar-width: thin;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--color-bg); }
+    ::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 4px; }
     
     body {
       font-family: 'Inter', sans-serif;
@@ -92,10 +80,12 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      
-      /* --- NUEVA ESTRUCTURA DE LAYOUT --- */
-      display: grid;
-      grid-template-columns: 350px 1fr; /* Sidebar fija, contenido flexible */
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
@@ -104,29 +94,23 @@
       font-family: 'Inter', sans-serif;
       font-weight: 700;
       letter-spacing: -0.5px;
-      color: var(--color-primary);
+      color: var(--color-text);
     }
     
-    h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; }
+    h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; }
     h2 { /* Títulos de sección */
       font-size: 1.25rem;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--color-primary);
-      margin-bottom: 2rem;
-      padding-bottom: 0.75rem;
+      color: var(--color-accent); /* Acento para títulos */
+      margin-bottom: 2.5rem;
       position: relative;
-      border-bottom: 1px solid var(--color-border); /* Línea estática */
     }
 
-    h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); }
-    h4, h5, h6 { 
-      font-size: 0.9rem; 
-      color: var(--color-text-secondary); 
-      font-weight: 600; 
-    }
-    p { color: var(--color-text-secondary); line-height: 1.7; font-size: 0.95rem; }
+    h3 { font-size: 1.25rem; font-weight: 600; color: var(--color-text); }
+    h4 { font-size: 0.9rem; color: var(--color-text-secondary); font-weight: 600; }
+    p { color: var(--color-text-secondary); line-height: 1.7; font-size: 1rem; }
     
     a {
       color: var(--color-accent);
@@ -134,195 +118,202 @@
       transition: color var(--transition);
       font-weight: 500;
     }
-    a:hover { color: var(--color-accent-dark); text-decoration: underline; }
-
-    /* --- Barra Lateral Fija --- */
-    .sidebar {
+    a:hover { color: var(--color-accent-dark); }
+    
+    /* --- Navegación "Glassmorphism" --- */
+    .navbar {
       position: sticky;
       top: 0;
-      height: 100vh;
-      background: var(--color-sidebar-bg);
-      color: var(--color-sidebar-text-primary);
-      padding: 3rem;
-      border-right: 1px solid var(--color-sidebar-border);
-      animation: fadeIn 0.6s ease-out;
-      text-align: left; /* Alinear todo a la izquierda */
+      width: 100%;
+      padding: 1.5rem 0;
+      z-index: 1000;
+      
+      /* Efecto "Glass" */
+      background: rgba(24, 24, 27, 0.8); /* --color-bg con alpha */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      
+      transition: all var(--transition);
     }
-    
-    .sidebar-header {
-      margin-bottom: 2.5rem;
-    }
-    
-    .sidebar-header h1 {
-      color: var(--color-sidebar-text-primary);
-    }
-    
-    .sidebar-subtitle {
-      font-size: 1.1rem;
-      color: var(--color-sidebar-text-secondary);
-      font-weight: 500;
-      margin-top: 0.75rem;
-      line-height: 1.5;
-    }
-    
-    .sidebar-section {
-      margin-bottom: 2.5rem;
-    }
-    
-    .sidebar-section h2 {
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--color-sidebar-text-secondary);
-      border-bottom: 1px solid var(--color-sidebar-border);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-      text-align: left; /* Alinear subtítulos a la izquierda */
-      color: var(--color-sidebar-text-secondary); /* Sobrescribir color base */
-    }
-    
-    /* Contacto en Sidebar */
-    .contact-list {
-      list-style: none;
-      padding: 0;
-    }
-    .contact-list li {
+    .nav-container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
+    }
+    .nav-brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-text);
+      letter-spacing: -1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-link {
       font-size: 0.9rem;
-      color: var(--color-sidebar-text-secondary);
-      text-align: left; /* Alinear items a la izquierda */
-    }
-    .contact-list li i {
-      color: var(--color-accent);
-      width: 16px;
-      text-align: center;
-    }
-    .contact-list li a {
-      color: var(--color-sidebar-text-secondary);
-      font-weight: 500;
-    }
-    .contact-list li a:hover {
-      color: var(--color-accent);
+      font-weight: 600;
+      color: var(--color-text-secondary);
       text-decoration: none;
+      transition: color var(--transition);
     }
-    
-    /* --- Contenido Principal (Scrollable) --- */
-    .main-content {
-      padding: 4rem;
-    }
-    
-    .dashboard-section {
-      margin-bottom: 4rem;
+    .nav-link:hover {
+      color: var(--color-accent);
     }
 
-    /* --- FOTO MOVIDA AL CONTENIDO PRINCIPAL --- */
-    .profile-header {
+    /* --- Contenido Principal --- */
+    main {
+      padding-top: 4rem; /* Espacio después de la nav */
+    }
+
+    .dashboard-section {
+      margin-bottom: 6rem;
+    }
+
+    /* --- Hero Section (Asimétrico) --- */
+    .hero-section {
       display: grid;
-      grid-template-columns: 1fr 200px;
-      gap: 2rem;
-      align-items: start;
-      margin-bottom: 2.5rem;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: 70vh;
+    }
+    .hero-content h1 {
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 .accent-text {
+      color: var(--color-accent);
+    }
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .tag {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 99px; /* Pill shape */
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all var(--transition);
+    }
+    .tag:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    
+    .hero-image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .profile-photo {
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--color-border);
-      box-shadow: var(--shadow-md);
-      justify-self: center; /* Centrar foto en su columna */
+      filter: grayscale(80%); /* Look profesional */
+      transition: all var(--transition);
+    }
+    .profile-photo:hover {
+      filter: grayscale(0%);
+      border-color: var(--color-accent);
     }
 
-    /* Perfil Profesional */
+    /* --- Perfil Profesional --- */
     .profile-content p {
       font-size: 1.1rem;
       line-height: 1.8;
       color: var(--color-text-secondary);
       margin-bottom: 1.5rem;
+      max-width: 800px;
     }
     .profile-highlights {
       border-top: 1px solid var(--color-border);
-      padding-top: 1.5rem;
+      padding-top: 2rem;
+      max-width: 800px;
     }
-    .profile-highlights p {
+    .profile-highlights li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
       font-size: 1rem;
+      color: var(--color-text-secondary);
+    }
+    .profile-highlights i {
+      color: var(--color-accent);
+      margin-top: 0.2rem;
     }
 
-    /* Botones (Simplificados) */
-    .btn {
-      padding: 0.9rem 1.8rem;
-      border-radius: 6px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all var(--transition);
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      letter-spacing: 0.2px;
-      border: 1px solid transparent;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .btn-primary {
-      background: var(--color-accent);
-      color: white;
-      box-shadow: var(--shadow-sm);
-    }
-    .btn-primary:hover {
-      background: var(--color-accent-dark); /* Color más oscuro para el hover */
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .btn-secondary {
-      background: var(--color-bg-secondary);
-      border: 1px solid var(--color-border);
-      color: var(--color-primary);
-    }
-    .btn-secondary:hover {
-      background: var(--color-bg-secondary); /* Mantener fondo */
-      border-color: var(--color-primary);
-      transform: translateY(-2px);
-    }
-
-    /* Tarjetas (para Proyectos, Publicaciones, Educación) */
+    /* --- "WOW" Card (Proyectos, Publicaciones) --- */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 1.5rem;
     }
     .card {
-      background: var(--color-bg);
+      background: var(--color-container-bg);
       border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 1.5rem;
+      border-radius: 12px;
+      padding: 1.75rem;
       transition: all var(--transition);
       overflow: hidden;
+      position: relative;
+    }
+    
+    /* Efecto "Glow" Dinámico */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+        rgba(163, 230, 53, 0.15), /* --color-accent con alpha */
+        transparent 80%
+      );
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 0;
+    }
+    .card:hover::before {
+      opacity: 1;
     }
     .card:hover {
-      transform: translateY(-5px);
       border-color: var(--color-accent);
-      box-shadow: var(--shadow-md);
     }
+    
+    /* Contenido de la tarjeta (debe estar sobre el "glow") */
+    .card-content { position: relative; z-index: 1; }
+    
     .card-meta {
       font-size: 0.8rem;
-      color: var(--color-text-tertiary);
+      color: var(--color-text-secondary);
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
     }
     .card-title {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      color: var(--color-primary);
+      color: var(--color-text);
       line-height: 1.4;
       margin-bottom: 0.5rem;
     }
@@ -332,7 +323,7 @@
       font-weight: 600;
       margin-bottom: 1rem;
     }
-    .card-content {
+    .card-description {
       color: var(--color-text-secondary);
       margin-bottom: 1.5rem;
       font-size: 0.9rem;
@@ -344,7 +335,7 @@
       flex-wrap: wrap;
     }
     .badge {
-      background: var(--color-bg-secondary);
+      background: var(--color-bg);
       border: 1px solid var(--color-border);
       color: var(--color-text-secondary);
       padding: 0.4rem 0.9rem;
@@ -358,33 +349,57 @@
       color: var(--color-accent);
     }
     
-    /* --- Estilo Especial para Experiencia --- */
+    /* --- Estilo para Experiencia (Lineal) --- */
     .experience-list {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 1.5rem;
+      position: relative;
+      /* Línea de tiempo vertical */
+      padding-left: 2rem;
+      border-left: 2px solid var(--color-border);
     }
     .experience-item {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 1.5rem;
+      position: relative;
+      padding-bottom: 2.5rem;
     }
+    /* Círculo en la línea de tiempo */
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -2.7rem;
+      top: 0.25rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: 3px solid var(--color-bg);
+      transition: background-color var(--transition);
+    }
+    .experience-item:hover::before {
+      background: var(--color-accent);
+    }
+    .experience-item:last-child {
+      padding-bottom: 0;
+    }
+
     .experience-date {
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--color-text-tertiary);
+      color: var(--color-text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
     }
     .experience-details h3 {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: var(--color-primary);
+      color: var(--color-text);
       margin-bottom: 0.25rem;
     }
     .experience-details .subtitle {
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 500;
       color: var(--color-accent);
       margin-bottom: 1rem;
     }
@@ -400,40 +415,42 @@
       gap: 0.75rem;
     }
     
-    /* --- Habilidades (MOVIDO AL CONTENIDO PRINCIPAL) --- */
-    .main-content .skill-list {
+    /* --- Habilidades y Educación (Estilo de lista) --- */
+    .grid-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .list-item {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 1rem;
     }
-    .main-content .skill-tag {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      background: var(--color-bg-secondary);
-      border: 1px solid var(--color-border);
-      color: var(--color-text-secondary);
+    .list-item-icon {
+      font-size: 1.25rem;
+      color: var(--color-accent);
+      margin-top: 0.25rem;
+    }
+    .list-item-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .list-item-content p {
       font-size: 0.9rem;
-      font-weight: 500;
-      transition: all var(--transition);
-    }
-    .main-content .skill-tag:hover {
-      background: var(--color-accent);
-      color: white;
-      border-color: var(--color-accent);
-      transform: translateY(-2px);
+      color: var(--color-text-secondary);
+      margin: 0;
     }
 
-    /* Certificaciones */
+    /* --- Certificaciones --- */
     .cert-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     .cert-card {
-        background: var(--color-bg-secondary);
+        background: transparent;
         border: 1px solid var(--color-border);
-        padding: 1.25rem 1.5rem;
+        padding: 1rem 1.25rem;
         border-radius: 8px;
         display: flex;
         align-items: center;
@@ -442,8 +459,7 @@
     }
     .cert-card:hover {
         border-color: var(--color-accent);
-        box-shadow: var(--shadow-sm);
-        transform: translateY(-3px);
+        background: var(--color-container-bg);
     }
     .cert-card .cert-icon {
         font-size: 1.5rem;
@@ -453,474 +469,489 @@
     .cert-card .cert-title {
         font-size: 0.95rem;
         line-height: 1.4;
-        font-weight: 600;
-        color: var(--color-primary);
+        font-weight: 500;
+        color: var(--color-text);
         margin: 0;
     }
     .cert-card .cert-meta {
         font-size: 0.8rem;
-        color: var(--color-text-tertiary);
+        color: var(--color-text-secondary);
         font-weight: 500;
         margin-top: 0.25rem;
     }
     
+    /* --- Footer --- */
+    footer {
+      border-top: 1px solid var(--color-border);
+      padding: 3rem 0;
+      margin-top: 6rem;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .footer-links a {
+      color: var(--color-text-secondary);
+      font-size: 1.5rem;
+      transition: all var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--color-accent);
+      transform: translateY(-3px);
+    }
+    .footer-copy {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+    }
+
+    /* --- Animaciones Dinámicas de Scroll --- */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s var(--transition-long), transform 0.8s var(--transition-long);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Para animaciones escalonadas */
+    .stagger-container .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--transition-long), transform 0.6s var(--transition-long);
+      will-change: opacity, transform;
+    }
+    .stagger-container.is-visible .stagger-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Añadir retrasos escalonados */
+    .stagger-container.is-visible .stagger-item:nth-child(1) { transition-delay: 0.1s; }
+    .stagger-container.is-visible .stagger-item:nth-child(2) { transition-delay: 0.2s; }
+    .stagger-container.is-visible .stagger-item:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-container.is-visible .stagger-item:nth-child(4) { transition-delay: 0.4s; }
+    .stagger-container.is-visible .stagger-item:nth-child(5) { transition-delay: 0.5s; }
+    .stagger-container.is-visible .stagger-item:nth-child(6) { transition-delay: 0.6s; }
+    
     /* --- Media Queries (Responsivo) --- */
     @media (max-width: 1024px) {
-      body {
-        display: block; /* Stack sidebar y main */
+      .hero-section {
         grid-template-columns: 1fr;
+        text-align: center;
       }
-      .sidebar {
-        position: relative;
-        height: auto;
-        padding: 2.5rem 1.5rem;
+      .hero-image-wrapper {
+        order: -1; /* Mover foto arriba en móvil */
+        margin-bottom: 2rem;
       }
-      .main-content {
-        padding: 2.5rem 1.5rem;
-        overflow-y: visible; /* CORRECCIÓN: Permitir que el contenido fluya en móvil */
-      }
-      .experience-item {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .experience-date {
-        margin-bottom: 0.5rem;
-      }
-      .profile-header {
-        grid-template-columns: 1fr; /* Stack foto y texto en móvil */
+      .hero-tags {
+        justify-content: center;
       }
       .profile-photo {
-        margin-bottom: 2rem;
+        width: 200px;
+        height: 200px;
       }
     }
     
-    @media (max-width: 480px) {
-      h1 { font-size: 2.2rem; }
-      .sidebar { padding: 2rem 1rem; }
-      .main-content { padding: 2rem 1rem; }
-      .btn { width: 100%; justify-content: center; }
-      .profile-header {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 1.1rem; }
+      .nav-links { display: none; } /* Ocultar links, mantener marca */
+      .experience-list { padding-left: 1.5rem; }
+      .experience-item::before { left: -2.3rem; }
     }
 </style>
 </head>
 <body>
 
   <!-- ======================= -->
-  <!-- ===== BARRA LATERAL ===== -->
+  <!-- ===== NAVEGACIÓN ===== -->
   <!-- ======================= -->
-  <aside class="sidebar">
-    
-    <div class="sidebar-header">
-      <!-- FOTO ELIMINADA DE AQUÍ -->
-      <h1>Antonio Esquivel Gaytan</h1>
-      <p class="sidebar-subtitle">MD, MSc | PhD candidate — Experimental Cardiology (UMCG)</p>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">JAEG</div>
+      <div class="nav-links">
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#publications" class="nav-link">Publications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
     </div>
-
-    <!-- Sección de Contacto -->
-    <section class="sidebar-section" id="contact">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li>
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a>
-        </li>
-        <li>
-          <i class="fa-solid fa-location-dot"></i>
-          <span>Groningen, The Netherlands</span>
-        </li>
-        <li>
-          <i class="fa-brands fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </li>
-        <li>
-          <i class="fa-brands fa-researchgate"></i>
-          <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-        </li>
-        <li>
-          <i class="fa-brands fa-orcid"></i>
-          <a href="https://orcid.org/0000-0001-6974-1825" target="_blank" rel="noopener noreferrer">ORCID</a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- SECCIONES DE EDUCACIÓN, HABILIDADES E IDIOMAS ELIMINADAS DE AQUÍ -->
-
-  </aside>
+  </nav>
 
   <!-- =========================== -->
   <!-- ===== CONTENIDO PRINCIPAL ===== -->
   <!-- =========================== -->
-  <main class="main-content">
+  <main>
+    <div class="container">
 
-    <!-- PROFESSIONAL PROFILE SECTION -->
-    <section class="dashboard-section" id="profile">
-      
-      <!-- FOTO Y PERFIL MOVIDOS AQUÍ -->
-      <div class="profile-header">
-        <div class="profile-intro">
-          <h2>Professional Profile</h2>
-          <div class="profile-content">
-            <p>
-              Physician-scientist (MD, MSc, PhD candidate at UMCG) with core expertise in heart failure and cardiorenal research and practical experience applying LLM-based tools in clinical research and laboratory workflows.
-            </p>
+      <!-- HERO SECTION -->
+      <section class="hero-section dashboard-section reveal-on-scroll" id="hero">
+        <div class="hero-content">
+          <h1>Antonio Esquivel Gaytan</h1>
+          <p class="hero-subtitle">
+            <span class="accent-text">Physician-Scientist (MD, MSc, PhDc)</span>
+            <br>
+            Bridging clinical research and responsible AI in healthcare.
+          </p>
+          <div class="hero-tags">
+            <span class="tag">AI in Healthcare</span>
+            <span class="tag">Heart Failure & Cardiorenal</span>
+            <span class="tag">Clinical Trial Workflows</span>
+            <span class="tag">Ethics & Governance</span>
           </div>
         </div>
-        <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" alt="Antonio Esquivel Gaytan" class="profile-photo" />
-      </div>
-
-      <!-- Continuación del Perfil -->
-      <div class="profile-content" style="margin-top: -1rem;"> <!-- Ajuste de margen por mover h2 arriba -->
-        <p>
-          I have co-designed AI-assisted solutions for protocol-to-visit extraction, investigational product inventory, and structured clinical reporting; and initiated my own tools including an offline RAG system for heart failure guidelines, an AI-assisted patient prioritisation MVP, a discreet adherence companion concept, and a local SOP-based lab assistant.
-        </p>
-        <p>
-          My work prioritises safety, traceability, MDR/GCP-conscious design, GDPR-aware data minimisation, and real-world usability — bridging clinicians, technical teams, and decision-makers.
-        </p>
-        
-        <div class="profile-highlights">
-          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-            <span><strong>Pangaea Oncology:</strong> Led AI-assisted visit schedules, inventory automation, and structured clinical reporting with strong human-in-the-loop governance and inspection-ready documentation.</span>
-          </p>
-          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-            <span><strong>QGuard-Med (MVP):</strong> Co-founder of an AI-assisted cardiovascular patient prioritisation system; finalist at Break The Gap 2025.</span>
-          </p>
-          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-            <span><strong>Offline & Local-first Tools:</strong> Built and designed privacy-preserving assistants (offline RAG for guidelines, SOP-based lab support) focused on auditability, constrained outputs, and citation-backed answers.</span>
-          </p>
-          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0;">
-            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-            <span><strong>Open to:</strong> roles in AI in healthcare, clinical research, translational programs, advisory work, and AI literacy workshops in the Netherlands, Spain, and EU.</span>
-          </p>
+        <div class="hero-image-wrapper">
+          <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" alt="Antonio Esquivel Gaytan" class="profile-photo" />
         </div>
+      </section>
 
-        <!-- Botón de Gemini ELIMINADO -->
-      </div>
-    </section>
+      <!-- PROFESSIONAL PROFILE SECTION -->
+      <section class="dashboard-section reveal-on-scroll" id="profile">
+        <h2>Professional Profile</h2>
+        <div class="profile-content">
+          <p>
+            Physician-scientist (MD, MSc, PhD candidate at UMCG) with core expertise in heart failure and cardiorenal research and practical experience applying LLM-based tools in clinical research and laboratory workflows.
+          </p>
+          <p>
+            I have co-designed AI-assisted solutions for protocol-to-visit extraction, investigational product inventory, and structured clinical reporting; and initiated my own tools including an offline RAG system for heart failure guidelines, an AI-assisted patient prioritisation MVP, a discreet adherence companion concept, and a local SOP-based lab assistant. My work prioritises safety, traceability, MDR/GCP-conscious design, GDPR-aware data minimisation, and real-world usability — bridging clinicians, technical teams, and decision-makers.
+          </p>
+          
+          <ul class="profile-highlights">
+            <li class="stagger-item"><i class="fas fa-check-circle"></i> <strong>Pangaea Oncology:</strong> Led AI-assisted visit schedules, inventory automation, and structured clinical reporting with strong human-in-the-loop governance.</li>
+            <li class="stagger-item"><i class="fas fa-check-circle"></i> <strong>QGuard-Med (MVP):</strong> Co-founder of an AI-assisted cardiovascular patient prioritisation system; finalist at Break The Gap 2025.</li>
+            <li class="stagger-item"><i class="fas fa-check-circle"></i> <strong>Offline & Local-first Tools:</strong> Built and designed privacy-preserving assistants (offline RAG, SOP-based lab support) focused on auditability and constrained outputs.</li>
+            <li class="stagger-item"><i class="fas fa-check-circle"></i> <strong>Open to:</strong> roles in AI in healthcare, clinical research, translational programs, advisory work, and AI literacy workshops in the Netherlands, Spain, and EU.</li>
+          </ul>
+        </div>
+      </section>
 
-    <!-- EXPERIENCE SECTION -->
-    <section class="dashboard-section" id="experience">
-      <h2>Professional Experience</h2>
-      <div class="experience-list">
-        
-        <div class="experience-item">
-          <div class="experience-date">Jun 2025 – Sep 2025</div>
-          <div class="experience-details">
-            <h3>Clinical Research Investigator & AI Project Lead</h3>
-            <p class="subtitle">Pangaea Oncology — Barcelona, Spain</p>
-            <p class="content">
-              Supervised an AI-assisted visit management system converting trial protocols into structured visit schedules. Developed LLM-based draft clinical reporting with structured prompts and systematic audits. Designed workflows that achieved a substantial reduction in clinically relevant hallucinations. Built a lightweight, transparent inventory process using photo-based kit capture and LLM-assisted field extraction.
-            </p>
-            <div class="badge-list">
-              <span class="badge">AI in Clinical Trials</span>
-              <span class="badge">GCP</span>
-              <span class="badge">Workflow Design</span>
-              <span class="badge">SOPs & Governance</span>
+      <!-- EXPERIENCE SECTION -->
+      <section class="dashboard-section" id="experience">
+        <h2 class="reveal-on-scroll">Professional Experience</h2>
+        <div class="experience-list stagger-container">
+          
+          <div class="experience-item stagger-item">
+            <p class="experience-date">Jun 2025 – Sep 2025</p>
+            <div class="experience-details">
+              <h3>Clinical Research Investigator & AI Project Lead</h3>
+              <p class="subtitle">Pangaea Oncology — Barcelona, Spain</p>
+              <p class="content">
+                Supervised an AI-assisted visit management system converting trial protocols into structured visit schedules. Developed LLM-based draft clinical reporting with structured prompts and systematic audits. Designed workflows that achieved a substantial reduction in clinically relevant hallucinations.
+              </p>
+              <div class="badge-list">
+                <span class="badge">AI in Clinical Trials</span>
+                <span class="badge">GCP</span>
+                <span class="badge">Workflow Design</span>
+                <span class="badge">SOPs & Governance</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item stagger-item">
+            <p class="experience-date">2024 – 2025</p>
+            <div class="experience-details">
+              <h3>Co-founder — QGuard-Med (MVP), AI Patient Prioritisation</h3>
+              <p class="subtitle">Groningen / Barcelona</p>
+              <p class="content">
+                Co-developed an MVP for an AI-assisted prioritisation system for cardiovascular patients, integrating waiting time, symptoms, clinical criteria, and biomarkers. Considered fairness, explainability, and regulatory implications from the start.
+              </p>
+              <div class="badge-list">
+                <span class="badge">Patient Prioritisation</span>
+                <span class="badge">FastAPI</span>
+                <span class="badge">Explainability</span>
+                <span class="badge">Award Finalist</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-item stagger-item">
+            <p class="experience-date">Nov 2018 – present</p>
+            <div class="experience-details">
+              <h3>PhD Researcher — Experimental Cardiology</h3>
+              <p class="subtitle">University Medical Center Groningen (UMCG), Netherlands</p>
+              <p class="content">
+                Investigated 5-oxoproline/OPLAH, oxidative stress, and cardiorenal interactions in heart failure. Developed high-throughput screening assays, nanoparticle-based AMP delivery concepts, and biomarker analyses.
+              </p>
+              <div class="badge-list">
+                <span class="badge">Heart Failure</span>
+                <span class="badge">Biomarkers</span>
+                <span class="badge">HTS</span>
+                <span class="badge">Translational Research</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- SELECTED PROJECTS SECTION -->
+      <section class="dashboard-section" id="projects">
+        <h2 class="reveal-on-scroll">Selected Projects</h2>
+        <div class="cards-grid stagger-container">
+          <div class="card stagger-item">
+            <div class="card-content">
+              <p class="card-meta">Break The Gap 2025 — Finalist</p>
+              <h3 class="card-title">QGuard-Med (MVP)</h3>
+              <p class="card-subtitle">AI-assisted cardiovascular patient prioritisation</p>
+              <p class="card-description">
+                Co-founded and co-designed a transparent prioritisation system integrating clinical criteria, biomarkers, symptoms, and waiting time.
+              </p>
+              <div class="card-footer">
+                <span class="badge">MVP</span>
+                <span class="badge">FastAPI</span>
+                <span class="badge">Clinical AI</span>
+                <span class="badge">Fairness</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card stagger-item">
+            <div class="card-content">
+              <p class="card-meta">Privacy-first | Citation-backed</p>
+              <h3 class="card-title">Offline RAG for Heart Failure Guidelines</h3>
+              <p class="card-subtitle">Local guideline assistant (MVP)</p>
+              <p class="card-description">
+                Built a local retrieval-augmented assistant for HF guidelines using open-weight models and on-device retrieval. Ensured no PHI leakage.
+              </p>
+              <div class="card-footer">
+                <span class="badge">RAG</span>
+                <span class="badge">On-device</span>
+                <span class="badge">Guideline Support</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card stagger-item">
+            <div class="card-content">
+              <p class="card-meta">Concept / Early Design</p>
+              <h3 class="card-title">Digital Health & Lab Assistant Concepts</h3>
+              <p class="card-subtitle">Adherence & SOP-centric assistants</p>
+              <p class="card-description">
+                Designed discreet, privacy-aware concepts for medication adherence support and a local, SOP-based lab assistant with checklists.
+              </p>
+              <div class="card-footer">
+                <span class="badge">Digital Health</span>
+                <span class="badge">SOP Indexing</span>
+                <span class="badge">Privacy</span>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="experience-item">
-          <div class="experience-date">2024 – 2025</div>
-          <div class="experience-details">
-            <h3>Co-founder — QGuard-Med (MVP), AI Patient Prioritisation</h3>
-            <p class="subtitle">Groningen / Barcelona</p>
-            <p class="content">
-              Co-developed an MVP for an AI-assisted prioritisation system for cardiovascular patients, integrating waiting time, symptoms, clinical criteria, and biomarkers. Considered fairness, explainability, and regulatory implications from the start. Implemented a minimal, auditable stack (FastAPI, Docker).
-            </p>
-            <div class="badge-list">
-              <span class="badge">Patient Prioritisation</span>
-              <span class="badge">FastAPI</span>
-              <span class="badge">Explainability</span>
-              <span class="badge">Award Finalist</span>
+      <!-- EDUCATION & SKILLS SECTION (Combinada) -->
+      <section class="dashboard-section" id="credentials">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;">
+          
+          <div class="reveal-on-scroll">
+            <h2>Education</h2>
+            <div class="grid-list" style="flex-direction: column; gap: 1.5rem; display: flex;">
+              <div class="list-item">
+                <i class="fas fa-microscope list-item-icon"></i>
+                <div class="list-item-content">
+                  <h3>PhD in Biomedical/Medical Sciences</h3>
+                  <p>University of Groningen / UMCG, NL (2018 – present)</p>
+                </div>
+              </div>
+              <div class="list-item">
+                <i class="fas fa-atom list-item-icon"></i>
+                <div class="list-item-content">
+                  <h3>MSc Nanotechnology & Regenerative Medicine</h3>
+                  <p>University College London (UCL), UK (2016 – 2017)</p>
+                </div>
+              </div>
+              <div class="list-item">
+                <i class="fas fa-user-md list-item-icon"></i>
+                <div class="list-item-content">
+                  <h3>MD (Physician)</h3>
+                  <p>Universidad Nacional Autonoma de México (UNAM), MX (2009 – 2016)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-on-scroll">
+            <h2>Core Skills</h2>
+            <div class="hero-tags">
+              <span class="tag">AI in Healthcare</span>
+              <span class="tag">LLM Workflow Design</span>
+              <span class="tag">Heart Failure & Cardiorenal</span>
+              <span class="tag">Clinical Trial Workflows</span>
+              <span class="tag">Ethics & Governance</span>
+              <span class="tag">MDR / GCP / GDPR</span>
+              <span class="tag">Translational Research</span>
+              <span class="tag">Project Management</span>
+              <span class="tag">Python (Prototyping)</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Prompt Engineering</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS SECTION -->
+      <section class="dashboard-section" id="publications">
+        <h2 class="reveal-on-scroll">Publications</h2>
+        <div class="cards-grid stagger-container">
+          <div class="card stagger-item">
+            <div class="card-content">
+              <p class="card-meta" style="color: var(--color-success);">Peer-reviewed · 2024</p>
+              <h3 class="card-title">404-error “Disease not found”: unleashing the translational potential of -omics approaches...</h3>
+              <p class="card-subtitle">European Journal of Heart Failure</p>
+              <div class="card-footer">
+                <span class="badge">Omics</span>
+                <span class="badge">Heart Failure</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card stagger-item">
+            <div class="card-content">
+              <p class="card-meta" style="color: var(--color-success);">Peer-reviewed · 2025</p>
+              <h3 class="card-title">Glutathione deficiency and heart failure: a systematic review...</h3>
+              <p class="card-subtitle">ESC Heart Failure</p>
+              <div class="card-footer">
+                <span class="badge">Systematic Review</span>
+                <span class="badge">Oxidative Stress</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card stagger-item">
+            <div class="card-content">
+              <p class="card-meta" style="color: var(--color-success);">Peer-reviewed · 2022</p>
+              <h3 class="card-title">A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex...</h3>
+              <p class="card-subtitle">British Journal of Dermatology</p>
+              <div class="card-footer">
+                <span class="badge">Genetics</span>
+                <span class="badge">Cardiomyopathy</span>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="experience-item">
-          <div class="experience-date">Nov 2018 – present</div>
-          <div class="experience-details">
-            <h3>PhD Researcher — Experimental Cardiology</h3>
-            <p class="subtitle">University Medical Center Groningen (UMCG), Netherlands</p>
-            <p class="content">
-              Investigated 5-oxoproline/OPLAH, oxidative stress, and cardiorenal interactions in heart failure. Developed high-throughput screening assays, nanoparticle-based AMP delivery concepts, and biomarker analyses. Led experimental design, data analysis, and manuscript writing with emphasis on robustness (Z′, S/B) and reproducibility.
-            </p>
-            <div class="badge-list">
-              <span class="badge">Heart Failure</span>
-              <span class="badge">Biomarkers</span>
-              <span class="badge">HTS</span>
-              <span class="badge">Translational Research</span>
+      <!-- CERTIFICATIONS SECTION -->
+      <section class="dashboard-section" id="certifications">
+        <h2 class="reveal-on-scroll">Certifications & Credentials</h2>
+        <div class="cert-grid stagger-container">
+          <div class="cert-card stagger-item">
+            <i class="fas fa-certificate cert-icon"></i>
+            <div>
+              <h3 class="cert-title">Good Clinical Practice (ICH GCP E6(R3)) – Site Personnel</h3>
+              <p class="cert-meta">NDAT CTN · 2025</p>
+            </div>
+          </div>
+          <div class="cert-card stagger-item">
+            <i class="fas fa-certificate cert-icon"></i>
+            <div>
+              <h3 class="cert-title">Article 9 — Animal Experiments License</h3>
+              <p class="cert-meta">The Netherlands</p>
+            </div>
+          </div>
+          <div class="cert-card stagger-item">
+            <i class="fas fa-certificate cert-icon"></i>
+            <div>
+              <h3 class="cert-title">ML-1 Laboratory Safety Certificate</h3>
+              <p class="cert-meta">Laboratory Safety</p>
+            </div>
+          </div>
+          <div class="cert-card stagger-item">
+            <i class="fas fa-certificate cert-icon"></i>
+            <div>
+              <h3 class="cert-title">Elements of AI</h3>
+              <p class="cert-meta">University of Helsinki · Completed</p>
             </div>
           </div>
         </div>
-        
-      </div>
-    </section>
+      </section>
 
-    <!-- SELECTED PROJECTS SECTION -->
-    <section class="dashboard-section" id="projects">
-      <h2>Selected Projects</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <p class="card-meta">Break The Gap 2025 — Finalist</p>
-          <h3 class="card-title">QGuard-Med (MVP)</h3>
-          <p class="card-subtitle">AI-assisted cardiovascular patient prioritisation</p>
-          <p class="card-content">
-            Co-founded and co-designed a transparent prioritisation system integrating clinical criteria, biomarkers, symptoms, and waiting time. Built on FastAPI and Docker with explainability, fairness, and regulatory awareness embedded early.
-          </p>
-          <div class="card-footer">
-            <span class="badge">MVP</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">Clinical AI</span>
-            <span class="badge">Fairness & Governance</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <p class="card-meta">Privacy-first | Citation-backed</p>
-          <h3 class="card-title">Offline RAG for Heart Failure Guidelines</h3>
-          <p class="card-subtitle">Local guideline assistant (MVP)</p>
-          <p class="card-content">
-            Built a local retrieval-augmented assistant for HF/cardiovascular guidelines using open-weight models and on-device retrieval. Ensured no PHI leaves the environment, constrained outputs to source content, and included basic evaluation of relevance and factual consistency.
-          </p>
-          <div class="card-footer">
-            <span class="badge">RAG</span>
-            <span class="badge">On-device</span>
-            <span class="badge">Guideline Support</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <p class="card-meta">Concept / Early Design</p>
-          <h3 class="card-title">Digital Health & Lab Assistant Concepts</h3>
-          <p class="card-subtitle">Adherence & SOP-centric assistants</p>
-          <p class="card-content">
-            Designed discreet, privacy-aware concepts for medication/PrEP adherence support, and a local SOP-based lab assistant with stepwise “bench run” mode, checklists, and local logging. Focus on minimal data capture and explicit separation of AI assistance from clinical responsibility.
-          </p>
-          <div class="card-footer">
-            <span class="badge">Digital Health</span>
-            <span class="badge">SOP Indexing</span>
-            <span class="badge">Privacy</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION SECTION (MOVIDA AQUÍ) -->
-    <section class="dashboard-section" id="education">
-      <h2>Education</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <p class="card-meta">2018 – present</p>
-          <h3 class="card-title">PhD in Biomedical/Medical Sciences (Experimental Cardiology)</h3>
-          <p class="card-subtitle" style="margin-bottom: 0;">University of Groningen / UMCG, The Netherlands</p>
-        </div>
-        <div class="card">
-          <p class="card-meta">2016 – 2017</p>
-          <h3 class="card-title">MSc Nanotechnology & Regenerative Medicine (Distinction)</h3>
-          <p class="card-subtitle" style="margin-bottom: 0;">University College London (UCL), United Kingdom</p>
-        </div>
-        <div class="card">
-          <p class="card-meta">2009 – 2016</p>
-          <h3 class="card-title">MD (Physician)</h3>
-          <p class="card-subtitle" style="margin-bottom: 0;">Universidad Nacional Autonoma de México (UNAM), Mexico</p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- SKILLS SECTION (MOVIDA AQUÍ) -->
-    <section class="dashboard-section" id="skills">
-      <h2>Skills</h2>
-      <div class="skill-list">
-        <span class="skill-tag">AI in Healthcare</span>
-        <span class="skill-tag">LLM Workflow Design</span>
-        <span class="skill-tag">Heart Failure & Cardiorenal</span>
-        <span class="skill-tag">Clinical Trial Workflows</span>
-        <span class="skill-tag">Ethics & Governance</span>
-        <span class="skill-tag">MDR / GCP / GDPR</span>
-        <span class="skill-tag">Translational Research</span>
-        <span class="skill-tag">Project Management</span>
-        <span class="skill-tag">Python (Prototyping)</span>
-        <span class="skill-tag">FastAPI</span>
-        <span class="skill-tag">RAG</span>
-        <span class="skill-tag">Prompt Engineering</span>
-      </div>
-    </section>
-    
-    <!-- LANGUAGES SECTION (MOVIDA AQUÍ) -->
-    <section class="dashboard-section" id="languages">
-      <h2>Languages</h2>
-      <div class="skill-list">
-        <span class="skill-tag">Spanish (Native)</span>
-        <span class="skill-tag">English (Full professional)</span>
-        <span class="skill-tag">Dutch (B1–B2 in progress)</span>
-        <span class="skill-tag">French (Basic)</span>
-        <span class="skill-tag">Catalan (Basic)</span>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS SECTION -->
-    <section class="dashboard-section" id="publications">
-      <h2>Publications</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <p class="card-meta" style="color: var(--color-success); font-weight: 600;">Peer-reviewed · 2024</p>
-          <h3 class="card-title">404-error “Disease not found”: unleashing the translational potential of -omics approaches...</h3>
-          <p class="card-subtitle">European Journal of Heart Failure</p>
-          <p class="card-content">
-            Co-authored work integrating omics to challenge conventional HF classification and highlight mechanistic, data-driven stratification.
-          </p>
-          <div class="card-footer">
-            <span class="badge">Omics</span>
-            <span class="badge">Heart Failure</span>
-            <span class="badge">Translational</span>
-          </div>
-        </div>
-        
-        <div class="card">
-          <p class="card-meta" style="color: var(--color-success); font-weight: 600;">Peer-reviewed · 2025</p>
-          <h3 class="card-title">Glutathione deficiency and heart failure: a systematic review...</h3>
-          <p class="card-subtitle">ESC Heart Failure</p>
-          <p class="card-content">
-            Systematic review co-authored on glutathione, oxidative stress, and heart failure across experimental and clinical studies.
-          </p>
-          <div class="card-footer">
-            <span class="badge">Systematic Review</span>
-            <span class="badge">Oxidative Stress</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <p class="card-meta" style="color: var(--color-success); font-weight: 600;">Peer-reviewed · 2022</p>
-          <h3 class="card-title">
-            A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex...
-          </h3>
-          <p class="card-subtitle">British Journal of Dermatology</p>
-          <p class="card-content">
-            Co-authorship on genotype–phenotype work linking KLHL24 variants, skin fragility, and cardiomyopathy.
-          </p>
-          <div class="card-footer">
-            <span class="badge">Genetics</span>
-            <span class="badge">Cardiomyopathy</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <p class="card-meta" style="color: var(--color-warning); font-weight: 600;">Manuscript under review</p>
-          <h3 class="card-title">
-            Elevated 5-Oxoproline Levels Associate with TGF-α and Adverse Outcomes in Heart Failure...
-          </h3>
-          <p class="card-subtitle">Redox Biology (under review)</p>
-          <p class="card-content">
-            Integrates clinical and experimental data to link 5-oxoproline, TGF-α signalling, and adverse cardiorenal outcomes in heart failure.
-          </p>
-          <div class="card-footer">
-            <span class="badge">5-Oxoproline</span>
-            <span class="badge">Cardiorenal</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS SECTION -->
-    <section class="dashboard-section" id="certifications">
-      <h2>Certifications & Credentials</h2>
-      <div class="cert-grid">
-        <div class="cert-card">
-          <i class="fas fa-certificate cert-icon"></i>
-          <div>
-            <h3 class="cert-title">Good Clinical Practice (ICH GCP E6(R3)) – Site Personnel</h3>
-            <p class="cert-meta">NDAT CTN · 2025</p>
-          </div>
-        </div>
-        
-        <div class="cert-card">
-          <i class="fas fa-certificate cert-icon"></i>
-          <div>
-            <h3 class="cert-title">Article 9 — Animal Experiments License</h3>
-            <p class="cert-meta">The Netherlands</p>
-          </div>
-        </div>
-        
-        <div class="cert-card">
-          <i class="fas fa-certificate cert-icon"></i>
-          <div>
-            <h3 class="cert-title">ML-1 Laboratory Safety Certificate</h3>
-            <p class="cert-meta">Laboratory Safety</p>
-          </div>
-        </div>
-        
-        <div class="cert-card">
-          <i class="fas fa-certificate cert-icon"></i>
-          <div>
-            <h3 class="cert-title">Elements of AI</h3>
-            <p class="cert-meta">University of Helsinki · Completed</p>
-          </div>
-        </div>
-        
-        <div class="cert-card">
-          <i class="fas fa-certificate cert-icon"></i>
-          <div>
-            <h3 class="cert-title">Ethics of AI</h3>
-            <p class="cert-meta">University of Helsinki · In progress</p>
-          </div>
-        </div>
-        
-        <div class="cert-card">
-          <i class="fas fa-certificate cert-icon"></i>
-          <div>
-            <h3 class="cert-title">Hugging Face LLM Course</h3>
-            <p class="cert-meta">In progress</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROFESSIONAL INTERESTS -->
-    <section class="dashboard-section" id="interests-development">
-      <h2>Professional Interests</h2>
-      <div class="cards-grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-          <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-weight: 600;">
-              <i class="fas fa-laptop-code" style="color: var(--color-accent);"></i> AI Literacy in Healthcare
-            </h3>
-            <p class="card-content" style="margin: 0; font-size: 0.9rem;">
-              Designing and delivering practical workshops on safe LLM use, bias mitigation, validation strategies, documentation, and MDR/GDPR-aware workflows for clinical and research teams.
-            </p>
-          </div>
-          <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border);">
-            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-weight: 600;">
-              <i class="fas fa-clinic-medical" style="color: var(--color-accent);"></i> Cardio-metabolic Prevention & Clinics
-            </h3>
-            <p class="card-content" style="margin: 0; font-size: 0.9rem;">
-              Interest in preventive cardiometabolic clinics that integrate lifestyle, biomarkers, and transparent AI-supported risk assessment while keeping clinicians in control.
-            </p>
-          </div>
-          <div>
-            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-weight: 600;">
-              <i class="fas fa-book-open" style="color: var(--color-accent);"></i> Academic Teaching & Mentoring
-            </h3>
-            <p class="card-content" style="margin: 0; font-size: 0.9rem;">
-              Translational methods, biomarker-to-bedside pipelines, AI in clinical research, and ethics of innovation in medicine.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </main>
 
-  <!-- Modal de Gemini ELIMINADO -->
+  <!-- =========================== -->
+  <!-- ===== FOOTER / CONTACT ===== -->
+  <!-- =========================== -->
+  <footer id="contact">
+    <div class="container footer-content">
+      <h2 style="margin: 0; font-size: 1.5rem; color: var(--color-text);">Get in Touch</h2>
+      <p style="font-size: 1.1rem; max-width: 500px;">
+        Open to roles in AI in healthcare, clinical research, advisory work, and AI literacy workshops.
+      </p>
+      <div class="footer-links">
+        <a href="mailto:j.esquivel.gaytan@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank" rel="noopener noreferrer" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+        <a href="https://orcid.org/0000-0001-6974-1825" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="fab fa-orcid"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Antonio Esquivel Gaytan. All rights reserved.</p>
+    </div>
+  </footer>
 
-  <!-- SCRIPT BLOCK VACIADO -->
   <script>
-    // Todo el JavaScript de la IA y las animaciones dinámicas ha sido eliminado.
+    // ==================================
+    // --- LÓGICA DE ANIMACIÓN DINÁMICA ---
+    // ==================================
+
+    // --- 1. "Glow" Dinámico en Tarjetas ---
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // --- 2. Lógica de Animación de Scroll (Intersection Observer) ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Activar cuando el 10% del item es visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar todos los items que deben revelarse
+    document.querySelectorAll('.reveal-on-scroll, .stagger-container, .stagger-item').forEach(el => {
+        observer.observe(el);
+    });
+
+    // --- 3. Lógica de Navegación (Scroll Suave) ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
   </script>
 </body>
 </html>
