@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Antonio Esquivel Gaytan — Executive CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antonio Esquivel Gaytan — Executive CV</title>
 
-  <meta name="description" content="Physician-scientist & AI-in-healthcare practitioner. Heart failure & cardiorenal research, LLM-based clinical workflows, responsible and auditable AI. Co-founder of QGuard-Med."/>
-  <meta name="theme-color" content="#0a3a52">
+  <meta name="description" content="Physician-scientist & AI-in-healthcare practitioner. Heart failure & cardiorenal research, LLM-based clinical workflows, responsible and auditable AI. Co-founder of QGuard-Med." />
+  <meta name="theme-color" content="#2a2322">
 
   <script type="application/ld+json">
   {
@@ -17,50 +17,126 @@
   }
   </script>
 
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
 <style>
+    /*
+      =======================================================
+      --- ESTILO: DOS COLUMNAS (Aesthetic + Dynamic) ---
+      =======================================================
+      Paleta:
+      - Fondo Claro: #fdfcfb (Blanco Roto)
+      - Fondo Oscuro (Sidebar): #2a2322 (Marrón Oscuro)
+      - Texto Oscuro: #2a2322
+      - Texto Claro: #f5f0eb
+      - Texto Secundario Oscuro: #575150
+      - Texto Secundario Claro: #b8a8a3
+      - Acento: #e86443 (Terracota / Óxido)
+      - Borde Claro: #e0dcd9
+      - Borde Oscuro: #4a413f
+    */
+
+    :root {
+      /* Paleta "Estética 3.0" (Cálida) */
+      --color-bg: #fdfcfb;
+      --color-bg-secondary: #faf8f7;
+      --color-sidebar-bg: #2a2322;
+      
+      --color-primary: #2a2322; /* Texto principal (sobre claro) */
+      --color-text: #2a2322;
+      --color-text-secondary: #575150;
+      --color-text-tertiary: #7a7270;
+
+      --color-sidebar-text-primary: #f5f0eb;
+      --color-sidebar-text-secondary: #b8a8a3;
+      
+      --color-accent: #e86443; /* Terracota / Óxido */
+      --color-accent-dark: #d95333;
+      
+      --color-border: #e0dcd9;
+      --color-sidebar-border: #4a413f;
+
+      --color-success: #16a34a;
+      --color-warning: #d97706;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      
+      --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-long: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-
-    :root {
-      --color-bg: #ffffff;
-      --color-bg-secondary: #f8fafb;
-      --color-primary: #0a3a52;
-      --color-accent: #d4a574;
-      --color-accent-dark: #b8860b;
-      --color-text: #0a3a52;
-      --color-text-secondary: #4a5f7f;
-      --color-text-tertiary: #7a8fa0;
-      --color-border: #d8e1ed;
-      --color-success: #2d7a3e;
-      --color-warning: #a68a00;
-      --shadow-sm: 0 1px 3px rgba(10, 58, 82, 0.08);
-      --shadow-md: 0 4px 12px rgba(10, 58, 82, 0.12);
-      --shadow-lg: 0 12px 32px rgba(10, 58, 82, 0.15);
-      --shadow-hover: 0 16px 40px rgba(10, 58, 82, 0.18);
-      --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* --- Animación de "dibujado" de línea --- */
+    @keyframes draw-line {
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     html { scroll-behavior: smooth; }
+    
     body {
       font-family: 'Inter', sans-serif;
       background: var(--color-bg);
       color: var(--color-text);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      
+      /* --- NUEVA ESTRUCTURA DE LAYOUT --- */
+      display: grid;
+      grid-template-columns: 350px 1fr; /* Sidebar fija, contenido flexible */
+      
+      /* Ocultar cursor por defecto para reemplazarlo */
+      cursor: none;
+    }
+
+    /* --- NUEVO: Cursor Dinámico --- */
+    #cursor {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--color-text);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+      mix-blend-mode: difference;
+      opacity: 0; /* Oculto hasta que el ratón se mueva */
+    }
+    body:hover #cursor {
+      opacity: 1;
+    }
+    #cursor.hovered {
+      transform: scale(2.5);
+      background-color: var(--color-bg);
+      border-color: transparent;
+    }
+    /* El cursor se ocultará en pantallas táctiles */
+    @media (pointer: coarse) {
+      #cursor { display: none; }
+      body { cursor: auto; }
     }
 
     :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
@@ -71,643 +147,797 @@
       letter-spacing: -0.5px;
       color: var(--color-primary);
     }
-
-    h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; }
-    h2 {
-      font-size: 2rem;
+    
+    h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; }
+    h2 { /* Títulos de sección */
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       color: var(--color-primary);
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      position: relative;
+    }
+    
+    /* --- NUEVO: Línea animada para H2 --- */
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background-color: var(--color-border);
+      width: 0%; /* Inicia en 0 */
+    }
+    /* La clase 'visible' (añadida por JS) activa la animación */
+    h2.visible::after {
+      width: 100%;
+      transition: width 1s var(--transition-long) 0.3s;
+    }
+
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--color-primary); }
+    h4, h5, h6 { 
+      font-size: 0.9rem; 
+      color: var(--color-text-secondary); 
+      font-weight: 600; 
+    }
+    p { color: var(--color-text-secondary); line-height: 1.7; font-size: 0.95rem; }
+    
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--transition);
+      font-weight: 500;
+    }
+    a:hover { color: var(--color-accent-dark); text-decoration: underline; }
+
+    /* --- Barra Lateral Fija --- */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: var(--color-sidebar-bg);
+      color: var(--color-sidebar-text-primary);
+      padding: 3rem;
+      overflow-y: auto;
+      border-right: 1px solid var(--color-sidebar-border);
+      animation: fadeIn 0.6s ease-out;
+      text-align: center; /* Centrar la foto y el h1 */
+    }
+    
+    .sidebar-header {
+      margin-bottom: 2.5rem;
+    }
+
+    /* --- FOTO AÑADIDA --- */
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1.5rem;
+      border: 4px solid var(--color-sidebar-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .sidebar-header h1 {
+      color: var(--color-sidebar-text-primary);
+    }
+    
+    .sidebar-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-sidebar-text-secondary);
+      font-weight: 500;
+      margin-top: 0.75rem;
+      line-height: 1.5;
+    }
+    
+    .sidebar-section {
+      margin-bottom: 2.5rem;
+    }
+    
+    .sidebar-section h2 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-sidebar-text-secondary);
+      border-bottom: 1px solid var(--color-sidebar-border);
+      padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
+      text-align: left; /* Alinear subtítulos a la izquierda */
+      color: var(--color-sidebar-text-secondary); /* Sobrescribir color base */
+    }
+    .sidebar-section h2::after {
+      display: none; /* Sin animación de línea en la sidebar */
+    }
+    
+    /* Contacto en Sidebar */
+    .contact-list {
+      list-style: none;
+      padding: 0;
+    }
+    .contact-list li {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-weight: 800;
-    }
-    h3 { font-size: 1.2rem; font-weight: 700; }
-    h4 { font-size: 0.9rem; color: var(--color-text-secondary); font-weight: 600; }
-    p { color: var(--color-text-secondary); line-height: 1.7; }
-    a {
-      color: var(--color-accent-dark);
-      text-decoration: none;
-      transition: color var(--transition);
-      font-weight: 600;
-    }
-    a:hover { color: var(--color-accent); text-decoration: underline; }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 70px;
-      background: var(--color-bg);
-      border-bottom: 2px solid var(--color-border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      z-index: 1000;
-      animation: slideInLeft 0.6s ease-out;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .navbar-brand {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--color-primary);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .navbar-nav {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-link {
-      color: var(--color-text-secondary);
-      font-size: 0.9rem;
-      font-weight: 700;
-      position: relative;
-      transition: color var(--transition);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--color-accent);
-      transition: width var(--transition);
-    }
-
-    .nav-link:hover {
-      color: var(--color-accent);
-    }
-
-    .nav-link:hover::after { width: 100%; }
-
-    .nav-actions {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .btn-theme {
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
-      border: 2px solid var(--color-border);
-      background: transparent;
-      color: var(--color-text);
-      cursor: pointer;
-      transition: all var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-
-    .btn-theme:hover {
-      border-color: var(--color-accent);
-      background: rgba(212, 165, 116, 0.08);
-      color: var(--color-accent);
-    }
-
-    main {
-      margin-top: 70px;
-      padding: 4rem 2rem;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-dashboard {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 5rem;
-      align-items: center;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
-    }
-
-    .hero-content h1 {
-      font-size: 4.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--color-primary);
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .hero-subtitle {
-      font-size: 1.4rem;
-      color: var(--color-accent-dark);
       margin-bottom: 1rem;
-      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--color-sidebar-text-secondary);
+      text-align: left; /* Alinear items a la izquierda */
     }
-
-    .hero-tagline {
-      font-size: 1.05rem;
-      color: var(--color-text-secondary);
-      margin-bottom: 2rem;
-      line-height: 1.8;
-      max-width: 500px;
+    .contact-list li i {
+      color: var(--color-accent);
+      width: 16px;
+      text-align: center;
     }
-
-    .hero-tags {
+    .contact-list li a {
+      color: var(--color-sidebar-text-secondary);
+      font-weight: 500;
+    }
+    .contact-list li a:hover {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    
+    /* Educación en Sidebar */
+    .education-item {
+      margin-bottom: 1.5rem;
+      text-align: left; /* Alinear items a la izquierda */
+    }
+    .education-item:last-child {
+      margin-bottom: 0;
+    }
+    .education-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-sidebar-text-primary);
+      margin-bottom: 0.1rem;
+    }
+    .education-item p {
+      font-size: 0.9rem;
+      color: var(--color-sidebar-text-secondary);
+      margin-bottom: 0.1rem;
+    }
+    .education-item .date {
+      font-size: 0.8rem;
+      color: var(--color-sidebar-text-secondary);
+      font-weight: 500;
+    }
+    
+    /* Habilidades en Sidebar */
+    .skill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 2rem;
+      gap: 0.5rem;
+      justify-content: flex-start; /* Alinear a la izquierda */
     }
-
-    .tag {
-      background: var(--color-bg-secondary);
-      border: 2px solid var(--color-accent);
-      color: var(--color-accent-dark);
-      padding: 0.7rem 1.4rem;
+    .skill-tag {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
       border-radius: 6px;
+      background: var(--color-sidebar-border);
+      border: 1px solid #4a413f; /* Tono de borde más oscuro */
+      color: var(--color-sidebar-text-secondary);
       font-size: 0.85rem;
-      font-weight: 700;
+      font-weight: 500;
       transition: all var(--transition);
-      animation: fadeInUp 0.6s ease-out 0.3s both;
     }
-
-    .tag:hover {
+    .skill-tag:hover {
       background: var(--color-accent);
       color: white;
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+      border-color: var(--color-accent);
+      transform: translateY(-2px); /* Efecto dinámico */
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
+    /* --- Contenido Principal (Scrollable) --- */
+    .main-content {
+      padding: 4rem;
+      overflow-y: auto;
+      /* quitamos la animación base para que el JS la controle */
+    }
+    
+    /* --- NUEVO: Animación de Scroll --- */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s var(--transition-long);
+      /* transition-delay se añadirá in-line con JS */
+    }
+    .reveal-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
+    .dashboard-section {
+      margin-bottom: 4rem;
+    }
+    
+    /* Perfil Profesional */
+    .profile-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    .profile-highlights {
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.5rem;
+    }
+    .profile-highlights p {
+      font-size: 1rem;
+    }
+    .profile-gemini-btn {
+      margin-top: 2rem;
+    }
+
+    /* Botones */
     .btn {
-      padding: 1rem 2rem;
+      padding: 0.9rem 1.8rem;
       border-radius: 6px;
-      font-weight: 700;
+      font-weight: 600;
       border: none;
       cursor: pointer;
       transition: all var(--transition);
       font-size: 0.95rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      letter-spacing: 0.5px;
-    }
-
-    .btn-primary {
-      background: var(--color-primary);
-      color: white;
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
-      background: var(--color-accent-dark);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid var(--color-primary);
-      color: var(--color-primary);
-    }
-
-    .btn-secondary:hover {
-      background: var(--color-primary);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .hero-image {
+      letter-spacing: 0.2px;
+      border: 1px solid transparent;
+      
+      /* --- NUEVO: Efecto Dinámico de Botón (como el del museo) --- */
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .image-wrapper {
-      position: relative;
-      width: 300px;
-      height: 300px;
-    }
-
-    .image-wrapper img {
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      border: 4px solid var(--color-accent);
-      object-fit: cover;
-      box-shadow: var(--shadow-lg);
-      transition: transform var(--transition);
-    }
-
-    .image-wrapper:hover img {
-      transform: scale(1.02);
-    }
-
-    .dashboard-section {
-      margin-bottom: 5rem;
-      animation: fadeInUp 0.8s ease-out both;
-    }
-
-    .dashboard-section:nth-child(1) { animation-delay: 0.6s; }
-    .dashboard-section:nth-child(2) { animation-delay: 0.8s; }
-    .dashboard-section:nth-child(3) { animation-delay: 1s; }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-      font-size: 2rem;
-      color: var(--color-primary);
-      font-weight: 800;
-      border-left: 4px solid var(--color-accent);
-      padding-left: 1.5rem;
-    }
-
-    .section-title i {
-      font-size: 2rem;
-      color: var(--color-accent);
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--color-bg);
-      border: 2px solid var(--color-border);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: all var(--transition);
       overflow: hidden;
-      position: relative;
+      z-index: 1;
     }
-
-    .card::before {
+    .btn::before {
       content: '';
       position: absolute;
       top: 0;
-      left: 0;
-      width: 4px;
-      height: 0;
-      background: var(--color-accent);
-      transition: height var(--transition);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: var(--color-accent);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .card:hover::before {
+      left: -100%;
+      width: 100%;
       height: 100%;
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+    .btn:hover::before {
+      left: 0;
     }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin-bottom: 1.25rem;
+    .btn-primary {
+      background: var(--color-accent);
+      color: white;
+      box-shadow: var(--shadow-sm);
     }
-
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: 700;
+    .btn-primary::before {
+      background: var(--color-accent-dark); /* Color más oscuro para el hover */
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      color: white; /* Asegurar que el texto siga siendo blanco */
+    }
+    
+    .btn-secondary {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
       color: var(--color-primary);
     }
+    .btn-secondary::before {
+      background: var(--color-bg);
+    }
+    .btn-secondary:hover {
+      background: var(--color-bg-secondary); /* Mantener fondo */
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
 
+    /* Tarjetas (para Proyectos, Publicaciones) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all var(--transition);
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
     .card-meta {
       font-size: 0.8rem;
       color: var(--color-text-tertiary);
-      font-weight: 700;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
     }
-
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
     .card-subtitle {
-      color: var(--color-accent-dark);
-      font-size: 0.95rem;
-      font-weight: 700;
+      color: var(--color-accent);
+      font-size: 0.9rem;
+      font-weight: 600;
       margin-bottom: 1rem;
     }
-
     .card-content {
       color: var(--color-text-secondary);
       margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.8;
+      font-size: 0.9rem;
+      line-height: 1.7;
     }
-
     .card-footer {
       display: flex;
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-
     .badge {
       background: var(--color-bg-secondary);
-      color: var(--color-accent-dark);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
       padding: 0.4rem 0.9rem;
-      border-radius: 4px;
+      border-radius: 6px;
       font-size: 0.75rem;
-      font-weight: 700;
-      border: 1px solid var(--color-accent);
-    }
-
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-
-    .skill-category {
-      background: var(--color-bg-secondary);
-      border: 2px solid var(--color-border);
-      border-radius: 8px;
-      padding: 2rem;
+      font-weight: 500;
       transition: all var(--transition);
     }
-
-    .skill-category:hover {
-      transform: translateY(-6px);
+    .card:hover .badge {
       border-color: var(--color-accent);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .skill-category h3 {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      color: var(--color-primary);
-    }
-
-    .skill-category i {
-      font-size: 1.4rem;
       color: var(--color-accent);
     }
-
-    .skill-item {
-      margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--color-border);
+    
+    /* --- Estilo Especial para Experiencia --- */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .experience-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.5rem;
+    }
+    .experience-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .experience-details h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    .experience-details .subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+    .experience-details .content {
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .experience-details .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    /* Certificaciones */
+    .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+    .cert-card {
+        background: var(--color-bg-secondary);
+        border: 1px solid var(--color-border);
+        padding: 1.25rem 1.5rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        transition: all var(--transition);
+    }
+    .cert-card:hover {
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-sm);
+        transform: translateY(-3px);
+    }
+    .cert-card .cert-icon {
+        font-size: 1.5rem;
+        color: var(--color-accent);
+        flex-shrink: 0;
+    }
+    .cert-card .cert-title {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        font-weight: 600;
+        color: var(--color-primary);
+        margin: 0;
+    }
+    .cert-card .cert-meta {
+        font-size: 0.8rem;
+        color: var(--color-text-tertiary);
+        font-weight: 500;
+        margin-top: 0.25rem;
     }
 
-    .skill-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
+    /* --- Modal de Gemini --- */
+    .gemini-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: auto; /* Cursor normal dentro del modal */
     }
-
-    .skill-name {
-      font-weight: 700;
+    .gemini-modal.active { display: flex; }
+    .gemini-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease;
+    }
+    .gemini-modal-content {
+      position: relative;
+      background: var(--color-bg);
+      border-radius: 12px;
+      padding: 2.5rem;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: var(--shadow-lg);
+      z-index: 2001;
+      animation: fadeInUp 0.4s ease-out;
+    }
+    .gemini-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--color-text-tertiary);
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+    .gemini-modal-close:hover { color: var(--color-primary); }
+    .gemini-modal-content h2 {
+      font-size: 1.75rem;
       color: var(--color-primary);
       margin-bottom: 0.5rem;
+    }
+    .gemini-modal-content h2::after {
+      display: none; /* Sin línea animada en el modal */
+    }
+    .gemini-modal-content p {
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
       font-size: 0.95rem;
     }
-
-    .skill-bar {
+    .gemini-modal-input {
       width: 100%;
-      height: 5px;
-      background: var(--color-border);
-      border-radius: 3px;
-      overflow: hidden;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      background: var(--color-bg);
+      color: var(--color-text);
+      cursor: text; /* Cursor de texto normal */
     }
-
-    .skill-progress {
-      height: 100%;
-      background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent));
-      border-radius: 3px;
-      animation: slideInLeft 0.8s ease-out 1s both;
+    .gemini-modal-input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 2px rgba(232, 100, 67, 0.2); /* Color acento cálido */
     }
-
-    footer {
-      text-align: center;
-      padding: 3rem 2rem;
-      border-top: 2px solid var(--color-border);
-      color: var(--color-text-tertiary);
-      font-size: 0.85rem;
-      margin-top: 5rem;
+    #gemini-results {
+      margin-top: 1.5rem;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      min-height: 100px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
-
+    #gemini-results ul { padding-left: 1.2rem; margin: 0; }
+    #gemini-results li { margin-bottom: 0.75rem; }
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--color-border);
+      border-bottom-color: var(--color-accent);
+      border-radius: 50%;
+      display: none;
+      animation: rotation 1s linear infinite;
+      margin: 2rem auto 0;
+    }
+    .loader.active { display: block; }
+    @keyframes rotation {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* --- Media Queries (Responsivo) --- */
     @media (max-width: 1024px) {
-      .hero-dashboard { grid-template-columns: 1fr; gap: 2rem; }
-      .skills-container { grid-template-columns: repeat(2, 1fr); }
-      .cards-grid { grid-template-columns: 1fr; }
-      main { padding: 2rem 1.5rem; }
+      body {
+        display: block; /* Stack sidebar y main */
+        grid-template-columns: 1fr;
+        cursor: auto; /* Cursor normal en móvil */
+      }
+      #cursor {
+        display: none; /* Ocultar cursor personalizado */
+      }
+      .sidebar {
+        position: relative;
+        height: auto;
+        padding: 2.5rem 1.5rem;
+      }
+      .main-content {
+        padding: 2.5rem 1.5rem;
+      }
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .experience-date {
+        margin-bottom: 0.5rem;
+      }
     }
-
-    @media (max-width: 768px) {
-      .navbar { padding: 0 1rem; }
-      .navbar-nav { display: none; }
-      h1 { font-size: 2.8rem; }
-      .section-title { font-size: 1.5rem; }
-      .skills-container { grid-template-columns: 1fr; }
-      .image-wrapper { width: 220px; height: 220px; }
-      main { padding: 1.5rem 1rem; margin-top: 70px; }
-    }
-
+    
     @media (max-width: 480px) {
-      .navbar-brand { font-size: 1.1rem; }
-      h1 { font-size: 2rem; }
-      .hero-buttons { flex-direction: column; }
+      h1 { font-size: 2.2rem; }
+      .sidebar { padding: 2rem 1rem; }
+      .main-content { padding: 2rem 1rem; }
       .btn { width: 100%; justify-content: center; }
-      main { padding: 1rem; }
+      .profile-gemini-btn { display: flex; }
     }
 </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar-brand">
-      <i class="fas fa-cube"></i> JAEG
-    </div>
-    <div class="navbar-nav">
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#education" class="nav-link">Education</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-actions">
-      <button class="btn-theme" title="Print CV">
-        <i class="fas fa-print"></i>
-      </button>
-    </div>
-  </nav>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- HERO DASHBOARD -->
-    <section class="hero-dashboard">
-      <div class="hero-content">
-        <h1>Antonio Esquivel Gaytan</h1>
-        <p class="hero-subtitle">MD, MSc | PhD candidate — Experimental Cardiology (UMCG)</p>
-        <p class="hero-tagline">
-          Physician-scientist in heart failure & cardiorenal research with hands-on experience designing LLM-assisted workflows for clinical research, trial documentation, and lab environments — always MDR/GCP/GDPR-aware.
-        </p>
-        
-        <div class="hero-tags" role="list">
-          <span class="tag">AI in Healthcare</span>
-          <span class="tag">Heart Failure & Cardiorenal</span>
-          <span class="tag">Clinical Trial Workflows</span>
-          <span class="tag">Ethics & Governance</span>
-        </div>
+  <!-- ======================= -->
+  <!-- ===== CURSOR DINÁMICO ===== -->
+  <!-- ======================= -->
+  <div id="cursor"></div>
 
-        <div class="hero-buttons">
-          <button class="btn btn-primary" onclick="window.location.href='mailto:j.esquivel.gaytan@gmail.com'">
-            <i class="fas fa-envelope"></i> Get in Touch
-          </button>
-          <button class="btn btn-secondary" onclick="window.print()">
-            <i class="fas fa-download"></i> Download CV
-          </button>
-        </div>
+  <!-- ======================= -->
+  <!-- ===== BARRA LATERAL ===== -->
+  <!-- ======================= -->
+  <aside class="sidebar">
+    
+    <div class="sidebar-header">
+      <!-- FOTO AÑADIDA -->
+      <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" alt="Antonio Esquivel Gaytan" class="profile-photo" />
+      <h1>Antonio Esquivel Gaytan</h1>
+      <p class="sidebar-subtitle">MD, MSc | PhD candidate — Experimental Cardiology (UMCG)</p>
+    </div>
+
+    <!-- Sección de Contacto -->
+    <section class="sidebar-section" id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:j.esquivel.gaytan@gmail.com" class="hover-trigger">j.esquivel.gaytan@gmail.com</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Groningen, The Netherlands</span>
+        </li>
+        <li>
+          <i class="fa-brands fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank" rel="noopener noreferrer" class="hover-trigger">LinkedIn</a>
+        </li>
+        <li>
+          <i class="fa-brands fa-researchgate"></i>
+          <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank" rel="noopener noreferrer" class="hover-trigger">ResearchGate</a>
+        </li>
+        <li>
+          <i class="fa-brands fa-orcid"></i>
+          <a href="https://orcid.org/0000-0001-6974-1825" target="_blank" rel="noopener noreferrer" class="hover-trigger">ORCID</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Sección de Educación -->
+    <section class="sidebar-section" id="education">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>PhD in Biomedical/Medical Sciences (Experimental Cardiology)</h3>
+        <p>University of Groningen / UMCG, NL</p>
+        <p class="date">2018 – present</p>
       </div>
-
-      <div class="hero-image">
-        <div class="image-wrapper">
-          <img src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" alt="Antonio Esquivel Gaytan" />
-        </div>
+      <div class="education-item">
+        <h3>MSc Nanotechnology & Regenerative Medicine (Distinction)</h3>
+        <p>University College London (UCL), UK</p>
+        <p class="date">2016 – 2017</p>
+      </div>
+      <div class="education-item">
+        <h3>MD (Physician)</h3>
+        <p>Universidad Nacional Autonoma de México (UNAM), MX</p>
+        <p class="date">2009 – 2016</p>
       </div>
     </section>
 
+    <!-- Sección de Habilidades -->
+    <section class="sidebar-section" id="skills">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <span class="skill-tag hover-trigger">AI in Healthcare</span>
+        <span class="skill-tag hover-trigger">LLM Workflow Design</span>
+        <span class="skill-tag hover-trigger">Heart Failure & Cardiorenal</span>
+        <span class="skill-tag hover-trigger">Clinical Trial Workflows</span>
+        <span class="skill-tag hover-trigger">Ethics & Governance</span>
+        <span class="skill-tag hover-trigger">MDR / GCP / GDPR</span>
+        <span class="skill-tag hover-trigger">Translational Research</span>
+        <span class="skill-tag hover-trigger">Project Management</span>
+        <span class="skill-tag hover-trigger">Python (Prototyping)</span>
+        <span class="skill-tag hover-trigger">FastAPI</span>
+        <span class="skill-tag hover-trigger">RAG</span>
+        <span class="skill-tag hover-trigger">Prompt Engineering</span>
+      </div>
+    </section>
+    
+    <!-- Sección de Idiomas -->
+    <section class="sidebar-section" id="languages">
+      <h2>Languages</h2>
+      <div class="skill-list">
+        <span class="skill-tag hover-trigger">Spanish (Native)</span>
+        <span class="skill-tag hover-trigger">English (Full professional)</span>
+        <span class="skill-tag hover-trigger">Dutch (B1–B2 in progress)</span>
+        <span class="skill-tag hover-trigger">French (Basic)</span>
+        <span class="skill-tag hover-trigger">Catalan (Basic)</span>
+      </div>
+    </section>
+
+  </aside>
+
+  <!-- =========================== -->
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <!-- =========================== -->
+  <main class="main-content">
+
     <!-- PROFESSIONAL PROFILE SECTION -->
-    <section class="dashboard-section">
-      <h2 class="section-title">
-        <i class="fas fa-user-tie"></i> Professional Profile
-      </h2>
-      <div class="cards-grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-          <p class="card-content" style="margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8;">
-            Physician-scientist (MD, MSc, PhD candidate at UMCG) with core expertise in heart failure and cardiorenal research and practical experience applying LLM-based tools in clinical research and laboratory workflows. I have co-designed AI-assisted solutions for protocol-to-visit extraction, investigational product inventory, and structured clinical reporting; and initiated my own tools including an offline RAG system for heart failure guidelines, an AI-assisted patient prioritisation MVP, a discreet adherence companion concept, and a local SOP-based lab assistant. My work prioritises safety, traceability, MDR/GCP-conscious design, GDPR-aware data minimisation, and real-world usability — bridging clinicians, technical teams, and decision-makers.
+    <section class="dashboard-section" id="profile">
+      <h2 class="reveal-item">Professional Profile</h2>
+      <div class="profile-content">
+        <p class="reveal-item">
+          Physician-scientist (MD, MSc, PhD candidate at UMCG) with core expertise in heart failure and cardiorenal research and practical experience applying LLM-based tools in clinical research and laboratory workflows.
+        </p>
+        <p class="reveal-item">
+          I have co-designed AI-assisted solutions for protocol-to-visit extraction, investigational product inventory, and structured clinical reporting; and initiated my own tools including an offline RAG system for heart failure guidelines, an AI-assisted patient prioritisation MVP, a discreet adherence companion concept, and a local SOP-based lab assistant.
+        </p>
+        <p class="reveal-item">
+          My work prioritises safety, traceability, MDR/GCP-conscious design, GDPR-aware data minimisation, and real-world usability — bridging clinicians, technical teams, and decision-makers.
+        </p>
+        
+        <div class="profile-highlights reveal-item">
+          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
+            <span><strong>Pangaea Oncology:</strong> Led AI-assisted visit schedules, inventory automation, and structured clinical reporting with strong human-in-the-loop governance and inspection-ready documentation.</span>
           </p>
-          
-          <div style="border-top: 2px solid var(--color-border); padding-top: 1.5rem;">
-            <div style="margin-bottom: 1rem;">
-              <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-                <span><strong>Pangaea Oncology:</strong> Led AI-assisted visit schedules, inventory automation, and structured clinical reporting with strong human-in-the-loop governance and inspection-ready documentation.</span>
-              </p>
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-                <span><strong>QGuard-Med (MVP):</strong> Co-founder of an AI-assisted cardiovascular patient prioritisation system; finalist at Break The Gap 2025.</span>
-              </p>
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-                <span><strong>Offline & Local-first Tools:</strong> Built and designed privacy-preserving assistants (offline RAG for guidelines, SOP-based lab support) focused on auditability, constrained outputs, and citation-backed answers.</span>
-              </p>
-            </div>
-            <div>
-              <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0;">
-                <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
-                <span><strong>Open to:</strong> roles in AI in healthcare, clinical research, translational programs, advisory work, and AI literacy workshops in the Netherlands, Spain, and EU.</span>
-              </p>
-            </div>
-          </div>
+          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
+            <span><strong>QGuard-Med (MVP):</strong> Co-founder of an AI-assisted cardiovascular patient prioritisation system; finalist at Break The Gap 2025.</span>
+          </p>
+          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
+            <span><strong>Offline & Local-first Tools:</strong> Built and designed privacy-preserving assistants (offline RAG for guidelines, SOP-based lab support) focused on auditability, constrained outputs, and citation-backed answers.</span>
+          </p>
+          <p style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0;">
+            <i class="fas fa-check-circle" style="color: var(--color-accent); flex-shrink: 0; margin-top: 0.2rem; font-weight: 700;"></i>
+            <span><strong>Open to:</strong> roles in AI in healthcare, clinical research, translational programs, advisory work, and AI literacy workshops in the Netherlands, Spain, and EU.</span>
+          </p>
+        </div>
+
+        <!-- Botón de Gemini movido aquí -->
+        <div class="profile-gemini-btn reveal-item">
+          <button class="btn btn-primary hover-trigger" id="open-gemini-modal">
+            <i class="fas fa-wand-magic-sparkles"></i> Generate Highlights ✨
+          </button>
         </div>
       </div>
     </section>
 
     <!-- EXPERIENCE SECTION -->
     <section class="dashboard-section" id="experience">
-      <h2 class="section-title">
-        <i class="fas fa-briefcase"></i> Professional Experience
-      </h2>
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <h3 class="card-title">Clinical Research Investigator & AI Project Lead</h3>
-              <p class="card-meta">Jun 2025 – Sep 2025</p>
+      <h2 class="reveal-item">Professional Experience</h2>
+      <div class="experience-list">
+        
+        <div class="experience-item reveal-item">
+          <div class="experience-date">Jun 2025 – Sep 2025</div>
+          <div class="experience-details">
+            <h3>Clinical Research Investigator & AI Project Lead</h3>
+            <p class="subtitle">Pangaea Oncology — Barcelona, Spain</p>
+            <p class="content">
+              Supervised an AI-assisted visit management system converting trial protocols into structured visit schedules. Developed LLM-based draft clinical reporting with structured prompts and systematic audits. Designed workflows that achieved a substantial reduction in clinically relevant hallucinations. Built a lightweight, transparent inventory process using photo-based kit capture and LLM-assisted field extraction.
+            </p>
+            <div class="badge-list">
+              <span class="badge">AI in Clinical Trials</span>
+              <span class="badge">GCP</span>
+              <span class="badge">Workflow Design</span>
+              <span class="badge">SOPs & Governance</span>
             </div>
-          </div>
-          <p class="card-subtitle">Pangaea Oncology — Barcelona, Spain</p>
-          <p class="card-content">
-            Supervised an AI-assisted visit management system converting trial protocols into structured visit schedules (procedures, vitals, IMP dispensing, documentation fields).<br><br>
-            Developed LLM-based draft clinical reporting using models via secure cloud (e.g. Bedrock-hosted), with structured prompts limited to recorded visit data and systematic audits against protocols and source documents; standardised reporting formats across investigators.<br><br>
-            Designed workflows and SOPs that achieved a substantial reduction in clinically relevant hallucinations through prompt engineering and mandatory human editorial review, keeping full clinical responsibility with investigators.<br><br>
-            Built a lightweight, transparent inventory process using photo-based kit capture and LLM-assisted field extraction to automate IMP inventory and reduce manual workload while remaining inspection-ready.
-          </p>
-          <div class="card-footer">
-            <span class="badge">AI in Clinical Trials</span>
-            <span class="badge">GCP</span>
-            <span class="badge">Workflow Design</span>
-            <span class="badge">SOPs & Governance</span>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <h3 class="card-title">Co-founder — QGuard-Med (MVP), AI Patient Prioritisation</h3>
-              <p class="card-meta">2024 – 2025</p>
+        <div class="experience-item reveal-item">
+          <div class="experience-date">2024 – 2025</div>
+          <div class="experience-details">
+            <h3>Co-founder — QGuard-Med (MVP), AI Patient Prioritisation</h3>
+            <p class="subtitle">Groningen / Barcelona</p>
+            <p class="content">
+              Co-developed an MVP for an AI-assisted prioritisation system for cardiovascular patients, integrating waiting time, symptoms, clinical criteria, and biomarkers. Considered fairness, explainability, and regulatory implications from the start. Implemented a minimal, auditable stack (FastAPI, Docker).
+            </p>
+            <div class="badge-list">
+              <span class="badge">Patient Prioritisation</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">Explainability</span>
+              <span class="badge">Award Finalist</span>
             </div>
-          </div>
-          <p class="card-subtitle">Groningen / Barcelona</p>
-          <p class="card-content">
-            Co-developed an MVP for an AI-assisted prioritisation system for cardiovascular patients, integrating waiting time, symptoms, clinical criteria, and biomarkers into transparent scoring logic.<br><br>
-            Considered fairness, explainability, regulatory implications, and human oversight from the start.<br><br>
-            Implemented a minimal, auditable stack (FastAPI, Docker) suitable for future integration and validation.
-          </p>
-          <div class="card-footer">
-            <span class="badge">Patient Prioritisation</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">Explainability</span>
-            <span class="badge">Award Finalist</span>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <h3 class="card-title">PhD Researcher — Experimental Cardiology</h3>
-              <p class="card-meta">Nov 2018 – present</p>
+        <div class="experience-item reveal-item">
+          <div class="experience-date">Nov 2018 – present</div>
+          <div class="experience-details">
+            <h3>PhD Researcher — Experimental Cardiology</h3>
+            <p class="subtitle">University Medical Center Groningen (UMCG), Netherlands</p>
+            <p class="content">
+              Investigated 5-oxoproline/OPLAH, oxidative stress, and cardiorenal interactions in heart failure. Developed high-throughput screening assays, nanoparticle-based AMP delivery concepts, and biomarker analyses. Led experimental design, data analysis, and manuscript writing with emphasis on robustness (Z′, S/B) and reproducibility.
+            </p>
+            <div class="badge-list">
+              <span class="badge">Heart Failure</span>
+              <span class="badge">Biomarkers</span>
+              <span class="badge">HTS</span>
+              <span class="badge">Translational Research</span>
             </div>
           </div>
-          <p class="card-subtitle">University Medical Center Groningen (UMCG), Netherlands</p>
-          <p class="card-content">
-            Investigated 5-oxoproline/OPLAH, oxidative stress, and cardiorenal interactions in heart failure.<br><br>
-            Developed and evaluated high-throughput screening assays, nanoparticle-based AMP delivery concepts, and biomarker analyses in experimental and clinical cohorts.<br><br>
-            Led experimental design, data analysis, and manuscript writing with emphasis on robustness (Z′, S/B), reproducibility, and clear documentation — foundations now applied to AI validation, benchmarking, and guardrail design.
-          </p>
-          <div class="card-footer">
-            <span class="badge">Heart Failure</span>
-            <span class="badge">Biomarkers</span>
-            <span class="badge">HTS</span>
-            <span class="badge">Translational Research</span>
-          </div>
         </div>
+        
       </div>
     </section>
 
     <!-- SELECTED PROJECTS SECTION -->
-    <section class="dashboard-section" id="selected-projects">
-      <h2 class="section-title">
-        <i class="fas fa-lightbulb"></i> Selected Projects
-      </h2>
+    <section class="dashboard-section" id="projects">
+      <h2 class="reveal-item">Selected Projects</h2>
       <div class="cards-grid">
-        <div class="card">
+        <div class="card hover-trigger reveal-item">
+          <p class="card-meta">Break The Gap 2025 — Finalist</p>
           <h3 class="card-title">QGuard-Med (MVP)</h3>
           <p class="card-subtitle">AI-assisted cardiovascular patient prioritisation</p>
-          <p class="card-meta">Break The Gap 2025 — Finalist</p>
           <p class="card-content">
             Co-founded and co-designed a transparent prioritisation system integrating clinical criteria, biomarkers, symptoms, and waiting time. Built on FastAPI and Docker with explainability, fairness, and regulatory awareness embedded early.
           </p>
@@ -719,10 +949,10 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card hover-trigger reveal-item">
+          <p class="card-meta">Privacy-first | Citation-backed</p>
           <h3 class="card-title">Offline RAG for Heart Failure Guidelines</h3>
           <p class="card-subtitle">Local guideline assistant (MVP)</p>
-          <p class="card-meta">Privacy-first | Citation-backed</p>
           <p class="card-content">
             Built a local retrieval-augmented assistant for HF/cardiovascular guidelines using open-weight models and on-device retrieval. Ensured no PHI leaves the environment, constrained outputs to source content, and included basic evaluation of relevance and factual consistency.
           </p>
@@ -733,12 +963,12 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card hover-trigger reveal-item">
+          <p class="card-meta">Concept / Early Design</p>
           <h3 class="card-title">Digital Health & Lab Assistant Concepts</h3>
           <p class="card-subtitle">Adherence & SOP-centric assistants</p>
-          <p class="card-meta">Concept / Early Design</p>
           <p class="card-content">
-            Designed discreet, privacy-aware concepts for medication/PrEP adherence support, and a local SOP-based lab assistant with stepwise “bench run” mode, checklists, and local logging. Focus on minimal data capture, explicit separation of AI assistance from clinical responsibility, and simple stacks suitable for regulated environments.
+            Designed discreet, privacy-aware concepts for medication/PrEP adherence support, and a local SOP-based lab assistant with stepwise “bench run” mode, checklists, and local logging. Focus on minimal data capture and explicit separation of AI assistance from clinical responsibility.
           </p>
           <div class="card-footer">
             <span class="badge">Digital Health</span>
@@ -749,129 +979,13 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION -->
-    <section class="dashboard-section" id="skills">
-      <h2 class="section-title">
-        <i class="fas fa-tools"></i> Core Competencies
-      </h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3><i class="fas fa-users-cog"></i> Leadership & Translation</h3>
-          <div class="skill-item">
-            <p class="skill-name">Project & Workflow Management</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Clinical–Technical Bridging</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Stakeholder Communication</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Scientific & Regulatory Writing</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 87%;"></div></div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-stethoscope"></i> Translational & Clinical</h3>
-          <div class="skill-item">
-            <p class="skill-name">Heart Failure & Cardiorenal Research</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Biomarker & Omics Interpretation</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Assay / HTS Literacy</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-brain"></i> AI & Governance</h3>
-          <div class="skill-item">
-            <p class="skill-name">LLM Workflow Design</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Prompting & Schema-constrained Outputs</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">MDR / GCP / GDPR Awareness</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 82%;"></div></div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-code"></i> Technical (Prototyping Level)</h3>
-          <div class="skill-item">
-            <p class="skill-name">Python (APIs, FastAPI basics)</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Designing and adapting MVPs with senior engineering support.</p>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">JS/TS (Next.js/React basics)</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 65%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Frontend prototypes and integration with backend/APIs.</p>
-          </div>
-          <div class="skill-item">
-            <p class="skill-name">Docker · Git · LLM Tooling</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
-            <p style="font-size: 0.75rem; color: var(--color-text-tertiary); margin-top: 0.25rem;">Daily use, reproducible environments, local deployments.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION SECTION -->
-    <section class="dashboard-section" id="education">
-      <h2 class="section-title">
-        <i class="fas fa-graduation-cap"></i> Education
-      </h2>
-      <div class="cards-grid">
-        <div class="card">
-          <p class="card-meta">2018 – present</p>
-          <h3 class="card-title">PhD in Biomedical/Medical Sciences (Experimental Cardiology)</h3>
-          <p class="card-subtitle">University of Groningen / UMCG, The Netherlands</p>
-          <p class="card-content">
-            Focus on heart failure, oxidative stress, 5-oxoproline/OPLAH biology, and translational cardiometabolic mechanisms. Thesis in finalisation.
-          </p>
-        </div>
-
-        <div class="card">
-          <p class="card-meta">2016 – 2017</p>
-          <h3 class="card-title">MSc Nanotechnology & Regenerative Medicine (Distinction)</h3>
-          <p class="card-subtitle">University College London (UCL), United Kingdom</p>
-          <p class="card-content">
-            Graduated with Distinction. Research on photochemical internalisation strategies for pancreatic cancer.
-          </p>
-        </div>
-
-        <div class="card">
-          <p class="card-meta">2009 – 2016</p>
-          <h3 class="card-title">MD (Physician)</h3>
-          <p class="card-subtitle">Universidad Nacional Autonoma de México (UNAM), Mexico</p>
-          <p class="card-content">
-            Medical degree with clinical training in internal medicine and early exposure to translational and cardiovascular research.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- PUBLICATIONS SECTION -->
     <section class="dashboard-section" id="publications">
-      <h2 class="section-title">
-        <i class="fas fa-book"></i> Publications
-      </h2>
-      <div class="cards-grid" style="grid-template-columns: 1fr;">
-        <div class="card">
+      <h2 class="reveal-item">Publications</h2>
+      <div class="cards-grid">
+        <div class="card hover-trigger reveal-item">
           <p class="card-meta" style="color: var(--color-success); font-weight: 600;">Peer-reviewed · 2024</p>
-          <h3 class="card-title">404-error “Disease not found”: unleashing the translational potential of -omics approaches beyond traditional disease classification in heart failure research</h3>
+          <h3 class="card-title">404-error “Disease not found”: unleashing the translational potential of -omics approaches...</h3>
           <p class="card-subtitle">European Journal of Heart Failure</p>
           <p class="card-content">
             Co-authored work integrating omics to challenge conventional HF classification and highlight mechanistic, data-driven stratification.
@@ -882,10 +996,10 @@
             <span class="badge">Translational</span>
           </div>
         </div>
-
-        <div class="card">
+        
+        <div class="card hover-trigger reveal-item">
           <p class="card-meta" style="color: var(--color-success); font-weight: 600;">Peer-reviewed · 2025</p>
-          <h3 class="card-title">Glutathione deficiency and heart failure: a systematic review of human and animal evidence</h3>
+          <h3 class="card-title">Glutathione deficiency and heart failure: a systematic review...</h3>
           <p class="card-subtitle">ESC Heart Failure</p>
           <p class="card-content">
             Systematic review co-authored on glutathione, oxidative stress, and heart failure across experimental and clinical studies.
@@ -893,14 +1007,13 @@
           <div class="card-footer">
             <span class="badge">Systematic Review</span>
             <span class="badge">Oxidative Stress</span>
-            <span class="badge">Heart Failure</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="card hover-trigger reveal-item">
           <p class="card-meta" style="color: var(--color-success); font-weight: 600;">Peer-reviewed · 2022</p>
           <h3 class="card-title">
-            A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex and dilated cardiomyopathy via intermediate filament degradation
+            A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex...
           </h3>
           <p class="card-subtitle">British Journal of Dermatology</p>
           <p class="card-content">
@@ -912,26 +1025,10 @@
           </div>
         </div>
 
-        <div class="card">
-          <p class="card-meta" style="color: var(--color-warning); font-weight: 600;">Conference Abstract · 2023</p>
-          <h3 class="card-title">
-            A high-throughput screening strategy identifies adenosine 5′-monophosphate as a novel enhancing molecule of the cardio-protective enzyme 5-oxoprolinase (OPLAH)
-          </h3>
-          <p class="card-subtitle">European Heart Journal (ESC Congress abstract)</p>
-          <p class="card-content">
-            Demonstrated an HTS-based approach to identify AMP as an OPLAH-enhancing molecule with potential cardioprotective relevance.
-          </p>
-          <div class="card-footer">
-            <span class="badge">HTS</span>
-            <span class="badge">OPLAH</span>
-            <span class="badge">Cardioprotection</span>
-          </div>
-        </div>
-
-        <div class="card">
+        <div class="card hover-trigger reveal-item">
           <p class="card-meta" style="color: var(--color-warning); font-weight: 600;">Manuscript under review</p>
           <h3 class="card-title">
-            Elevated 5-Oxoproline Levels Associate with TGF-α and Adverse Outcomes in Heart Failure: Clinical and Experimental Implications for Cardiorenal Syndrome
+            Elevated 5-Oxoproline Levels Associate with TGF-α and Adverse Outcomes in Heart Failure...
           </h3>
           <p class="card-subtitle">Redox Biology (under review)</p>
           <p class="card-content">
@@ -940,189 +1037,92 @@
           <div class="card-footer">
             <span class="badge">5-Oxoproline</span>
             <span class="badge">Cardiorenal</span>
-            <span class="badge">Redox Biology</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- LANGUAGES SECTION -->
-    <section class="dashboard-section" id="languages">
-      <h2 class="section-title">
-        <i class="fas fa-language"></i> Languages
-      </h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3><i class="fas fa-comment"></i> Spanish</h3>
-          <div class="skill-item">
-            <p class="skill-name">Native proficiency</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-comment"></i> English</h3>
-          <div class="skill-item">
-            <p class="skill-name">Full professional proficiency</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-comment"></i> Dutch</h3>
-          <div class="skill-item">
-            <p class="skill-name">B1–B2 (in progress)</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-comment"></i> French & Catalan</h3>
-          <div class="skill-item">
-            <p class="skill-name">Basic proficiency</p>
-            <div class="skill-bar"><div class="skill-progress" style="width: 45%;"></div></div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- CERTIFICATIONS SECTION -->
     <section class="dashboard-section" id="certifications">
-      <h2 class="section-title">
-        <i class="fas fa-certificate"></i> Certifications & Credentials
-      </h2>
-      <div class="cards-grid">
-        <div class="card">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
-            <div>
-              <h3 class="card-title" style="margin: 0;">Good Clinical Practice (ICH GCP E6(R3)) – Site Personnel</h3>
-              <p class="card-meta">NDAT CTN · 2025</p>
-            </div>
+      <h2 class="reveal-item">Certifications & Credentials</h2>
+      <div class="cert-grid">
+        <div class="cert-card hover-trigger reveal-item">
+          <i class="fas fa-certificate cert-icon"></i>
+          <div>
+            <h3 class="cert-title">Good Clinical Practice (ICH GCP E6(R3)) – Site Personnel</h3>
+            <p class="cert-meta">NDAT CTN · 2025</p>
           </div>
         </div>
-
-        <div class="card">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
-            <div>
-              <h3 class="card-title" style="margin: 0;">Article 9 — Animal Experiments License</h3>
-              <p class="card-meta">The Netherlands</p>
-            </div>
+        
+        <div class="cert-card hover-trigger reveal-item">
+          <i class="fas fa-certificate cert-icon"></i>
+          <div>
+            <h3 class="cert-title">Article 9 — Animal Experiments License</h3>
+            <p class="cert-meta">The Netherlands</p>
           </div>
         </div>
-
-        <div class="card">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
-            <div>
-              <h3 class="card-title" style="margin: 0;">ML-1 Laboratory Safety Certificate</h3>
-              <p class="card-meta">Laboratory Safety</p>
-            </div>
+        
+        <div class="cert-card hover-trigger reveal-item">
+          <i class="fas fa-certificate cert-icon"></i>
+          <div>
+            <h3 class="cert-title">ML-1 Laboratory Safety Certificate</h3>
+            <p class="cert-meta">Laboratory Safety</p>
           </div>
         </div>
-
-        <div class="card">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
-            <div>
-              <h3 class="card-title" style="margin: 0;">Elements of AI</h3>
-              <p class="card-meta">University of Helsinki · Completed</p>
-            </div>
+        
+        <div class="cert-card hover-trigger reveal-item">
+          <i class="fas fa-certificate cert-icon"></i>
+          <div>
+            <h3 class="cert-title">Elements of AI</h3>
+            <p class="cert-meta">University of Helsinki · Completed</p>
           </div>
         </div>
-
-        <div class="card">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
-            <div>
-              <h3 class="card-title" style="margin: 0;">Ethics of AI</h3>
-              <p class="card-meta">University of Helsinki · In progress</p>
-            </div>
+        
+        <div class="cert-card hover-trigger reveal-item">
+          <i class="fas fa-certificate cert-icon"></i>
+          <div>
+            <h3 class="cert-title">Ethics of AI</h3>
+            <p class="cert-meta">University of Helsinki · In progress</p>
           </div>
         </div>
-
-        <div class="card">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
-            <div>
-              <h3 class="card-title" style="margin: 0;">AI Essentials</h3>
-              <p class="card-meta">AppliedAI Institute · In progress</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: var(--color-success);"></i>
-            <div>
-              <h3 class="card-title" style="margin: 0;">Hugging Face LLM Course</h3>
-              <p class="card-meta">In progress</p>
-            </div>
+        
+        <div class="cert-card hover-trigger reveal-item">
+          <i class="fas fa-certificate cert-icon"></i>
+          <div>
+            <h3 class="cert-title">Hugging Face LLM Course</h3>
+            <p class="cert-meta">In progress</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- INTERESTS SECTION -->
-    <section class="dashboard-section" id="interests">
-      <h2 class="section-title">
-        <i class="fas fa-heart"></i> Personal Interests
-      </h2>
-      <div class="cards-grid">
-        <div class="card" style="text-align: center;">
-          <i class="fas fa-dumbbell" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 1rem;"></i>
-          <h3 class="card-title">CrossFit</h3>
-          <p class="card-content">Strength, conditioning, and long-term performance.</p>
-        </div>
-
-        <div class="card" style="text-align: center;">
-          <i class="fas fa-robot" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 1rem;"></i>
-          <h3 class="card-title">Artificial Intelligence</h3>
-          <p class="card-content">LLMs, responsible AI, and practical tools for care and research.</p>
-        </div>
-
-        <div class="card" style="text-align: center;">
-          <i class="fas fa-plane" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 1rem;"></i>
-          <h3 class="card-title">Travel</h3>
-          <p class="card-content">Exploring cultures, systems, and healthcare environments.</p>
-        </div>
-
-        <div class="card" style="text-align: center;">
-          <i class="fas fa-paw" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 1rem;"></i>
-          <h3 class="card-title">Animal Welfare</h3>
-          <p class="card-content">Ethical practice and reduction of animal use in research.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROFESSIONAL INTERESTS & DEVELOPMENT SECTION -->
+    <!-- PROFESSIONAL INTERESTS -->
     <section class="dashboard-section" id="interests-development">
-      <h2 class="section-title">
-        <i class="fas fa-compass"></i> Professional Interests & Development
-      </h2>
+      <h2 class="reveal-item">Professional Interests</h2>
       <div class="cards-grid" style="grid-template-columns: 1fr;">
-        <div class="card">
+        <div class="card hover-trigger reveal-item">
           <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-weight: 600;">
               <i class="fas fa-laptop-code" style="color: var(--color-accent);"></i> AI Literacy in Healthcare
             </h3>
-            <p class="card-content" style="margin: 0;">
+            <p class="card-content" style="margin: 0; font-size: 0.9rem;">
               Designing and delivering practical workshops on safe LLM use, bias mitigation, validation strategies, documentation, and MDR/GDPR-aware workflows for clinical and research teams.
             </p>
           </div>
-
-          <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--color-border);">
-            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+          <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border);">
+            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-weight: 600;">
               <i class="fas fa-clinic-medical" style="color: var(--color-accent);"></i> Cardio-metabolic Prevention & Clinics
             </h3>
-            <p class="card-content" style="margin: 0;">
+            <p class="card-content" style="margin: 0; font-size: 0.9rem;">
               Interest in preventive cardiometabolic clinics that integrate lifestyle, biomarkers, and transparent AI-supported risk assessment while keeping clinicians in control.
             </p>
           </div>
-
           <div>
-            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 700;">
+            <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; font-weight: 600;">
               <i class="fas fa-book-open" style="color: var(--color-accent);"></i> Academic Teaching & Mentoring
             </h3>
-            <p class="card-content" style="margin: 0;">
+            <p class="card-content" style="margin: 0; font-size: 0.9rem;">
               Translational methods, biomarker-to-bedside pipelines, AI in clinical research, and ethics of innovation in medicine.
             </p>
           </div>
@@ -1130,55 +1130,281 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="dashboard-section" id="contact">
-      <h2 class="section-title">
-        <i class="fas fa-envelope"></i> Contact
-      </h2>
-      <div class="cards-grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-            <div>
-              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700;">Email</p>
-              <p><a href="mailto:j.esquivel.gaytan@gmail.com">j.esquivel.gaytan@gmail.com</a></p>
-            </div>
-            <div>
-              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700;">Location</p>
-              <p style="color: var(--color-text-secondary);">Groningen, The Netherlands</p>
-            </div>
-            <div>
-              <p style="color: var(--color-text-tertiary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700;">Connect</p>
-              <div style="display: flex; gap: 1rem;">
-                <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" style="font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" style="font-size: 1.2rem;"><i class="fab fa-researchgate"></i></a>
-                <a href="https://orcid.org/0000-0001-6974-1825" style="font-size: 1.2rem;"><i class="fab fa-orcid"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Dr Antonio Esquivel Gaytan. All rights reserved.</p>
-  </footer>
+
+  <!-- Modal de Gemini -->
+  <div class="gemini-modal" id="gemini-modal">
+    <div class="gemini-modal-overlay" id="gemini-modal-overlay"></div>
+    <div class="gemini-modal-content">
+      <button class="gemini-modal-close" id="gemini-modal-close" aria-label="Close modal">&times;</button>
+      <h2>Generate Highlights ✨</h2>
+      <p>What role are you recruiting for? (e.g. "AI Project Lead", "Clinical Researcher", "Translational Scientist")</p>
+      
+      <input type="text" id="gemini-role-input" class="gemini-modal-input" placeholder="Enter job title...">
+      
+      <button class="btn btn-primary hover-trigger" id="gemini-generate-btn" style="width: 100%;">
+        <i class="fas fa-paper-plane"></i> Generate
+      </button>
+      
+      <div class="loader" id="gemini-loader"></div>
+      
+      <div id="gemini-results" style="display: none;"></div>
+    </div>
+  </div>
 
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
+    // ==================================
+    // --- LÓGICA DE ANIMACIÓN DINÁMICA ---
+    // ==================================
+
+    // --- 1. Lógica del Cursor Personalizado ---
+    const cursor = document.getElementById('cursor');
+    // Solo se activa si no es un dispositivo táctil
+    const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (!isTouchDevice()) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px'; // -10 para centrar el cursor de 20px
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        const hoverTriggers = document.querySelectorAll('.hover-trigger');
+        hoverTriggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovered');
+            });
+            trigger.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovered');
+            });
+        });
+        
+        // Añadir trigger al modal-close
+        document.getElementById('gemini-modal-close').addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+        document.getElementById('gemini-modal-close').addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    }
+
+
+    // --- 2. Lógica de Animación de Scroll (Intersection Observer) ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Activar cuando el 10% del item es visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Añadir 'visible' para activar la animación
+                entry.target.classList.add('visible');
+                
+                // Aplicar un retraso escalonado si es un item de una lista
+                if (entry.target.classList.contains('reveal-item-list')) {
+                    entry.target.style.transitionDelay = `${index * 100}ms`;
+                }
+                
+                // Dejar de observar el item una vez que se ha animado
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar todos los items que deben revelarse
+    document.querySelectorAll('.reveal-item').forEach(el => {
+        observer.observe(el);
+    });
+    // Observar los títulos h2
+    document.querySelectorAll('.main-content h2').forEach(el => {
+        el.classList.add('reveal-item'); // Usar la misma clase base para la detección
+        observer.observe(el);
+    });
+    // Observar items en listas con retraso
+    document.querySelectorAll('.experience-item, .card, .cert-card').forEach(el => {
+        el.classList.add('reveal-item-list');
+        observer.observe(el);
     });
 
-    document.querySelector('.btn-theme').addEventListener('click', () => {
-      window.print();
+
+    // ==================================
+    // --- LÓGICA DEL MODAL DE GEMINI ---
+    // ==================================
+    
+    const modal = document.getElementById('gemini-modal');
+    const openBtn = document.getElementById('open-gemini-modal');
+    const closeBtn = document.getElementById('gemini-modal-close');
+    const overlay = document.getElementById('gemini-modal-overlay');
+    const generateBtn = document.getElementById('gemini-generate-btn');
+    const roleInput = document.getElementById('gemini-role-input');
+    const resultsDiv = document.getElementById('gemini-results');
+    const loader = document.getElementById('gemini-loader');
+
+    const openModal = () => {
+      modal.classList.add('active');
+      if (cursor) cursor.style.display = 'none'; // Ocultar cursor personalizado
+    }
+    const closeModal = () => {
+      modal.classList.remove('active');
+      if (cursor) cursor.style.display = 'block'; // Mostrar cursor personalizado
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+    generateBtn.addEventListener('click', handleGenerateHighlights);
+    roleInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        handleGenerateHighlights();
+      }
     });
+
+    /**
+     * Llama a la API de Gemini con reintento y backoff exponencial.
+     */
+    async function callGeminiAPI(systemPrompt, userPrompt, retries = 3, delay = 1000) {
+      const apiKey = ""; // La API key se inyectará en el entorno de ejecución
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+      const payload = {
+        contents: [{ parts: [{ text: userPrompt }] }],
+        systemInstruction: {
+          parts: [{ text: systemPrompt }]
+        },
+      };
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          if ((response.status === 429 || response.status >= 500) && retries > 0) {
+            await new Promise(resolve => setTimeout(resolve, delay));
+            return callGeminiAPI(systemPrompt, userPrompt, retries - 1, delay * 2);
+          }
+          throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        const candidate = result.candidates?.[0];
+
+        if (candidate && candidate.content?.parts?.[0]?.text) {
+          return candidate.content.parts[0].text;
+        } else {
+          // Manejar respuesta vacía o mal formada
+          if (candidate?.finishReason === "SAFETY") {
+            throw new Error("Response blocked due to safety settings.");
+          }
+          throw new Error("Unexpected or empty response from API.");
+        }
+      } catch (error) {
+        if (retries > 0) {
+          await new Promise(resolve => setTimeout(resolve, delay));
+          return callGeminiAPI(systemPrompt, userPrompt, retries - 1, delay * 2);
+        }
+        console.error("Error calling Gemini API:", error);
+        throw error;
+      }
+    }
+
+    /**
+     * Formatea la respuesta de texto plano/markdown de Gemini a HTML.
+     */
+    function formatGeminiResponse(text) {
+      let html = text
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0)
+        .map(line => {
+          // Manejar **negrita**
+          line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+          
+          if (line.startsWith('* ') || line.startsWith('- ')) {
+            return `<li>${line.substring(2)}</li>`;
+          }
+          // Manejar líneas que no son viñetas (ej. un párrafo introductorio)
+          if (!line.startsWith('<li>') && !line.startsWith('<ul>') && !line.startsWith('<p>')) {
+             return `<p>${line}</p>`; // Envolver en párrafo si no es una viñeta
+          }
+          return line;
+        })
+        .join('');
+      
+      // Asegurarse de que las viñetas estén dentro de un <ul>
+      if (html.includes('<li>') && !html.includes('<ul>')) {
+        html = `<ul>${html}</ul>`;
+      }
+      return html;
+    }
+
+    /**
+     * Maneja la generación de puntos clave.
+     */
+    async function handleGenerateHighlights() {
+      const role = roleInput.value.trim();
+      if (!role) {
+        resultsDiv.style.display = 'block';
+        resultsDiv.innerHTML = '<p style="color: var(--color-warning);">Please, enter a role or position.</p>';
+        return;
+      }
+
+      loader.classList.add('active');
+      resultsDiv.style.display = 'none';
+      generateBtn.disabled = true;
+      generateBtn.innerHTML = 'Generating...';
+
+      try {
+        // 1. Extraer todo el texto del CV (sidebar + main content)
+        const sidebarText = document.querySelector('.sidebar').innerText;
+        const mainContentText = document.querySelector('.main-content').innerText;
+        // Excluir el texto del botón de Gemini
+        const geminiButtonText = document.getElementById('open-gemini-modal').innerText;
+        const cleanMainContentText = mainContentText.replace(geminiButtonText, '');
+        
+        const cvContent = `${sidebarText}\n\n${cleanMainContentText}`;
+        
+        // 2. Crear los prompts (en inglés)
+        const systemPrompt = `
+You are an expert recruitment assistant for a high-level professional.
+You have received the full text content of a "Physician-Scientist's" CV (Antonio Esquivel Gaytan) and a specific job role.
+Your task is to analyze the CV and generate a concise, professional bulleted list (4-6 points) highlighting the candidate's STRONGEST and MOST RELEVANT qualifications *specifically for that role*.
+Ignore information not relevant to the position.
+Adopt a professional, confident, and fact-based tone.
+Respond in English.
+Start directly with the bullet points. Do not add an introductory sentence.
+`;
+        
+        const userPrompt = `
+CV CONTENT:
+---
+${cvContent}
+---
+
+TARGET ROLE:
+"${role}"
+
+Please generate the most relevant key points.
+`;
+
+        // 3. Llamar a la API
+        const responseText = await callGeminiAPI(systemPrompt, userPrompt);
+        
+        // 4. Formatear y mostrar la respuesta
+        const formattedHtml = formatGeminiResponse(responseText);
+        resultsDiv.innerHTML = formattedHtml;
+        
+      } catch (error) {
+        resultsDiv.innerHTML = `<p style="color: var(--color-warning);">Sorry, an error occurred while generating highlights. Please try again later.</p>`;
+        console.error(error);
+      } finally {
+        loader.classList.remove('active');
+        resultsDiv.style.display = 'block';
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Generate';
+      }
+    }
   </script>
 </body>
 </html>
