@@ -70,8 +70,12 @@
       color: var(--color-text);
       line-height: 1.6;
       overflow-x: hidden;
+      /* REFINAMIENTO TIPOGRÁFICO DE ALTA GAMA */
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      /* Ajuste sutil de espaciado para un look más "impreso" */
+      letter-spacing: 0.01em; 
     }
     
     .container {
@@ -89,7 +93,14 @@
       color: var(--color-text);
     }
     
-    h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; }
+    h1 { 
+      font-size: 3.5rem; 
+      font-weight: 800; 
+      line-height: 1.1; 
+      letter-spacing: -1.5px; 
+      /* SOMBRA SUTIL PARA PROFUNDIDAD (High-End Effect) */
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 0 0 10px rgba(0, 0, 0, 0.5);
+    }
     h2 { /* Títulos de sección */
       font-size: 1.25rem;
       font-weight: 600;
@@ -120,7 +131,7 @@
       z-index: 1000;
       
       /* Efecto "Glass" */
-      background: rgba(24, 24, 27, 0.8); /* --color-bg con alpha */
+      background: rgba(24, 24, 27, 0.9); /* Subimos la opacidad un poco */
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--color-border);
@@ -157,9 +168,7 @@
     /* --- Active Link Style (Glass Effect Enhancement) --- */
     .nav-links .nav-link.active {
         background: var(--color-accent); 
-        color: var(--color-bg); /* Use dark text on the light accent background */
-        
-        /* Add padding for the pill shape */
+        color: var(--color-bg); 
         padding: 0.25rem 0.75rem;
         border-radius: 6px; 
         font-weight: 700;
@@ -214,10 +223,14 @@
       font-size: 0.85rem;
       font-weight: 500;
       transition: all var(--transition);
+      /* AÑADIDO: Sombra interna sutil para profundidad en el tag */
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); 
     }
     .tag:hover {
       border-color: var(--color-accent);
       color: var(--color-accent);
+      /* AÑADIDO: Sombra difusa externa al pasar el ratón (Aura Effect) */
+      box-shadow: 0 0 10px rgba(163, 230, 53, 0.4), inset 0 0 5px rgba(0, 0, 0, 0.2);
     }
     
     .hero-image-wrapper {
@@ -233,10 +246,14 @@
       border: 4px solid var(--color-border);
       filter: grayscale(80%); 
       transition: all var(--transition);
+      /* AÑADIDO: Sombra que levanta la foto ligeramente */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     .profile-photo:hover {
       filter: grayscale(0%);
       border-color: var(--color-accent);
+      /* AÑADIDO: Sombra más brillante en hover */
+      box-shadow: 0 10px 40px rgba(163, 230, 53, 0.2);
     }
 
     /* --- Perfil Profesional --- */
@@ -280,9 +297,11 @@
       transition: all var(--transition);
       overflow: hidden;
       position: relative;
+      /* AÑADIDO: Sombra de tarjeta sutil */
+      box-shadow: var(--shadow-md); 
     }
     
-    /* Efecto "Glow" Dinámico */
+    /* Efecto "Glow" Dinámico (Mantenido) */
     .card::before {
       content: '';
       position: absolute;
@@ -354,6 +373,8 @@
     .card:hover .badge {
       border-color: var(--color-accent);
       color: var(--color-accent);
+      /* AÑADIDO: Sombra difusa externa al pasar el ratón (Aura Effect) */
+      box-shadow: 0 0 5px rgba(163, 230, 53, 0.3);
     }
     
     /* --- Estilo para Experiencia (Lineal) --- */
@@ -912,7 +933,7 @@
       // --- LÓGICA DE ANIMACIÓN DINÁMICA & PERFORMANCE ---
       // ==================================
       
-      // --- Throttle Utility for Performance ---
+      // --- Throttle Utility (Mantenido para el mousemove y otros potenciales usos futuros) ---
       function throttle(fn, delay) {
           let timeoutId;
           return function(...args) {
@@ -937,7 +958,7 @@
         });
       });
 
-      // --- 2. Lógica de Animación de Scroll (Intersection Observer) ---
+      // --- 2. Lógica de Animación de Scroll (Intersection Observer para Revelar) ---
       const observerOptions = {
           root: null,
           rootMargin: '0px',
@@ -948,7 +969,7 @@
           entries.forEach(entry => {
               if (entry.isIntersecting) {
                   entry.target.classList.add('is-visible');
-                  // Only stop observing non-repeating animations
+                  // Solo deja de observar animaciones no repetitivas
                   if (!entry.target.classList.contains('stagger-container')) {
                      observer.unobserve(entry.target);
                   }
@@ -961,38 +982,47 @@
           scrollObserver.observe(el);
       });
 
-      // --- 3. Lógica para Navigation Active State on Scroll (Performance Throttle Applied) ---
+      // --- 3. Lógica para Navigation Active State (NUEVO Intersection Observer) ---
       const sections = document.querySelectorAll('main section[id]');
       const navLinks = document.querySelectorAll('.nav-link');
+      const navLinksMap = {};
 
-      function activateNavOnScroll() {
-          let currentSectionId = '';
-          const navHeight = 100; // Account for the sticky nav bar height
+      navLinks.forEach(link => {
+          const id = link.getAttribute('href').substring(1);
+          navLinksMap[id] = link;
+      });
 
-          sections.forEach(section => {
-              // Check the top of the section relative to the viewport
-              const sectionTop = section.offsetTop - navHeight; 
-              // Check if the current scroll position is at or past the top of the section
-              if (window.scrollY >= sectionTop) {
-                  currentSectionId = section.getAttribute('id');
+      const navObserverOptions = {
+          root: null,
+          // Activa la intersección cuando el elemento llega a 65px de la parte superior (ajustando por el navbar)
+          rootMargin: "-65px 0px -90% 0px", 
+          threshold: 0 // No necesitamos un umbral, solo la intersección
+      };
+
+      const navObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              const sectionId = entry.target.getAttribute('id');
+              const navLink = navLinksMap[sectionId];
+
+              if (navLink) {
+                  if (entry.isIntersecting) {
+                      // Desactivar todos los enlaces y activar el actual
+                      navLinks.forEach(link => link.classList.remove('active'));
+                      navLink.classList.add('active');
+                  } else if (navLink.classList.contains('active')) {
+                      // Si la sección activa se sale de la vista por arriba o abajo, 
+                      // la clase 'active' será manejada por la siguiente sección que intersecte.
+                      // No se hace nada específico aquí para evitar el parpadeo.
+                  }
               }
           });
+      }, navObserverOptions);
 
-          // Update the navigation links
-          navLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === `#${currentSectionId}`) {
-                  link.classList.add('active');
-              }
-          });
-      }
-
-      // Attach the throttled function to the scroll event for performance
-      window.addEventListener('scroll', throttle(activateNavOnScroll, 100));
-      // Run once on load to set the initial active state
-      window.addEventListener('load', activateNavOnScroll);
+      // Observar cada sección para el estado de navegación
+      sections.forEach(section => {
+          navObserver.observe(section);
+      });
       
-
       // --- 4. Lógica de Navegación (Scroll Suave) ---
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -1000,8 +1030,8 @@
           const targetId = this.getAttribute('href');
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
-            // Calculate position to account for sticky header
-            const offset = 90; // Approx navbar height + padding
+            // Calcular posición para compensar el encabezado pegajoso
+            const offset = 90; 
             const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
 
             window.scrollTo({
