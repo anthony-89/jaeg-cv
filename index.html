@@ -583,11 +583,12 @@
             </div>
           </div>
           <div class="hero-image-wrapper">
-            <!-- Mobile Optimization: Using a lightweight placeholder image URL instead of a large remote file -->
+            <!-- REINSERTANDO LA FOTO ORIGINAL CON FALLBACK ROBUSTO -->
             <img 
-              src="https://placehold.co/300x300/27272a/a1a1aa?text=A.E.G." 
-              alt="Antonio Esquivel Gaytan Profile Placeholder" 
-              class="profile-photo" 
+              src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" 
+              alt="Antonio Esquivel Gaytan" 
+              class="profile-photo"
+              onerror="this.onerror=null; this.src='https://placehold.co/300x300/27272a/a1a1aa?text=A.E.G.'; this.style.filter='grayscale(80%)'; this.style.borderColor='var(--color-border)';" 
             />
           </div>
         </section>
