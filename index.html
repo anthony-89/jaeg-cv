@@ -16,27 +16,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-    /* === MIDNIGHT EXECUTIVE DESIGN SYSTEM (FIXED) === */
+    /* === MIDNIGHT EXECUTIVE DESIGN SYSTEM === */
 
     :root {
-        /* PALETA: Deep Navy & Platinum */
+        /* Colors: Deep Navy & Platinum */
         --bg-color: #0f172a;      /* Slate 900 */
         --bg-gradient: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
         
         --text-main: #f8fafc;     /* Slate 50 */
         --text-muted: #cbd5e1;    /* Slate 300 */
         
-        /* Glass Settings - CORREGIDO PARA MAYOR TRANSPARENCIA */
-        --glass-bg: rgba(255, 255, 255, 0.03); /* Muy transparente */
-        --glass-border: rgba(255, 255, 255, 0.08); 
-        --glass-blur: blur(20px); /* Desenfoque fuerte */
-        --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        /* Glass Settings - High Transparency */
+        --glass-bg: rgba(255, 255, 255, 0.03); 
+        --glass-border: rgba(255, 255, 255, 0.1); 
+        --glass-blur: blur(20px); 
+        --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         
-        /* ACENTO: Electric Teal/Cyan */
+        /* Accent: Electric Teal/Cyan */
         --accent-color: #2dd4bf; /* Teal 400 */
-        --accent-glow: rgba(45, 212, 191, 0.4);
+        --accent-glow: rgba(45, 212, 191, 0.3);
         
-        /* Spacing */
+        /* Layout */
         --section-spacing: 6rem;
         --nav-height: 80px;
     }
@@ -59,10 +59,10 @@
         overflow-x: hidden;
         min-height: 100vh;
         -webkit-font-smoothing: antialiased;
-        padding-top: var(--nav-height); /* Compensar navbar fija */
+        padding-top: 2rem;
     }
 
-    /* --- BACKGROUND LIGHT --- */
+    /* --- BACKGROUND AMBIENT LIGHT --- */
     .ambient-light {
         position: fixed;
         top: 0;
@@ -96,7 +96,9 @@
         display: flex;
         align-items: center;
         gap: 1rem;
-        scroll-margin-top: 100px; /* Para que el scroll no tape el título */
+        color: #f8fafc;
+        /* Fix for sticky nav covering titles */
+        scroll-margin-top: 120px;
     }
     
     h2::after {
@@ -123,41 +125,40 @@
     
     strong { color: #fff; font-weight: 600; }
 
-    /* --- LAYOUT --- */
+    /* --- LAYOUT CONTAINER --- */
     .wrapper {
-        max-width: 1100px; 
+        max-width: 1200px; /* Wider layout as requested */
         margin: 0 auto;
         padding: 0 2rem;
     }
 
     section {
         padding: var(--section-spacing) 0;
-        /* Scroll margin fix for sticky nav */
-        scroll-margin-top: 100px;
+        scroll-margin-top: 120px; /* Ensure smooth scroll lands correctly */
     }
 
-    /* --- NAVIGATION (FIXED) --- */
+    /* --- FIXED NAVIGATION --- */
     .nav-container {
         position: fixed;
         top: 1.5rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
-        width: auto;
-        max-width: 90%;
+        width: 90%;
+        max-width: 600px;
     }
 
     .glass-nav {
         display: flex;
         align-items: center;
-        justify-content: center;
-        background: rgba(15, 23, 42, 0.7); 
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        padding: 0.5rem 0.75rem;
+        justify-content: space-between; /* Distributed evenly */
+        background: rgba(15, 23, 42, 0.85); 
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 0.5rem 0.8rem;
         border-radius: 100px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
     }
 
     .nav-link {
@@ -165,7 +166,7 @@
         text-decoration: none;
         font-size: 0.85rem;
         font-weight: 500;
-        padding: 0.6rem 1.2rem;
+        padding: 0.6rem 1rem;
         border-radius: 100px;
         transition: all 0.3s ease;
         cursor: pointer;
@@ -176,7 +177,6 @@
 
     .nav-link:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
     
-    /* Active state style */
     .nav-link.active {
         background: rgba(45, 212, 191, 0.15); 
         color: var(--accent-color);
@@ -185,7 +185,7 @@
         box-shadow: 0 0 15px rgba(45, 212, 191, 0.1);
     }
 
-    /* --- GLASS CARD (FIXED TRANSPARENCY & CLICK) --- */
+    /* --- GLASS CARD --- */
     .glass-card {
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
@@ -193,18 +193,27 @@
         padding: 2rem;
         transition: all 0.3s ease;
         position: relative;
-        cursor: pointer; /* Cursor de mano para indicar clic */
+        cursor: pointer;
         overflow: hidden;
         box-shadow: var(--glass-shadow);
         backdrop-filter: var(--glass-blur);
         -webkit-backdrop-filter: var(--glass-blur);
-        height: 100%; /* Igualar alturas en grid */
+        height: 100%;
         display: flex;
         flex-direction: column;
     }
     
+    /* Top highlight */
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    }
+
     .glass-card::after {
-        content: '↗ Click to Expand';
+        content: '↗ Expand';
         position: absolute;
         bottom: 1.5rem;
         right: 1.5rem;
@@ -221,51 +230,61 @@
     .glass-card:hover::after { opacity: 1; transform: translateY(0); }
 
     .glass-card:hover {
-        background: rgba(255, 255, 255, 0.07); /* Un poco más brillante al pasar el mouse */
+        background: rgba(255, 255, 255, 0.05);
         border-color: rgba(45, 212, 191, 0.3);
         transform: translateY(-5px);
         box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
     }
 
-    /* --- HERO SECTION & PHOTO (NUEVO DISEÑO) --- */
+    /* --- HERO SECTION & PHOTO --- */
     .hero-section {
-        min-height: 80vh;
+        min-height: 85vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: 4rem;
+        padding-top: 6rem;
     }
     
     .hero-grid {
         display: grid;
-        grid-template-columns: 1fr 350px; /* Texto | Foto */
-        gap: 4rem;
+        grid-template-columns: 1fr 350px; 
+        gap: 5rem; /* Increased gap for better spacing */
         align-items: center;
         width: 100%;
     }
 
-    .hero-content {
-        text-align: left;
-    }
+    .hero-content { text-align: left; }
 
-    /* MARCO DE FOTO MODERNO (GLOW FRAME) */
+    /* PHOTO FRAME (SQUIRCLE GLOW) */
     .photo-frame {
         position: relative;
-        width: 320px;
-        height: 320px;
-        border-radius: 30px; /* Squircle */
-        padding: 8px; /* Espacio para el borde */
-        background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+        width: 350px;
+        height: 350px;
+        border-radius: 40px; /* Squircle shape */
+        padding: 10px; 
+        background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
         border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 0 60px -10px var(--accent-glow); /* Resplandor elegante */
+        box-shadow: 0 0 50px -10px var(--accent-glow);
+        transform: rotate(3deg); /* Subtle artistic tilt */
+        transition: transform 0.5s ease;
     }
+    
+    .photo-frame:hover { transform: rotate(0deg) scale(1.02); }
 
     .profile-photo {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 24px; /* Squircle interno */
-        filter: contrast(1.1) saturate(1.1); /* Foto nítida y vibrante */
+        border-radius: 30px; 
+        filter: contrast(1.1) saturate(1.05);
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        max-width: 650px;
+        color: #cbd5e1;
+        font-weight: 400;
+        margin-bottom: 2rem;
     }
 
     .hero-tags {
@@ -287,16 +306,15 @@
         text-transform: uppercase;
     }
 
-    /* --- TIMELINE & LISTS --- */
+    /* --- TIMELINE --- */
     .timeline-item { 
         margin-bottom: 2rem; 
         border-left: 2px solid rgba(255,255,255,0.1);
-        padding-left: 2rem;
+        padding-left: 2.5rem;
         position: relative;
     }
     
-    .timeline-item::before {
-        content: '';
+    .timeline-dot {
         position: absolute;
         left: -6px;
         top: 0;
@@ -304,7 +322,7 @@
         height: 10px;
         border-radius: 50%;
         background: var(--accent-color);
-        box-shadow: 0 0 10px var(--accent-color);
+        box-shadow: 0 0 15px var(--accent-color);
     }
 
     .role-meta {
@@ -318,32 +336,40 @@
         margin-bottom: 1rem; display: block;
     }
 
+    /* Badge Wrapper to fix modal layout */
+    .badge-container {
+        margin-top: auto; /* Push to bottom of card */
+        padding-top: 1rem;
+    }
+
     .mini-badge {
         display: inline-block; font-size: 0.75rem; font-weight: 500;
         padding: 0.25rem 0.6rem; border-radius: 6px;
         background: rgba(45, 212, 191, 0.1); color: var(--accent-color);
-        margin-right: 0.5rem; margin-top: 0.5rem;
+        margin-right: 0.5rem; margin-bottom: 0.5rem;
         border: 1px solid rgba(45, 212, 191, 0.2);
     }
 
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    /* --- GRIDS --- */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .icon-box { font-size: 1.8rem; color: var(--accent-color); margin-bottom: 1rem; opacity: 0.9; }
+    .pub-card { border-left: 3px solid var(--accent-color); padding-left: 1.5rem; }
     .pub-journal { font-style: italic; color: #94a3b8; margin-bottom: 0.5rem; display: block; }
 
-    /* --- MODAL (FIXED) --- */
+    /* --- MODAL --- */
     .modal-overlay {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+        background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
         z-index: 2000; display: flex; justify-content: center; align-items: center;
         opacity: 0; pointer-events: none; transition: 0.3s;
     }
     .modal-overlay.active { opacity: 1; pointer-events: auto; }
     
     .modal-content {
-        background: #1e293b; /* Fondo sólido para lectura */
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 20px; padding: 3rem; width: 90%; max-width: 700px; max-height: 85vh;
+        background: #0f172a; /* Solid bg for readability */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 24px; padding: 3rem; width: 90%; max-width: 750px; max-height: 90vh;
         overflow-y: auto; position: relative; transform: scale(0.95); transition: 0.3s;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
     }
@@ -352,30 +378,32 @@
     .modal-close {
         position: absolute; top: 1.5rem; right: 1.5rem;
         background: rgba(255, 255, 255, 0.1); border: none; color: #fff;
-        width: 36px; height: 36px; border-radius: 50%; cursor: pointer; transition: 0.2s;
+        width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.2s;
         display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
     }
     .modal-close:hover { background: var(--accent-color); color: #000; }
 
     /* --- FOOTER --- */
     footer {
-        text-align: center; padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);
-        margin-top: 6rem;
+        text-align: center; padding: 8rem 0; border-top: 1px solid rgba(255,255,255,0.05);
+        margin-top: 8rem;
     }
-    .social-links a { font-size: 1.8rem; color: #64748b; margin: 0 1rem; transition: 0.3s; }
-    .social-links a:hover { color: var(--accent-color); transform: translateY(-3px); }
+    .social-links a { font-size: 2rem; color: #64748b; margin: 0 1.5rem; transition: 0.3s; }
+    .social-links a:hover { color: var(--accent-color); transform: translateY(-5px); }
 
     /* --- RESPONSIVE --- */
     @media (max-width: 900px) {
-        .hero-grid { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+        .hero-grid { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 3rem; }
         .hero-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
         .hero-section { padding-top: 2rem; }
-        .photo-frame { width: 200px; height: 200px; order: -1; margin-bottom: 2rem; }
+        .photo-frame { width: 250px; height: 250px; order: -1; }
         
-        .nav-container { top: auto; bottom: 1.5rem; width: 90%; }
+        .nav-container { top: auto; bottom: 1.5rem; width: 95%; }
         .nav-link span { display: none; }
-        .nav-link i { display: block; font-size: 1.2rem; }
-        .glass-nav { justify-content: space-around; padding: 0.8rem; background: rgba(15, 23, 42, 0.9); }
+        .nav-link i { display: block; font-size: 1.4rem; }
+        .glass-nav { justify-content: space-evenly; padding: 0.8rem; background: rgba(15, 23, 42, 0.9); }
+        
+        .grid-2, .grid-3 { grid-template-columns: 1fr; }
     }
     @media (min-width: 901px) { .nav-link i { display: none; } }
 </style>
@@ -384,7 +412,7 @@
 
     <div class="ambient-light"></div>
 
-    <!-- Navigation -->
+    <!-- Fixed Navigation -->
     <div class="nav-container">
         <nav class="glass-nav">
             <a href="#hero" class="nav-link active"><span>Profile</span><i class="fas fa-user"></i></a>
@@ -429,7 +457,7 @@
                     </div>
                 </div>
 
-                <!-- PHOTO INTEGRATION: GLOW FRAME -->
+                <!-- NEW PHOTO FRAME (Squircle with Glow) -->
                 <div class="photo-frame reveal">
                     <img 
                         src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" 
@@ -453,7 +481,7 @@
                     <p>
                         Supervised AI-assisted visit management systems. Orchestrated human-in-the-loop governance for clinical reporting, ensuring MDR/GCP compliance and reducing hallucinations through prompt engineering and SOPs.
                     </p>
-                    <div>
+                    <div class="badge-container">
                         <span class="mini-badge">AI in Clinical Trials</span>
                         <span class="mini-badge">GCP Workflow</span>
                     </div>
@@ -468,7 +496,7 @@
                     <p>
                         Finalist at "Break The Gap 2025". Developed a transparent, explainable AI scoring system for cardiovascular patient prioritization using FastAPI and Docker.
                     </p>
-                    <div>
+                    <div class="badge-container">
                         <span class="mini-badge">Prioritisation</span>
                         <span class="mini-badge">FastAPI</span>
                     </div>
@@ -483,7 +511,7 @@
                     <p>
                         Experimental Cardiology. Investigating 5-oxoproline/OPLAH. Focused on high-throughput screening assays, cardiorenal interactions, and robust data analysis (Z′, S/B).
                     </p>
-                    <div>
+                    <div class="badge-container">
                         <span class="mini-badge">Biomarkers</span>
                         <span class="mini-badge">Translational</span>
                     </div>
@@ -515,15 +543,15 @@
                 <div class="glass-card reveal">
                     <i class="fas fa-layer-group icon-box"></i>
                     <h3 style="margin-bottom: 1rem;">Competencies</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                        <span class="glass-tag">LLM Workflows</span>
-                        <span class="glass-tag">RAG</span>
-                        <span class="glass-tag">Python (APIs)</span>
-                        <span class="glass-tag">Docker/Git</span>
-                        <span class="glass-tag">MDR / GCP / GDPR</span>
-                        <span class="glass-tag">Omics</span>
+                    <div class="badge-container" style="margin-bottom: 1.5rem;">
+                        <span class="mini-badge">LLM Workflows</span>
+                        <span class="mini-badge">RAG</span>
+                        <span class="mini-badge">Python (APIs)</span>
+                        <span class="mini-badge">Docker/Git</span>
+                        <span class="mini-badge">MDR / GCP</span>
+                        <span class="mini-badge">Omics</span>
                     </div>
-                    <h3 style="margin-top: 2rem; margin-bottom: 0.5rem;">Languages</h3>
+                    <h3 style="margin-bottom: 0.5rem;">Languages</h3>
                     <div style="color: var(--text-muted); font-size: 0.9rem;">
                         Spanish (Native) · English (Full Prof.) · Dutch (B1-B2)
                     </div>
@@ -539,19 +567,19 @@
                     <i class="fas fa-shield-halved icon-box"></i>
                     <h3>Offline RAG Guidelines</h3>
                     <p>Local guideline assistant (MVP). Zero PHI leakage, citation-backed.</p>
-                    <div><span class="mini-badge">Privacy-First</span></div>
+                    <div class="badge-container"><span class="mini-badge">Privacy-First</span></div>
                 </div>
                 <div class="glass-card reveal">
                     <i class="fas fa-flask icon-box"></i>
                     <h3>SOP Lab Assistant</h3>
                     <p>Digitized SOPs with "bench run" mode and compliance logging.</p>
-                    <div><span class="mini-badge">Automation</span></div>
+                    <div class="badge-container"><span class="mini-badge">Automation</span></div>
                 </div>
                 <div class="glass-card reveal">
                     <i class="fas fa-heart-pulse icon-box"></i>
                     <h3>QGuard-Med</h3>
                     <p>Transparent prioritization system integrating clinical criteria & biomarkers.</p>
-                    <div><span class="mini-badge">Clinical AI</span></div>
+                    <div class="badge-container"><span class="mini-badge">Clinical AI</span></div>
                 </div>
             </div>
         </section>
@@ -600,19 +628,18 @@
     </div>
 
     <script>
-        // --- 1. LOGICA DE NAVEGACION (Fixed) ---
+        // --- 1. ROBUST SCROLL SPY (FIXED NAV) ---
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
-        // Función de Scroll para actualizar botón activo
+        // Using InteractionObserver is cleaner for active state but scroll listener is more robust for exact px
         window.addEventListener('scroll', () => {
             let current = '';
-            
+            const offset = 150; // Offset for the fixed header
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // offset para compensar el header fijo (150px)
-                if (pageYOffset >= (sectionTop - 150)) {
+                if (pageYOffset >= (sectionTop - offset)) {
                     current = section.getAttribute('id');
                 }
             });
@@ -625,39 +652,56 @@
             });
         });
 
-        // --- 2. LOGICA DE MODAL (Fixed) ---
+        // --- 2. ROBUST CLICK SCROLL ---
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Use window.scrollTo for maximum compatibility
+                    const headerOffset = 100;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // --- 3. MODAL LOGIC ---
         const modalOverlay = document.getElementById('modal-overlay');
         const modalBody = document.getElementById('modal-body');
 
         function openModal(content) {
             modalBody.innerHTML = content;
             modalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal() {
             modalOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restaurar scroll
+            document.body.style.overflow = ''; 
         }
 
-        // Asignar evento de clic a todas las tarjetas
+        // Event delegation for cards
         document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('click', function() {
-                // Clona el contenido para ponerlo en el modal
+            card.addEventListener('click', function(e) {
+                // Prevent firing if user is just selecting text
+                if (window.getSelection().toString().length > 0) return;
                 openModal(this.innerHTML);
             });
         });
 
-        // Cerrar al hacer clic fuera
         modalOverlay.addEventListener('click', function(e) {
-            if (e.target === modalOverlay) {
-                closeModal();
-            }
+            if (e.target === modalOverlay) closeModal();
         });
 
-        // --- 3. ANIMACIONES DE APARICIÓN (Reveal) ---
+        // --- 4. REVEAL ANIMATION ---
         const revealElements = document.querySelectorAll('.reveal');
-
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
