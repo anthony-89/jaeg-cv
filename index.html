@@ -4,1220 +4,790 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Antonio Esquivel Gaytan — Executive CV</title>
+    <meta name="description" content="Physician-scientist & AI-in-healthcare practitioner. Heart failure & cardiorenal research. Glassmorphism Portfolio." />
+    <meta name="theme-color" content="#000000">
 
-    <meta name="description" content="Physician-scientist & AI-in-healthcare practitioner. Heart failure & cardiorenal research, LLM-based clinical workflows, responsible and auditable AI. Co-founder of QGuard-Med." />
-    <meta name="theme-color" content="#18181b"> <!-- Dark background color -->
-
-    <script type="application/ld+json">
-    {
-        "@context":"https://schema.org",
-        "@type":"Person",
-        "name":"Antonio Esquivel Gaytan",
-        "jobTitle":"Physician-Scientist & AI in Healthcare"
-    }
-    </script>
-
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts: Inter (Clean, Modern, Apple-like) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome 6.5.2 -->
-    <!-- Preloading helps, but is non-critical, optimizing load on slow connections -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-    /*
-      =======================================================
-      --- ESTILO: DYNAMIC DARK (Wow + Professional) ---
-      =======================================================
+    /* === IOS GLASS DESIGN SYSTEM === 
+       Keywords: Translucency, Blur, Depth, Gradients, Rounded
     */
 
     :root {
-      --color-bg: #18181b;
-      --color-container-bg: #27272a;
-      --color-text: #f4f4f5;
-      --color-text-secondary: #a1a1aa;
-      --color-accent: #a3e635; /* Lime 400 */
-      --color-accent-dark: #84cc16; /* Lime 500 */
-      --color-border: #3f3f46;
-      --color-success: #22c55e;
-      --color-warning: #facc15;
-      
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-      
-      --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      --transition-long: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        --bg-dark: #000000;
+        --text-main: #ffffff;
+        --text-muted: rgba(255, 255, 255, 0.65); /* Improved readability */
+        
+        /* Glass Settings */
+        --glass-bg: rgba(30, 30, 30, 0.4);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --glass-blur: blur(25px);
+        --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        
+        /* Accent Gradient */
+        --accent-color: #a3e635; /* Lime */
+        --accent-gradient: linear-gradient(135deg, #a3e635 0%, #4d7c0f 100%);
+        
+        /* Section Spacing */
+        --section-spacing: 8rem;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html { 
-      scroll-behavior: smooth; 
-      /* Custom Scrollbar */
-      scrollbar-color: var(--color-border) var(--color-bg);
-      scrollbar-width: thin;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+        scroll-behavior: smooth;
+        scrollbar-color: #333 #000;
+        scrollbar-width: thin;
     }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--color-bg); }
-    ::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 4px; }
-    
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.6;
-      overflow-x: hidden;
-      /* REFINAMIENTO TIPOGRÁFICO DE ALTA GAMA */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-      /* Ajuste sutil de espaciado para un look más "impreso" */
-      letter-spacing: 0.01em; 
-      position: relative; /* Para el canvas background */
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.7;
+        overflow-x: hidden;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
     }
 
-    /* --- CANVAS BACKGROUND --- */
-    #bio-network-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0; /* Cambiado a 0 para asegurar visibilidad correcta en el stack */
-      opacity: 0.4; /* Muy sutil */
-      pointer-events: none; /* No interfiere con clics */
-    }
-    
-    /* Aseguramos que el contenido esté encima del canvas */
-    .navbar, main, footer {
-        position: relative;
-        z-index: 1;
-    }
-    
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      position: relative; 
-      z-index: 2;
+    /* --- AMBIENT BACKGROUND ORBS --- */
+    .ambient-light {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        background: #000;
     }
 
-    :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: var(--color-text);
-    }
-    
-    h1 { 
-      font-size: 3.5rem; 
-      font-weight: 800; 
-      line-height: 1.1; 
-      letter-spacing: -1.5px; 
-      /* SOMBRA SUTIL PARA PROFUNDIDAD (High-End Effect) */
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    h2 { /* Títulos de sección */
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--color-accent); 
-      margin-bottom: 2.5rem;
+    .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.4;
+        animation: float 20s infinite ease-in-out;
     }
 
-    h3 { font-size: 1.25rem; font-weight: 600; color: var(--color-text); }
-    h4 { font-size: 0.9rem; color: var(--color-text-secondary); font-weight: 600; }
-    p { color: var(--color-text-secondary); line-height: 1.7; font-size: 1rem; }
-    
-    a {
-      color: var(--color-accent);
-      text-decoration: none;
-      transition: color var(--transition);
-      font-weight: 500;
-    }
-    a:hover { color: var(--color-accent-dark); }
-    
-    /* --- Navegación "Glassmorphism" --- */
-    .navbar {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      padding: 1.5rem 0;
-      z-index: 1000;
-      
-      /* Efecto "Glass" */
-      background: rgba(24, 24, 27, 0.85); /* Un poco más transparente para ver el fondo */
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(63, 63, 70, 0.6);
-      
-      transition: all var(--transition);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav-brand {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--color-text);
-      letter-spacing: -1px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-    .nav-link {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-      text-decoration: none;
-      transition: all var(--transition);
-      padding: 0.25rem 0; /* Minimal padding for active state transition */
-    }
-    .nav-link:hover {
-      color: var(--color-accent);
+    .orb-1 {
+        width: 500px;
+        height: 500px;
+        background: #4d7c0f;
+        top: -150px;
+        left: -100px;
+        animation-delay: 0s;
     }
 
-    /* --- Active Link Style (Glass Effect Enhancement) --- */
-    .nav-links .nav-link.active {
-        background: var(--color-accent); 
-        color: var(--color-bg); 
-        padding: 0.25rem 0.75rem;
-        border-radius: 6px; 
+    .orb-2 {
+        width: 400px;
+        height: 400px;
+        background: #1e3a8a; /* Deep Blue contrast */
+        bottom: -50px;
+        right: -100px;
+        animation-delay: -5s;
+    }
+
+    .orb-3 {
+        width: 300px;
+        height: 300px;
+        background: #a3e635; /* Bright Lime */
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.2;
+        animation-delay: -10s;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(30px, 50px); }
+    }
+
+    /* --- TYPOGRAPHY --- */
+    h1, h2, h3 {
         font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #fff;
     }
-    .nav-links .nav-link.active:hover { 
-        background: var(--color-accent-dark); 
-        color: var(--color-bg);
+
+    h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        display: inline-block;
     }
     
-    /* --- Contenido Principal --- */
-    main {
-      padding-top: 4rem; 
+    h2::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-gradient);
+        margin-top: 0.5rem;
+        border-radius: 2px;
+        opacity: 0.7;
     }
 
-    .dashboard-section {
-      margin-bottom: 6rem;
+    h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
     }
 
-    /* --- Hero Section (Asimétrico) --- */
+    p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+    }
+
+    /* --- LAYOUT --- */
+    .wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    section {
+        padding: var(--section-spacing) 0;
+    }
+
+    /* --- NAVIGATION (Floating Glass Pill) --- */
+    .nav-container {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .glass-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 0.5rem;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .nav-link {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.7rem 1.2rem;
+        border-radius: 100px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .nav-link:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link.active {
+        background: #fff;
+        color: #000;
+        font-weight: 600;
+        box-shadow: 0 2px 10px rgba(255,255,255,0.2);
+    }
+
+    /* --- GLASS CARD COMPONENT --- */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: var(--glass-shadow);
+        transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+        height: 100%;
+    }
+
+    .glass-card:hover {
+        background: rgba(40, 40, 40, 0.6);
+        border-color: rgba(163, 230, 53, 0.3); /* Lime tint on hover */
+        transform: translateY(-5px);
+    }
+
+    /* --- HERO SECTION --- */
     .hero-section {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      min-height: 70vh;
-    }
-    .hero-content h1 {
-      margin-bottom: 1rem;
-    }
-    .hero-content h1 .accent-text {
-      color: var(--color-accent);
-    }
-    .hero-subtitle {
-      font-size: 1.5rem;
-      color: var(--color-text-secondary);
-      font-weight: 400;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-      max-width: 600px;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .tag {
-      background: rgba(24, 24, 27, 0.6); /* Fondo semi-transparente para legibilidad sobre animación */
-      backdrop-filter: blur(4px);
-      border: 1px solid var(--color-border);
-      color: var(--color-text-secondary);
-      padding: 0.5rem 1rem;
-      border-radius: 99px; /* Pill shape */
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: all var(--transition);
-      /* AÑADIDO: Sombra interna sutil para profundidad en el tag */
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); 
-    }
-    .tag:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-      /* AÑADIDO: Sombra difusa externa al pasar el ratón (Aura Effect) */
-      box-shadow: 0 0 10px rgba(163, 230, 53, 0.4), inset 0 0 5px rgba(0, 0, 0, 0.2);
-    }
-    
-    .hero-image-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .profile-photo {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--color-border);
-      filter: grayscale(80%); 
-      transition: all var(--transition);
-      /* AÑADIDO: Sombra que levanta la foto ligeramente */
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-    .profile-photo:hover {
-      filter: grayscale(0%);
-      border-color: var(--color-accent);
-      /* AÑADIDO: Sombra más brillante en hover */
-      box-shadow: 0 10px 40px rgba(163, 230, 53, 0.2);
-    }
-
-    /* --- Perfil Profesional --- */
-    .profile-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--color-text-secondary);
-      margin-bottom: 1.5rem;
-      max-width: 800px;
-    }
-    .profile-highlights {
-      border-top: 1px solid var(--color-border);
-      padding-top: 2rem;
-      max-width: 800px;
-    }
-    .profile-highlights li {
-      list-style: none;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      color: var(--color-text-secondary);
-    }
-    .profile-highlights i {
-      color: var(--color-accent);
-      margin-top: 0.2rem;
-    }
-
-    /* --- "WOW" Card (Proyectos, Publicaciones) --- */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: rgba(39, 39, 42, 0.95); /* Casi opaco para tapar animación sutilmente */
-      backdrop-filter: blur(5px);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 1.75rem;
-      transition: all var(--transition);
-      overflow: hidden;
-      position: relative;
-      /* AÑADIDO: Sombra de tarjeta sutil */
-      box-shadow: var(--shadow-md); 
-    }
-    
-    /* Efecto "Glow" Dinámico (Mantenido) */
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(
-        300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-        rgba(163, 230, 53, 0.15), 
-        transparent 80%
-      );
-      opacity: 0;
-      transition: opacity 0.4s;
-      z-index: 0;
-    }
-    .card:hover::before {
-      opacity: 1;
-    }
-    .card:hover {
-      border-color: var(--color-accent);
-    }
-    
-    /* Contenido de la tarjeta (debe estar sobre el "glow") */
-    .card-content { position: relative; z-index: 1; }
-    
-    .card-meta {
-      font-size: 0.8rem;
-      color: var(--color-text-secondary);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.5rem;
-    }
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--color-text);
-      line-height: 1.4;
-      margin-bottom: 0.5rem;
-    }
-    .card-subtitle {
-      color: var(--color-accent);
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .card-description {
-      color: var(--color-text-secondary);
-      margin-bottom: 1.5rem;
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-    .card-footer {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .badge {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      color: var(--color-text-secondary);
-      padding: 0.4rem 0.9rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      transition: all var(--transition);
-    }
-    .card:hover .badge {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-      /* AÑADIDO: Sombra difusa externa al pasar el ratón (Aura Effect) */
-      box-shadow: 0 0 5px rgba(163, 230, 53, 0.3);
-    }
-    
-    /* --- Estilo para Experiencia (Lineal) --- */
-    .experience-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-      /* Línea de tiempo vertical */
-      padding-left: 2rem;
-      border-left: 2px solid var(--color-border);
-    }
-    .experience-item {
-      position: relative;
-      padding-bottom: 2.5rem;
-    }
-    /* Círculo en la línea de tiempo */
-    .experience-item::before {
-      content: '';
-      position: absolute;
-      left: -2.7rem;
-      top: 0.25rem;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--color-border);
-      border: 3px solid var(--color-bg);
-      transition: background-color var(--transition);
-    }
-    .experience-item:hover::before {
-      background: var(--color-accent);
-    }
-    .experience-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .experience-date {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.5rem;
-    }
-    .experience-details h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: 0.25rem;
-    }
-    .experience-details .subtitle {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--color-accent);
-      margin-bottom: 1rem;
-    }
-    .experience-details .content {
-      font-size: 0.95rem;
-      color: var(--color-text-secondary);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    .experience-details .badge-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    
-    /* --- Habilidades y Educación (Estilo de lista) --- */
-    .grid-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .list-item {
-      display: flex;
-      gap: 1rem;
-    }
-    .list-item-icon {
-      font-size: 1.25rem;
-      color: var(--color-accent);
-      flex-shrink: 0;
-      margin-top: 0.25rem;
-    }
-    .list-item-content h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-    .list-item-content p {
-      font-size: 0.9rem;
-      color: var(--color-text-secondary);
-      margin: 0;
-    }
-
-    /* --- Footer --- */
-    footer {
-      border-top: 1px solid var(--color-border);
-      padding: 3rem 0;
-      margin-top: 6rem;
-    }
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1.5rem;
-    }
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-    .footer-links a {
-      color: var(--color-text-secondary);
-      font-size: 1.5rem;
-      transition: all var(--transition);
-    }
-    .footer-links a:hover {
-      color: var(--color-accent);
-      transform: translateY(-3px);
-    }
-    .footer-copy {
-      font-size: 0.9rem;
-      color: var(--color-text-secondary);
-    }
-
-    /* --- Animaciones Dinámicas de Scroll --- */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s var(--transition-long), transform 0.8s var(--transition-long);
-      will-change: opacity, transform;
-    }
-    .reveal-on-scroll.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .stagger-container .stagger-item {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s var(--transition-long), transform 0.6s var(--transition-long);
-      will-change: opacity, transform;
-    }
-    .stagger-container.is-visible .stagger-item {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .stagger-container.is-visible .stagger-item:nth-child(1) { transition-delay: 0.1s; }
-    .stagger-container.is-visible .stagger-item:nth-child(2) { transition-delay: 0.2s; }
-    .stagger-container.is-visible .stagger-item:nth-child(3) { transition-delay: 0.3s; }
-    .stagger-container.is-visible .stagger-item:nth-child(4) { transition-delay: 0.4s; }
-    .stagger-container.is-visible .stagger-item:nth-child(5) { transition-delay: 0.5s; }
-    .stagger-container.is-visible .stagger-item:nth-child(6) { transition-delay: 0.6s; }
-    
-    /* --- Media Queries (Responsivo) --- */
-    @media (max-width: 1024px) {
-      .hero-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero-image-wrapper {
-        order: -1; 
-        margin-bottom: 2rem;
-      }
-      .hero-tags {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
         justify-content: center;
-      }
-      .profile-photo {
-        width: 200px;
-        height: 200px;
-      }
-      .cards-grid {
-        grid-template-columns: 1fr; /* Stack cards on tablet/mobile */
-      }
+        text-align: center;
+        flex-direction: column;
+        padding-top: 4rem;
+    }
+
+    .profile-container {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        padding: 4px; 
+        background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+        margin-bottom: 2rem;
+        position: relative;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #000;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto 2rem auto;
+        color: var(--text-muted);
+    }
+
+    .hero-tags {
+        display: flex;
+        gap: 0.8rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .glass-tag {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #fff;
+        backdrop-filter: blur(5px);
+        transition: 0.3s;
+    }
+
+    .glass-tag:hover {
+        background: rgba(163, 230, 53, 0.15); 
+        border-color: rgba(163, 230, 53, 0.4);
+        color: #bef264;
+    }
+
+    /* --- EXPERIENCE TIMELINE --- */
+    .timeline {
+        position: relative;
+        padding-left: 2rem;
     }
     
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.15), rgba(255,255,255,0));
+    }
+
+    .timeline-item {
+        margin-bottom: 4rem;
+        position: relative;
+        padding-left: 2rem;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: 0;
+        top: 2rem;
+        width: 14px;
+        height: 14px;
+        background: #000;
+        border: 2px solid var(--accent-color);
+        border-radius: 50%;
+        transform: translateX(0);
+        box-shadow: 0 0 10px rgba(163, 230, 53, 0.4);
+        z-index: 2;
+    }
+
+    .role-meta {
+        font-size: 0.85rem;
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+        display: block;
+        font-weight: 600;
+    }
+
+    .company-name {
+        font-size: 1rem;
+        color: #fff;
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+    
+    /* Small badges inside cards */
+    .mini-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.8);
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* --- GRIDS --- */
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .icon-box {
+        font-size: 2rem;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+    }
+
+    /* --- PUBLICATION CARD --- */
+    .pub-card {
+        border-left: 3px solid var(--accent-color);
+    }
+    .pub-journal {
+        font-style: italic;
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+        text-align: center;
+        padding: 4rem 0 8rem 0; 
+        border-top: 1px solid rgba(255,255,255,0.05);
+        margin-top: 4rem;
+        background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+    }
+    
+    .social-links {
+        margin-top: 2rem;
+    }
+    
+    .social-links a {
+        color: var(--text-muted);
+        font-size: 1.8rem;
+        margin: 0 1.5rem;
+        transition: color 0.3s, transform 0.3s;
+        display: inline-block;
+    }
+    
+    .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+    }
+
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
-      .hero-subtitle { font-size: 1.1rem; }
-      .nav-links { display: none; } /* Hide links, keep brand on smaller mobile */
-      .experience-list { padding-left: 1.5rem; }
-      .experience-item::before { left: -2.3rem; }
-      .grid-list {
-        grid-template-columns: 1fr; /* Stack skill/education items */
-      }
+        h1 { font-size: 2.5rem; }
+        .glass-nav { padding: 0.5rem; justify-content: space-around; }
+        .nav-link span { display: none; } /* Hide text on mobile, show icon */
+        .nav-link i { display: block; font-size: 1.2rem; }
+        .nav-link { padding: 0.8rem; }
+        
+        .timeline { padding-left: 0; }
+        .timeline::before { display: none; }
+        .timeline-dot { display: none; }
+        .timeline-item { padding-left: 0; }
+    }
+    
+    @media (min-width: 769px) {
+        .nav-link i { display: none; } /* Hide icon on desktop */
     }
 </style>
 </head>
 <body>
 
-    <!-- BACKGROUND ANIMATION CANVAS -->
-    <canvas id="bio-network-canvas"></canvas>
+    <!-- Background Atmosphere -->
+    <div class="ambient-light">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
-    <!-- ======================= -->
-    <!-- ===== NAVEGACIÓN ===== -->
-    <!-- ======================= -->
-    <nav class="navbar">
-      <div class="container nav-container">
-        <div class="nav-brand">JAEG</div>
-        <div class="nav-links">
-          <a href="#profile" class="nav-link">Profile</a>
-          <a href="#experience" class="nav-link">Experience</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#publications" class="nav-link">Publications</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </div>
-      </div>
-    </nav>
+    <!-- Floating Navigation -->
+    <div class="nav-container">
+        <nav class="glass-nav">
+            <a href="#hero" class="nav-link active">
+                <span>Profile</span><i class="fas fa-user"></i>
+            </a>
+            <a href="#experience" class="nav-link">
+                <span>Experience</span><i class="fas fa-briefcase"></i>
+            </a>
+            <a href="#projects" class="nav-link">
+                <span>Projects</span><i class="fas fa-code"></i>
+            </a>
+            <a href="#publications" class="nav-link">
+                <span>Publications</span><i class="fas fa-book"></i>
+            </a>
+            <a href="#contact" class="nav-link">
+                <span>Contact</span><i class="fas fa-envelope"></i>
+            </a>
+        </nav>
+    </div>
 
-    <!-- =========================== -->
-    <!-- ===== CONTENIDO PRINCIPAL ===== -->
-    <!-- =========================== -->
-    <main>
-      <div class="container">
-
-        <!-- HERO SECTION -->
-        <section class="hero-section dashboard-section reveal-on-scroll" id="hero">
-          <div class="hero-content">
-            <h1>Antonio Esquivel Gaytan</h1>
-            <p class="hero-subtitle">
-              <span class="accent-text">Physician-Scientist (MD, MSc, PhDc)</span>
-              <br>
-              Bridging clinical research and responsible AI in healthcare.
+    <div class="wrapper">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="profile-container reveal">
+                <img 
+                    src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" 
+                    alt="Antonio Esquivel Gaytan" 
+                    class="profile-photo"
+                    onerror="this.onerror=null; this.src='https://placehold.co/400x400/18181b/a3e635?text=JAEG';" 
+                />
+            </div>
+            
+            <h1 class="reveal">Antonio Esquivel Gaytan</h1>
+            <p class="hero-subtitle reveal">
+                Physician-Scientist (MD, MSc, PhDc) in heart failure & cardiorenal research. <br>
+                Building <strong>LLM-assisted workflows</strong>, <strong>auditable AI</strong>, and <strong>SOP-based lab tools</strong> for the future of medicine.
             </p>
-            <div class="hero-tags">
-              <span class="tag">AI in Healthcare</span>
-              <span class="tag">Heart Failure & Cardiorenal</span>
-              <span class="tag">Clinical Trial Workflows</span>
-              <span class="tag">Ethics & Governance</span>
+
+            <div class="hero-tags reveal">
+                <span class="glass-tag">MDR/GCP/GDPR Aware</span>
+                <span class="glass-tag">Clinical AI</span>
+                <span class="glass-tag">Heart Failure</span>
+                <span class="glass-tag">Translational Research</span>
             </div>
-          </div>
-          <div class="hero-image-wrapper">
-            <!-- REINSERTANDO LA FOTO ORIGINAL CON FALLBACK ROBUSTO -->
-            <img 
-              src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" 
-              alt="Antonio Esquivel Gaytan" 
-              class="profile-photo"
-              onerror="this.onerror=null; this.src='https://placehold.co/300x300/27272a/a1a1aa?text=A.E.G.'; this.style.filter='grayscale(80%)'; this.style.borderColor='var(--color-border)';" 
-            />
-          </div>
         </section>
 
-        <!-- PROFESSIONAL PROFILE SECTION -->
-        <section class="dashboard-section reveal-on-scroll" id="profile">
-          <h2>Professional Profile</h2>
-          <div class="profile-content">
-            <p>
-              Physician-scientist (MD, MSc, PhD candidate at UMCG) with core expertise in heart failure and cardiorenal research and practical experience applying LLM-based tools in clinical research and laboratory workflows.
+        <!-- Experience Section (Restored Full Content) -->
+        <section id="experience">
+            <h2 class="reveal">Professional Experience</h2>
+            <div class="timeline">
+                
+                <!-- Job 1 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card">
+                        <span class="role-meta">Jun 2025 – Sep 2025</span>
+                        <h3>Clinical Research Investigator & AI Project Lead</h3>
+                        <span class="company-name">Pangaea Oncology — Barcelona, Spain</span>
+                        <p>
+                            Supervised an AI-assisted visit management system converting trial protocols into structured visit schedules (procedures, vitals, IMP dispensing). Developed LLM-based draft clinical reporting using models via secure cloud, with structured prompts limited to recorded visit data.
+                        </p>
+                        <p>
+                            Designed workflows and SOPs that achieved a substantial reduction in clinically relevant hallucinations through prompt engineering and mandatory human editorial review. Built a lightweight, transparent inventory process using photo-based kit capture.
+                        </p>
+                        <div>
+                            <span class="mini-badge">AI in Clinical Trials</span>
+                            <span class="mini-badge">GCP Workflow Design</span>
+                            <span class="mini-badge">SOPs & Governance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card">
+                        <span class="role-meta">2024 – 2025</span>
+                        <h3>Co-founder (MVP)</h3>
+                        <span class="company-name">QGuard-Med — Groningen / Barcelona</span>
+                        <p>
+                            Co-developed an MVP for an AI-assisted prioritisation system for cardiovascular patients, integrating waiting time, symptoms, clinical criteria, and biomarkers into transparent scoring logic. Finalist at "Break The Gap 2025".
+                        </p>
+                        <p>
+                            Implemented a minimal, auditable stack (FastAPI, Docker) suitable for future integration and validation, focusing on fairness and explainability from the start.
+                        </p>
+                        <div>
+                            <span class="mini-badge">Patient Prioritisation</span>
+                            <span class="mini-badge">FastAPI</span>
+                            <span class="mini-badge">Explainability</span>
+                            <span class="mini-badge">Start-up</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card">
+                        <span class="role-meta">Nov 2018 – Present</span>
+                        <h3>PhD Researcher — Experimental Cardiology</h3>
+                        <span class="company-name">University Medical Center Groningen (UMCG), Netherlands</span>
+                        <p>
+                            Investigated 5-oxoproline/OPLAH, oxidative stress, and cardiorenal interactions in heart failure. Developed and evaluated high-throughput screening assays, nanoparticle-based AMP delivery concepts, and biomarker analyses in experimental and clinical cohorts.
+                        </p>
+                        <p>
+                            Led experimental design, data analysis, and manuscript writing with emphasis on robustness (Z′, S/B), reproducibility, and clear documentation.
+                        </p>
+                        <div>
+                            <span class="mini-badge">Heart Failure</span>
+                            <span class="mini-badge">Biomarkers</span>
+                            <span class="mini-badge">HTS</span>
+                            <span class="mini-badge">Translational Research</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education & Credentials (Restored Full Content) -->
+        <section>
+            <h2 class="reveal">Education & Skills</h2>
+            <div class="grid-2">
+                <!-- Education -->
+                <div class="glass-card reveal">
+                    <div class="icon-box"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 style="margin-bottom: 1.5rem;">Academic History</h3>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong>PhD Biomedical Sciences</strong><br>
+                        <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">University of Groningen / UMCG (2018 - Present)</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <strong>MSc Nanotechnology & Regenerative Medicine</strong><br>
+                        <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">University College London (UCL) - Distinction (2016 - 2017)</span>
+                    </div>
+                    
+                    <div>
+                        <strong>MD (Physician)</strong><br>
+                        <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">UNAM, Mexico (2009 - 2016)</span>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="glass-card reveal">
+                    <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+                    <h3 style="margin-bottom: 1.5rem;">Core Competencies</h3>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span class="glass-tag">LLM Workflow Design</span>
+                        <span class="glass-tag">RAG</span>
+                        <span class="glass-tag">Prompt Engineering</span>
+                        <span class="glass-tag">Python (APIs, FastAPI)</span>
+                        <span class="glass-tag">Docker</span>
+                        <span class="glass-tag">Git</span>
+                        <span class="glass-tag">MDR / GCP / GDPR</span>
+                        <span class="glass-tag">Omics Interpretation</span>
+                        <span class="glass-tag">Statistical Analysis</span>
+                    </div>
+
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Languages</h3>
+                    <div style="color: var(--text-muted); font-size: 0.95rem;">
+                        <span style="color: #fff;">Spanish</span> (Native) · 
+                        <span style="color: #fff;">English</span> (Full Prof.) · 
+                        <span style="color: #fff;">Dutch</span> (B1-B2) · 
+                        <span style="color: #fff;">French/Catalan</span> (Basic)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects (Restored Full Content) -->
+        <section id="projects">
+            <h2 class="reveal">Selected Projects</h2>
+            <div class="grid-3">
+                
+                <div class="glass-card reveal">
+                    <i class="fas fa-lock icon-box" style="font-size: 1.5rem;"></i>
+                    <h3>Offline RAG Guidelines</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Local guideline assistant (MVP).</p>
+                    <p>
+                        Built a local retrieval-augmented assistant for HF/cardiovascular guidelines using open-weight models and on-device retrieval. Ensured no PHI leaves the environment, constrained outputs to source content.
+                    </p>
+                    <span class="mini-badge">Privacy-First</span>
+                    <span class="mini-badge">On-Device</span>
+                </div>
+
+                <div class="glass-card reveal">
+                    <i class="fas fa-flask icon-box" style="font-size: 1.5rem;"></i>
+                    <h3>Digital Health & Lab Concepts</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">SOP-centric assistants.</p>
+                    <p>
+                        Designed discreet concepts for medication adherence support, and a local SOP-based lab assistant with stepwise "bench run" mode, checklists, and local logging.
+                    </p>
+                    <span class="mini-badge">Digital Health</span>
+                    <span class="mini-badge">SOPs</span>
+                </div>
+
+                <div class="glass-card reveal">
+                    <i class="fas fa-hospital-user icon-box" style="font-size: 1.5rem;"></i>
+                    <h3>QGuard-Med (MVP)</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">AI Patient Prioritisation.</p>
+                    <p>
+                        Co-founded a transparent prioritisation system integrating clinical criteria, biomarkers, symptoms, and waiting time. Built on FastAPI and Docker with explainability embedded early.
+                    </p>
+                    <span class="mini-badge">Fairness</span>
+                    <span class="mini-badge">Clinical AI</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Publications Section (Restored) -->
+        <section id="publications">
+            <h2 class="reveal">Publications</h2>
+            <div class="grid-2">
+                
+                <div class="glass-card pub-card reveal">
+                    <h3>404-error “Disease not found”: unleashing the translational potential of -omics...</h3>
+                    <span class="pub-journal">European Journal of Heart Failure (2024)</span>
+                    <p style="font-size: 0.9rem;">Co-authored work integrating omics to challenge conventional HF classification and highlight mechanistic, data-driven stratification.</p>
+                </div>
+
+                <div class="glass-card pub-card reveal">
+                    <h3>Glutathione deficiency and heart failure: a systematic review...</h3>
+                    <span class="pub-journal">ESC Heart Failure (2025)</span>
+                    <p style="font-size: 0.9rem;">Systematic review co-authored on glutathione, oxidative stress, and heart failure across experimental and clinical studies.</p>
+                </div>
+
+                <div class="glass-card pub-card reveal">
+                    <h3>A translation re-initiation variant in KLHL24...</h3>
+                    <span class="pub-journal">British Journal of Dermatology (2022)</span>
+                    <p style="font-size: 0.9rem;">Co-authorship on genotype–phenotype work linking KLHL24 variants, skin fragility, and cardiomyopathy.</p>
+                </div>
+
+                <div class="glass-card pub-card reveal">
+                    <h3>Elevated 5-Oxoproline Levels Associate with TGF-α...</h3>
+                    <span class="pub-journal">Redox Biology (Under Review)</span>
+                    <p style="font-size: 0.9rem;">Integrates clinical and experimental data to link 5-oxoproline, TGF-α signalling, and adverse cardiorenal outcomes in heart failure.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Personal Interests (Restored) -->
+        <section>
+             <h2 class="reveal">Interests</h2>
+             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                 <div class="glass-card reveal" style="padding: 1rem 2rem; border-radius: 100px;">
+                     <i class="fas fa-dumbbell"></i> CrossFit
+                 </div>
+                 <div class="glass-card reveal" style="padding: 1rem 2rem; border-radius: 100px;">
+                     <i class="fas fa-robot"></i> Artificial Intelligence
+                 </div>
+                 <div class="glass-card reveal" style="padding: 1rem 2rem; border-radius: 100px;">
+                     <i class="fas fa-plane"></i> Travel
+                 </div>
+                 <div class="glass-card reveal" style="padding: 1rem 2rem; border-radius: 100px;">
+                     <i class="fas fa-paw"></i> Animal Welfare
+                 </div>
+             </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <h2 style="margin-bottom: 1rem;">Let's Connect</h2>
+            <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Open to roles in AI in healthcare, clinical research, translational programs, advisory work, and AI literacy workshops.
             </p>
-            <p>
-              I have co-designed AI-assisted solutions for protocol-to-visit extraction, investigational product inventory, and structured clinical reporting; and initiated my own tools including an offline RAG system for heart failure guidelines, an AI-assisted patient prioritisation MVP, a discreet adherence companion concept, and a local SOP-based lab assistant. My work prioritises safety, traceability, MDR/GCP-conscious design, GDPR-aware data minimisation, and real-world usability — bridging clinicians, technical teams, and decision-makers.
-            </p>
             
-            <ul class="profile-highlights stagger-container">
-              <li class="stagger-item">
-                <i class="fas fa-check-circle"></i>
-                <span><strong>Pangaea Oncology:</strong> Led AI-assisted visit schedules, inventory automation, and structured clinical reporting with strong human-in-the-loop governance.</span>
-              </li>
-              <li class="stagger-item">
-                <i class="fas fa-check-circle"></i>
-                <span><strong>QGuard-Med (MVP):</strong> Co-founder of an AI-assisted cardiovascular patient prioritisation system; finalist at Break The Gap 2025.</span>
-              </li>
-              <li class="stagger-item">
-                <i class="fas fa-check-circle"></i>
-                <span><strong>Offline & Local-first Tools:</strong> Built and designed privacy-preserving assistants (offline RAG, SOP-based lab support) focused on auditability and constrained outputs.</span>
-              </li>
-              <li class="stagger-item">
-                <i class="fas fa-check-circle"></i>
-                <span><strong>Open to:</strong> roles in AI in healthcare, clinical research, translational programs, advisory work, and AI literacy workshops in the Netherlands, Spain, and EU.</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- EXPERIENCE SECTION -->
-        <section class="dashboard-section" id="experience">
-          <h2 class="reveal-on-scroll">Professional Experience</h2>
-          <div class="experience-list stagger-container">
-            
-            <div class="experience-item stagger-item">
-              <p class="experience-date">Jun 2025 – Sep 2025</p>
-              <div class="experience-details">
-                <h3>Clinical Research Investigator & AI Project Lead</h3>
-                <p class="subtitle">Pangaea Oncology — Barcelona, Spain</p>
-                <p class="content">
-                  Supervised an AI-assisted visit management system converting trial protocols into structured visit schedules. Developed LLM-based draft clinical reporting with structured prompts and systematic audits. Designed workflows that achieved a substantial reduction in clinically relevant hallucinations.
-                </p>
-                <div class="badge-list">
-                  <span class="badge">AI in Clinical Trials</span>
-                  <span class="badge">GCP</span>
-                  <span class="badge">Workflow Design</span>
-                  <span class="badge">SOPs & Governance</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="experience-item stagger-item">
-              <p class="experience-date">2024 – 2025</p>
-              <div class="experience-details">
-                <h3>Co-founder — QGuard-Med (MVP), AI Patient Prioritisation</h3>
-                <p class="subtitle">Groningen / Barcelona</p>
-                <p class="content">
-                  Co-developed an MVP for an AI-assisted prioritisation system for cardiovascular patients, integrating waiting time, symptoms, clinical criteria, and biomarkers. Considered fairness, explainability, and regulatory implications from the start.
-                </p>
-                <div class="badge-list">
-                  <span class="badge">Patient Prioritisation</span>
-                  <span class="badge">FastAPI</span>
-                  <span class="badge">Explainability</span>
-                  <span class="badge">Award Finalist</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="experience-item stagger-item">
-              <p class="experience-date">Nov 2018 – present</p>
-              <div class="experience-details">
-                <h3>PhD Researcher — Experimental Cardiology</h3>
-                <p class="subtitle">University Medical Center Groningen (UMCG), Netherlands</p>
-                <p class="content">
-                  Investigated 5-oxoproline/OPLAH, oxidative stress, and cardiorenal interactions in heart failure. Developed high-throughput screening assays, nanoparticle-based AMP delivery concepts, and biomarker analyses.
-                </p>
-                <div class="badge-list">
-                  <span class="badge">Heart Failure</span>
-                  <span class="badge">Biomarkers</span>
-                  <span class="badge">HTS</span>
-                  <span class="badge">Translational Research</span>
-                </div>
-              </div>
+            <div class="social-links">
+                <a href="mailto:j.esquivel.gaytan@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/jose-antonio-esquivel-gaytan89/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.researchgate.net/profile/Antonio-Gaytan-2" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                <a href="https://orcid.org/0000-0001-6974-1825" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
             </div>
             
-          </div>
-        </section>
-
-        <!-- SELECTED PROJECTS SECTION -->
-        <section class="dashboard-section" id="projects">
-          <h2 class="reveal-on-scroll">Selected Projects</h2>
-          <div class="cards-grid stagger-container">
-            <div class="card stagger-item">
-              <div class="card-content">
-                <p class="card-meta">Break The Gap 2025 — Finalist</p>
-                <h3 class="card-title">QGuard-Med (MVP)</h3>
-                <p class="card-subtitle">AI-assisted cardiovascular patient prioritisation</p>
-                <p class="card-description">
-                  Co-founded and co-designed a transparent prioritisation system integrating clinical criteria, biomarkers, symptoms, and waiting time.
-                </p>
-                <div class="card-footer">
-                  <span class="badge">MVP</span>
-                  <span class="badge">FastAPI</span>
-                  <span class="badge">Clinical AI</span>
-                  <span class="badge">Fairness</span>
-                </div>
-              </div>
+            <div style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.5;">
+                &copy; 2025 Antonio Esquivel Gaytan. Groningen, NL.
             </div>
+        </footer>
 
-            <div class="card stagger-item">
-              <div class="card-content">
-                <p class="card-meta">Privacy-first | Citation-backed</p>
-                <h3 class="card-title">Offline RAG for Heart Failure Guidelines</h3>
-                <p class="card-subtitle">Local guideline assistant (MVP)</p>
-                <p class="card-description">
-                  Built a local retrieval-augmented assistant for HF guidelines using open-weight models and on-device retrieval. Ensured no PHI leakage.
-                </p>
-                <div class="card-footer">
-                  <span class="badge">RAG</span>
-                  <span class="badge">On-device</span>
-                  <span class="badge">Guideline Support</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card stagger-item">
-              <div class="card-content">
-                <p class="card-meta">Concept / Early Design</p>
-                <h3 class="card-title">Digital Health & Lab Assistant Concepts</h3>
-                <p class="card-subtitle">Adherence & SOP-centric assistants</p>
-                <p class="card-description">
-                  Designed discreet, privacy-aware concepts for medication adherence support and a local, SOP-based lab assistant with checklists.
-                </p>
-                <div class="card-footer">
-                  <span class="badge">Digital Health</span>
-                  <span class="badge">SOP Indexing</span>
-                  <span class="badge">Privacy</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- EDUCATION & SKILLS SECTION (Combinada) -->
-        <section class="dashboard-section" id="credentials">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;" class="grid-list">
-            
-            <div class="reveal-on-scroll">
-              <h2>Education</h2>
-              <div class="grid-list" style="flex-direction: column; gap: 1.5rem; display: flex;">
-                <div class="list-item">
-                  <i class="fas fa-microscope list-item-icon"></i>
-                  <div class="list-item-content">
-                    <h3>PhD in Biomedical/Medical Sciences</h3>
-                    <p>University of Groningen / UMCG, NL (2018 – present)</p>
-                  </div>
-                </div>
-                <div class="list-item">
-                  <i class="fas fa-atom list-item-icon"></i>
-                  <div class="list-item-content">
-                    <h3>MSc Nanotechnology & Regenerative Medicine</h3>
-                    <p>University College London (UCL), UK (2016 – 2017)</p>
-                  </div>
-                </div>
-                <div class="list-item">
-                  <i class="fas fa-user-md list-item-icon"></i>
-                  <div class="list-item-content">
-                    <h3>MD (Physician)</h3>
-                    <p>Universidad Nacional Autonoma de México (UNAM), MX (2009 – 2016)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="reveal-on-scroll">
-              <h2>Core Skills</h2>
-              <div class="hero-tags">
-                <span class="tag">AI in Healthcare</span>
-                <span class="tag">LLM Workflow Design</span>
-                <span class="tag">Heart Failure & Cardiorenal</span>
-                <span class="tag">Clinical Trial Workflows</span>
-                <span class="tag">Ethics & Governance</span>
-                <span class="tag">MDR / GCP / GDPR</span>
-                <span class="tag">Translational Research</span>
-                <span class="tag">Project Management</span>
-                <span class="tag">Python (Prototyping)</span>
-                <span class="tag">FastAPI</span>
-                <span class="tag">RAG</span>
-                <span class="tag">Prompt Engineering</span>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- LANGUAGES SECTION -->
-        <section class="dashboard-section" id="languages">
-          <h2 class="reveal-on-scroll">Languages</h2>
-          <div class="hero-tags reveal-on-scroll">
-            <span class="tag">Spanish (Native)</span>
-            <span class="tag">English (Full professional)</span>
-            <span class="tag">Dutch (B1–B2 in progress)</span>
-            <span class="tag">French (Basic)</span>
-            <span class="tag">Catalan (Basic)</span>
-          </div>
-        </section>
-
-        <!-- PUBLICATIONS SECTION -->
-        <section class="dashboard-section" id="publications">
-          <h2 class="reveal-on-scroll">Publications</h2>
-          <div class="cards-grid stagger-container">
-            <div class="card stagger-item">
-              <div class="card-content">
-                <p class="card-meta" style="color: var(--color-success);">Peer-reviewed · 2024</p>
-                <h3 class="card-title">404-error “Disease not found”: unleashing the translational potential of -omics approaches...</h3>
-                <p class="card-subtitle">European Journal of Heart Failure</p>
-                <div class="card-footer">
-                  <span class="badge">Omics</span>
-                  <span class="badge">Heart Failure</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card stagger-item">
-              <div class="card-content">
-                <p class="card-meta" style="color: var(--color-success);">Peer-reviewed · 2025</p>
-                <h3 class="card-title">Glutathione deficiency and heart failure: a systematic review...</h3>
-                <p class="card-subtitle">ESC Heart Failure</p>
-                <div class="card-footer">
-                  <span class="badge">Systematic Review</span>
-                  <span class="badge">Oxidative Stress</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card stagger-item">
-              <div class="card-content">
-                <p class="card-meta" style="color: var(--color-success);">Peer-reviewed · 2022</p>
-                <h3 class="card-title">A translation re-initiation variant in KLHL24 also causes epidermolysis bullosa simplex...</h3>
-                <p class="card-subtitle">British Journal of Dermatology</p>
-                <div class="card-footer">
-                  <span class="badge">Genetics</span>
-                  <span class="badge">Cardiomyopathy</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PERSONAL INTERESTS SECTION -->
-        <section class="dashboard-section" id="interests">
-          <h2 class="reveal-on-scroll">Personal Interests</h2>
-          <div class="grid-list stagger-container">
-            <div class="list-item stagger-item">
-              <i class="fas fa-dumbbell list-item-icon"></i>
-              <div class="list-item-content">
-                <h3>CrossFit</h3>
-                <p>Strength, conditioning, and long-term performance.</p>
-              </div>
-            </div>
-            <div class="list-item stagger-item">
-              <i class="fas fa-robot list-item-icon"></i>
-              <div class="list-item-content">
-                <h3>Artificial Intelligence</h3>
-                <p>LLMs, responsible AI, and practical tools for care and research.</p>
-              </div>
-            </div>
-            <div class="list-item stagger-item">
-              <i class="fas fa-plane list-item-icon"></i>
-              <div class="list-item-content">
-                <h3>Travel</h3>
-                <p>Exploring cultures, systems, and healthcare environments.</p>
-              </div>
-            </div>
-            <div class="list-item stagger-item">
-              <i class="fas fa-paw list-item-icon"></i>
-              <div class="list-item-content">
-                <h3>Animal Welfare</h3>
-                <p>Ethical practice and reduction of animal use in research.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </main>
-
-    <!-- =========================== -->
-    <!-- ===== FOOTER / CONTACT ===== -->
-    <!-- =========================== -->
-    <footer id="contact">
-      <div class="container footer-content">
-        <h2 style="margin: 0; font-size: 1.5rem; color: var(--color-text);">Get in Touch</h2>
-        <p style="font-size: 1.1rem; max-width: 500px;">
-          Open to roles in AI in healthcare, clinical research, advisory work, and AI literacy workshops.
-        </p>
-        <div style="color: var(--color-text-secondary); font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
-          <i class="fas fa-location-dot"></i>
-          <span>Groningen, The Netherlands</span>
-        </div>
-        <div class="footer-links">
-          <a href="mailto:j.esquivel.gaytan@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-          <!-- Replace with actual profile links -->
-          <a href="#" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a> 
-          <a href="#" target="_blank" rel="noopener noreferrer" title="ResearchGate"><i class="fas fa-square-poll-vertical"></i></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="fab fa-orcid"></i></a>
-        </div>
-        <p class="footer-copy">&copy; 2025 Antonio Esquivel Gaytan. All rights reserved.</p>
-      </div>
-    </footer>
+    </div>
 
     <script>
-      // ==================================
-      // --- LÓGICA DE ANIMACIÓN DINÁMICA & PERFORMANCE ---
-      // ==================================
-      
-      // --- Throttle Utility (Mantenido para el mousemove y otros potenciales usos futuros) ---
-      function throttle(fn, delay) {
-          let timeoutId;
-          return function(...args) {
-              if (!timeoutId) {
-                  timeoutId = setTimeout(() => {
-                      fn.apply(this, args);
-                      timeoutId = null;
-                  }, delay);
-              }
-          };
-      }
+        // --- Scroll Reveal & Nav Active Logic ---
+        
+        const revealElements = document.querySelectorAll('.reveal');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
 
-      // --- 1. "Glow" Dinámico en Tarjetas ---
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        });
-      });
-
-      // --- 2. Lógica de Animación de Scroll (Intersection Observer para Revelar) ---
-      const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1 
-      };
-
-      const scrollObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  entry.target.classList.add('is-visible');
-                  // Solo deja de observar animaciones no repetitivas
-                  if (!entry.target.classList.contains('stagger-container')) {
-                     observer.unobserve(entry.target);
-                  }
-              }
-          });
-      }, observerOptions);
-
-      // Observar todos los items que deben revelarse
-      document.querySelectorAll('.reveal-on-scroll, .stagger-container, .stagger-item').forEach(el => {
-          scrollObserver.observe(el);
-      });
-
-      // --- 3. Lógica para Navigation Active State (NUEVO Intersection Observer) ---
-      const sections = document.querySelectorAll('main section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
-      const navLinksMap = {};
-
-      navLinks.forEach(link => {
-          const id = link.getAttribute('href').substring(1);
-          navLinksMap[id] = link;
-      });
-
-      const navObserverOptions = {
-          root: null,
-          // Activa la intersección cuando el elemento llega a 65px de la parte superior (ajustando por el navbar)
-          rootMargin: "-65px 0px -90% 0px", 
-          threshold: 0 // No necesitamos un umbral, solo la intersección
-      };
-
-      const navObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              const sectionId = entry.target.getAttribute('id');
-              const navLink = navLinksMap[sectionId];
-
-              if (navLink) {
-                  if (entry.isIntersecting) {
-                      // Desactivar todos los enlaces y activar el actual
-                      navLinks.forEach(link => link.classList.remove('active'));
-                      navLink.classList.add('active');
-                  } else if (navLink.classList.contains('active')) {
-                      // Si la sección activa se sale de la vista por arriba o abajo, 
-                      // la clase 'active' será manejada por la siguiente sección que intersecte.
-                      // No se hace nada específico aquí para evitar el parpadeo.
-                  }
-              }
-          });
-      }, navObserverOptions);
-
-      // Observar cada sección para el estado de navegación
-      sections.forEach(section => {
-          navObserver.observe(section);
-      });
-      
-      // --- 4. Lógica de Navegación (Scroll Suave) ---
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            // Calcular posición para compensar el encabezado pegajoso
-            const offset = 90; 
-            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
-
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
+        // Reveal Animation Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
-          }
-        });
-      });
+        }, { threshold: 0.1 });
 
-      // --- 5. ANIMACIÓN DE FONDO: BIOTECH / AI MESH (CANVAS) ---
-      (function() {
-        const canvas = document.getElementById('bio-network-canvas');
-        if (!canvas) return;
-        
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        
-        // Configuración de la red
-        const particleConfig = {
-            count: 0, 
-            color: '163, 230, 53', // --color-accent
-            opacityBase: 0.2,
-            connectionDistance: 150,
-            speed: 0.3
-        };
-        
-        let particles = [];
-        
-        // Resize handler
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            // Ajustar cantidad de partículas según resolución
-            particleConfig.count = Math.floor((width * height) / 12000); 
-            if (particleConfig.count > 120) particleConfig.count = 120;
-            initParticles();
-        }
-        
-        // Clase Partícula
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * particleConfig.speed;
-                this.vy = (Math.random() - 0.5) * particleConfig.speed;
-                this.size = Math.random() * 2 + 1;
-            }
-            
-            update() {
-                // Movimiento base
-                this.x += this.vx;
-                this.y += this.vy;
-                
-                // INTERACCIÓN CON EL MOUSE (Efecto de Repulsión Suave)
-                // Esto da la sensación de que la red "siente" el cursor
-                if (mouse.x != null) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            revealObserver.observe(el);
+        });
+
+        // Navigation Highlight Observer
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    if(!id) return;
                     
-                    // Radio de efecto
-                    const repulsionRadius = 150;
-                    
-                    if (distance < repulsionRadius) {
-                        const force = (repulsionRadius - distance) / repulsionRadius;
-                        const directionX = dx / distance;
-                        const directionY = dy / distance;
-                        
-                        // Empujar la partícula en dirección opuesta al mouse
-                        // Multiplicamos por fuerza sutil
-                        this.x -= directionX * force * 2.5;
-                        this.y -= directionY * force * 2.5;
-                    }
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if(link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
-
-                // Rebote en bordes
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-            
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${particleConfig.color}, ${particleConfig.opacityBase})`;
-                ctx.fill();
-            }
-        }
-        
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < particleConfig.count; i++) {
-                particles.push(new Particle());
-            }
-        }
-        
-        // Interacción con Mouse (Corregido)
-        let mouse = { x: null, y: null };
-        window.addEventListener('mousemove', (e) => {
-            // Usamos clientX/Y que son estándar
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-        window.addEventListener('mouseout', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-
-        // Loop de animación
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            
-            particles.forEach(p => {
-                p.update();
-                p.draw();
             });
+        }, { threshold: 0.2, rootMargin: "-20% 0px -60% 0px" });
+
+        sections.forEach(sec => navObserver.observe(sec));
+
+        // Mouse Parallax for Orbs (Subtle movement)
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
             
-            // Dibujar conexiones
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const p1 = particles[i];
-                    const p2 = particles[j];
-                    const dx = p1.x - p2.x;
-                    const dy = p1.y - p2.y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    
-                    if (dist < particleConfig.connectionDistance) {
-                        const opacity = 1 - (dist / particleConfig.connectionDistance);
-                        ctx.strokeStyle = `rgba(${particleConfig.color}, ${opacity * 0.15})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
-                
-                // Conexión con mouse (Línea Visual)
-                if (mouse.x != null) {
-                    const dx = p1.x - mouse.x;
-                    const dy = p1.y - mouse.y;
-                    const dist = Math.sqrt(dx*dx + dy*dy);
-                    if (dist < 150) {
-                         const opacity = 1 - (dist / 150);
-                         ctx.strokeStyle = `rgba(${particleConfig.color}, ${opacity * 0.3})`;
-                         ctx.beginPath();
-                         ctx.moveTo(p1.x, p1.y);
-                         ctx.lineTo(mouse.x, mouse.y);
-                         ctx.stroke();
-                    }
-                }
-            }
-            
-            requestAnimationFrame(animate);
-        }
-        
-        window.addEventListener('resize', resize);
-        resize();
-        animate();
-      })();
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 15;
+                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
 
     </script>
 </body>
