@@ -7,13 +7,11 @@
     <meta name="description" content="Physician-scientist & AI-in-healthcare practitioner. Heart failure & cardiorenal research. Executive Portfolio." />
     <meta name="theme-color" content="#0f172a">
 
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts: Inter --><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Font Awesome --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
     /* === MIDNIGHT EXECUTIVE DESIGN SYSTEM === 
@@ -257,24 +255,24 @@
         width: 100%;
     }
 
-    /* --- DYNAMIC PROFILE PHOTO (UPDATED FOR CLARITY) --- */
+    /* --- DYNAMIC PROFILE PHOTO (UPDATED FOR FADED EDGES) --- */
     .profile-photo-dynamic {
         position: absolute;
-        top: -50px;
-        right: -50px;
-        width: 500px; 
-        height: 500px; 
+        top: -50px; /* Adjust as needed */
+        right: -50px; /* Adjust as needed */
+        width: 500px; /* Width of the photo */
+        height: 500px; /* Height of the photo */
         object-fit: cover;
-        border-radius: 50%; 
         
-        /* UPDATED: Much clearer, less blend mode, more opacity */
+        /* KEY CHANGE: Removed border-radius, added mask-image for fading edges */
+        border-radius: 0; /* No longer a circle */
         opacity: 0.85; 
-        filter: grayscale(20%); /* Just a touch of moody desaturation */
+        filter: grayscale(20%); 
         
-        /* Add a fade mask so the edges don't look hard against the dark bg */
-        -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
-        mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
-
+        /* Radial gradient mask for a soft, desvanecido edge */
+        -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+        mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+        
         z-index: 0;
         pointer-events: none; 
         transition: opacity 0.5s ease, transform 0.5s ease;
@@ -285,21 +283,27 @@
             width: 400px;
             height: 400px;
             right: -20px;
-            opacity: 0.6; /* A bit more subtle on smaller screens */
+            opacity: 0.6; 
+            /* Adjust mask for smaller sizes if necessary */
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
         }
     }
 
     @media (max-width: 768px) {
         .profile-photo-dynamic {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: 90%; /* Take up more width */
+            max-width: 300px; /* Max size on mobile */
+            height: auto; /* Maintain aspect ratio */
             top: 0;
             right: auto;
             margin: 0 auto 2rem auto;
             opacity: 1;
+            /* Remove mask on mobile for a clear rectangular image */
             -webkit-mask-image: none;
             mask-image: none;
+            border-radius: 8px; /* Slightly rounded corners on mobile */
             border: 2px solid rgba(45, 212, 191, 0.3);
             box-shadow: 0 0 30px rgba(45, 212, 191, 0.1);
         }
@@ -457,8 +461,7 @@
 
     <div class="ambient-light"></div>
 
-    <!-- Navigation -->
-    <div class="nav-container">
+    <!-- Navigation --><div class="nav-container">
         <nav class="glass-nav">
             <a href="#hero" class="nav-link active"><span>Profile</span><i class="fas fa-user"></i></a>
             <a href="#experience" class="nav-link"><span>Experience</span><i class="fas fa-briefcase"></i></a>
@@ -468,8 +471,7 @@
         </nav>
     </div>
 
-    <!-- Modal -->
-    <div class="modal-overlay" id="modal-overlay">
+    <!-- Modal --><div class="modal-overlay" id="modal-overlay">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <div id="modal-body"></div>
@@ -478,10 +480,8 @@
 
     <div class="wrapper">
         
-        <!-- Hero -->
-        <section id="hero" class="hero-section">
-            <!-- Dynamic Photo: Clearer and Larger -->
-            <img 
+        <!-- Hero --><section id="hero" class="hero-section">
+            <!-- Dynamic Photo: Clearer and Larger with Faded Edges --><img 
                 src="https://raw.githubusercontent.com/anthony-89/jaeg-cv/main/IMG_3134.jpg" 
                 alt="Antonio Esquivel Gaytan" 
                 class="profile-photo-dynamic reveal"
@@ -514,8 +514,7 @@
             </div>
         </section>
 
-        <!-- Experience -->
-        <section id="experience">
+        <!-- Experience --><section id="experience">
             <h2 class="reveal">Professional Log</h2>
             
             <div class="timeline-item reveal">
@@ -567,8 +566,7 @@
             </div>
         </section>
 
-        <!-- Credentials -->
-        <section>
+        <!-- Credentials --><section>
             <h2 class="reveal">Credentials</h2>
             <div class="grid-2">
                 <div class="glass-card reveal">
@@ -607,8 +605,7 @@
             </div>
         </section>
 
-        <!-- Projects -->
-        <section id="projects">
+        <!-- Projects --><section id="projects">
             <h2 class="reveal">Selected Projects</h2>
             <div class="grid-3">
                 <div class="glass-card reveal">
@@ -632,8 +629,7 @@
             </div>
         </section>
 
-        <!-- Publications -->
-        <section id="publications">
+        <!-- Publications --><section id="publications">
             <h2 class="reveal">Publications</h2>
             <div class="grid-2">
                 <div class="glass-card reveal pub-card">
@@ -653,100 +649,4 @@
                 </div>
                 <div class="glass-card reveal pub-card">
                     <h3 style="font-size: 1.1rem;">Elevated 5-Oxoproline Levels...</h3>
-                    <span class="pub-journal">Redox Biology (Under Review)</span>
-                    <p>Integrates clinical and experimental data to link 5-oxoproline and adverse outcomes.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer id="contact">
-            <h2 style="margin-bottom: 1rem;">Let's Connect</h2>
-            <p style="margin-bottom: 2rem;">Open for roles in AI in Healthcare & Clinical Research.</p>
-            <div class="social-links">
-                <a href="mailto:j.esquivel.gaytan@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-researchgate"></i></a>
-            </div>
-            <div style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.4;">
-                &copy; 2025 Antonio Esquivel Gaytan. Groningen, NL.
-            </div>
-        </footer>
-
-    </div>
-
-    <script>
-        // --- NAVIGATION & MODAL SCRIPTS ---
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        const modalOverlay = document.getElementById('modal-overlay');
-        const modalBody = document.getElementById('modal-body');
-
-        function openModal(content) {
-            modalBody.innerHTML = content;
-            modalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('click', function() {
-                openModal(this.innerHTML);
-            });
-        });
-
-        modalOverlay.addEventListener('click', function(e) {
-            if (e.target === modalOverlay) closeModal();
-        });
-
-        // --- OBSERVERS ---
-        const revealElements = document.querySelectorAll('.reveal');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        revealElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
-            revealObserver.observe(el);
-        });
-
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    if(!id) return;
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if(link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.2, rootMargin: "-20% 0px -60% 0px" });
-
-        sections.forEach(sec => navObserver.observe(sec));
-    </script>
-</body>
-</html>
+                    <span class="pub-journal">Redox Biology
